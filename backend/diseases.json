@@ -10,6 +10,8 @@
         "name": "ליקוי שמיעה",
         "displayAsTable": true,
         "eyesightTable": true,
+        "topLabel": "אוזן ימין",
+        "sideLabel":"אוזן שמאל",
         "tableColumns": [
             "פתח כושר השמיעה בדציבלים",
             "15-20",

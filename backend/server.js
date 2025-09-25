@@ -1,7 +1,30 @@
 import express from "express";
-const { pipeline, BertTokenizer } = await import("@xenova/transformers");
 import fs from "fs";
 import cors from "cors";
+
+const modes = [
+  {
+    id: "generalDisability",
+    name: "נכות כללית",
+    dataKey: "countForDisability",
+    content:
+      "קצבה חודשית המשולמת למי שכושר העבודה שלו נפגע עקב מצבו הרפואי. גובה הקצבה נקבע לפי אחוזי הנכות ודרגת אי-הכושר שנקבעה.",
+  },
+  {
+    id: "taxIncome",
+    name: "מס הכנסה",
+    dataKey: "countForTax",
+    content:
+      "נכות רפואית בשיעור של 90% ומעלה (או במקרים מסוימים, פחות מכך) עשויה לזכות בפטור מלא מתשלום מס הכנסה על הכנסות מיגיעה אישית, עד לתקרה שנתית.",
+  },
+  {
+    id: "specialServices",
+    name: "שירותים מיוחדים",
+    dataKey: "countForSpecial",
+    content:
+      "מיועדת לאנשים הזקוקים לעזרה משמעותית בביצוע פעולות יומיומיות (כמו הלבשה, רחצה, אכילה). הקצבה נועדה לסייע במימון מטפל/ת.",
+  },
+];
 
 let diseasesData = {};
 
@@ -39,27 +62,34 @@ app.get("/api/diseases", (req, res) => {
 
 // API endpoint to calculate the total percentage
 app.post("/api/calculate", (req, res) => {
-  const { chosenDiseasesWithSeverities, currentModeDataKey } = req.body;
+  const { chosenDiseasesWithSeverities } = req.body;
 
-  if (!chosenDiseasesWithSeverities || !currentModeDataKey) {
+  if (!chosenDiseasesWithSeverities) {
     return res.status(400).json({
       error:
         "Missing required parameters: chosenDiseasesWithSeverities or currentModeDataKey",
     });
   }
 
-  const sum = chosenDiseasesWithSeverities.reduce((acc, entry) => {
-    if (entry.selectedSeverity && entry.selectedSeverity[currentModeDataKey]) {
-      return (
-        acc +
-        (1 - acc / 100) *
-          (entry.selectedSeverity ? entry.selectedSeverity.percentage : 0)
-      );
-    }
-    return 0;
-  }, 0);
+  const newTotals = {
+    generalDisability: 0,
+    taxIncome: 0,
+    specialServices: 0,
+  };
 
-  res.json({ totalPercentage: Math.round(sum) });
+  chosenDiseasesWithSeverities.forEach((entry) => {
+    if (entry.selectedSeverity) {
+      modes.forEach((mode) => {
+        if (entry.selectedSeverity[mode.dataKey]) {
+          newTotals[mode.id] +=
+            (1 - newTotals[mode.id] / 100) *
+            (entry.selectedSeverity ? entry.selectedSeverity.percentage : 0);
+        }
+      });
+    }
+  });
+
+  res.json({ newTotals });
 });
 
 app.listen(PORT, () => {
