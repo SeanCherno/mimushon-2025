@@ -360,6 +360,7 @@ function App() {
               chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}
               onRemoveDisease={handleRemoveDisease}
               onAddDisease={() => setCurrentScreen("diseaseSelection")}
+              onEmptyList={() => setCurrentScreen("diseaseSelection")}
               onProceed={() => setCurrentScreen("userInfo")}
               modes={modes}
             />

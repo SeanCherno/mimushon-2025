@@ -79,9 +79,9 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
   <span>חזור</span>
 </button>
       </div>
-      {selectedDiseaseForSeverityView.description && 
+      {/* {selectedDiseaseForSeverityView.description && 
       <p className="text-indigo-600 text-m mb-6">{selectedDiseaseForSeverityView.description} </p>}
-      {/* Image Gallery */}
+      Image Gallery */}
       {selectedDiseaseForSeverityView.imageUrls && selectedDiseaseForSeverityView.imageUrls.length > 0 && (
         <div className="mb-6 p-4 bg-gray-100 rounded-lg overflow-x-auto whitespace-nowrap scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
           {selectedDiseaseForSeverityView.imageUrls.map((url, index) => (

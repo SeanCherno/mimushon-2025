@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const ChosenDiseasesSummary = ({ modes, chosenDiseasesWithSeverities, onRemoveDisease }) => {
+const ChosenDiseasesSummary = ({ modes, chosenDiseasesWithSeverities, onRemoveDisease, onEmptyList }) => {
  const chosenDiseases = chosenDiseasesWithSeverities.filter(entry => entry.selectedSeverity);
 
   // const modeToCountKey = {
@@ -19,7 +19,7 @@ const ChosenDiseasesSummary = ({ modes, chosenDiseasesWithSeverities, onRemoveDi
     };
 
   if (chosenDiseasesWithSeverities.length === 0) {
-    return null;
+    onEmptyList()
   }
 
   return chosenDiseases.length > 0 ? (
