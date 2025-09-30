@@ -37,7 +37,8 @@ const DiseaseSelectionScreen = ({ selectedCategory, selectedSubCategory, setSele
         <div className="space-y-2">
           {selectedSubCategory.diseases.map(disease => (
             <button key={disease.id} onClick={() => onDiseaseSelected(disease)} className="w-full text-right p-3 bg-white rounded-lg border border-indigo-200 hover:bg-indigo-100 hover:border-indigo-400 transition">
-              {disease.name}
+              <div className="font-semibold">{disease.name}</div>
+              <p className="font-normal text-xs text-gray-600">{disease.description}</p>
             </button>
           ))}
         </div>
