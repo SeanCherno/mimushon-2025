@@ -9705,7 +9705,7 @@
               "name": "דלקת בושט (Esophagitis)",
               "severities": [
                 {
-                  "description": "בצורה קלה",
+                  "description": "בצורה קלה\nאם יש לך צרבת או רפלוקס שחוזרים לפעמים, אבל זה לא מפריע לך לאכול או לחיות כרגיל",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -9713,7 +9713,7 @@
                   "severityId": "category_12_disease_56_f0zjdq"
                 },
                 {
-                  "description": "בצורה בינונית",
+                  "description": "בצורה בינונית\nאם יש לך צרבת/כאבים קבועים, קושי בבליעה של חלק מהמזון או ירידה קלה במשקל",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9721,7 +9721,7 @@
                   "severityId": "category_12_disease_56_j6cyy"
                 },
                 {
-                  "description": "בצורה קשה עם שטפי דם חוזרים, אנמיה בולטת",
+                  "description": "מצב קשה\nאם יש לך שטפי דם חוזרים מהוושט, אנמיה (חוסר דם) או ירידה משמעותית באיכות החיים בגלל הדלקת",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9744,7 +9744,7 @@
               "name": "היצרות הושט (Esophageal Stricture)",
               "severities": [
                 {
-                  "description": "בצורה בינונית",
+                  "description": "בצורה בינונית\nאם קשה לך לבלוע אוכל מוצק (כמו בשר או לחם), ואתה נאלץ להאט או לשתות הרבה מים בזמן הארוחה",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9752,7 +9752,7 @@
                   "severityId": "category_12_disease_54_b7pxy"
                 },
                 {
-                  "description": "בצורה קשה",
+                  "description": "בצורה קשה\nאם יש לך קושי בולט גם עם מזון רך (כמו פירה או אורז), והאכילה מאוד מגבילה אותך ביום־יום",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9760,7 +9760,7 @@
                   "severityId": "category_12_disease_54_lswcl"
                 },
                 {
-                  "description": "בצורה קשה מאד, המאפשרת רק שתיית נוזלים, מצב כללי ירוד מאד",
+                  "description": "בצורה קשה מאד, המאפשרת רק שתיית נוזלים, מצב כללי ירוד מאד\nאם אתה מסוגל לשתות רק נוזלים, המצב הכללי שלך ירוד מאוד, ויש ירידה משמעותית בבריאות ובמשקל",
                   "percentage": 80,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9783,7 +9783,7 @@
               "name": "סעיפים בושט (Esophageal Diverticulum)",
               "severities": [
                 {
-                  "description": "ללא הפרעות או עם הפרעות קלות",
+                  "description": "ללא הפרעות או עם הפרעות קלות\nאם יש לך כיס קטן בוושט שנמצא במקרה בבדיקה, או שיש לך לעיתים תחושת תקיעות קלה באוכל, בלי השפעה אמיתית על חיי היום־יום",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9791,7 +9791,7 @@
                   "severityId": "category_12_disease_55_e134l"
                 },
                 {
-                  "description": "הפרעות בינוניות",
+                  "description": "הפרעות בינוניות\nאם יש לך קושי בבליעה שמופיע יותר לעיתים קרובות – אוכל נתקע, לפעמים יש שיעול או החזר של אוכל לאחר הארוחה",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9799,7 +9799,7 @@
                   "severityId": "category_12_disease_55_dydnf"
                 },
                 {
-                  "description": "הפרעות קשות",
+                  "description": "הפרעות קשות\nאם הבליעה קשה ממש, יש הקאות חוזרות, זיהומים או ירידה במשקל בגלל האוכל שלא עובר כמו שצריך",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9822,7 +9822,7 @@
               "name": "כיווץ שרירי הושט (Cardiospasm)",
               "severities": [
                 {
-                  "description": "אחוזי הנכות ייקבעו בהתאם למצב הכללי ולדרגת היצרות של הושט כמפורט בסעיף המצורף",
+                  "description": "אחוזי הנכות ייקבעו בהתאם למצב הכללי ולדרגת היצרות של הושט כמפורט בסעיף המצורף\nאם יש לך קושי בבליעה בגלל כיווץ הוושט, דרגת הנכות תיקבע לפי החומרה של ההיצרות (כמו שכתוב בסעיף “היצרות הוושט” – 30%, 50%, 80%)",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9839,7 +9839,7 @@
                   "severityId": "category_12_disease_57_ol86ie"
                 },
                 {
-                  "description": "לאחר ניתוח, קיימות הפרעות, אחוזי הנכות יקבעו לפי הסעיף המצורף.",
+                  "description": "לאחר ניתוח, קיימות הפרעות, אחוזי הנכות יקבעו לפי הסעיף המצורף\nאם אחרי ניתוח עדיין יש לך קושי בבליעה – אחוזי הנכות שלך ייקבעו לפי סעיף היצרות הוושט",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9869,7 +9869,7 @@
               "name": "דלקת כרונית של הקיבה (Chronic Gastritis)",
               "severities": [
                 {
-                  "description": "בצורה קלה ללא הפרעות",
+                  "description": "בצורה קלה ללא הפרעות\nאם יש לך דלקת קיבה קלה, בלי תסמינים משמעותיים. אתה מרגיש בסך הכול טוב, אין השפעה על המשקל או על איכות החיים",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9877,7 +9877,7 @@
                   "severityId": "category_12_disease_59_aqo10l"
                 },
                 {
-                  "description": "בצורה בינונית: המצב הכללי והתזונתי משביע רצון",
+                  "description": "בצורה בינונית: המצב הכללי והתזונתי משביע רצון\nאם יש לך דלקת קיבה פעילה, אבל המצב הכללי שלך עדיין יציב: אתה אוכל רגיל, התזונה והמשקל תקינים, אולי עם צרבת, בחילות או כאבי בטן מדי פעם",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -9885,7 +9885,7 @@
                   "severityId": "category_12_disease_59_qcly6a"
                 },
                 {
-                  "description": "בצורה ניכרת, עם השפעה על המצב הכללי",
+                  "description": "בצורה ניכרת, עם השפעה על המצב הכללי\nאם הדלקת פוגעת לך באיכות החיים: יש לך בחילות, הקאות או כאבים שמפריעים ביום־יום, ירידה במשקל או עייפות בגלל חוסר ספיגה",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9907,7 +9907,7 @@
               "name": "דלקת מעיים כרונית (Chronic Enterocolitis)",
               "severities": [
                 {
-                  "description": "הפרעות קלות, עצירות ושלשול לחליפין, ללא השפעה על המצב הכללי",
+                  "description": "הפרעות קלות, עצירות ושלשול לחליפין, ללא השפעה על המצב הכללי\nאם יש לך שלשולים או עצירויות שמופיעות לסירוגין, אבל בסך הכול אתה מתפקד רגיל, אין ירידה במשקל והמצב הכללי שלך תקין",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9915,7 +9915,7 @@
                   "severityId": "category_13_disease_61_9qdgcc"
                 },
                 {
-                  "description": "בצורה בינונית",
+                  "description": "בצורה בינונית\nאם יש לך שלשולים תכופים יותר או כאבי בטן שמפריעים ביום־יום, ייתכן ירידה קלה במשקל או עייפות מתמשכת, אבל עדיין לא מצב חמור",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -9946,7 +9946,7 @@
                   "severityId": "category_13_disease_63_stepdp"
                 },
                 {
-                  "description": "ישנן הפרעות, אחוזי הנכות ייקבעו לפי הסעיף המצורף",
+                  "description": "ישנן הפרעות, אחוזי הנכות ייקבעו לפי הסעיף המצורף\nאם יש דלקת פעילה או סיבוכים (כאב, שלשולים, דימומים, חסימות) – הנכות שלך תיקבע לפי סעיפים אחרים בתקנון שמתייחסים לדלקות מעי כרוניות (כמו Chronic Enterocolitis, Ulcerative Colitis או Crohn’s disease), בהתאם לחומרה.",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9969,7 +9969,7 @@
               "name": "כיב קיבה או תריסריון (Peptic Ulcer)",
               "severities": [
                 {
-                  "description": "כיב שהתרפא, אין הפרעות",
+                  "description": "כיב שהתרפא, אין הפרעות\nאם היה לך כיב בעבר, אבל הוא נסגר ואין לך תסמינים או בעיות – לא תקבל נכות",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9977,7 +9977,7 @@
                   "severityId": "category_12_disease_60_nau3fu"
                 },
                 {
-                  "description": "בצורה קלה, התקפים קצרים ונדירים",
+                  "description": "בצורה קלה, התקפים קצרים ונדירים\nאם יש לך כיב פעיל, אבל ההתקפים נדירים וקצרים, בלי השפעה על החיים שלך ברוב הזמן",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -9985,7 +9985,7 @@
                   "severityId": "category_12_disease_60_r3lfn9"
                 },
                 {
-                  "description": "בצורה בינונית (התקפים חוזרים, ממושכים יותר)",
+                  "description": "בצורה בינונית (התקפים חוזרים, ממושכים יותר)\nאם יש לך כיב שחוזר שוב ושוב, ההתקפים ממושכים יותר, עם כאבים או בחילות שמפריעים לשגרה",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9993,7 +9993,7 @@
                   "severityId": "category_12_disease_60_rhf9td"
                 },
                 {
-                  "description": "בצורה קשה עם סיבוכים כגון: שטפי-דם, היצרות השוער, השפעה ניכרת על המצב הכללי",
+                  "description": "בצורה קשה עם סיבוכים כגון: שטפי-דם, היצרות השוער, השפעה ניכרת על המצב הכללי\nאם יש לך סיבוכים מהכיב – דימומים חוזרים (שטפי דם), היצרות בשוער הקיבה שמקשה על מעבר אוכל, או השפעה ניכרת על הבריאות הכללית (ירידה במשקל, חולשה קשה, אנמיה)",
                   "percentage": 60,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10001,7 +10001,7 @@
                   "severityId": "category_12_disease_60_03rr5o"
                 },
                 {
-                  "description": "כיב הקיבה או כיב התריסריון לאחר ניתוח - אחוזי הנכות ייקבעו לפי הסעיף המצורף",
+                  "description": "כיב הקיבה או כיב התריסריון לאחר ניתוח - אחוזי הנכות ייקבעו לפי הסעיף המצורף\nאם עברת ניתוח בגלל כיב (כמו כריתת חלק מהקיבה), הנכות שלך תיקבע לפי סעיף אחר בתקנון שמטפל במצבים לאחר ניתוחי קיבה.",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10024,7 +10024,7 @@
               "name": "תסמונת ספיגה לקויה (Malabsorption Syndrome)",
               "severities": [
                 {
-                  "description": "בצורה קלה, שלשול שומני, 3 או 4 יציאות ליום, ללא השפעה על המצב הכללי, בלי אנמיה",
+                  "description": "מצב קל\nאם יש לך שלשול שומני (צואה בהירה ושומנית), בערך 3–4 יציאות ביום, אבל חוץ מזה אתה מרגיש בסך הכול טוב: אין ירידה במשקל, אין אנמיה והמצב הכללי תקין",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10032,7 +10032,7 @@
                   "severityId": "category_13_disease_64_5rm84p"
                 },
                 {
-                  "description": "בצורה בינונית עם אנמיה, ירידה במשקל",
+                  "description": "בצורה בינונית\nאם יש לך אנמיה (חוסר דם) וירידה במשקל בגלל בעיית הספיגה",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10040,7 +10040,7 @@
                   "severityId": "category_13_disease_64_5zjglf"
                 },
                 {
-                  "description": "בצורה קשה עם ירידת חלבוני הדם (HYPOPROTEINEMIA) בצקת ברגליים ואנמיה ניכרת, הפרעות באלקטרוליטים וכו'",
+                  "description": "בצורה קשה\nאם יש לך ירידה בחלבוני הדם (Hypoproteinemia), בצקות ברגליים, אנמיה קשה, חוסר איזון במלחים (אלקטרוליטים) ותסמינים שמפריעים לך מאוד ביומיום",
                   "percentage": 70,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10062,7 +10062,7 @@
               "name": "דלקת כיבית של המעי הגס (Ulcerative Colitis)",
               "severities": [
                 {
-                  "description": "בצורה קלה עם 3-4 יציאות ביום, ללא אנמיה, ללא השפעה על המצב הכללי",
+                  "description": "בצורה קלה\nאם יש לך 3–4 יציאות ביום, אבל בלי דם רב, בלי אנמיה ובלי השפעה על המשקל או המצב הכללי",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -10070,7 +10070,7 @@
                   "severityId": "category_13_disease_62_0gqps"
                 },
                 {
-                  "description": "בצורה בינונית עם התלקחויות לעתים קרובות",
+                  "description": "בצורה בינונית\nאם יש לך התלקחויות שחוזרות מדי פעם – שלשולים עם דם, כאבי בטן, חולשה – אבל לא ברמה קשה מאוד",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10078,7 +10078,7 @@
                   "severityId": "category_13_disease_62_rbf18p"
                 },
                 {
-                  "description": "בצורה יותר מבינונית, עם התלקחויות תכופות, אנמיה, מצב תזונתי ירוד",
+                  "description": "בצורה יותר מבינונית\nאם יש לך התלקחויות תכופות, כבר יש אנמיה, ירידה במשקל או מצב תזונתי ירוד שמחליש אותך",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10086,7 +10086,7 @@
                   "severityId": "category_13_disease_62_hbgz9"
                 },
                 {
-                  "description": "בצורה קשה, עם חום, אנמיה קשה, המצב הכללי ירוד מאד",
+                  "description": "בצורה קשה\nאם יש לך יציאות רבות עם דם, חום, אנמיה קשה, ירידה ניכרת במשקל והמצב הכללי שלך מאוד ירוד",
                   "percentage": 70,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10094,7 +10094,7 @@
                   "severityId": "category_13_disease_62_q3iwe"
                 },
                 {
-                  "description": "בצורה חמורה, זקוק לאשפוז",
+                  "description": "בצורה חמורה, זקוק לאשפוז\nאם המחלה כל כך קשה שאתה זקוק לאשפוז מתמשך או טיפולים קבועים כדי לתפקד",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10117,7 +10117,7 @@
               "name": "מחלת קרוהן ומחלות מעי דלקתיות אחרות (Crohn's Disease)",
               "severities": [
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיף המצורף",
+                  "description": "אחוזי הנכות ייקבעו לפי הסעיף המצורף\nאם יש לך קרוהן או מחלה דלקתית אחרת של המעי, אחוזי הנכות שלך ייקבעו לפי דרגות המחלה כפי שמפורטות בסעיפים של דלקת כיבית או דלקת מעיים כרונית.",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10134,6 +10134,37 @@
                 "אנדוסקופיה של דרכי העיכול",
                 "תוצאות בדיקות מעבדה - ספירת דם כללית"
               ]
+            },
+            {
+              "id": "disease_90",
+              "name": "שחפת של קרום הבטן (Peritoneal Tuberculosis)",
+              "severities": [
+                {
+                  "description": "בזמן שהמחלה פעילה\n דוגמה: נדרשת השגחה רפואית צמודה, טיפול מתמשך, תסמינים קשים",
+                  "percentage": 100,
+                  "countForDisability": true,
+                  "countForTax": true,
+                  "countForSpecial": true,
+                  "severityId": "category_20_disease_90_3qfdy9"
+                },
+                {
+                  "description": "אחרי שהמחלה עברה את השלב החריף, אחוזי הנכות ייקבעו לפי הנזק שנשאר (למשל לפי סעיפים של מערכת העיכול או איברים אחרים שנפגעו)",
+                  "percentage": 0,
+                  "countForDisability": true,
+                  "countForTax": true,
+                  "countForSpecial": true,
+                  "severityId": "category_20_disease_90_n5ude",
+                  "linkedDiseaseId": "disease_89"
+                }
+              ],
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - גסטרואנטרולוג",
+                "סיכום אשפוז בבית חולים",
+                "מכתב סיכום מרופא - כירורג כללי",
+                "אנדוסקופיה של דרכי העיכול",
+                "תוצאות בדיקות מעבדה - ספירת דם כללית",
+                "סיכום מחלה מרופא מטפל"
+              ]
             }
           ]
         },
@@ -10146,7 +10177,7 @@
               "name": "בקע סרעפתי (Diaphragmatic Hernia)",
               "severities": [
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי המצב של הושט בהתאם לסעיף המצורף.",
+                  "description": "עברת ניתוח, אבל נשארו בעיות - נקבע לפי מצב הוושט.",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10155,7 +10186,7 @@
                   "linkedDiseaseId": "disease_56"
                 },
                 {
-                  "description": "בקע סרעפתי לאחר ניתוח: אין הפרעות",
+                  "description": " לאחר ניתוח, אין הפרעות",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10163,7 +10194,7 @@
                   "severityId": "category_12_disease_58_k40dmb"
                 },
                 {
-                  "description": "בקע סרעפתי לאחר ניתוח: קיימות הפרעות, אחוזי הנכות ייקבעו לפי הסעיף המצורף",
+                  "description": "יש בקע שלא נותח - נקבע לפי מצב הוושט",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10184,7 +10215,7 @@
               "name": "בקע מפשעתי ניתן להחזרה (Reducible Inguinal Hernia)",
               "severities": [
                 {
-                  "description": "בקע המפשעה הניתן להחזרה (REPONIBILIS) חד או דו-צדדי, ישנן הפרעות בלתי ניכרות",
+                  "description": "יש בקע במפשעה (בצד אחד או בשני הצדדים), אפשר להחזיר אותו פנימה בלחיצה קלה, ואין כמעט בעיות תפקודיות.",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10204,7 +10235,7 @@
               "name": "בקע טבורי או בקו האמצע (Umbilical/Linea Alba Hernia)",
               "severities": [
                 {
-                  "description": "HERNIA UMBILICALIS HERNIA LINAE ALBAE קטנות וללא הפרעות",
+                  "description": "בקע קטן באזור הטבור או בקו האמצע של הבטן, בלי בעיות מיוחדות",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10212,7 +10243,7 @@
                   "severityId": "category_22_disease_104_ahwdup"
                 },
                 {
-                  "description": "HERNIA UMBILICALIS HERNIA LINAE ALBAE יותר גדולות או בקע בצלקת של קיר הבטן עם הפרעות בלתי ניכרות",
+                  "description": "בקע יותר גדול, או בקע שנוצר בצלקת ניתוחית בבטן, עם בעיות קלות (לדוגמה: אי־נוחות קלה)",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -10232,7 +10263,7 @@
               "name": "מצב לאחר פציעה או ניתוח בטן",
               "severities": [
                 {
-                  "description": "מצב לאחר פציעה או ניתוח בבטן, ללא בקע וללא התרופפות קיר הבטן",
+                  "description": "עברת ניתוח או פציעה בבטן, אבל אין בקע ואין חולשה של דופן הבטן",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10240,7 +10271,7 @@
                   "severityId": "category_22_disease_100_rcvnsg"
                 },
                 {
-                  "description": "מצב אחרי פציעה או ניתוח בטן, המלווה בהתרופפות קיר הבטן המצריך שימוש בחגורה אורטופדית",
+                  "description": "יש חולשה של דופן הבטן אחרי ניתוח/פציעה, וצריך להיעזר בחגורה אורטופדית",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10248,7 +10279,7 @@
                   "severityId": "category_22_disease_101_2jq9j"
                 },
                 {
-                  "description": "מצב אחרי פציעה או ניתוח בטן עם התרופפות ניכרת של דופן הבטן; ישנו חוסר שרירים או בקע גדול המצריכים שימוש בחגורה אורטופדית",
+                  "description": "חולשה משמעותית של דופן הבטן, עם חוסר בשרירי הבטן או בקע גדול, שמצריך שימוש קבוע בחגורה אורטופדית",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10256,7 +10287,7 @@
                   "severityId": "category_22_disease_102_6c41i"
                 },
                 {
-                  "description": "מצב אחרי פציעה או ניתוח בטן עם EVENTRATIO גדולה",
+                  "description": "בקע גדול מאוד (Eventration) אחרי ניתוח/פציעה בבטן",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10276,7 +10307,7 @@
               "name": "הידבקויות לאחר ניתוח בטן",
               "severities": [
                 {
-                  "description": "ישנן הפרעות נדירות וקלות",
+                  "description": "יש רק בעיות נדירות וקלות, כמעט לא מורגש ביום־יום",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10284,7 +10315,7 @@
                   "severityId": "category_20_disease_89_a7yb0g"
                 },
                 {
-                  "description": "ישנן הפרעות בינוניות כגון תקופות של שלשול, עצירות או מטאוריזמוס",
+                  "description": "יש בעיות בינוניות שחוזרות מדי פעם, כמו שלשולים, עצירות או נפיחות בבטן (גזים)",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -10292,7 +10323,7 @@
                   "severityId": "category_20_disease_89_q90lsn"
                 },
                 {
-                  "description": "ישנן הפרעות כנ\"ל והן קבועות",
+                  "description": "אותן בעיות (שלשולים, עצירות, נפיחות) קיימות באופן קבוע",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10300,7 +10331,7 @@
                   "severityId": "category_20_disease_89_ti3gar"
                 },
                 {
-                  "description": "ישנן הפרעות קשות",
+                  "description": "בעיות קשות שמפריעות מאוד לחיים היומיומיים",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10342,7 +10373,7 @@
               "name": "בקע מפשעתי חוזר (Recurrent Hernia)",
               "severities": [
                 {
-                  "description": "בקע חוזר (RECIDIVANS) חד-צדדי, עם הפרעות בלתי ניכרות, הדורש החזקה ע\"י חגורה",
+                  "description": "בקע חוזר בצד אחד, עם בעיות קלות בלבד, שדורש שימוש בחגורה",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10350,7 +10381,7 @@
                   "severityId": "category_21_disease_95_a46o1c"
                 },
                 {
-                  "description": "מצב כמתואר בסעיף הקודם - והוא דו-צדדי",
+                  "description": "בקע חוזר בשני הצדדים, עם בעיות קלות בלבד, שדורש שימוש בחגורה",
                   "percentage": 15,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10370,13 +10401,13 @@
               "name": "בקע פמורלי (Femoral Hernia)",
               "severities": [
                 {
-                  "description": "בקע פמורלי (HERNIA FEMORALIS) - אחוזי הנכות ייקבעו כפי שנקבעו לגבי בקע INGUINALIS",
+                  "description": "אחוזי הנכות נקבעים כמו בבקע מפשעתי",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_21_disease_99_fh50o5",
-                  "disabled": true
+                  "linkedDiseaseId": "disease_95"
                 }
               ],
               "requiredDocuments": [
@@ -10387,11 +10418,73 @@
               ]
             },
             {
+              "id": "disease_1011",
+              "name": "פציעות וניתוחי קיבה ומעיים",
+              "severities": [
+                {
+                  "description": "אחרי ניתוח/פציעה, אין בעיות מיוחדות, התזונה והבריאות הכללית תקינות\n דוגמה: אוכל כרגיל, לא סובל מכאבי בטן או בעיות יציאות",
+                  "percentage": 0,
+                  "countForDisability": true,
+                  "countForTax": true,
+                  "countForSpecial": true,
+                  "severityId": "category_21_disease_1011_fh50o5"
+                },
+                {
+                  "description": "בעיות קלות בעיכול, אבל המצב הכללי טוב\n דוגמה: לפעמים שלשול או עצירות, תחושת אי־נוחות בבטן מדי פעם",
+                  "percentage": 10,
+                  "countForDisability": false,
+                  "countForTax": true,
+                  "countForSpecial": false,
+                  "severityId": "category_21_disease_1011_fh50o1"
+                },
+                {
+                  "description": " בעיות קבועות בעיכול והמצב הכללי ירוד\n דוגמה: סובל תמיד מנפיחות, שלשולים או עצירות, ירידה באנרגיה",
+                  "percentage": 20,
+                  "countForDisability": true,
+                  "countForTax": true,
+                  "countForSpecial": true,
+                  "severityId": "category_21_disease_1011_fh50o2"
+                },
+                {
+                  "description": "בעיות משמעותיות במערכת העיכול, המצב הכללי ירוד\n דוגמה: קושי תמידי באכילה, כאבי בטן חזקים שמפריעים לשגרה",
+                  "percentage": 30,
+                  "countForDisability": true,
+                  "countForTax": true,
+                  "countForSpecial": true,
+                  "severityId": "category_21_disease_1011_fh50o3"
+                },
+                {
+                  "description": "אחרי יותר מניתוח אחד, עם חסימת מעיים חלקית שלא ניתנת לריפוי\n דוגמה: אפיזודות חוזרות של כאבי בטן חזקים, הקאות, נאלץ להיות בהשגחה רפואית",
+                  "percentage": 40,
+                  "countForDisability": true,
+                  "countForTax": true,
+                  "countForSpecial": true,
+                  "severityId": "category_21_disease_1011_fh50o6"
+                },
+                {
+                  "description": "בעיות קשות בעיכול, מסוגל לבצע רק עבודות קלות בבית\n דוגמה: יכול לסדר קצת בבית, אבל לא מסוגל לעבוד או להתאמץ פיזית",
+                  "percentage": 50,
+                  "countForDisability": true,
+                  "countForTax": true,
+                  "countForSpecial": true,
+                  "severityId": "category_21_disease_1011_fh50o7"
+                },
+                {
+                  "description": "בעיות קשות מאוד גם אחרי ניתוח נוסף, לא מסוגל לבצע פעולות יומיומיות, מרותק למיטה או זקוק לסיוע קבוע\n דוגמה: לא יכול להתלבש או להתקלח לבד, זקוק לעזרה רצופה של בני משפחה או מטפל",
+                  "percentage": 100,
+                  "countForDisability": true,
+                  "countForTax": true,
+                  "countForSpecial": true,
+                  "severityId": "category_21_disease_1011_fh50o8"
+                }
+              ]
+            },
+            {
               "id": "disease_67",
               "name": "נצור (פיסטולה) קבוע של המעיים",
               "severities": [
                 {
-                  "description": "ישנה הפרשה קלה ונדירה של צואה",
+                  "description": "יש יציאה של מעט צואה, רק לעיתים נדירות\n דוגמה: מופיע מדי פעם, לא כל יום",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10399,7 +10492,7 @@
                   "severityId": "category_14_disease_67_73pfsm"
                 },
                 {
-                  "description": "ישנה הפרשה קלה וקבועה של צואה",
+                  "description": " יש יציאה של מעט צואה, באופן קבוע\n דוגמה: קורה כמעט כל יום, מצריך התמודדות שוטפת",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10407,7 +10500,7 @@
                   "severityId": "category_14_disease_67_5m9ey"
                 },
                 {
-                  "description": "ANUS PRAETER NATURALIS",
+                  "description": "מצב של פי טבעת מלאכותי (Anus Praeter Naturalis)\n דוגמה: פתח קבוע בבטן ליציאת צואה (סטומה)",
                   "percentage": 80,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10423,37 +10516,6 @@
                 "אנדוסקופיה של דרכי העיכול",
                 "תוצאות בדיקות מעבדה - ספירת דם כללית"
               ]
-            },
-            {
-              "id": "disease_90",
-              "name": "שחפת של קרום הבטן (Peritoneal Tuberculosis)",
-              "severities": [
-                {
-                  "description": "בשלב הפעיל",
-                  "percentage": 100,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_20_disease_90_3qfdy9"
-                },
-                {
-                  "description": "המצור במצב לאחר השלב החריף, אחוזי הנכות ייקבעו לפי הסעיף המצורף",
-                  "percentage": 0,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_20_disease_90_n5ude",
-                  "linkedDiseaseId": "disease_89"
-                }
-              ],
-              "requiredDocuments": [
-                "מכתב סיכום מרופא - גסטרואנטרולוג",
-                "סיכום אשפוז בבית חולים",
-                "מכתב סיכום מרופא - כירורג כללי",
-                "אנדוסקופיה של דרכי העיכול",
-                "תוצאות בדיקות מעבדה - ספירת דם כללית",
-                "סיכום מחלה מרופא מטפל"
-              ]
             }
           ]
         },
@@ -10466,7 +10528,7 @@
               "name": "טחורים (Hemorrhoids)",
               "severities": [
                 {
-                  "description": "בולטים, ישנן הפרעות בלתי ניכרות",
+                  "description": "טחורים בולטים, אבל גורמים רק לבעיות קלות מאוד\n דוגמה: אי־נוחות או גרד קל, כמעט בלי דימומים",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10474,7 +10536,7 @@
                   "severityId": "category_16_disease_75_hgpjr8u"
                 },
                 {
-                  "description": "בולטים, עם דימומים שכיחים",
+                  "description": "טחורים בולטים עם דימומים שחוזרים לעיתים קרובות\n דוגמה: דימום בזמן יציאה, חוזר שוב ושוב",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -10482,7 +10544,7 @@
                   "severityId": "category_16_disease_75_mj3oae"
                 },
                 {
-                  "description": "בולטים בצורה קשה, ישנם דימומים שכיחים עם אנמיה סקונדרית וסיבוכים אחרים כגון FISSURA ANI בצורה קלה FISTULA ANI",
+                  "description": "טחורים בולטים בצורה קשה, עם דימומים תכופים + סיבוכים נוספים\nאנמיה – מצב של חוסר דם שנגרם מאיבוד דם חוזר, ויכול לגרום לעייפות, חולשה וסחרחורות. Fissura ani (סדק קטן בפי הטבעת) – פצע קטן שגורם לכאב ודימום בזמן יציאה. Fistula ani (פיסטולה בפי הטבעת) – תעלה לא תקינה שמתחברת בין פי הטבעת לעור, שיכולה לגרום לכאבים או הפרשות",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10502,9 +10564,10 @@
             {
               "id": "disease_69",
               "name": "סדק בפי הטבעת (Anal Fissure)",
+              "description": "פצע קטן וכואב ברירית פי הטבעת, שיכול לגרום לכאב או דימום בזמן יציאה",
               "severities": [
                 {
-                  "description": "ללא הפרעות",
+                  "description": "יש סדק קטן, אבל אין הפרעות\nדוגמה: הפצע כמעט לא מורגש, אין כאב או דימום",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10512,7 +10575,7 @@
                   "severityId": "category_16_disease_69_8hfzla"
                 },
                 {
-                  "description": "ישנן הפרעות ניכרות",
+                  "description": "סדק שגורם להפרעות ניכרות\n דוגמה: כאב בזמן יציאה, דימום קל חוזר, אי־נוחות שמפריעה לשגרה",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10532,9 +10595,10 @@
             {
               "id": "disease_74",
               "name": "אי שליטה על סוגרים",
+              "description": "חוסר יכולת לשלוט על יציאות (צואה)",
               "severities": [
                 {
-                  "description": "איבוד מוחלט של השליטה על השוער (SPHINCTER)",
+                  "description": "איבוד מוחלט של השליטה על פי הטבעת (הסוגר)\nדוגמה: יציאות בלתי רצוניות, לא ניתן לשלוט בכלל, צורך בעזרים/טיפול מתמשך",
                   "percentage": 80,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10554,9 +10618,10 @@
             {
               "id": "disease_72",
               "name": "צניחת רירית פי הטבעת (Rectal Mucosal Prolapse)",
+              "description": "מצב שבו חלק מרקמת פי הטבעת בולט החוצה",
               "severities": [
                 {
-                  "description": "ללא הפרעות",
+                  "description": "יש צניחה קלה אבל בלי בעיות מיוחדות\n דוגמה: כמעט לא מורגש, לא מפריע לשגרה",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10564,7 +10629,7 @@
                   "severityId": "category_16_disease_72_zsm7cq"
                 },
                 {
-                  "description": "קיימות הפרעות",
+                  "description": "יש צניחה שמלווה בהפרעות מורגשות\n דוגמה: אי־נוחות, כאב קל או קושי ביציאות",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10584,9 +10649,10 @@
             {
               "id": "disease_70",
               "name": "נצור (פיסטולה) בפי הטבעת",
+              "description": "תעלה לא תקינה שמתחברת בין פי הטבעת לעור ויכולה לגרום להפרשות",
               "severities": [
                 {
-                  "description": "המפרישה לסירוגין ללא הפרעות ניכרות",
+                  "description": "יש הפרשה לסירוגין, בלי בעיות משמעותיות\nדוגמה: לפעמים יש יציאה של מוגלה/נוזל, אבל זה לא מפריע לשגרת היום",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10594,7 +10660,7 @@
                   "severityId": "category_16_disease_70_skg7ev"
                 },
                 {
-                  "description": "עם הפרשה ממושכת, תמידית או חוזרת (RECIDIVANS) לאחר ניתוח, עם הפרעות ניכרות",
+                  "description": " יש הפרשה ממושכת, קבועה או שחוזרת שוב ושוב גם אחרי ניתוח, עם בעיות ניכרות\n דוגמה: רטיבות מתמשכת, אי־נוחות, צורך בהיגיינה וטיפול מתמשך",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10614,9 +10680,10 @@
             {
               "id": "disease_73",
               "name": "צניחת רקטום מלאה (Total Rectal Prolapse)",
+              "description": "מצב שבו כל פי הטבעת בולט החוצה דרך הפתח",
               "severities": [
                 {
-                  "description": "ניתן להחזרה",
+                  "description": "הצניחה ניתנת להחזרה פנימה\nדוגמה: יוצא החוצה בזמן יציאה או מאמץ, אבל אפשר לדחוף חזרה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10624,7 +10691,7 @@
                   "severityId": "category_16_disease_73_863znr"
                 },
                 {
-                  "description": "קבוע, ישנן הפרעות ניכרות",
+                  "description": "הצניחה קבועה וגורמת להפרעות ניכרות\n דוגמה: בולט החוצה כל הזמן, מלווה בכאב, דימומים או קושי בשליטה על יציאות.",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10644,9 +10711,10 @@
             {
               "id": "disease_71",
               "name": "היצרות פי הטבעת (Anal Stricture)",
+              "description": "מצב שבו פי הטבעת צר מהרגיל וגורם לקושי ביציאות",
               "severities": [
                 {
-                  "description": "בצורה בינונית",
+                  "description": "היצרות בדרגה בינונית\n דוגמה: קושי משמעותי ביציאות, לפעמים צריך תרופות משלשלות או טיפול קבוע",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10654,7 +10722,7 @@
                   "severityId": "category_16_disease_71_xjeipp"
                 },
                 {
-                  "description": "בצורה קשה",
+                  "description": "היצרות בדרגה קשה\n דוגמה: יציאות קשות מאוד או כמעט בלתי אפשריות, עלול לדרוש ניתוח או טיפול רפואי מתמשך",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10680,9 +10748,10 @@
             {
               "id": "disease_81",
               "name": "דלקת כרונית של כיס המרה",
+              "description": "מצב שבו יש התקפים חוזרים של כאבים והפרעות עיכול בגלל כיס המרה",
               "severities": [
                 {
-                  "description": "ללא הפרעות",
+                  "description": "אין הפרעות\n דוגמה: מצב יציב, בלי התקפים ובלי הפרעות עיכול",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10690,7 +10759,7 @@
                   "severityId": "category_17_disease_81_wagnp"
                 },
                 {
-                  "description": "בצורה קלה, התקפים נדירים ללא חום או צהבת, עם הפרעות בעיכול",
+                  "description": "דלקת קלה, התקפים נדירים בלי חום או צהבת, יש קצת הפרעות בעיכול\n דוגמה: כאבים קלים בבטן מדי פעם, קושי לעכל אוכל שומני",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -10698,7 +10767,7 @@
                   "severityId": "category_17_disease_81_qvu6"
                 },
                 {
-                  "description": "בצורה בינונית, התקפים די תכופים ללא חום או צהבת, הפרעות עיכול בולטות",
+                  "description": "דלקת בדרגה בינונית, התקפים חוזרים אבל בלי חום או צהבת, הפרעות עיכול מורגשות\n דוגמה: כאבים חוזרים בבטן הימנית העליונה, נפיחות אחרי אוכל שומני, צרבת",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10706,7 +10775,7 @@
                   "severityId": "category_17_disease_81_p1erdp"
                 },
                 {
-                  "description": "בצורה קשה, עם התקפים תכופים המלווים לעתים בחום או בצהבת, עם הפרעה ניכרת במצב הכללי",
+                  "description": "דלקת קשה, התקפים תכופים של כאבים שלפעמים מלווים בחום או בצהבת, עם פגיעה ניכרת במצב הכללי\n דוגמה: התקפים חוזרים שמגבילים תפקוד יומיומי, צורך בטיפול רפואי מתמשך.",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10725,10 +10794,11 @@
             },
             {
               "id": "disease_82",
-              "name": "מצב לאחר ניתוח בכיס המרה",
+              "name": "מצב לאחר ניתוח בכיס המרה (Cholecystectomy)",
+              "description": "תופעות שנשארות אחרי הסרת כיס המרה",
               "severities": [
                 {
-                  "description": "ללא הפרעות או הפרעות קלות בלבד",
+                  "description": "אין בעיות או שיש רק הפרעות קלות מאוד\n דוגמה: לפעמים אי־נוחות קלה אחרי אוכל שומני, בלי השפעה על החיים",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10736,7 +10806,7 @@
                   "severityId": "category_17_disease_82_pxmx6d"
                 },
                 {
-                  "description": "קיימות הפרעות בינוניות",
+                  "description": "קיימות הפרעות בינוניות\n דוגמה: כאבי בטן חוזרים או הפרעות עיכול שמורגשות ביומיום",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -10744,7 +10814,7 @@
                   "severityId": "category_17_disease_82_3d6x0e"
                 },
                 {
-                  "description": "בצורה בולטת POST CHOLECYSTECTOMY SYNDROME",
+                  "description": "מצב של Post-Cholecystectomy Syndrome – תופעות בולטות אחרי הניתו\n דוגמה: שלשולים תכופים, כאבי בטן, נפיחות, קושי משמעותי בעיכול אוכל שומני",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10752,7 +10822,7 @@
                   "severityId": "category_17_disease_82_6ot24r"
                 },
                 {
-                  "description": "הופעות חוזרות של CHOLANGITIS עם התקפי חום מלווים בצמרמורת ולעתים צהבת",
+                  "description": "הופעות חוזרות של דלקת בדרכי המרה (Cholangitis) עם התקפי חום, צמרמורות ולפעמים גם צהבת\n דוגמה: התקפים קשים שמצריכים טיפול רפואי או אשפוז.",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10772,9 +10842,10 @@
             {
               "id": "disease_78",
               "name": "דלקת כבד נגיפית (Hepatitis)",
+              "description": "מחלה זיהומית של הכבד שנגרמת מנגיפים שונים",
               "severities": [
                 {
-                  "description": "לא נשארו הפרעות",
+                  "description": "המחלה עברה, לא נשארו בעיות\n דוגמה: בדיקות דם תקינות, אין סימפטומים",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10782,7 +10853,7 @@
                   "severityId": "category_17_disease_78_50q8op"
                 },
                 {
-                  "description": "ישנן הפרעות, אחוזי הנכות ייקבעו לפי הסעיף המצורף.",
+                  "description": "המחלה עברה, אבל נשארו בעיות - אחוזי הנכות יקבעו לפי הנזק שנשאר בכבד או באיברים אחרים (לפי סעיף מתאים)\n דוגמה: אם נשארה פגיעה בתפקודי כבד – זה ייחשב לפי סעיפי מחלות כבד כרוניות.",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10801,6 +10872,7 @@
             {
               "id": "disease_84",
               "name": "מצב לאחר דלקת או ניתוח בלבלב",
+              "description": "מצב שבו הייתה דלקת או ניתוח בלבלב, ונבדק מה נשאר אחרי המחלה או הניתוח",
               "severities": [
                 {
                   "description": "מצב לאחר דלקת או ניתוח - בלא תלונות או סימנים במערכת העיכול",
@@ -10809,24 +10881,9 @@
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_19_disease_84_yrcpi"
-                }
-              ],
-              "requiredDocuments": [
-                "מכתב סיכום מרופא - גסטרואנטרולוג",
-                "סיכום אשפוז בבית חולים",
-                "מכתב סיכום מרופא - כירורג כללי",
-                "תוצאות בדיקות מעבדה עדכניות",
-                "אנדוסקופיה של דרכי העיכול",
-                "תוצאות בדיקות מעבדה - ספירת דם כללית",
-                "סיכום מחלה מרופא מטפל"
-              ]
-            },
-            {
-              "id": "disease_85",
-              "name": "מצב לאחר דלקת או ניתוח בלבלב עם תסמינים",
-              "severities": [
+                },
                 {
-                  "description": "בלא הפרעה בספיגה",
+                  "description": "יש תסמינים, אבל בלי בעיה בספיגה של מזון\n דוגמה: כאבי בטן או שלשולים מדי פעם, אבל אפשר לאכול כרגיל",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10834,7 +10891,7 @@
                   "severityId": "category_19_disease_85_vl5ow"
                 },
                 {
-                  "description": "עם הפרעת ספיגה - המאוזנת באמצעות טיפול תרופתי",
+                  "description": "יש בעיה בספיגה של מזון, אבל היא מאוזנת בעזרת תרופות (למשל אנזימים)\n דוגמה: צריך לקחת תרופות קבועות כדי לעכל אוכל, ובכך נמנעת ירידה במשקל",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10842,7 +10899,7 @@
                   "severityId": "category_19_disease_86_bqi94v"
                 },
                 {
-                  "description": "עם הפרעת ספיגה - הגורמת לתת-תזונה באופן המח71-75 השלמת תזונה דרך פיום",
+                  "description": "בעיה קשה בספיגה, שגורמת לתת־תזונה ודורשת השלמת תזונה דרך פיום (צינור הזנה לבטן)\n דוגמה: לא מצליח לקבל מספיק מזון דרך האוכל הרגיל, תלוי בהזנה נוספת",
                   "percentage": 70,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10850,7 +10907,7 @@
                   "severityId": "category_19_disease_87_zq55nl"
                 },
                 {
-                  "description": "עם הפרעת ספיגה - המח71-75ת הזנת על",
+                  "description": "בעיה חמורה מאוד בספיגה, נדרשת הזנה דרך הוריד (TPN)\n דוגמה: לא יכול לקבל תזונה דרך הפה או דרך צינור לבטן, תלוי בהזנה תוך־ורידית בבית חולים או בבית",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10871,9 +10928,10 @@
             {
               "id": "disease_83",
               "name": "מחלות הטחול",
+              "description": "מצבים של טחול מוגדל או לאחר כריתת טחול",
               "severities": [
                 {
-                  "description": "הגדלה קלה של הטחול ללא השפעה על המצב הכללי",
+                  "description": "הטחול מוגדל בצורה קלה, בלי השפעה על המצב הכללי\n דוגמה: נמצא בבדיקה, אבל לא גורם לעייפות או כאבים",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10881,7 +10939,7 @@
                   "severityId": "category_18_disease_83_joa2sb"
                 },
                 {
-                  "description": "מצב לאחר כריתת הטחול",
+                  "description": "מצב לאחר כריתת טחול (הסרה בניתוח)\nדוגמה: חי בלעדיו, נדרש מעקב רפואי וחיסונים מתאימים",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -10889,7 +10947,7 @@
                   "severityId": "category_18_disease_83_jo3n2"
                 },
                 {
-                  "description": "טחול מוגדל עם תלונות - בלא סיבה ברורה",
+                  "description": "טחול מוגדל עם תלונות לא מוסברות\n דוגמה: עייפות, כאבים בצד שמאל של הבטן, תחושת מלאות",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10897,7 +10955,7 @@
                   "severityId": "category_18_disease_83_5rji7p"
                 },
                 {
-                  "description": "עם סיבה ברורה - אחוזי הנכות ייקבעו בהתאם לפריט המתאים שבשלו הוגדל הטחול.",
+                  "description": "אם יש סיבה ברורה להגדלת הטחול, אחוזי הנכות ייקבעו לפי המחלה שגרמה לכך (למשל מחלת כבד, מחלת דם)",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10921,7 +10979,7 @@
               "name": "שחמת הכבד (Cirrhosis)",
               "severities": [
                 {
-                  "description": "בצורה קלה, הגדלת הכבד, צהבת מזמן לזמן והפרעה קבועה בתפקודי הכבד",
+                  "description": "שחמת קלה: הכבד מוגדל, לפעמים מופיעה צהבת, יש פגיעה קבועה בתפקודי הכבד\n דוגמה: עייפות, חוסר תיאבון, בדיקות דם לא תקינות",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10929,7 +10987,7 @@
                   "severityId": "category_17_disease_76_wg5h2p"
                 },
                 {
-                  "description": "בצורה בינונית, עם הפרעות בולטות יותר בתפקודי הכבד והשפעה בולטת על המצב הכללי",
+                  "description": "שחמת בינונית: הפרעות ברורות יותר בתפקודי הכבד והשפעה בולטת על הבריאות הכללית\n דוגמה: חולשה, ירידה במשקל, הפרעות עיכול, מצב כללי ירוד",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10937,7 +10995,7 @@
                   "severityId": "category_17_disease_76_lk8x6b"
                 },
                 {
-                  "description": "בצורה קשה, עם דליות הושט, מיימת (ASCITES) עם או בלי שטפי דם, עם או בלי הפרעות חולפות במערכת העצבים",
+                  "description": "שחמת קשה: סיבוכים כמו דליות בוושט, מיימת (נוזלים בחלל הבטן), שטפי דם, או בעיות זמניות במערכת העצבים (כמו בלבול)\n דוגמה: בטן נפוחה מנוזלים, דימומים תכופים, אשפוזים חוזרים",
                   "percentage": 70,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10945,7 +11003,7 @@
                   "severityId": "category_17_disease_76_3vpae3"
                 },
                 {
-                  "description": "בצורה חמורה, החולה זקוק לשכיבה וסיעוד",
+                  "description": " שחמת חמורה מאוד: מרותק למיטה, זקוק לטיפול וסיעוד צמוד\n דוגמה: לא מסוגל לתפקד לבד, תלוי בעזרה מתמדת",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10966,9 +11024,10 @@
             {
               "id": "disease_77",
               "name": "מצב לאחר ניתוח מעקף וריד השער בכבד",
+              "description": "ניתוח שנעשה כדי להוריד לחץ בוורידי הכבד (Portal Hypertension)",
               "severities": [
                 {
-                  "description": "המצב הכללי משביע רצון, ללא מיימת וללא שטפי דם חוזרים, אין הפרעות מצד מערכת העצבים",
+                  "description": "המצב הכללי טוב, אין נוזלים בבטן (מיימת), אין דימומים חוזרים ואין הפרעות במערכת העצבים\n דוגמה: מתפקד יחסית כרגיל, נמצא במעקב רפואי, בדיקות סבירות",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10976,7 +11035,7 @@
                   "severityId": "category_17_disease_77_brh6z"
                 },
                 {
-                  "description": "קיימת מיימת או שטפי דם חוזרים עם או בלי הפרעות חולפות מצד מערכת העצבים (PORTAL SYSTEMIC ENCEPHALOPATHIA)",
+                  "description": "יש מיימת (נוזלים בבטן) או דימומים חוזרים, עם או בלי הפרעות זמניות במערכת העצבים (אנצפלופתיה פורטלית)\nדוגמה: בטן נפוחה מנוזלים, דימומים במערכת העיכול, בלבול או ירידה בריכוז שמופיעים לפעמים",
                   "percentage": 70,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10984,7 +11043,7 @@
                   "severityId": "category_17_disease_77_j3c9lf"
                 },
                 {
-                  "description": "המצב חמור, החולה מרותק למיטה או זקוק לסיעוד",
+                  "description": "מצב חמור: החולה מרותק למיטה או זקוק לסיעוד קבוע\n דוגמה: לא מסוגל לתפקד לבד, תלוי בעזרה מתמדת",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11005,9 +11064,10 @@
             {
               "id": "disease_80",
               "name": "מצב לאחר ניתוח מורסה בכבד",
+              "description": "מצב אחרי טיפול כירורגי במוגלה בכבד",
               "severities": [
                 {
-                  "description": "אין הפרעות",
+                  "description": "אין הפרעות\nדוגמה: מתפקד כרגיל, אין כאבים או הפרעות בתפקודי כבד",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11037,9 +11097,10 @@
             {
               "id": "disease_79",
               "name": "ציסטה אכינוקוקית בכבד",
+              "description": "זיהום טפילי בכבד שיכול להופיע כציסטה (כיס נוזל)",
               "severities": [
                 {
-                  "description": "מסויד שאיננו גורם להפרעות, אין פגיעה בתפקודי הכבד",
+                  "description": "הציסטה מסוידת (קלציפיקציה), לא גורמת להפרעות ואין פגיעה בתפקודי הכבד\n דוגמה: ממצא ישן ושקט בצילום, בלי סימפטומים",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11047,7 +11108,7 @@
                   "severityId": "category_17_disease_79_ufs41"
                 },
                 {
-                  "description": "לאחר ניתוח, ללא הפרעות",
+                  "description": "לאחר ניתוח, ללא הפרעות\nדוגמה: הניתוח הצליח, תפקוד הכבד תקין",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11064,7 +11125,7 @@
                   "linkedDiseaseId": "disease_89"
                 },
                 {
-                  "description": "פעיל - להעריך בהתאם להפרעות, לפי סעיף קטן (1).",
+                  "description": "אם הציסטה עדיין פעילה - מעריכים לפי דרגת ההפרעות בסעיף המצורף",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11099,39 +11160,40 @@
             {
               "id": "disease_144",
               "name": "חולשה או שיתוק בחצי גוף (המיפרזיס) - Hemiparesis",
+              "description": "קושי בכוח, זריזות ושיווי־משקל ביד וברגל של צד ימין/צד שמאל; לפעמים נוקשות/עוויתיות ",
               "displayAsTable": true,
               "tableColumns": ["", "פלג גוף דומיננטי", "פלג גוף לא דומיננטי"],
               "tableRows": [
                 {
-                  "header": "קלה מאוד - סימנים פירמידליים בלבד, כגון: עירות החזרים, פרונציה של היד, ספסטיות קלה, תגובה פלנטרית אקסטנסורית בלא הפרעה תפקודית ביד או ברגל",
+                  "header": "“קלה מאוד” בלי הפרעה תפקודית. דוגמה: רפלקסים “גבוהים”, היד מעט נוטה כלפי מטה כשמרימים—אבל מתלבש/נוהג/עובד רגיל",
                   "severityIdsInRow": [
                     "category_32_disease_144_lu2xw7",
                     "category_32_disease_144_5of0rk"
                   ]
                 },
                 {
-                  "header": "קלה - הליכה עצמאית עם או בלי סדים קצרים, עם הפרעה תפקודית קלה של היד בתפקוד יום-יומי",
+                  "header": "“קלה” עם הליכה עצמאית (ייתכן סד קצר). דוגמה: סוגר כפתורים לאט ביד החלשה; עולה קומה אחת עם מעקה",
                   "severityIdsInRow": [
                     "category_32_disease_144_chufw",
                     "category_32_disease_144_ilx2e9"
                   ]
                 },
                 {
-                  "header": "בינונית - הליכה תוך שימוש בעזרים מעבר לסדים קצרים, עם הפרעה תפקודית בינונית של היד בתפקוד יום-יומי",
+                  "header": "“בינונית” עם צורך בעזרי הליכה מעבר לסד. דוגמה: משתמש במקל/הליכון בחוץ; ביד החלשה מתקשה לפתוח צנצנת או להרים סיר",
                   "severityIdsInRow": [
                     "category_32_disease_144_1elyh4",
                     "category_32_disease_144_ere41"
                   ]
                 },
                 {
-                  "header": "קשה - בלא הליכה עצמאית, הפרעה קשה של היד בתפקוד יום-יומי",
+                  "header": " “קשה”, ללא הליכה עצמאית. דוגמה: כיסא גלגלים ברוב היום; היד החלשה כמעט לא שימושית",
                   "severityIdsInRow": [
                     "category_32_disease_144_oazk3m",
                     "category_32_disease_144_zhu4b"
                   ]
                 },
                 {
-                  "header": "שיתוק מלא - עם ובלי קונטרקטורות",
+                  "header": "שיתוק מלא (Hemiplegia), עם/בלי קונטרקטורות. דוגמה: חוסר תנועה משמעותי בצד; תלות מלאה בהעברה וניידות",
                   "severityIdsInRow": [
                     "category_32_disease_144_fytctk",
                     "category_32_disease_144_9srf25"
@@ -11232,9 +11294,10 @@
             {
               "id": "disease_151",
               "name": "חולשה או שיתוק בפלג גוף תחתון (פרפרזיס) - Paraparesis",
+              "description": "חולשה/שיתוק ברגליים. קושי בהליכה, עמידה, עלייה במדרגות וקימה מכיסא/אסלה",
               "severities": [
                 {
-                  "description": "קלה - הליכה עצמאית עם או בלי סדים קצרים",
+                  "description": "“קלה”: הליכה עצמאית עם/בלי סדים קצרים\n דוגמה: הולך לאט, עוצר לנוח בעלייה; יכולות יום־יומיות נשמרות עם האטה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11242,7 +11305,7 @@
                   "severityId": "category_32_disease_151_ps7s49"
                 },
                 {
-                  "description": "בינונית - הליכה תוך שימוש בעזרים מעבר לסדים קצרים",
+                  "description": "“בינונית”: צריך עזרי הליכה מעבר לסדים\nדוגמה: נעזר קבוע במקל/הליכון; מתקשה לשאת קניות או ללכת מרחקים",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11250,7 +11313,7 @@
                   "severityId": "category_32_disease_151_bk1pl"
                 },
                 {
-                  "description": "קשה - בלא הליכה עצמאית",
+                  "description": "“קשה”: ללא הליכה עצמאית\nדוגמה: משתמש בכיסא גלגלים בבית ומחוץ לו; זקוק לעזרה בהעברות",
                   "percentage": 80,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11258,7 +11321,7 @@
                   "severityId": "category_32_disease_151_imq7ej"
                 },
                 {
-                  "description": "שיתוק מלא (PARAPLEGIA) חוסר תנועתיות מוחלט",
+                  "description": "שיתוק מלא (Paraplegia)\nדוגמה: אין תנועתיות ברגליים; תלות מלאה בניידות גלגלית ובסיוע",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11280,9 +11343,10 @@
             {
               "id": "disease_152",
               "name": "חולשה או שיתוק בארבע גפיים (קוודריפרזיס) - Quadriparesis",
+              "description": "איפה בגוף: שתי הידיים ושתי הרגליים. גם ניידות וגם עדינות/כוח בידיים נפגעים (לבוש, אוכל, כתיבה)",
               "severities": [
                 {
-                  "description": "קלה מאוד - הליכה עצמאית בלא אמצעי עזר והגבלה קלה מאוד של פעילות הידיים בתפקוד היום-יומי",
+                  "description": "“קלה מאוד”: הליכה עצמאית; הגבלה קלה מאוד בידיים\nדוגמה: איטיות בכפתורים/קשירת שרוכים; עובד משרדית עם האטה",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11290,7 +11354,7 @@
                   "severityId": "category_32_disease_152_8hmdyu"
                 },
                 {
-                  "description": "קלה - הליכה עצמאית עם סדים קצרים, הגבלה קלה בפעילות הידיים בתפקוד היום-יומי",
+                  "description": "“קלה”: הליכה עם סדים קצרים; הגבלה קלה בידיים\nדוגמה: צריך ידיות עבות לאחיזה; מתקשה להרים קנקן מים",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11298,7 +11362,7 @@
                   "severityId": "category_32_disease_152_ize4u3"
                 },
                 {
-                  "description": "בינונית - הליכה תוך שימוש בעזרים מעבר לסדים קצרים והגבלה בינונית בפעילות הידיים בתפקוד היום-יומי",
+                  "description": "“בינונית”: צריך עזרים מעבר לסדים; הגבלה בינונית בידיים\nדוגמה: הליכון/כיסא בחוץ; עזרה בבישול, ניקיון וכביסה",
                   "percentage": 80,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11306,7 +11370,7 @@
                   "severityId": "category_32_disease_152_f4e7bh"
                 },
                 {
-                  "description": "קשה - בלא הליכה עצמאית והגבלה קשה מאוד של תפקוד הידיים בתפקוד היום-יומי",
+                  "description": "“קשה”: אין הליכה עצמאית; הגבלה קשה מאוד בידיים\nדוגמה: תלות בעזרה ברוב פעולות היומיום (רחצה, לבוש, אכילה)",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11328,9 +11392,10 @@
             {
               "id": "disease_153",
               "name": "חולשה או שיתוק בגפה בודדת (מונופרזיס) - Monoparesis",
+              "description": "יד אחת או רגל אחת",
               "severities": [
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי פרטי הליקוי המתאימים לפגימות בעצבים היקפיים",
+                  "description": "אחוזי הנכות ייקבעו לפי פרטי הליקוי המתאימים לפגימות בעצבים היקפיים\nנקבע לפי העצב/האזור שנפגע (לפי סעיפי “פגיעות עצבים היקפיים”).דוגמה: יד – Median/Ulnar/Radial: קושי באחיזה, נימול, “Wrist drop”. רגל – Peroneal/Tibial: “Foot drop”, קושי לעלות מדרגות/לעמוד על קצות אצבעות. אחוזי הנכות ייקבעו לפי סעיפי העצבים הספציפיים",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11357,9 +11422,10 @@
             {
               "id": "disease_164",
               "name": "מחלת פרקינסון ותסמונות דמויות פרקינסון - Parkinson's Disease & Parkinsonism",
+              "description": "רעד, איטיות בתנועה, נוקשות, בעיות שיווי־משקל; תנודות בתגובה לתרופות",
               "severities": [
                 {
-                  "description": "בצורה קלה מאוד - תסמינים וסימנים קלים בצד אחד של הגוף, בלא הגבלה תפקודית",
+                  "description": "“קלה מאוד”: צד אחד בלבד, בלי הגבלה תפקודית\n דוגמה: רעד עדין ביד אחת; ממשיך לעבוד ולנהוג כרגיל",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11367,7 +11433,7 @@
                   "severityId": "category_32_disease_164_pouahg"
                 },
                 {
-                  "description": "בצורה קלה - איטיות בתנועות וחוסר זריזות בגפיים, עם צורך בטיפול תרופתי סימפטומטי, בלא תנודות מוטוריות (motor fluctuations) ועם הפרעה תפקודית קלה",
+                  "description": " “קלה”: איטיות/חוסר זריזות, צריך טיפול תרופתי; בלי תנודות מוטוריות\n דוגמה: קימה איטית מכיסא; כתב־יד נהיה קטן (“מיקרוגרפיה”), אך מסתדר ביום־יום",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11375,7 +11441,7 @@
                   "severityId": "category_32_disease_164_4pl0t"
                 },
                 {
-                  "description": "בצורה בינונית - איטיות משמעותית בתנועות או דיסקינזיות לא טורדניות ולא מפושטות, עם הפרעה תפקודית משמעותית",
+                  "description": "“בינונית”: איטיות משמעותית או דיסקינזיות לא טורדניות; פגיעה תפקודית משמעותית\nדוגמה: צעדים קצרים, קושי בסיבוב מהיר; מתעייף בהליכה של כמה מאות מטרים",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11383,7 +11449,7 @@
                   "severityId": "category_32_disease_164_yl6n4"
                 },
                 {
-                  "description": "בצורה קשה - איטיות משמעותית בתנועות הגוף, תנודות מוטוריות צפויות (predictable fluctuations) והפרעה בשיווי משקל on/off או מצבי בהליכה, עם הפרעה תפקודית ניכרת",
+                  "description": "“קשה”: תנודות צפויות (on/off), הפרעה בשיווי־משקל ובהליכה\nדוגמה: “קיפאון” בתחילת הליכה או בפתח דלת; נפילות מזדמנות, צורך בהשגחה בחוץ",
                   "percentage": 60,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11391,7 +11457,7 @@
                   "severityId": "category_32_disease_164_63mti"
                 },
                 {
-                  "description": "בצורה קשה - תנודות מוטוריות בלתי צפויות (random fluctuations) דיסקינזיות טורדניות וחמורות, עם הפרעה בולטת ביציבה ונפילות, עם הפרעה תפקודית קשה מאוד",
+                  "description": "“קשה מאוד”: תנודות בלתי צפויות, דיסקינזיות טורדניות, נפילות מרובות\nדוגמה: מתקשה לשמור יציבה גם בבית; שינויי מצב מהירים ומעייפים",
                   "percentage": 80,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11399,7 +11465,7 @@
                   "severityId": "category_32_disease_164_u22xfv"
                 },
                 {
-                  "description": "כאמור בסעיף הקודם, בלא יכולת תפקוד עצמאית",
+                  "description": "ללא יכולת תפקוד עצמאית\nדוגמה: נדרש סיעוד ברוב פעולות היומיום (רחצה, הלבשה, הכנת אוכל)",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11416,9 +11482,10 @@
             {
               "id": "disease_162",
               "name": "תנועות לא רצוניות בפנים ובצוואר - Involuntary Facial/Neck Movements",
+              "description": "טיקים, תנועות קופצניות או עוויתיות שקשה לשלוט בהן",
               "severities": [
                 {
-                  "description": "תנועות ממוקדות, מפריעות למראה החיצוני, בלא הפרעה תפקודית",
+                  "description": "תנועות ממוקדות, מפריעות למראה אבל לא לתפקוד\nדוגמה: טיק חוזר בעין או משיכת כתף קטנה שמפריעה לאסתטיקה אבל לא לפעולות יומיומיות",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11426,7 +11493,7 @@
                   "severityId": "category_32_disease_162_46iqu"
                 },
                 {
-                  "description": "תנועות בכמה מוקדים המפריעות לתפקוד, בלא תנועות מתמשכות",
+                  "description": "תנועות בכמה אזורים שמפריעות לתפקוד (לא מתמשכות)\nדוגמה: גם טיקים בצוואר וגם בעיניים, מקשה על קריאה, נהיגה או עבודה מול אנשים",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11434,7 +11501,7 @@
                   "severityId": "category_32_disease_162_nwjvoi"
                 },
                 {
-                  "description": "תנועות מתמשכות, או תנועות במספר רב של מוקדים המפריעות לתפקוד, או טיקים ווקלים מרובים",
+                  "description": "תנועות מתמשכות או רבות, עם הפרעה משמעותית\nדוגמה: תנועות קבועות בצוואר ובפנים + טיקים קוליים (כמו בתסמונת טורט) שפוגעים ביכולת לעבוד או ללמוד",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11452,9 +11519,10 @@
             {
               "id": "disease_163",
               "name": "תנועות לא רצוניות בגפיים ובגב - Involuntary Limb/Trunk Movements",
+              "description": "תנועות קופצניות, רעד או עוויתות שמפריעות לפעילות",
               "severities": [
                 {
-                  "description": "תנועות קלות בגפה אחת או יותר, בלא עיוות מתמשך של הגפה ובלא הפרעה תפקודית",
+                  "description": "תנועות קלות, בלי עיוות ובלי הפרעה תפקודית\nדוגמה: רעד קל ביד שמופיע במתח אבל לא מפריע לשימוש יומיומי",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11462,7 +11530,7 @@
                   "severityId": "category_32_disease_163_ysphus"
                 },
                 {
-                  "description": "תנועות קלות בגפה אחת או יותר, בלא עיוות מתמשך של הגפה, עם הפרעה תפקודית קלה",
+                  "description": "תנועות קלות, בלי עיוות, עם הפרעה תפקודית קלה\nדוגמה: רעד ביד שמפריע בכתיבה ממושכת או בהחזקת כוס מלאה",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11470,7 +11538,7 @@
                   "severityId": "category_32_disease_163_u39eo"
                 },
                 {
-                  "description": "תנועות בולטות בכמה מוקדים, הגורמות להפרעה תפקודית בינונית",
+                  "description": "תנועות בולטות בכמה מוקדים, מפריעות לתפקוד בינוני\nדוגמה: תנועות חזקות בידיים וברגליים, גורמות לקושי בהליכה ובאכילה",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11478,7 +11546,7 @@
                   "severityId": "category_32_disease_163_8t6zgb"
                 },
                 {
-                  "description": "תנועות מפושטות בגפיים הגורמות לעיוות מתמשך ולהפרעה תפקודית ניכרת או תנועות גוו ועיוות תנוחה מתמשך",
+                  "description": "תנועות מפושטות עם עיוותים מתמשכים\nדוגמה: עיוות של תנוחת הגוף או הידיים, קושי להתיישב זקוף, קושי משמעותי בשימוש בידיים או בהליכה",
                   "percentage": 60,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11495,9 +11563,10 @@
             {
               "id": "disease_165",
               "name": "חוסר קואורדינציה (אטקסיה) - Ataxia",
+              "description": "תנועות מסורבלות, חוסר יציבות בהליכה, קושי במשימות עדינות בידיים. בעיקר שיווי־משקל ותיאום ידיים־רגליים",
               "severities": [
                 {
-                  "description": "בצורה קלה מאד - תסמינים וסימנים קלים בצד אחד של הגוף, בלא הגבלה תפקודית",
+                  "description": "קלה מאוד, סימנים עדינים בצד אחד בלבד\nדוגמה: חוסר דיוק קל בהושטת יד, כמעט בלי הפרעה יומיומית",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11505,7 +11574,7 @@
                   "severityId": "category_32_disease_165_r7ajdr"
                 },
                 {
-                  "description": "בצורה קלה - עם חוסר זריזות בידיים והליכה עצמאית על בסיס מעט רחב ובלא נפילות, עם הפרעה תפקודית קלה",
+                  "description": " קלה, הליכה על בסיס רחב בלי נפילות, קושי עדין בידיים\nדוגמה: מתקשה להקליד מהר או ללחוץ על כפתורים קטנים",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11513,7 +11582,7 @@
                   "severityId": "category_32_disease_165_i8iqgn"
                 },
                 {
-                  "description": "בצורה בינונית - סרבול משמעותי בתנועות הידיים והליכה עצמאית על בסיס רחב, עם הפרעה תפקודית משמעותית",
+                  "description": "בינונית, סרבול משמעותי בידיים והליכה רחבה ולא יציבה\nדוגמה: נשפכים נוזלים באכילה, הולך בזהירות רבה מחשש לנפילה",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11521,7 +11590,7 @@
                   "severityId": "category_32_disease_165_nb1j4"
                 },
                 {
-                  "description": "בצורה קשה - כאמור בסעיף הקודם - עם נפילות חוזרות ותלות מלאה בשימוש בעזרים, עם הפרעה תפקודית ניכרת",
+                  "description": "קשה, נפילות חוזרות, תלות בעזרים\nדוגמה: נזקק להליכון, לא יכול ללכת לבד ברחוב",
                   "percentage": 60,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11529,7 +11598,7 @@
                   "severityId": "category_32_disease_165_o6rdbc"
                 },
                 {
-                  "description": "בצורה קשה מאוד - הגבלה קשה בתפקודי הידיים, בלא הליכה עצמאית גם תוך שימוש בעזרים, בלא יכולת תפקוד עצמאית",
+                  "description": "קשה מאוד, פגיעה קשה בידיים ואי־יכולת הליכה גם עם עזרים\nדוגמה: תלות מלאה בעזרה בכל תנועה – לא יכול להחזיק סכו\"ם או ללכת עם הליכון",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11553,9 +11622,10 @@
             {
               "id": "disease_166",
               "name": "אפילפסיה עם התקפים כלליים (Grand Mal) - Generalized Seizures",
+              "description": "ההתקפים מערבים את כל הגוף. פרכוסים מלאים, אובדן הכרה, נפילות",
               "severities": [
                 {
-                  "description": "בלא התקפים במשך שנתיים",
+                  "description": "אין התקפים שנתיים\nדוגמה: נוטל תרופות, ללא התקף שנתיים",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11563,7 +11633,7 @@
                   "severityId": "category_33_disease_166_arb5or"
                 },
                 {
-                  "description": "עד 2 התקפים מתועדים בשנה האחרונה, תוך קבלת טיפול מתועד",
+                  "description": "עד 2 התקפים בשנה האחרונה\nדוגמה: פרכוס פעם בחצי שנה, למרות טיפול",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11571,7 +11641,7 @@
                   "severityId": "category_33_disease_166_gm2os"
                 },
                 {
-                  "description": "3 התקפים מתועדים בשנה האחרונה, תוך קבלת טיפול מתועד",
+                  "description": "3 התקפים בשנה האחרונה\nדוגמה: בערך אחת לארבעה חודשים",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11579,7 +11649,7 @@
                   "severityId": "category_33_disease_166_3iij6g"
                 },
                 {
-                  "description": "4 התקפים מתועדים בשנה האחרונה, תוך קבלת טיפול מתועד",
+                  "description": "4 התקפים בשנה האחרונה\nדוגמה: אחת לכל שלושה חודשים",
                   "percentage": 60,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11587,7 +11657,7 @@
                   "severityId": "category_33_disease_166_rkgji"
                 },
                 {
-                  "description": "5 עד 6 התקפים מתועדים בשנה האחרונה, תוך טיפול מתועד",
+                  "description": "5–6 התקפים בשנה האחרונה\nדוגמה: כל חודשיים בממוצע",
                   "percentage": 80,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11595,7 +11665,7 @@
                   "severityId": "category_33_disease_166_9rarms"
                 },
                 {
-                  "description": "מעל 6 התקפים מתועדים בשנה האחרונה, או אירועים חוזרים מתועדים של סטטוס אפילפטי טוני-קלוני כללי (generalized tonic-clonic status epilepticus), תוך קבלת טיפול מתועד",
+                  "description": "מעל 6 התקפים בשנה, או סטטוס אפילפטי\nדוגמה: התקפים חוזרים אחת לחודש או מצב מסכן חיים של התקפים רצופים (generalized tonic-clonic status epilepticus), תוך קבלת טיפול מתועד",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11616,6 +11686,7 @@
             {
               "id": "disease_167",
               "name": "אפילפסיה עם התקפים חלקיים מורכבים (Petit Mal) - Complex Partial Seizures",
+              "description": "מוקדים מסוימים במוח, לא מערב את כל הגוף. התקפים עם בלבול, ניתוק או תנועות אוטומטיות",
               "severities": [
                 {
                   "description": "בלא התקפים מתועדים במשך שנתיים",
@@ -11626,7 +11697,7 @@
                   "severityId": "category_33_disease_167_tlpecq"
                 },
                 {
-                  "description": "התקף אחד בחודש בממוצע, בשנה האחרונה, תוך קבלת טיפול מתועד",
+                  "description": "התקף אחד לחודש בממוצע\nדוגמה: התקף עם ניתוק מהמציאות פעם בחודש",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11658,7 +11729,7 @@
                   "severityId": "category_33_disease_167_sm8d6"
                 },
                 {
-                  "description": "כאמור בסעיף הקודם, וכן אירועים חוזרים ומתועדים בשנה האחרונה של סטטוס אפילפטי בלא פרכוסים (non convulsive status epilepticus), תוך קבלת טיפול מתועד",
+                  "description": "כמו בסעיף הקודם + סטטוס אפילפטי ללא פרכוסים\nדוגמה: מצבים של בלבול מתמשך מסכן חיים",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11675,6 +11746,7 @@
             {
               "id": "disease_168",
               "name": "אפילפסיה עם התקפים חלקיים פשוטים - Simple Partial Seizures",
+              "description": "תסמינים מוגבלים – רעד ביד, תחושת נימול, או חוויות חושיות מוזרות; נשארים בהכרה",
               "severities": [
                 {
                   "description": "בלא התקפים מתועדים במשך שנתיים",
@@ -11716,9 +11788,10 @@
             {
               "id": "disease_159",
               "name": "פגיעה מפושטת בעצבים או בשרירים (נוירופתיה/מיופתיה) - Polyneuropathy/Myopathy",
+              "description": "עצבים ושרירים בכל הגוף (בעיקר ידיים ורגליים). עלול לגרום לחולשה, נימול, כאבים, חוסר שיווי־משקל",
               "severities": [
                 {
-                  "description": "עם הפרעה תחושתית בלבד, בלא טיפול תרופתי כרוני ייעודי לכאב נוירופתי",
+                  "description": "הפרעה תחושתית בלבד, בלי צורך בתרופות\nדוגמה: תחושת נימול או עקצוצים קלים בכפות הרגליים, בלי קושי בהליכה",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11726,7 +11799,7 @@
                   "severityId": "category_32_disease_159_jhq6sp"
                 },
                 {
-                  "description": "עם הפרעה תחושתית המלווה בכאב, בלא חולשת שרירים בבדיקה הקלינית, בלא אטקסיה או הפרעה ביציבות; עם טיפול תרופתי כרוני ייעודי לכאב נוירופתי, במשך חצי שנה לפחות; כולל תיעוד של גורם רפואי על התגובה לטיפול",
+                  "description": "תחושת נימול + כאב קבוע, צורך בתרופות לכאב\nדוגמה: כאב שורף בכפות הרגליים שמצריך כדורים ייעודיים, אבל עדיין הולכים עצמאית",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11734,7 +11807,7 @@
                   "severityId": "category_32_disease_159_1is4x2"
                 },
                 {
-                  "description": "עם הפרעה ביציבות, נטייה לנפילות על רקע אטקסיה סנסורית או חולשה מפושטת פרוקסימלית או דיסטלית בדרגה 4/5 ברגליים או בידיים, עם ממצאים אופייניים בבדיקה הקלינית",
+                  "description": "חוסר יציבות או חולשה בינונית בידיים/רגליים\nדוגמה: הולכים ברגליים כבדות, מועדים מדי פעם, מתקשים לעלות מדרגות או לפתוח בקבוק",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11742,7 +11815,7 @@
                   "severityId": "category_32_disease_159_v1c8g"
                 },
                 {
-                  "description": "עם הפרעה קשה ביציבות, נפילות חוזרות ומתועדות על רקע אטקסיה סנסורית; או חולשה מפושטת פרוקסימלית או דיסטלית ברגליים בדרגה 3/5, עם ממצאים אופייניים בבדיקה הקלינית ושימוש באבזרי עזר",
+                  "description": "חוסר יציבות קשה, נפילות חוזרות או חולשה מתקדמת\nדוגמה: זקוק למקל/הליכון, קושי לעמוד לאורך זמן, קושי להחזיק חפצים",
                   "percentage": 60,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11750,7 +11823,7 @@
                   "severityId": "category_32_disease_159_e1d6qb"
                 },
                 {
-                  "description": "עם חולשה פרוקסימלית או דיסטלית בידיים או ברגליים בדרגה 2/5 או מטה הגורמת להפרעה תפקודית קשה, עם ממצאים אופייניים בבדיקה הקלינית, בלא הליכה עצמאית (הליכה בתמיכת הזולת, או שימוש קבוע בכיסא גלגלים)",
+                  "description": "חולשה קשה מאוד, אין הליכה עצמאית\nדוגמה: משתמש בכיסא גלגלים, מתקשה מאוד גם בידיים (לאכול, להתלבש לבד)",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11771,51 +11844,52 @@
             },
             {
               "id": "disease_169",
-              "name": "לחץ על שורש עצב צווארי (רדיקולופתיה) - Cervical Radiculopathy",
+              "name": "לחץ על שורש עצב צווארי – Cervical Radiculopathy",
+              "description": "כאבים או חולשה ביד, נימול, ירידה בכוח האחיזה",
               "severities": [
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיפים המתאימים לפגיעות בעצבים ההיקפיים כמפורט בסעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה קלה (פלג גוף דומיננטי)",
-                  "percentage": 10,
+                  "description": " קלה בצד הדומיננטי \nדוגמה: נימול ביד הדומיננטית, כאב קל בכתף/זרוע, אבל עדיין כותב ועובד",
+                  "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_34_disease_169_0c56fj"
                 },
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיפים המתאימים לפגיעות בעצבים ההיקפיים כמפורט בסעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה קלה (פלג גוף לא דומיננטי)",
-                  "percentage": 20,
+                  "description": "קלה בצד לא דומיננטי\nדוגמה: נימול ביד, כאב שמפריע קצת בהחזקת חפצים",
+                  "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_34_disease_169_puk2vd"
                 },
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיפים המתאימים לפגיעות בעצבים ההיקפיים כמפורט בסעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה בינונית (פלג גוף דומיננטי)",
-                  "percentage": 20,
+                  "description": "בינונית בצד הדומיננטי\nדוגמה: ירידה בכוח ביד, מתקשה לפתוח בקבוקי מים",
+                  "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_34_disease_169_mos8dk"
                 },
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיפים המתאימים לפגיעות בעצבים ההיקפיים כמפורט בסעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה בינונית (פלג גוף לא דומיננטי)",
-                  "percentage": 30,
+                  "description": "בינונית בצד לא דומיננטי\nדוגמה: כאבים חזקים ביד, קושי להרים דברים",
+                  "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_34_disease_169_w3i4ah"
                 },
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיפים המתאימים לפגיעות בעצבים ההיקפיים כמפורט בסעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה קשה (פלג גוף דומיננטי)",
-                  "percentage": 30,
+                  "description": "קשה בצד הדומיננטי\nדוגמה: חולשה ממשית ביד, מתקשה להרים שקיות או להקליד זמן רב",
+                  "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_34_disease_169_p2oyi"
                 },
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיפים המתאימים לפגיעות בעצבים ההיקפיים כמפורט בסעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה קשה (פלג גוף לא דומיננטי)",
-                  "percentage": 40,
+                  "description": "קשה בצד לא דומיננטי\nדוגמה: כאבים חזקים ביד שמאל, קושי בהנפת יד או לביצוע פעולות פשוטות",
+                  "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
@@ -11836,9 +11910,10 @@
             {
               "id": "disease_176",
               "name": "לחץ על שורש עצב מותני-סקראלי (רדיקולופתיה) - Lumbosacral Radiculopathy",
+              "description": "כאב מקרין, נימול או חולשה ברגליים",
               "severities": [
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי פגיעות בעצבים ההיקפיים הספציפיים לפי סעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה קלה",
+                  "description": "קלה\nדוגמה: כאב מקרין לרגל אחת, יכול ללכת אבל עם הגבלה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11846,7 +11921,7 @@
                   "severityId": "category_35_disease_176_hpgyyb"
                 },
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי פגיעות בעצבים ההיקפיים הספציפיים לפי סעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה בינונית",
+                  "description": " בינונית\nדוגמה: כאבים חזקים עם נימול בשתי רגליים, קושי ללכת מרחקים ארוכים",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11854,7 +11929,7 @@
                   "severityId": "category_35_disease_176_uv3xr8"
                 },
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי פגיעות בעצבים ההיקפיים הספציפיים לפי סעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה קשה",
+                  "description": "קשה\nדוגמה: לא מצליח ללכת בלי מנוחה תכופה, קושי לעמוד, לפעמים צולע",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11876,9 +11951,10 @@
             {
               "id": "disease_178",
               "name": "פגיעה בעצב השת (סיאטיקה) - Sciatic Nerve Injury",
+              "description": "איפה בגוף: גב תחתון - ירך אחורית עד כף הרגל. גורם לכאב חד, ירידה בכוח הרגל, קושי בכיפוף/יישור",
               "severities": [
                 {
-                  "description": "הפרעה תפקודית קלה - חולשת דורסיפלקסיה וכן חולשת פלנטרפלקסיה של כף הרגל בדרגה 4/5",
+                  "description": " קלה\nדוגמה: חולשה קלה בהנפת כף הרגל כלפי מעלה (דרוסיפלקסיה) או מטה, אבל עדיין הולך",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11886,7 +11962,7 @@
                   "severityId": "category_35_disease_178_aazaxt"
                 },
                 {
-                  "description": "הפרעה תפקודית בינונית - חולשת דורסיפלקסיה וכן חולשת פלנטרפלקסיה של כף הרגל בדרגה 3/5",
+                  "description": "בינונית\nדוגמה: קשה ללכת על העקבים או האצבעות, כף הרגל נגררת לפעמים",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11894,7 +11970,7 @@
                   "severityId": "category_35_disease_178_iivoa"
                 },
                 {
-                  "description": "הפרעה תפקודית קשה עד שיתוק מלא - חולשת דורסיפלקסיה וכן חולשת פלנטרפלקסיה של כף הרגל בדרגה 2/5 ומטה",
+                  "description": "קשה/שיתוק\nדוגמה: כף הרגל “נופלת”, נגררת קבוע, צריך סד/מכשיר עזר להליכה",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11916,9 +11992,10 @@
             {
               "id": "disease_172",
               "name": "פגיעה בעצב התווך (מדיאני) - Median Nerve Injury",
+              "description": "איפה בגוף: שורש כף היד וכף היד (תעלה קרפלית). גורם לנימול באצבעות, חולשה באחיזה, קושי בתנועות עדינות",
               "severities": [
                 {
-                  "description": "הפרעה תחושתית בלבד עם מבחן טינל או מבחן פאלן חיובי (פלג גוף דומיננטי)",
+                  "description": "תחושתי בלבד - פלג גוף דומיננטי/לא דומיננטי\nדוגמה: נימול באגודל/אצבעות, מבחן טינל או פאלן חיובי",
                   "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11926,15 +12003,7 @@
                   "severityId": "category_34_disease_172_uwn7lne"
                 },
                 {
-                  "description": "הפרעה תחושתית בלבד עם מבחן טינל או מבחן פאלן חיובי (פלג גוף לא דומיננטי)",
-                  "percentage": 5,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_34_disease_172_29byl8"
-                },
-                {
-                  "description": "הפרעה תפקודית קלה - כיפוף אצבעות בדרגה 4/5 (פלג גוף דומיננטי)",
+                  "description": "חולשה קלה - פלג גוף דומיננטי/לא דומיננטי\nדוגמה: קשה לסגור אגרוף חזק או להחזיק חפצים זמן רב",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11942,15 +12011,7 @@
                   "severityId": "category_34_disease_172_q1723"
                 },
                 {
-                  "description": "הפרעה תפקודית קלה - כיפוף אצבעות בדרגה 4/5 (פלג גוף לא דומיננטי)",
-                  "percentage": 10,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_34_disease_172_k0s60m"
-                },
-                {
-                  "description": "הפרעה תפקודית בינונית - כיפוף אצבעות בדרגה 3/5 (פלג גוף דומיננטי)",
+                  "description": "חולשה בינונית - פלג גוף לא דומיננטי\nדוגמה: מתקשה לפתוח בקבוקים, לאחוז מפתחות או להקליד הרבה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11958,7 +12019,7 @@
                   "severityId": "category_34_disease_172_0ytbnm"
                 },
                 {
-                  "description": "הפרעה תפקודית בינונית - כיפוף אצבעות בדרגה 3/5 (פלג גוף לא דומיננטי)",
+                  "description": "חולשה בינונית - פלג גוף דומיננטי\nדוגמה: מתקשה לפתוח בקבוקים, לאחוז מפתחות או להקליד הרבה",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11966,7 +12027,7 @@
                   "severityId": "category_34_disease_172_qq43d7"
                 },
                 {
-                  "description": "הפרעה תפקודית קשה עד שיתוק מלא - כיפוף אצבעות בדרגה 2/5 ומטה (פלג גוף דומיננטי)",
+                  "description": "חולשה קשה/שיתוק - פלג גוף לא דומיננטי\nדוגמה: לא מצליח לסגור אגרוף, קשה מאוד להשתמש ביד ליום־יום",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11974,7 +12035,7 @@
                   "severityId": "category_34_disease_172_h4mbl"
                 },
                 {
-                  "description": "הפרעה תפקודית קשה עד שיתוק מלא - כיפוף אצבעות בדרגה 2/5 ומטה (פלג גוף לא דומיננטי)",
+                  "description": "חולשה קשה/שיתוק - פלג גוף דומיננטי\nדוגמה: לא מצליח לסגור אגרוף, קשה מאוד להשתמש ביד ליום־יום",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -11996,9 +12057,10 @@
             {
               "id": "disease_173",
               "name": "פגיעה בעצב הגומד (אולנרי) - Ulnar Nerve Injury",
+              "description": "איפה בגוף: צידו הפנימי של המרפק → כף היד (אצבע רביעית וחמישית). גורם ל-“נימול של המרפק”, חולשה באצבע הקטנה.",
               "severities": [
                 {
-                  "description": "הפרעה תחושתית בלבד עם מבחן טינל חיובי (פלג גוף דומיננטי)",
+                  "description": "תחושתי בלבד - פלג גוף דומיננטי/לא דומיננטי\nדוגמה: נימול באצבע הקטנה והקמיצה, בלי חולשה",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12006,15 +12068,7 @@
                   "severityId": "category_34_disease_173_ogbbhq"
                 },
                 {
-                  "description": "הפרעה תחושתית בלבד עם מבחן טינל חיובי (פלג גוף לא דומיננטי)",
-                  "percentage": 0,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_34_disease_173_wz8tsw"
-                },
-                {
-                  "description": "הפרעה תפקודית קלה - חולשת אינטראוסאי בדרגה 4/5 (פלג גוף דומיננטי)",
+                  "description": "חולשה קלה - פלג גוף דומיננטי/לא דומיננטי\nדוגמה: קושי קל לפזר אצבעות, אבל תפקוד כמעט מלא",
                   "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12022,15 +12076,7 @@
                   "severityId": "category_34_disease_173_hjz79"
                 },
                 {
-                  "description": "הפרעה תפקודית קלה - חולשת אינטראוסאי בדרגה 4/5 (פלג גוף לא דומיננטי)",
-                  "percentage": 5,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_34_disease_173_jha93e"
-                },
-                {
-                  "description": "הפרעה תפקודית בינונית - חולשת אינטראוסאי בדרגה 3/5 (פלג גוף דומיננטי)",
+                  "description": "בינונית - פלג גוף לא דומיננטי\nדוגמה: מתקשה לכתוב/להחזיק כוס ביד הפגועה",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12038,7 +12084,7 @@
                   "severityId": "category_34_disease_173_7o77gh"
                 },
                 {
-                  "description": "הפרעה תפקודית בינונית - חולשת אינטראוסאי בדרגה 3/5 (פלג גוף לא דומיננטי)",
+                  "description": "בינונית - פלג גוף דומיננטי\nדוגמה: מתקשה לכתוב/להחזיק כוס ביד הפגועה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12046,7 +12092,7 @@
                   "severityId": "category_34_disease_173_htqmm"
                 },
                 {
-                  "description": "הפרעה תפקודית קשה עד שיתוק מלא - חולשת אינטראוסאי בדרגה 2/5 ומטה (פלג גוף דומיננטי)",
+                  "description": " קשה - פלג גוף לא דומיננטי\nדוגמה: עיוות אצבעות (\"claw hand\"), אחיזה חלשה, קושי ממשי בעבודת ידיים",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12054,7 +12100,7 @@
                   "severityId": "category_34_disease_173_ziutv5"
                 },
                 {
-                  "description": "הפרעה תפקודית קשה עד שיתוק מלא - חולשת אינטראוסאי בדרגה 2/5 ומטה (פלג גוף לא דומיננטי)",
+                  "description": " קשה - פלג גוף דומיננטי\nדוגמה: עיוות אצבעות (\"claw hand\"), אחיזה חלשה, קושי ממשי בעבודת ידיים",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12076,9 +12122,10 @@
             {
               "id": "disease_171",
               "name": "פגיעה בעצב החישור (רדיאלי) - Radial Nerve Injury",
+              "description": "איפה בגוף: זרוע אחורית → גב כף היד. גורם לקושי ביישור שורש כף היד או האצבעות (“יד נופלת”)",
               "severities": [
                 {
-                  "description": "הפרעה תפקודית קלה - יישור כף היד או אצבעות בדרגה 4/5 (פלג גוף דומיננטי)",
+                  "description": "קלה - פלג גוף דומיננטי/לא דומיננטי\n דוגמה: חולשה קלה ביישור כף היד, עדיין מצליח להחזיק כוס",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12086,15 +12133,7 @@
                   "severityId": "category_34_disease_171_qv4mc"
                 },
                 {
-                  "description": "הפרעה תפקודית קלה - יישור כף היד או אצבעות בדרגה 4/5 (פלג גוף לא דומיננטי)",
-                  "percentage": 10,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_34_disease_171_mqe2ab"
-                },
-                {
-                  "description": "הפרעה תפקודית בינונית - יישור כף היד או אצבעות בדרגה 3/5 (פלג גוף דומיננטי)",
+                  "description": "בינונית - פלג גוף לא דומיננטי\nדוגמה: לא מצליח ליישר לגמרי את שורש כף היד, מתקשה באחיזה חזקה",
                   "percentage": 15,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12102,7 +12141,7 @@
                   "severityId": "category_34_disease_171_vz23cv"
                 },
                 {
-                  "description": "הפרעה תפקודית בינונית - יישור כף היד או אצבעות בדרגה 3/5 (פלג גוף לא דומיננטי)",
+                  "description": "בינונית - פלג גוף דומיננטי\nדוגמה: לא מצליח ליישר לגמרי את שורש כף היד, מתקשה באחיזה חזקה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12110,7 +12149,7 @@
                   "severityId": "category_34_disease_171_2ivmhp"
                 },
                 {
-                  "description": "הפרעה תפקודית קשה עד שיתוק מלא - יישור כף היד או אצבעות בדרגה 2/5 או מטה (פלג גוף דומיננטי)",
+                  "description": "קשה/שיתוק - פלג גוף לא דומיננטי\nדוגמה: כף היד “נופלת” קדימה, לא יכול להרים אצבעות, נזקק לסד קבוע",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12118,7 +12157,7 @@
                   "severityId": "category_34_disease_171_djp0ye"
                 },
                 {
-                  "description": "הפרעה תפקודית קשה עד שיתוק מלא - יישור כף היד או אצבעות בדרגה 2/5 או מטה (פלג גוף לא דומיננטי)",
+                  "description": "קשה/שיתוק - פלג גוף דומיננטי\nדוגמה: כף היד “נופלת” קדימה, לא יכול להרים אצבעות, נזקק לסד קבוע",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12140,9 +12179,10 @@
             {
               "id": "disease_170",
               "name": "פגיעה במקלעת הזרוע (ברכיאלית) - Brachial Plexus Injury",
+              "description": "איפה בגוף: רשת עצבים באזור הכתף, שולטת ביד כולה. עלול לגרום לחולשה או שיתוק בחלק מהיד או כולה",
               "severities": [
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיפים המתאימים לפגיעות בעצבים ההיקפיים הספציפיים בסעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה קלה (פלג גוף דומיננטי)",
+                  "description": "קלה - פלג גוף לא דומיננטי\nדוגמה: חולשה ביד אחת, עדיין יכול להשתמש בה לפעולות פשוטות",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12150,7 +12190,7 @@
                   "severityId": "category_34_disease_170_j7v3sk"
                 },
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיפים המתאימים לפגיעות בעצבים ההיקפיים הספציפיים בסעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה קלה (פלג גוף לא דומיננטי)",
+                  "description": "קלה - פלג גוף דומיננטי\nדוגמה: חולשה ביד אחת, עדיין יכול להשתמש בה לפעולות פשוטות",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12158,7 +12198,7 @@
                   "severityId": "category_34_disease_170_nj3baf"
                 },
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיפים המתאימים לפגיעות בעצבים ההיקפיים הספציפיים בסעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה בינונית (פלג גוף דומיננטי)",
+                  "description": "בינונית - פלג גוף לא דומיננטי\nדוגמה: חולשה משמעותית, מתקשה להרים יד או לבצע עבודות עדינות",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12166,7 +12206,7 @@
                   "severityId": "category_34_disease_170_y61ppq"
                 },
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיפים המתאימים לפגיעות בעצבים ההיקפיים הספציפיים בסעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה בינונית (פלג גוף לא דומיננטי)",
+                  "description": "בינונית - פלג גוף דומיננטי\nדוגמה: חולשה משמעותית, מתקשה להרים יד או לבצע עבודות עדינות",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12174,7 +12214,7 @@
                   "severityId": "category_34_disease_170_0w4d8"
                 },
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיפים המתאימים לפגיעות בעצבים ההיקפיים הספציפיים בסעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה קשה (פלג גוף דומיננטי)",
+                  "description": "קשה - פלג גוף לא דומיננטי\nדוגמה: ירידה קשה בכוח, לא מצליח להרים את היד לצד, קושי באכילה/לבוש",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12182,7 +12222,7 @@
                   "severityId": "category_34_disease_170_xpgiyd"
                 },
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיפים המתאימים לפגיעות בעצבים ההיקפיים הספציפיים בסעיפים קטנים (3) עד (7); בהסתמנויות קליניות שאין להן ביטוי בסעיפים הקטנים האמורים, תיקבע הנכות כדלקמן: בצורה קשה (פלג גוף לא דומיננטי)",
+                  "description": "קשה - פלג גוף דומיננטי\nדוגמה: ירידה קשה בכוח, לא מצליח להרים את היד לצד, קושי באכילה/לבוש",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -18584,7 +18624,7 @@
           "name": "השתלת איברים סולידיים (לב, ריאות, כבד, כליות ואיברי מערכת העיכול)",
           "severities": [
             {
-              "description": "בשנה שלאחר ההשתלה, למעט השתלת לב",
+              "description": "במהלך השנה הראשונה לאחר ההשתלה (למעט השתלת לב)\n דוגמה: שנה ראשונה אחרי השתלת כבד/כליה – נדרש מעקב וטיפול תרופתי צמוד",
               "percentage": 100,
               "countForDisability": true,
               "countForTax": true,
@@ -18592,7 +18632,7 @@
               "severityId": "category_25_disease_118_a4todl"
             },
             {
-              "description": "בתום התקופה האמורה בסעיף הקודם (תיקבע נכות נוספת בהתאם לליקויים המתאימים)",
+              "description": "לאחר סיום השנה הראשונה מההשתלה (נקבעים אחוזי נכות נוספים בהתאם לבעיות שנשארו)\n דוגמה: השתלת כליה לפני שנתיים – נקבעות אחוזי נכות לפי מצב הכליה המושתלת והסיבוכים",
               "percentage": 50,
               "countForDisability": true,
               "countForTax": true,
@@ -18600,7 +18640,7 @@
               "severityId": "category_25_disease_118_ixefhk"
             },
             {
-              "description": "לאחר השתלת לב מלאכותי",
+              "description": "אחרי השתלת לב מלאכותי\n דוגמה: מטופל עם לב מלאכותי – תלוי לחלוטין במכשיר, נדרש טיפול ומעקב תמידי.",
               "percentage": 100,
               "countForDisability": true,
               "countForTax": true,
