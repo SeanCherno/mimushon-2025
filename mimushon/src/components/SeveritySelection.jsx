@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from "react";
-import GenericSeverityQuestionnaire from "./GenericSeverityQuestionnaire";
+import GenericSeverityQuestionnaire from "./ScoringSystemQuestionnaire";
 import SeverityTable from "./SeverityTable";
 import BMICalculator from "./content/BmiCalculator";
 import Tooltip from "./content/Tooltip"
+import ScoringSystemQuestionnaire from "./ScoringSystemQuestionnaire";
+import ConditionalQuestionnaire from "./ConditionalQuestionnaire";
 
 const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedSubCategory, setSelectedCategory, setCurrentScreen, selectedDiseaseForSeverityView, onSeverityChange, chosenDiseasesWithSeverities, onNavigateToLinkedDisease }) => {
   const [severitySearchTerm, setSeveritySearchTerm] = useState('');
@@ -59,9 +61,8 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
     setSeveritySearchTerm(''); // Clear search term
   };
 
-  const hasQuestionnaire = selectedDiseaseForSeverityView.questionnaire &&
-                           selectedDiseaseForSeverityView.questionnaire.questions &&
-                           selectedDiseaseForSeverityView.questionnaire.questions.length > 0;
+  const hasScoringQuestionnaire = selectedDiseaseForSeverityView.scoringQuestionnaire
+  const hasConditionalQuestionnaire = selectedDiseaseForSeverityView.conditionalQuestionnaire
 
   const displayAsTable = selectedDiseaseForSeverityView.displayAsTable; // Re-added this line
 
@@ -97,7 +98,7 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
         </div>
       )}
 
-      {hasQuestionnaire && !displayAsTable && (
+      {(hasScoringQuestionnaire || hasConditionalQuestionnaire) && !displayAsTable && (
         <div className="mb-4">
           {!showInteractiveGuide && (
             <button
@@ -111,12 +112,25 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
             </button>
           )}
           {showInteractiveGuide && (
-            <GenericSeverityQuestionnaire
-              questionnaireData={selectedDiseaseForSeverityView.questionnaire}
+            <>
+            {hasScoringQuestionnaire && 
+            <ScoringSystemQuestionnaire
+              questionnaireData={selectedDiseaseForSeverityView.scoringQuestionnaire}
               severities={selectedDiseaseForSeverityView.severities}
               onSuggestSeverity={handleSeveritySuggestion}
               onCancel={() => { setShowInteractiveGuide(false); setIsGuiding(false); }}
             />
+            }
+            {
+              hasConditionalQuestionnaire && 
+              <ConditionalQuestionnaire
+                questionnaire={selectedDiseaseForSeverityView.conditionalQuestionnaire} 
+                severities={selectedDiseaseForSeverityView.severities} 
+                onSuggestSeverity={handleSeveritySuggestion} 
+                onCancel={() => {setShowInteractiveGuide(false); setIsGuiding(false); }} 
+              />
+            }
+            </>
           )}
         </div>
       )}

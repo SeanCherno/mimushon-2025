@@ -12941,7 +12941,7 @@
                   "severityId": "category_7_disease_28_mmgofp"
                 }
               ],
-              "questionnaire": {
+              "scoringQuestionnaire": {
                 "questions": [
                   {
                     "id": "q_mechanical_ventilation",
@@ -13032,6 +13032,7 @@
                 "rules": [
                   {
                     "answers": { "q_mechanical_ventilation": "yes" },
+                    "scoreRange": [1999, 10000],
                     "suggestedSeverityDescription": "בעת הנשמה מלאכותית באמצעות מכשירי הנשמה (ולמעט מכשירי CPAP או BIPAP)"
                   },
                   {
@@ -13684,7 +13685,7 @@
               "countForDisability": true,
               "countForTax": true,
               "countForSpecial": true,
-              "severityId": "category_5_disease_23_tq19ki"
+              "severityId": "diabetes_sev_0"
             },
             {
               "description": "סוכרת בטיפול פומי או אנלוג 1-GLP",
@@ -13692,7 +13693,7 @@
               "countForDisability": true,
               "countForTax": true,
               "countForSpecial": true,
-              "severityId": "category_5_disease_23_frk0lg"
+              "severityId": "diabetes_sev_10"
             },
             {
               "description": "סוכרת בטיפול אינסולין או בטיפול משולב עם אינסולין",
@@ -13700,7 +13701,7 @@
               "countForDisability": true,
               "countForTax": true,
               "countForSpecial": true,
-              "severityId": "category_5_disease_23_mugmp"
+              "severityId": "diabetes_sev_20"
             },
             {
               "description": "סוכרת לא מאוזנת המטופלת טיפול אינטנסיבי באינסולין (ארבע זריקות ומעלה ביום או שימוש במשאבת אינסולין)",
@@ -13708,7 +13709,7 @@
               "countForDisability": true,
               "countForTax": true,
               "countForSpecial": true,
-              "severityId": "category_5_disease_23_2z018b"
+              "severityId": "diabetes_sev_40"
             },
             {
               "description": "סוכרת המטופלת באינסולין ומתאפיינת באי יציבות קלינית בולטת הגורמת לאחד מאלה: חסר נוירולוגי (סוכרת שבירה), חמצת מטבולית, משבר היפראוסמוטי, אבדן הכרה או לשני אירועי היפוגליקמיה קשים במשך שנתיים המח71-75ים עזרה של גורם חיצוני (מתן זריקת גלוקוז, מתן עירוי גלוקוז או אשפוז)",
@@ -13716,7 +13717,7 @@
               "countForDisability": true,
               "countForTax": true,
               "countForSpecial": true,
-              "severityId": "category_5_disease_23_z3593s"
+              "severityId": "diabetes_sev_50"
             },
             {
               "description": "סוכרת עם סיבוך באחד מאברי המטרה בחומרה של 30% לפחות או עם שני סיבוכים לפחות באברי המטרה, שחומרת כל אחד מהם 20% לפחות",
@@ -13724,7 +13725,7 @@
               "countForDisability": true,
               "countForTax": true,
               "countForSpecial": true,
-              "severityId": "category_5_disease_23_9hi2x"
+              "severityId": "diabetes_sev_65"
             },
             {
               "description": "סוכרת עם שלושה סיבוכים לפחות באברי המטרה (כגון כליות, עיניים, עצבים, לב), כאשר חומרת כל אחד מהם 30% לפחות",
@@ -13732,110 +13733,87 @@
               "countForDisability": true,
               "countForTax": true,
               "countForSpecial": true,
-              "severityId": "category_5_disease_23_1qazyr"
+              "severityId": "diabetes_sev_100"
             }
           ],
-          "questionnaire": {
-            "questions": [
-              {
-                "id": "q_complications",
-                "text": "1. האם אובחנו אצלך סיבוכים משמעותיים באברי מטרה (כגון כליות, עיניים, עצבים, לב) כתוצאה מהסוכרת?",
+          "conditionalQuestionnaire": {
+            "startQuestionId": "q1_treatment",
+            "questions": {
+              "q1_treatment": {
+                "text": "כיצד מטופלת הסוכרת?",
                 "options": [
                   {
-                    "label": "כן, שלושה סיבוכים או יותר, כל אחד בחומרה משמעותית (לדוגמה: פגיעה חמורה בכליות, ראייה ירודה מאוד עקב רטינופתיה, נוירופתיה קשה)",
-                    "value": "many_severe_complications"
+                    "label": "ללא טיפול תרופתי",
+                    "severityId": "diabetes_sev_0"
                   },
                   {
-                    "label": "כן, סיבוק אחד או שניים בחומרה בינונית-קשה (לדוגמה: פגיעה כלייתית בינונית, בעיות ראייה, כאבי נוירופתיה משמעותיים)",
-                    "value": "some_moderate_complications"
+                    "label": "בטיפול פומי (כדורים) או אנלוג GLP-1",
+                    "severityId": "diabetes_sev_10"
                   },
                   {
-                    "label": "לא, או רק סיבוכים קלים מאוד (לדוגמה: קשיים קלים בראייה, נימול קל בכפות הרגליים)",
-                    "value": "no_significant_complications"
+                    "label": "בטיפול אינסולין (עם או בלי כדורים)",
+                    "nextQuestionId": "q2_complications"
                   }
                 ]
               },
-              {
-                "id": "q_crisis",
-                "text": "2. האם חווית אי פעם אירועים חמורים/מסכני חיים הקשורים לסוכרת, כגון חמצת (DKA), תרדמת היפר-אוסמולרית (HHS), איבוד הכרה, או אירועי היפוגליקמיה קשים שדרשו עזרה דחופה מאחרים?",
+              "q2_complications": {
+                "text": "האם קיימים סיבוכים באברי מטרה (כגון כליות, עיניים, עצבים, לב)?",
                 "options": [
                   {
-                    "label": "כן, חוויתי אירוע אחד או יותר כאלה (לדוגמה: נזקקתי לזריקת גלוקגון או אשפוז עקב סוכר נמוך מאוד)",
-                    "value": "yes_crisis_event"
+                    "label": "כן, קיימים סיבוכים",
+                    "nextQuestionId": "q3_complications_severity"
                   },
                   {
-                    "label": "לא, לא חוויתי אירועים כאלה",
-                    "value": "no_crisis_event"
+                    "label": "לא, לא קיימים סיבוכים",
+                    "nextQuestionId": "q4_insulin_intensity"
                   }
                 ]
               },
-              {
-                "id": "q_treatment_type",
-                "text": "3. כיצד הסוכרת שלך מטופלת בעיקר?",
+              "q3_complications_severity": {
+                "text": "מהי חומרת הסיבוכים?",
                 "options": [
                   {
-                    "label": "באמצעות תזונה ו/או פעילות גופנית בלבד (ללא תרופות)",
-                    "value": "diet_exercise_only"
+                    "label": "שלושה סיבוכים או יותר, כל אחד בחומרה של 30% לפחות",
+                    "severityId": "diabetes_sev_100"
                   },
                   {
-                    "label": "בכדורים ו/או בזריקות שאינן אינסולין (לדוגמה: GLP-1 אנלוגים)",
-                    "value": "oral_non_insulin_injections"
+                    "label": "סיבוך אחד בחומרה של 30% לפחות, או שני סיבוכים (כל אחד 20% לפחות)",
+                    "severityId": "diabetes_sev_65"
                   },
                   {
-                    "label": "באינסולין בזריקות רגילות (פחות מ-4 זריקות ביום)",
-                    "value": "regular_insulin_injections"
-                  },
-                  {
-                    "label": "באינסולין בטיפול אינטנסיבי (4 זריקות אינסולין או יותר ביום / משאבת אינסולין)",
-                    "value": "intensive_insulin_therapy"
+                    "label": "הסיבוכים אינם עומדים בקריטריונים אלו",
+                    "nextQuestionId": "q4_insulin_intensity"
                   }
+                ]
+              },
+              "q4_insulin_intensity": {
+                "text": "מהי עוצמת הטיפול באינסולין?",
+                "options": [
+                  {
+                    "label": "טיפול אינטנסיבי: 4 זריקות ומעלה ביום או שימוש במשאבה",
+                    "nextQuestionId": "q5_stability_intensive"
+                  },
+                  {
+                    "label": "טיפול רגיל: פחות מ-4 זריקות ביום",
+                    "nextQuestionId": "q6_stability_regular"
+                  }
+                ]
+              },
+              "q5_stability_intensive": {
+                "text": "האם הסוכרת מתאפיינת באי יציבות קלינית בולטת (כגון חסר נוירולוגי, חמצת, אירועי היפוגליקמיה קשים)?",
+                "options": [
+                  { "label": "כן", "severityId": "diabetes_sev_50" },
+                  { "label": "לא", "severityId": "diabetes_sev_40" }
+                ]
+              },
+              "q6_stability_regular": {
+                "text": "האם הסוכרת מתאפיינת באי יציבות קלינית בולטת (כגון חסר נוירולוגי, חמצת, אירועי היפוגליקמיה קשים)?",
+                "options": [
+                  { "label": "כן", "severityId": "diabetes_sev_50" },
+                  { "label": "לא", "severityId": "diabetes_sev_20" }
                 ]
               }
-            ],
-            "rules": [
-              {
-                "answers": {
-                  "q_complications": "many_severe_complications"
-                },
-                "suggestedSeverityDescription": "סוכרת עם שלושה סיבוכים לפחות באברי המטרה, כאשר חומרה כל אחד מהם 30% לפחות"
-              },
-              {
-                "answers": {
-                  "q_complications": "some_moderate_complications"
-                },
-                "suggestedSeverityDescription": "סוכרת עם סיבוך באחד מאברי המטרה בחומרה של 30% לפחות או עם שני סיבוכים לפחות באברי המטרה, שחומרת כל אחד מהם 20% לפחות"
-              },
-              {
-                "answers": {
-                  "q_crisis": "yes_crisis_event"
-                },
-                "suggestedSeverityDescription": "סוכרת המטופלת באינסולין ומתאפיינת באי יציבות קלינית בולטת הגורמת לאחד מאלה: חסר נוירולוגי (סוכרת שבירה), חמצת מטבולית, משבר היפראוסמוטי, אבדן הכרה או לשני אירועי היפוגליקמיה קשים במשך שנתיים המח71-75ים עזרה של גורם חיצוני (מתן זריקת גלוקוז, מתן עירוי גלוקוז או אשפוז)"
-              },
-              {
-                "answers": {
-                  "q_treatment_type": "intensive_insulin_therapy"
-                },
-                "suggestedSeverityDescription": "סוכרת לא מאוזנת המטופלת טיפול אינטנסיבי באינסולין (ארבע זריקות ומעלה ביום או שימוש במשאבת אינסולין)"
-              },
-              {
-                "answers": {
-                  "q_treatment_type": "regular_insulin_injections"
-                },
-                "suggestedSeverityDescription": "סוכרת בטיפול אינסולין או בטיפול משולב עם אינסולין"
-              },
-              {
-                "answers": {
-                  "q_treatment_type": "oral_non_insulin_injections"
-                },
-                "suggestedSeverityDescription": "סוכרת בטיפול פומי או אנלוג 1-GLP"
-              },
-              {
-                "answers": {
-                  "q_treatment_type": "diet_exercise_only"
-                },
-                "suggestedSeverityDescription": "היפרגליקמיה או סוכרת, בלא טיפול תרופתי"
-              }
-            ]
+            }
           },
           "requiredDocuments": [
             "         מכתב סיכום מרופא - אנדוקרינולוג",
