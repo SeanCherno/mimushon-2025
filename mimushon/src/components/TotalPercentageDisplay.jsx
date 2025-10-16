@@ -5,7 +5,7 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
   const uniqueDocuments = [...new Set(allRequiredDocuments)];
 
   return (
-    <div id="total-percentage" className="mt-8 p-6 bg-indigo-100 rounded-lg border-2 border-indigo-300 text-center">
+    <div id="total-percentage" className="p-6 bg-indigo-100 rounded-lg border-2 border-indigo-300 text-center">
             <div className="space-y-3">
                 {modes.map(mode => (
                     <div key={mode.id} className="relative flex justify-between items-center bg-white p-3 rounded-lg shadow-sm">

@@ -215,7 +215,7 @@ function App() {
 
   // Handle checkbox changes for severities
   const handleSeverityChange = (disease, severity) => {
-    setCurrentScreen("summary");
+    //setCurrentScreen("summary");
 
     const section = document.getElementById("calculator");
     if (section) {
@@ -353,36 +353,36 @@ function App() {
             setSelectedCategory={setSelectedCategory}
           />
         );
-      case "summary":
-        return (
-          <>
-            <ChosenDiseasesSummary
-              chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}
-              onRemoveDisease={handleRemoveDisease}
-              onAddDisease={() => setCurrentScreen("diseaseSelection")}
-              onEmptyList={() => setCurrentScreen("diseaseSelection")}
-              onProceed={() => setCurrentScreen("userInfo")}
-              modes={modes}
-            />
-            <div className="mt-6 flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={() => setCurrentScreen("diseaseSelection")}
-                className="flex-1 p-3 bg-slate-400 text-white rounded-lg font-semibold hover:bg-slate-600 transition"
-              >
-                הוסף/י מחלה נוספת
-              </button>
-              <button
-                onClick={() => {
-                  handleFinalCalculation(chosenDiseasesWithSeverities);
-                  setCurrentScreen("results");
-                }}
-                className="flex-1 p-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition"
-              >
-                המשך לחישוב
-              </button>
-            </div>
-          </>
-        );
+      // case "summary":
+      //   return (
+      //     <>
+      //       <ChosenDiseasesSummary
+      //         chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}
+      //         onRemoveDisease={handleRemoveDisease}
+      //         onAddDisease={() => setCurrentScreen("diseaseSelection")}
+      //         onEmptyList={() => setCurrentScreen("diseaseSelection")}
+      //         onProceed={() => setCurrentScreen("userInfo")}
+      //         modes={modes}
+      //       />
+      //       <div className="mt-6 flex flex-col sm:flex-row gap-4">
+      //         <button
+      //           onClick={() => setCurrentScreen("diseaseSelection")}
+      //           className="flex-1 p-3 bg-slate-400 text-white rounded-lg font-semibold hover:bg-slate-600 transition"
+      //         >
+      //           הוסף/י מחלה נוספת
+      //         </button>
+      //         <button
+      //           onClick={() => {
+      //             handleFinalCalculation(chosenDiseasesWithSeverities);
+      //             setCurrentScreen("results");
+      //           }}
+      //           className="flex-1 p-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition"
+      //         >
+      //           המשך לחישוב
+      //         </button>
+      //       </div>
+      //     </>
+      //   );
       // case "userInfo":
       //   return (
       //     <UserInfoForm
@@ -427,32 +427,34 @@ function App() {
           <div id="calculator"></div>
           <div className="mt-6 p-4 sm:p-8 font-sans text-gray-800 flex items-center justify-center">
             <div
-              className="bg-white p-6 sm:p-10 rounded-xl shadow-2xl w-full max-w-4xl border border-indigo-200"
+              className="bg-white p-6 sm:p-10 rounded-xl shadow-2xl w-full border border-indigo-200"
               dir="rtl"
             >
               <h1 className="text-3xl sm:text-4xl font-semibold text-center text-indigo-800 mb-8">
                 מחשבון אחוזי נכות למחלות
               </h1>
 
-              {/* <div className="mb-6 flex flex-row text-center justify-center space-x-2 sm:space-x-4 p-2">
-                {modes.map((modeOption) => (
-                  <button
-                    key={modeOption.id}
-                    onClick={() => setCurrentMode(modeOption.id)}
-                    className={`relative px-4 py-2 rounded-lg font-semibold flex-1 transition duration-200 ease-in-out
-                ${
-                  currentMode === modeOption.id
-                    ? "bg-indigo-600 text-white shadow-md"
-                    : "bg-white text-indigo-700 hover:bg-indigo-100 border border-indigo-300"
-                }`}
-                  >
-                    <Tooltip content={modeOption.content} />
-                    {modeOption.name}
-                  </button>
-                ))}
-              </div> */}
+              <div
+                className="flex flex-col md:flex-row-reverse gap-8"
+                dir="rtl"
+              >
+                {/* Sidebar */}
+                <aside className="w-full md:w-1/3">
+                  <ChosenDiseasesSummary
+                    chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}
+                    onRemoveDisease={handleRemoveDisease}
+                    onAddDisease={() => setCurrentScreen("diseaseSelection")}
+                    onEmptyList={() => setCurrentScreen("diseaseSelection")}
+                    onProceed={() => setCurrentScreen("userInfo")}
+                    modes={modes}
+                    onCalculate={handleFinalCalculation}
+                    setCurrentScreen={setCurrentScreen}
+                  />
+                </aside>
 
-              <section>{renderScreen()}</section>
+                {/* Main Content */}
+                <main className="w-full md:w-2/3">{renderScreen()}</main>
+              </div>
             </div>
           </div>
 

@@ -7,6 +7,9 @@ const DiseaseSelectionScreen = ({ selectedCategory, selectedSubCategory, setSele
     const handleCategoryClick = (category) => {
         if (!category.subcategories) {
             setSelectedSubCategory(category); // Treat it like a subcategory with its diseases
+            if(category.diseases.length === 1){
+              onDiseaseSelected(category.diseases[0])
+            }
         }
         setSelectedCategory(category);
     };
@@ -48,9 +51,9 @@ const DiseaseSelectionScreen = ({ selectedCategory, selectedSubCategory, setSele
 
     if (!selectedCategory) {
         return (
-            <div className="mb-8 p-6 bg-indigo-50 rounded-xl border border-indigo-200">
+            <div className="bg-indigo-50 rounded-xl border border-indigo-200">
                 <>
-                    <h2 className="text-2xl font-bold text-indigo-800 mb-4">בחר/י קטגוריה</h2>
+                    <h2 className="text-2xl font-bold text-indigo-800 mb-4 p-4">בחר/י קטגוריה</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 p-3 gap-4">
                         {categories.map(category => (
                             <button 

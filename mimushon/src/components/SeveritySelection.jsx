@@ -66,7 +66,7 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
   const displayAsTable = selectedDiseaseForSeverityView.displayAsTable; // Re-added this line
 
   return (
-    <div id="severitySelection" className="mb-8 p-4 sm:p-6 bg-indigo-50 rounded-xl border border-indigo-200">
+    <div id="severitySelection" className="p-4 sm:p-6 bg-indigo-50 rounded-xl border border-indigo-200">
       <div className="flex justify-between items-center mb-4">
       <h2 className="text-lg sm:text-2xl font-bold text-indigo-800 mb-4">
         בחר דרגה עבור: <span className="text-indigo-500">{selectedDiseaseForSeverityView.name}</span>
