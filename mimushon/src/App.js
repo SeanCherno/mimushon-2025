@@ -3,17 +3,17 @@ import SeveritySelection from "./components/SeveritySelection";
 import TotalPercentageDisplay from "./components/TotalPercentageDisplay";
 import ChosenDiseasesSummary from "./components/ChosenDiseaseSummary";
 // import CategoryMenu from "./components/CategoryMenu";
-import UserInfoForm from "./components/UserInfoForm";
+// import UserInfoForm from "./components/UserInfoForm";
 import LoadingSpinner from "./util/LoadingSpinner";
 import DiseaseSelectionScreen from "./components/DiseaseSelectionScreen";
 import Header from "./components/content/Header";
 import HeroSection from "./components/content/HeroSection";
 import HowWeHelpSection from "./components/content/HowWeHelpSection";
 import ProcessSection from "./components/content/ProcessSection";
-import WhyUsSection from "./components/content/WhyUsSection";
+// import WhyUsSection from "./components/content/WhyUsSection";
 import ContactSection from "./components/content/ContactSection";
 import Footer from "./components/content/Footer";
-import Tooltip from "./components/content/Tooltip";
+// import Tooltip from "./components/content/Tooltip";
 import AboutCalculatorSection from "./components/content/AboutCalculatorSection";
 import { Routes, Route } from "react-router-dom";
 import TermsPage from "./components/content/TermsPage";
@@ -68,7 +68,7 @@ function App() {
   // const [userName, setUserName] = useState("");
   // const [userPhone, setUserPhone] = useState("");
   // const [userEmail, setUserEmail] = useState("");
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  // const [formSubmitted, setFormSubmitted] = useState(false);
   // const [currentMode, setCurrentMode] = useState("generalDisability"); // Default mode
   const [isCalculating, setIsCalculating] = useState(false);
   const [diseasesData, setDiseasesData] = useState({});
@@ -78,6 +78,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
   const [showContent, setShowContent] = useState(false);
+  const [isMobileSummaryOpen, setIsMobileSummaryOpen] = useState(false);
 
   const modes = [
     {
@@ -182,6 +183,7 @@ function App() {
       setTotalPercentages(null); // Or some error state
     } finally {
       setIsCalculating(false);
+      setIsMobileSummaryOpen(false);
 
       const section = document.getElementById("final-percentage");
       if (section) {
@@ -198,7 +200,7 @@ function App() {
     if (disease) {
       // Set the disease for severity viewing
       setSelectedDiseaseForSeverityView(disease);
-      setFormSubmitted(false);
+      //setFormSubmitted(false);
       setCurrentScreen("severitySelection");
 
       // Add the disease to chosenDiseasesWithSeverities if not already present
@@ -293,7 +295,7 @@ function App() {
         selectedDiseaseForSeverityView.id === diseaseIdToRemove
       ) {
         setSelectedDiseaseForSeverityView(null);
-        setFormSubmitted(false);
+        //setFormSubmitted(false);
       }
       if (updatedList.length === 0) {
         setCurrentScreen("diseaseSelection");
@@ -302,21 +304,31 @@ function App() {
     });
   };
 
-  const handleUserInfoFormSubmit = ({ name, phone, email }) => {
-    // setUserName(name);
-    // setUserPhone(phone);
-    // setUserEmail(email);
+  // const handleUserInfoFormSubmit = ({ name, phone, email }) => {
+  //   // setUserName(name);
+  //   // setUserPhone(phone);
+  //   // setUserEmail(email);
 
-    setFormSubmitted(true);
-    handleFinalCalculation(chosenDiseasesWithSeverities);
-    setCurrentScreen("results");
-    // In a real application, you would send this data to a backend or do something with it.
-    console.log("User Info Submitted:", { name, phone, email });
+  //   setFormSubmitted(true);
+  //   handleFinalCalculation(chosenDiseasesWithSeverities);
+  //   setCurrentScreen("results");
+  //   // In a real application, you would send this data to a backend or do something with it.
+  //   console.log("User Info Submitted:", { name, phone, email });
+  // };
+
+  const handleAddDiseaseAndCloseModal = () => {
+    setCurrentScreen("diseaseSelection");
+    setIsMobileSummaryOpen(false);
+  };
+
+  const handleProceedAndCloseModal = () => {
+    setCurrentScreen("userInfo");
+    setIsMobileSummaryOpen(false);
   };
 
   const handleStartOver = () => {
     setChosenDiseasesWithSeverities([]);
-    setFormSubmitted(false);
+    // setFormSubmitted(false);
     setCurrentScreen("diseaseSelection");
   };
 
@@ -439,7 +451,7 @@ function App() {
                 dir="rtl"
               >
                 {/* Sidebar */}
-                <aside className="w-full md:w-1/3">
+                <aside className="w-full md:w-1/3 hidden md:block">
                   <ChosenDiseasesSummary
                     chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}
                     onRemoveDisease={handleRemoveDisease}
@@ -451,6 +463,65 @@ function App() {
                     setCurrentScreen={setCurrentScreen}
                   />
                 </aside>
+
+                {/* Mobile FAB and Modal */}
+                <div className="md:hidden">
+                  <button
+                    onClick={() => setIsMobileSummaryOpen(true)}
+                    className="fixed bottom-4 left-4 z-30 bg-purple-600 text-white p-4 rounded-full shadow-lg hover:bg-purple-700 transition flex items-center justify-center"
+                    aria-label="View Summary"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                      />
+                    </svg>
+                    {chosenDiseasesWithSeverities.length > 0 && (
+                      <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center border-2 border-white">
+                        {chosenDiseasesWithSeverities.length}
+                      </span>
+                    )}
+                  </button>
+
+                  {isMobileSummaryOpen && (
+                    <div
+                      className="fixed inset-0 bg-black/75 z-40"
+                      onClick={() => setIsMobileSummaryOpen(false)}
+                    >
+                      <div
+                        className="fixed inset-y-0 mt-16 right-0 w-full max-w-sm bg-purple-50 shadow-xl p-4 transform transition-transform"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ChosenDiseasesSummary
+                          chosenDiseasesWithSeverities={
+                            chosenDiseasesWithSeverities
+                          }
+                          onRemoveDisease={handleRemoveDisease}
+                          onAddDisease={handleAddDiseaseAndCloseModal}
+                          onEmptyList={() => {
+                            setCurrentScreen("diseaseSelection");
+                            setIsMobileSummaryOpen(false);
+                          }}
+                          onProceed={handleProceedAndCloseModal}
+                          isMobileView={true}
+                          onClose={() => setIsMobileSummaryOpen(false)}
+                          modes={modes}
+                          onCalculate={handleFinalCalculation}
+                          setCurrentScreen={setCurrentScreen}
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
 
                 {/* Main Content */}
                 <main className="w-full md:w-2/3">{renderScreen()}</main>

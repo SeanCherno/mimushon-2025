@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-
-const ChosenDiseasesSummary = ({ modes, chosenDiseasesWithSeverities, onCalculate, setCurrentScreen, onRemoveDisease, onEmptyList }) => {
+const ChosenDiseasesSummary = ({ modes, chosenDiseasesWithSeverities, onCalculate, setCurrentScreen, onRemoveDisease, onEmptyList, isMobileView = false, onClose }) => {
  const chosenDiseases = chosenDiseasesWithSeverities.filter(entry => entry.selectedSeverity);
 
   // const modeToCountKey = {
@@ -69,7 +67,12 @@ const ChosenDiseasesSummary = ({ modes, chosenDiseasesWithSeverities, onCalculat
   // ) : <div></div>;
 
       return (
-        <div className="p-6 bg-indigo-100 rounded-xl border-2 border-indigo-300 h-full flex flex-col">
+        <div className={isMobileView ? "h-full flex flex-col p-2" :"sticky top-24 bg-purple-50 p-6 rounded-xl shadow-lg border border-purple-200"}>
+             {isMobileView && (
+                <button onClick={onClose} className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 z-10">
+                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            )}
             <h2 className="text-xl font-bold text-indigo-800 mb-4">המחלות שנבחרו</h2>
             {chosenDiseases.length > 0 ? (
                 <div className="space-y-4 flex-grow">
@@ -114,6 +117,11 @@ const ChosenDiseasesSummary = ({ modes, chosenDiseasesWithSeverities, onCalculat
                 >
                     חשב אחוזי נכות
                 </button>
+                   {isMobileView && (
+                <button onClick={onClose} className="w-full p-3 bg-gray-600 text-white p-2 rounded-lg font-semibold hover:bg-gray-700">
+                    סגור סיכום
+                </button>
+            )}
             </div>
         </div>
     );
