@@ -23,12 +23,10 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
 
   useEffect(() => {
     setBack(selectedCategory)
-    console.log(selectedCategory)
   }, [selectedCategory])
 
   useEffect(() => {
     setBack(selectedSubCategory)
-    console.log(selectedSubCategory)
   }, [selectedSubCategory])
 
   if (!selectedDiseaseForSeverityView) {

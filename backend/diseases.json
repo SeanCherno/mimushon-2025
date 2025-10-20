@@ -13075,9 +13075,10 @@
             {
               "id": "disease_24",
               "name": "מחלת ריאות חסימתית כרונית (COPD) - Chronic Obstructive Pulmonary Disease",
+              "description": "מחלת ריאות כרונית שמגבילה את זרימת האוויר לריאות - נמדדת לפי תפקודי ריאות (FEV1 או DLCO)",
               "severities": [
                 {
-                  "description": "FEV1 או DLCO בין 65% ל-74%",
+                  "description": "תפקודי הריאות בין 65% ל-74% מהנורמה. קושי קל במאמץ או שיעול מתמשך",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13085,7 +13086,7 @@
                   "severityId": "category_6_disease_24_fiwzn9"
                 },
                 {
-                  "description": "עם FEV1 או DLCO בין 50% ל-64%",
+                  "description": "תפקודי הריאות בין 50% ל-64%. קושי בינוני בפעילות יומיומית כמו עלייה במדרגות",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13093,7 +13094,7 @@
                   "severityId": "category_6_disease_24_fg4yli"
                 },
                 {
-                  "description": "עם FEV1 בין 30% ל-49% או DLCO בין 35% ל-49%",
+                  "description": "תפקודי ריאות בין 30% ל-49%. קוצר נשימה משמעותי גם במנוחה קלה, צורך בטיפול תרופתי קבוע",
                   "percentage": 60,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13101,7 +13102,7 @@
                   "severityId": "category_6_disease_24_ri7qb"
                 },
                 {
-                  "description": "עם FEV1 קטן מ-30% או DLCO קטן מ-35%",
+                  "description": "תפקודי ריאות מתחת ל-30%. תלות גבוהה בחמצן או קושי חמור בביצוע פעולות יומיומיות בסיסיות",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13122,9 +13123,10 @@
             {
               "id": "disease_25",
               "name": "מחלת ריאות מגבלתית (רסטריקטיבית) - Restrictive Lung Disease",
+              "description": "מחלה שבה הריאות לא מצליחות להתרחב כראוי - נמדדת לפי FEV1, TLC ו-DLCO",
               "severities": [
                 {
-                  "description": "עם FEV1 בין 70% ל-79% או TLC בין 60% ל-79% או DLCO בין 60% ל-79%",
+                  "description": "תפקודי ריאות בין 60% ל-79% מהנורמה. קוצר נשימה קל במאמץ",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13132,7 +13134,7 @@
                   "severityId": "category_6_disease_25_4rv3e4"
                 },
                 {
-                  "description": "עם FEV1 בין 50% ל-69%, או TLC בין 50% ל-59%, או DLCO בין 40% ל-59%",
+                  "description": "תפקודי ריאות בין 50% ל-69% (או DLCO 40-59%). קוצר נשימה בינוני, קושי בעבודות פיזיות",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13140,7 +13142,7 @@
                   "severityId": "category_6_disease_25_9fky8f"
                 },
                 {
-                  "description": "עם FEV1 בין 30% ל-49% או TLC בין 30% ל-49% או DLCO בין 30% ל-39%",
+                  "description": "תפקודי ריאות בין 30% ל-49%. קוצר נשימה חמור גם בפעילות קלה",
                   "percentage": 70,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13148,7 +13150,7 @@
                   "severityId": "category_6_disease_25_iyp3ci"
                 },
                 {
-                  "description": " עם 1FEV מתחת ל29%- או TLC מתחת ל40%- או DLCO מתחת ל 30% או 2VO בבדיקת מאמץ לב-ריאה מתחת ל10- מ ל לק ג לדקה או עם סטורציית חמצן מתחת ל90%- וצורך בטיפול קבוע בהעשרת חמצן של 16 שעות ביממה לפחות בחודשיים האחרונים",
+                  "description": "תפקודי ריאות מתחת ל-30% או צורך בחמצן קבוע (לפחות 16 שעות ביום במשך חודשיים)",
                   "percentage": 90,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13156,7 +13158,7 @@
                   "severityId": "category_6_disease_25_ea7a7k"
                 },
                 {
-                  "description": "עם צורך בהנשמה מלאכותית קבועה באמצעות מכשירי הנשמה (ולמעט מכשירי CPAP BIPAP)",
+                  "description": "צורך קבוע בהנשמה מלאכותית (לא כולל CPAP/BIPAP לשינה בלבד)",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13177,9 +13179,10 @@
             {
               "id": "disease_26",
               "name": "התרחבות סימפונות (ברונכיאקטזיס) - Bronchiectasis",
+              "description": "מצב שבו דרכי האוויר (הסימפונות) מתרחבות בצורה לא תקינה",
               "severities": [
                 {
-                  "description": "עם FEV1 שווה ל-75% מהצפוי או גדול ממנו ועם אחד או יותר מהתסמינים - שיעול טורדני, ליחה מרובה או קוצר נשימה במנוחה",
+                  "description": "תפקודי ריאות תקינים או כמעט תקינים (FEV1 מעל 75%), אבל יש תסמינים כמו שיעול מתמשך, ליחה מרובה או קוצר נשימה קל גם במנוחה",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13187,7 +13190,7 @@
                   "severityId": "category_6_disease_26_mypor"
                 },
                 {
-                  "description": "עם FEV1 נמוך מ-75%, ובהתאם לצורת מחלה חסימתית, תיקבע דרגת הנכות על פי סעיפי חסמת הריאות (COPD). לחצו למעבר לצפייה בסעיפים הרלוונטיים.",
+                  "description": "אם מדובר בצורה חסימתית – לפי סעיפי COPD (מחלת ריאות חסימתית כרונית). לחצ/י למעבר לסעיף הרלוונטי.",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13196,7 +13199,7 @@
                   "linkedDiseaseId": "disease_24"
                 },
                 {
-                  "description": "עם FEV1 נמוך מ-75%, ובהתאם לצורת מחלה רסטרקטיבית, תיקבע דרגת הנכות על פי סעיפי מחלות הריאה הרסטרקטיביות. לחצו למעבר לצפייה בסעיפים הרלוונטיים.",
+                  "description": "אם מדובר בצורה מגבלתית – לפי סעיפי מחלות ריאה רסטריקטיביות. לחצ/י למעבר לסעיף הרלוונטי",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13226,7 +13229,7 @@
               "name": "דלקת ריאות וציסטות - Pneumonia & Cysts",
               "severities": [
                 {
-                  "description": "מחנה פעילה בזמן אשפוז עד חודש אחריו",
+                  "description": "בזמן דלקת ריאות פעילה שדורשת אשפוז, ועד חודש לאחר השחרור מבית החולים",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13247,9 +13250,10 @@
             {
               "id": "disease_29",
               "name": "שחפת - Tuberculosis",
+              "description": "מחלה זיהומית הנגרמת על ידי חיידק השחפת (Mycobacterium tuberculosis), שפוגעת בעיקר בריאות",
               "severities": [
                 {
-                  "description": "פעילה (על פי תרבית) מיום הופעת הסימפטומים - עד חודש לאחר הוכחת אי-פעילות המחלה (לפי תרביות שליליות)",
+                  "description": "בזמן שהמחלה פעילה לפי תרבית חיובית, ועד חודש לאחר שהוכחה אי-פעילות המחלה",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13257,7 +13261,7 @@
                   "severityId": "category_8_disease_29_0wub2h"
                 },
                 {
-                  "description": "בתום חודש לאחר הוכחת אי-פעילות המחלה, עד תום הטיפול האנטי-שחפתי",
+                  "description": "בחודש שלאחר הוכחת אי-פעילות המחלה ועד סיום הטיפול התרופתי האנטי-שחפתי",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13265,7 +13269,7 @@
                   "severityId": "category_8_disease_29_l4zubp"
                 },
                 {
-                  "description": "בעת קבלת טיפול מונע לזיהום לטנטי",
+                  "description": "אם מדובר בזיהום רדום (לטנטי) ואתה מקבל טיפול מונע בלבד",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13292,9 +13296,10 @@
             {
               "id": "disease_1000",
               "name": "מחלות קרום הריאה (פלאורה) - Pleural Diseases",
+              "description": "מחלות שפוגעות בקרום שמכסה את הריאות (כמו תפליט פלאורלי, עיבוי או הידבקויות)",
               "severities": [
                 {
-                  "description": "דרגת הנכות תיקבע על פי פרטי מחלות הריאה הרסטרקטיביות. לחצ/י למעבר לצפייה בסעיפים הרלוונטיים.",
+                  "description": "דרגת הנכות תיקבע בהתאם לפגיעה בתפקודי הריאה, לפי סעיפי מחלות ריאה רסטריקטיביות. לחצ/י למעבר לסעיף הרלוונטי.",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13316,9 +13321,10 @@
             {
               "id": "disease_31",
               "name": "מצב לאחר כריתת ריאה - Post-Lung Resection",
+              "description": "לאחר ניתוח שבו הוסרה ריאה שלמה או חלק ממנה",
               "severities": [
                 {
-                  "description": "עד חודשיים לאחר הניתוח",
+                  "description": " בתקופה של עד חודשיים אחרי הניתוח",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13326,7 +13332,7 @@
                   "severityId": "category_9_disease_31_zfnai"
                 },
                 {
-                  "description": "בחודש השלישי לאחר הניתוח",
+                  "description": "בחודש השלישי אחרי הניתוח",
                   "percentage": 70,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13334,7 +13340,7 @@
                   "severityId": "category_9_disease_31_y4o7tn"
                 },
                 {
-                  "description": "לאחר החודש השלישי, ייקבעו אחוזי הנכות לפי פרטי מחלות הריאה הרסטרקטיביות. לחצו למעבר לצפייה בסעיפים הרלוונטיים.",
+                  "description": "לאחר מכן, אחוזי הנכות יקבעו לפי תפקודי הריאות שלך — בהתאם לסעיפים של מחלות ריאה רסטריקטיביות (הגבלה בהתרחבות הריאה)",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13356,6 +13362,7 @@
             {
               "id": "disease_32",
               "name": "מצב לאחר כריתת צלעות - Post-Rib Resection",
+              "description": "לאחר ניתוח שבו הוסרו צלעות. ככל שמוסרות יותר צלעות, כך הפגיעה בתפקוד הנשימתי גדולה יותר",
               "severities": [
                 {
                   "description": "לאחר כריתת צלע אחת",
@@ -13412,9 +13419,10 @@
             {
               "id": "disease_33",
               "name": "יתר לחץ דם ריאתי ראשוני - Primary Pulmonary Hypertension",
+              "description": "מחלה שבה יש לחץ דם גבוה בעורקי הריאות, דבר שמקשה על הלב והריאות לעבוד כרגיל",
               "severities": [
                 {
-                  "description": "לחץ דם ריאתי מעל 40 מיימ כספית",
+                  "description": "לחץ דם ריאתי מעל 40 מ\"מ כספית",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13422,7 +13430,7 @@
                   "severityId": "category_10_disease_33_gsyllo"
                 },
                 {
-                  "description": "לחץ דם ריאתי מעל 50 מיימ כספית",
+                  "description": "לחץ דם ריאתי מעל 50 מ\"מ כספית",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13430,7 +13438,7 @@
                   "severityId": "category_10_disease_33_75jfbg"
                 },
                 {
-                  "description": "לחץ דם ריאתי מעל 60 מיימ כספית או ירידה בסטורציה במאמץ מתחת ל-88%",
+                  "description": "לחץ דם ריאתי מעל 60 מ\"מ כספית או ירידה בסטורציה במאמץ מתחת ל-88%",
                   "percentage": 60,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13438,7 +13446,7 @@
                   "severityId": "category_10_disease_33_bzb5z9"
                 },
                 {
-                  "description": "לחץ דם ריאתי מעל 75 מיימ כספית או ירידה בסטורציה במנוחה מתחת ל-88%",
+                  "description": "לחץ דם ריאתי מעל 75 מ\"מ כספית או ירידה בסטורציה במנוחה מתחת ל-88%",
                   "percentage": 80,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13446,7 +13454,7 @@
                   "severityId": "category_10_disease_33_i6kd8q"
                 },
                 {
-                  "description": "תצרוכת חמצן מרבית במבחן מאמץ לב-ריאה משולב מתחת ל-10 מייל/ק\"ג לדקה",
+                  "description": "אם בבדיקת מאמץ לב-ריאה צריכת החמצן המרבית נמוכה מ-10 מ\"ל לק\"ג לדקה (קושי נשימתי חמור מאוד)",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13475,7 +13483,7 @@
               "name": "הפרעות נשימה אפיות (נזלת, סינוסיטיס) - Nasal Breathing Disorders",
               "severities": [
                 {
-                  "description": "הפרעה קלה עד בינונית",
+                  "description": "הפרעה קלה עד בינונית \n חסימה חלקית באף, נזלת מתמשכת או גודש שמפריע בעיקר בעונות מעבר, אך ללא השפעה ממשית על הנשימה או השינה",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13483,7 +13491,7 @@
                   "severityId": "category_73_disease_354_v6h8q"
                 },
                 {
-                  "description": "הפרעה ניכרת, חסימה מוחלטת חד-צדדית קבועה",
+                  "description": "הפרעה ניכרת \n חסימה מוחלטת בצד אחד של האף, קבועה, עם קושי ניכר בנשימה דרך הנחיר החסום",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13491,7 +13499,7 @@
                   "severityId": "category_73_disease_354_psm26e"
                 },
                 {
-                  "description": "חסימה מוחלטת דו-צדדית קבועה",
+                  "description": "חסימה מוחלטת דו-צדדית קבועה \n שני הנחיריים חסומים לחלוטין, גורמים להפרעת נשימה קשה, לעיתים גם לנחירות קשות או צורך בנשימה דרך הפה בלבד",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13509,7 +13517,7 @@
               "name": "עיוותים במבנה האף החיצוני - External Nose Deformities",
               "severities": [
                 {
-                  "description": "בצורה קלה ללא הפרעות בנשימה",
+                  "description": "בצורה קלה – עיוות אסתטי בלבד, ללא הפרעות בנשימה",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13517,7 +13525,7 @@
                   "severityId": "category_73_disease_353_xnb1qn"
                 },
                 {
-                  "description": "בצורה ניכרת עם הפרעות בנשימה או חסר של חלק מהאף: נחיריים לא גלויים",
+                  "description": "בצורה ניכרת \n עיוות משמעותי של מבנה האף עם הפרעה בנשימה או חסר חלקי באף (כגון נחיריים חסומים או לא גלויים)",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13525,7 +13533,7 @@
                   "severityId": "category_73_disease_353_jqp3j"
                 },
                 {
-                  "description": "חסר אף כולו או חלקו: נחיריים גלויים",
+                  "description": "חסר אף כולו או חלקו \n פגם חמור עם נחיריים גלויים, פגם אסתטי ותפקודי משמעותי",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13549,7 +13557,7 @@
               "name": "מחלות הלוע - Pharynx Diseases",
               "severities": [
                 {
-                  "description": "דלקת כרונית בצורה בינונית עם גירוי קבוע",
+                  "description": "דלקת כרונית בצורה בינונית \n תחושת גרון יבש, צריבה או גירוי מתמשך, אך ללא הפרעה ממשית בבליעה או דיבור",
                   "percentage": 0,
                   "countForDisability": false,
                   "countForTax": true,
@@ -13557,7 +13565,7 @@
                   "severityId": "category_74_disease_358_vdi9c1r"
                 },
                 {
-                  "description": "דלקת כרונית בצורה ניכרת עם קשיים קבועים בבליעה",
+                  "description": "דלקת כרונית ניכרת \n קושי קבוע בבליעה, לעיתים עם כאבים או צורך בהימנעות ממזונות מסוימים",
                   "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13565,7 +13573,7 @@
                   "severityId": "category_74_disease_358_m9thn"
                 },
                 {
-                  "description": "הפרעה קשה בבליעה שמח71-75ת שימוש בזונדה",
+                  "description": "הפרעה קשה בבליעה \n קושי משמעותי בהעברת מזון ונוזלים, צורך קבוע בזונדה להזנה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13583,7 +13591,7 @@
               "name": "הפרעות דיבור (צרידות, אפוניה) - Speech Disorders (Hoarseness/Aphonia)",
               "severities": [
                 {
-                  "description": "צרידות לא קבועה (אינטרמיטנטית)",
+                  "description": "צרידות לא קבועה (אינטרמיטנטית) – מופיעה לסירוגין, למשל אחרי מאמץ בדיבור, אך הקול תקין רוב הזמן",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13591,7 +13599,7 @@
                   "severityId": "category_75_disease_359_gkp1f"
                 },
                 {
-                  "description": "בצרידות קבועה - קלה עד בינונית, הדיבור ברור",
+                  "description": "צרידות קבועה קלה עד בינונית – הקול מחוספס או חלש אך מובן וברור",
                   "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13599,7 +13607,7 @@
                   "severityId": "category_75_disease_359_todbx"
                 },
                 {
-                  "description": "צרידות קבועה - בצורה ניכרת, אין קשיים בקליטת הדיבור",
+                  "description": "צרידות קבועה ניכרת – הקול צרוד באופן משמעותי, אך הדיבור עדיין מובן לאחרים",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13607,7 +13615,7 @@
                   "severityId": "category_75_disease_359_qkya7v"
                 },
                 {
-                  "description": "צרידות קבועה - בצורה קשה, הגורמת לקשיים לזולת בהבנת הדיבור או קליטתו",
+                  "description": "צרידות קשה – הקול כמעט ואינו מובן, יש קושי ניכר בתקשורת מילולית",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13615,7 +13623,7 @@
                   "severityId": "category_75_disease_359_r1kfmm"
                 },
                 {
-                  "description": "איבוד קול (APHONIA) ללא טראכאוסטומיה",
+                  "description": "איבוד קול מוחלט (Aphonia) – חוסר מוחלט ביכולת להשמיע קול, ללא פתח נשימה בצוואר (ללא טראכאוסטומיה)",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13635,7 +13643,7 @@
               "name": "הפרעות נשימה מהגרון וקנה הנשימה - Laryngeal/Tracheal Breathing Disorders",
               "severities": [
                 {
-                  "description": "בצורה קלה, ללא השפעה על תפקודי ריאות",
+                  "description": "בצורה קלה – קושי קל בנשימה או תחושת חסימה מזערית, ללא השפעה על תפקודי הריאות",
                   "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13643,7 +13651,7 @@
                   "severityId": "category_75_disease_360_woyl4c"
                 },
                 {
-                  "description": "עם השפעה על תפקודי הריאות - דרגת הנכות תיקבע בהתאם לחומרת הליקוי התפקודי לפי הסעיף המצורף",
+                  "description": "עם השפעה על תפקודי הריאות – דרגת הנכות תיקבע לפי חומרת הליקוי התפקודי שנמדד בבדיקות ריאה (בהתאם לסעיפים הרלוונטיים)",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13652,7 +13660,7 @@
                   "linkedDiseaseId": "disease_24"
                 },
                 {
-                  "description": "טראכאוסטומיה קבועה (כולל אפוניה) (PERMANENT TRACHEOSTOMY)",
+                  "description": "טראכאוסטומיה קבועה (Permanent Tracheostomy) – פתח קבוע בצוואר לנשימה, בדרך כלל כולל גם אובדן קול (אפוניה)",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13680,7 +13688,7 @@
           "name": "סוכרת",
           "severities": [
             {
-              "description": "היפרגליקמיה או סוכרת, בלא טיפול תרופתי",
+              "description": "אבל אין צורך בטיפול תרופתי (תזונה ופעילות גופנית בלבד)\nדוגמה: סוכר גבולי או טרום-סוכרת",
               "percentage": 0,
               "countForDisability": true,
               "countForTax": true,
@@ -13688,7 +13696,7 @@
               "severityId": "diabetes_sev_0"
             },
             {
-              "description": "סוכרת בטיפול פומי או אנלוג 1-GLP",
+              "description": "מטופל/ת בכדורים או בזריקות ממשפחת GLP-1 (כמו אוזמפיק, ריבלסוס או טרוליסיטי), והסוכר מאוזן יחסית",
               "percentage": 10,
               "countForDisability": true,
               "countForTax": true,
@@ -13696,7 +13704,7 @@
               "severityId": "diabetes_sev_10"
             },
             {
-              "description": "סוכרת בטיפול אינסולין או בטיפול משולב עם אינסולין",
+              "description": "מטופל/ת באינסולין, או בשילוב של אינסולין וכדורים",
               "percentage": 20,
               "countForDisability": true,
               "countForTax": true,
@@ -13704,7 +13712,7 @@
               "severityId": "diabetes_sev_20"
             },
             {
-              "description": "סוכרת לא מאוזנת המטופלת טיפול אינטנסיבי באינסולין (ארבע זריקות ומעלה ביום או שימוש במשאבת אינסולין)",
+              "description": "מזריק/ה אינסולין לפחות 4 פעמים ביום או משתמש/ת במשאבת אינסולין, אבל רמות הסוכר עדיין לא יציבות",
               "percentage": 40,
               "countForDisability": true,
               "countForTax": true,
@@ -13712,7 +13720,7 @@
               "severityId": "diabetes_sev_40"
             },
             {
-              "description": "סוכרת המטופלת באינסולין ומתאפיינת באי יציבות קלינית בולטת הגורמת לאחד מאלה: חסר נוירולוגי (סוכרת שבירה), חמצת מטבולית, משבר היפראוסמוטי, אבדן הכרה או לשני אירועי היפוגליקמיה קשים במשך שנתיים המח71-75ים עזרה של גורם חיצוני (מתן זריקת גלוקוז, מתן עירוי גלוקוז או אשפוז)",
+              "description": "הסוכרת שלך לא יציבה וגורמת למצבים רפואיים קשים כמו: חוסר תחושה, חמצת, אובדן הכרה, או שני אירועים של ירידת סוכר קשה בשנתיים האחרונות שהצריכו עזרה (כמו הזרקת גלוקוז או אשפוז)",
               "percentage": 50,
               "countForDisability": true,
               "countForTax": true,
@@ -13720,7 +13728,7 @@
               "severityId": "diabetes_sev_50"
             },
             {
-              "description": "סוכרת עם סיבוך באחד מאברי המטרה בחומרה של 30% לפחות או עם שני סיבוכים לפחות באברי המטרה, שחומרת כל אחד מהם 20% לפחות",
+              "description": "סיבוך באיבר אחד לפחות (כמו כליות, עיניים, עצבים או לב) בדרגה משמעותית, או שני סיבוכים בינוניים",
               "percentage": 65,
               "countForDisability": true,
               "countForTax": true,
@@ -13728,7 +13736,7 @@
               "severityId": "diabetes_sev_65"
             },
             {
-              "description": "סוכרת עם שלושה סיבוכים לפחות באברי המטרה (כגון כליות, עיניים, עצבים, לב), כאשר חומרת כל אחד מהם 30% לפחות",
+              "description": "שלושה סיבוכים חמורים לפחות (כמו בכליות, בלב, בעצבים ובעיניים), וכל אחד מהם בדרגת חומרה גבוהה",
               "percentage": 100,
               "countForDisability": true,
               "countForTax": true,
@@ -13903,7 +13911,7 @@
               "name": "צלקות בפנים ובצוואר (Facial and Neck Scars)",
               "severities": [
                 {
-                  "description": "צלקות הפנים והצוואר - שטחיות ובלתי מכערות",
+                  "description": "שטחיות ובלתי מכערות",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13911,7 +13919,7 @@
                   "severityId": "category_79_disease_396_v6231"
                 },
                 {
-                  "description": "צלקות הפנים והצוואר - מכערות או הגורמות לשינוי צורת העפעפיים, האף, השפתיים, האוזניים",
+                  "description": "מכערות או הגורמות לשינוי צורת העפעפיים, האף, השפתיים, האוזניים",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -13919,7 +13927,7 @@
                   "severityId": "category_79_disease_397_c5z8p8"
                 },
                 {
-                  "description": "צלקות הפנים והצוואר - רחבות עם כיעור ניכר",
+                  "description": "רחבות עם כיעור ניכר",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13927,7 +13935,7 @@
                   "severityId": "category_79_disease_398_lizkc4"
                 },
                 {
-                  "description": "צלקות הפנים והצוואר - רחבות או הגורמות לשינויים בולטים בצורת הפנים",
+                  "description": "רחבות או הגורמות לשינויים בולטים בצורת הפנים",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13935,7 +13943,7 @@
                   "severityId": "category_79_disease_399_ffehs"
                 },
                 {
-                  "description": "צלקות הפנים והצוואר - הגורמות לשינויים בצורת הפנים המעוררים דחיה",
+                  "description": "הגורמות לשינויים בצורת הפנים המעוררים דחיה",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -13976,7 +13984,7 @@
               "name": "התקרחות כללית (Alopecia Universalis)",
               "severities": [
                 {
-                  "description": "ALOPECIA UNIVERSALIS",
+                  "description": "התקרחות כללית",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14000,7 +14008,7 @@
               "name": "אקנה (Acne)",
               "severities": [
                 {
-                  "description": "בצורה קלה ומוגבלת",
+                  "description": "אקנה קל ומוגבל לאזור קטן בגוף או בפנים",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14008,7 +14016,7 @@
                   "severityId": "category_79_disease_404_4n7c85"
                 },
                 {
-                  "description": "בצורה בינונית, הצורה הפוסטולרית על שטח רחב",
+                  "description": "אקנה בינוני עם פצעים רבים ומוגלתיים (פוסטולות) על שטח רחב בגוף או בפנים",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14016,7 +14024,7 @@
                   "severityId": "category_79_disease_404_wk8g7f"
                 },
                 {
-                  "description": "הצורה הקשה עם היווצרות KELOIDS המעוררים דחיה",
+                  "description": "אקנה קשה עם היווצרות צלקות עבות ובולטות (קלואידים) שמפריעות למראה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14034,7 +14042,7 @@
               "name": "אקזמה כרונית (Chronic Eczema)",
               "severities": [
                 {
-                  "description": "ההפרעות בלתי ניכרות",
+                  "description": "פריחה או גרד קלים בלבד, כמעט לא מורגשים",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14042,7 +14050,7 @@
                   "severityId": "category_79_disease_405_zghv24"
                 },
                 {
-                  "description": "ההפרעות קלות",
+                  "description": "תסמינים קלים אך נמשכים, כמו גרד, יובש או אדמומיות",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -14050,7 +14058,7 @@
                   "severityId": "category_79_disease_405_duvep7"
                 },
                 {
-                  "description": "ההפרעות בינוניות",
+                  "description": "אקזמה בינונית עם אזורים מודלקים או סדוקים שמפריעים ביום-יום",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14058,7 +14066,7 @@
                   "severityId": "category_79_disease_405_u18ir"
                 },
                 {
-                  "description": "בצורה קשה, ההפרעות כלליות ניכרות ומעוררות דחיה",
+                  "description": "אקזמה קשה, מפושטת על שטחים נרחבים בגוף, עם גירוי חזק, פצעים גלדים או מראה בולט שמפריע חברתית",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14078,7 +14086,7 @@
               "name": "דלקת עור (Dermatitis)",
               "severities": [
                 {
-                  "description": "DERMATITIS מכל הסוגים פרט ל DERMATITIS RAYDERMATITIS ACTINICA או X-RAY, אחוזי הנכות ייקבעו לפי הסעיף המצורף.",
+                  "description": "דלקת עור מכל סוג שאינו נגרם מקרינה (כמו שמש או רנטגן). אחוזי הנכות ייקבעו לפי הסעיף המצורף.",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14097,7 +14105,7 @@
               "name": "שושנה חוזרת (Erysipelas Recidivans)",
               "severities": [
                 {
-                  "description": "NOSTRAS בצורה קלה, 6-1 התקפים לשנה",
+                  "description": "התקף אחד עד שישה, עם אדמומיות ונפיחות שחולפות",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14105,7 +14113,7 @@
                   "severityId": "category_79_disease_411_85s56h"
                 },
                 {
-                  "description": "בצורה בינונית, לפחות התקף אחד לחודש",
+                  "description": "התקף אחד או יותר בכל חודש",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14113,7 +14121,7 @@
                   "severityId": "category_79_disease_411_ok2sz"
                 },
                 {
-                  "description": "בצורה קשה: יותר מהתקף אחד לחודש ובצורה של ELEPHANTIASIS ברגל אחת",
+                  "description": "יותר מהתקף אחד בחודש, עם נפיחות קשה ברגל אחת (פיליות – Elephantiasis)",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14121,7 +14129,7 @@
                   "severityId": "category_79_disease_411_dh4664"
                 },
                 {
-                  "description": "בצורה קשה: יותר מהתקף אחד לחודש ובצורה של ELEPHANTIASIS בשתי הרגליים",
+                  "description": "יותר מהתקף אחד בחודש, עם נפיחות קשה בשתי הרגליים",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14139,7 +14147,7 @@
               "name": "זאבת אדמנתית דיסקואידית (Discoid Lupus)",
               "severities": [
                 {
-                  "description": "בצורה קלה",
+                  "description": "פריחה קלה ומקומית",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14147,7 +14155,7 @@
                   "severityId": "category_79_disease_406_13nrwf"
                 },
                 {
-                  "description": "בצורה בינונית",
+                  "description": "פריחה או פצעים מפושטים יותר, עם סימנים בעור הפנים או הקרקפת",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14155,7 +14163,7 @@
                   "severityId": "category_79_disease_406_7yxrp"
                 },
                 {
-                  "description": "בצורה קשה",
+                  "description": "פצעים קשים ונרחבים, עם שינויים קבועים בעור (כמו כתמים, צלקות או נשירת שיער)",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14176,7 +14184,7 @@
               "name": "פמפיגוס וולגריס (Pemphigus Vulgaris)",
               "severities": [
                 {
-                  "description": "בשלב החריף הדורש אשפוז",
+                  "description": "המחלה פעילה, עם שלפוחיות ופצעים רבים בעור או בפה, מצב קשה הדורש אשפוז",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14184,7 +14192,7 @@
                   "severityId": "category_79_disease_414_sj23hx"
                 },
                 {
-                  "description": "בשלב של רמיסיה",
+                  "description": "המחלה ברמיסיה (תקופה שקטה), אך יש פגיעות עוריות קלות או צורך במעקב קבוע",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14202,7 +14210,7 @@
               "name": "דלקת עור מקרינה (Actinic Dermatitis)",
               "severities": [
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי הסעיף המצורף.",
+                  "description": "דלקת עור הנגרמת מחשיפה לשמש או לקרינה אחרת, אחוזי הנכות ייקבעו לפי הסעיף המצורף.",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14218,7 +14226,7 @@
             },
             {
               "id": "disease_410",
-              "name": "דלקת עור מקרינת רנטגן (X-Ray Dermatitis)",
+              "name": "נזק לעור בעקבות קרינה (כמו רנטגן או טיפולים אחרים), אחוזי הנכות ייקבעו לפי היקף הצלקות והפגיעה בעור",
               "severities": [
                 {
                   "description": "אחוזי הנכות ייקבעו בהתאם לצלקות",
@@ -14246,7 +14254,7 @@
               "name": "יבלות בכף הרגל (Plantar Warts/Calluses)",
               "severities": [
                 {
-                  "description": "בצורה קלה",
+                  "description": "יבלות קלות שמפריעות מעט או כלל לא להליכה",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14254,7 +14262,7 @@
                   "severityId": "category_79_disease_407_keiky"
                 },
                 {
-                  "description": "בצורה קשה, הפרעות בהליכה",
+                  "description": "יבלות קשות וכואבות שמפריעות בהליכה או בעמידה ממושכת",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14272,7 +14280,7 @@
               "name": "כיב טרופי (Tropical Ulcer)",
               "severities": [
                 {
-                  "description": "ההפרעות בלתי ניכרות",
+                  "description": "כיבים שטחיים, קטנים או כאלה שמחלימים במהירות",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -14280,7 +14288,7 @@
                   "severityId": "category_79_disease_403_frz9hn"
                 },
                 {
-                  "description": "ההפרעות בינוניות",
+                  "description": "כיבים בינוניים, נרחבים יותר או נוטים לחזור",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14288,7 +14296,7 @@
                   "severityId": "category_79_disease_403_frz9hm"
                 },
                 {
-                  "description": "ההפרעות ניכרות",
+                  "description": "כיבים נרחבים וכואבים שגורמים לפגיעה ממשית בעור ובניידות",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14306,7 +14314,7 @@
               "name": "שחפת העור (Cutaneous Tuberculosis)",
               "severities": [
                 {
-                  "description": "במצב של פעילות התהליך - בצורה קלה, שינויים מוגבלים",
+                  "description": "המחלה פעילה, עם פצעים או שינויים קלים ומקומיים בעור",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14314,7 +14322,7 @@
                   "severityId": "category_79_disease_412_qw81v"
                 },
                 {
-                  "description": "במצב של פעילות התהליך - בצורה קשה, שינויים נרחבים",
+                  "description": "המחלה פעילה, עם נגעים נרחבים וקשים בעור",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14322,7 +14330,7 @@
                   "severityId": "category_79_disease_412_5rbw4e"
                 },
                 {
-                  "description": "במצב של יציבות - בצורה קלה, השינויים מוגבלים",
+                  "description": "המחלה יציבה (לא פעילה), עם שינויים קלים ומקומיים",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14330,7 +14338,7 @@
                   "severityId": "category_79_disease_412_6ikphe"
                 },
                 {
-                  "description": "במצב של יציבות - בצורה קשה, השינויים נרחבים",
+                  "description": "המחלה יציבה, אך עם שינויים נרחבים או צלקות בולטות",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14348,7 +14356,7 @@
               "name": "אריתמה אינדורטום (Erythema Induratum)",
               "severities": [
                 {
-                  "description": "ERYTHEMA INDURATUM BAZIN",
+                  "description": "דלקת כרונית בעור (בעיקר ברגליים) שגורמת לנפיחויות, גושים אדומים ולעיתים כיבים קטנים או כאבים חוזרים",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14366,7 +14374,7 @@
               "name": "שושנת יריחו (Leishmaniasis)",
               "severities": [
                 {
-                  "description": "בשלב פעיל עם כיבים מרובים",
+                  "description": "המחלה פעילה עם כמה כיבים פתוחים בעור, לרוב באזורים חשופים כמו הפנים או הידיים",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14374,7 +14382,7 @@
                   "severityId": "category_79_disease_415_y99ny"
                 },
                 {
-                  "description": "בשלב פעיל עם כיבים בודדים",
+                  "description": "המחלה פעילה עם כיב אחד או שניים בלבד",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14382,7 +14390,7 @@
                   "severityId": "category_79_disease_415_2klapi"
                 },
                 {
-                  "description": "צלקות לאחר LEISHMANIASIS - אחוזי הנכות ייקבעו לפי הצלקות שנותרו",
+                  "description": "המחלה כבר עברה, נשארו רק צלקות. אחוזי הנכות ייקבעו לפי הצלקות שנותרו",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15030,6 +15038,7 @@
             {
               "id": "disease_320",
               "name": "צמצום שדה הראייה (Visual Field Constriction)",
+              "description": "ניתן לראות רק חלק קטן מהסביבה, בדומה להסתכלות דרך צינור או עם “מסך שחור” בצדדים",
               "displayAsTable": true,
               "tableColumns": ["", "בעין אחת", "בשתי העיניים"],
               "tableRows": [
@@ -15174,35 +15183,35 @@
                   "severityIdsInRow": ["", ""]
                 },
                 {
-                  "header": "אפי (נזאלי) עליון",
+                  "header": "אפי (נזאלי) עליון - עליון מרכזי",
                   "severityIdsInRow": [
                     "category_57_disease_310_hu91dyh",
                     "category_57_disease_310_xttcgs"
                   ]
                 },
                 {
-                  "header": "רקתי (טמפוראלי) עליון",
+                  "header": "רקתי (טמפוראלי) עליון - עליון צדדי",
                   "severityIdsInRow": [
                     "category_57_disease_311_bxhq9g",
                     "category_57_disease_311_oexhp"
                   ]
                 },
                 {
-                  "header": " אפי תחתון",
+                  "header": " אפי תחתון - תחתון מרכזי",
                   "severityIdsInRow": [
                     "category_57_disease_312_4lqir8",
                     "category_57_disease_312_nmlm42"
                   ]
                 },
                 {
-                  "header": "רקתי תחתון",
+                  "header": "רקתי תחתון - תחתון צדדי",
                   "severityIdsInRow": [
                     "category_57_disease_313_ynai9",
                     "category_57_disease_313_vzbveq"
                   ]
                 },
                 {
-                  "header": "אפי תחתון עין אחת, ורקתי תחתון עין שנייה",
+                  "header": "אפי תחתון (תחתון מרכזי) עין אחת, ורקתי תחתון (תחתון צדדי) עין שנייה",
                   "severityIdsInRow": ["", "category_57_disease_314_xoye4vg"]
                 },
                 {
@@ -15418,9 +15427,10 @@
             {
               "id": "disease_330",
               "name": "דלקת כרונית של העפעף או הלחמית (Chronic Blepharitis/Conjunctivitis)",
+              "description": "דלקת בעפעפיים או בלחמית (הלבן של העין והחלק הפנימי של העפעף), שגורמת לגירוי, אדמומיות ותחושת חול בעיניים",
               "severities": [
                 {
-                  "description": "קלה או בינונית (בעין אחת)",
+                  "description": "דלקת קלה או בינונית בעין אחת או בשתי העיניים. יש גירוי קל או אדמומיות, אבל זה לא מפריע לראייה או לתפקוד יומיומי",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15428,15 +15438,7 @@
                   "severityId": "category_60_disease_330_ypeo"
                 },
                 {
-                  "description": "קלה או בינונית (בשתי עיניים)",
-                  "percentage": 0,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_60_disease_330_pcu0h"
-                },
-                {
-                  "description": "קשה - המלווה בסימנים של נזק לקרנית או ללחמית הטרסלית (בעין אחת)",
+                  "description": "דלקת קשה בעין אחת, עם סימנים של נזק בעין עצמה – למשל בקרנית או בציפוי הפנימי של העפעף",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15444,7 +15446,7 @@
                   "severityId": "category_60_disease_330_nk0xl"
                 },
                 {
-                  "description": "קשה - המלווה בסימנים של נזק לקרנית או ללחמית הטרסלית (בשתי עיניים)",
+                  "description": "דלקת קשה בשתי העיניים, עם נזק לעין (כמו פצעונים בקרנית, גירוי כרוני, או רגישות חזקה לאור)",
                   "percentage": 15,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15461,25 +15463,26 @@
             {
               "id": "disease_327",
               "name": "צניחת עפעף (Ptosis)",
+              "description": "מצב שבו העפעף העליון יורד מטה ומכסה חלק מהעין, לפעמים עד כדי הפרעה לראייה",
               "displayAsTable": true,
               "tableColumns": ["", "בעין אחת", "בשתי העיניים"],
               "tableRows": [
                 {
-                  "header": "גדול מ-2.5 מ\"מ",
+                  "header": "העפעף צונח קלות (יותר מ-2.5 מ\"מ), אבל לא מפריע לראייה",
                   "severityIdsInRow": [
                     "category_60_disease_327_lqw2s5",
                     "category_60_disease_327_515dgh"
                   ]
                 },
                 {
-                  "header": "2.5 מ\"מ ופחות אך לא מכסה את האישון",
+                  "header": "צניחה קלה יותר (2.5 מ\"מ או פחות), אך עדיין לא מכסה את האישון ",
                   "severityIdsInRow": [
                     "category_60_disease_327_sbn3gs",
                     "category_60_disease_327_qokxp"
                   ]
                 },
                 {
-                  "header": "הפרש של 2 מ\"מ ויותר בגובה שפת העפעף העליון בין העיניים",
+                  "header": "הבדל משמעותי בין שתי העיניים (לפחות 2 מ\"מ בגובה העפעף העליון)",
                   "severityIdsInRow": ["", "category_60_disease_327_efp6eo"]
                 },
                 {
@@ -15490,7 +15493,7 @@
                   ]
                 },
                 {
-                  "header": "צניחה מלאה – ראייה אפשרית בהרמה ידנית של העפעף",
+                  "header": "צניחה מלאה – ראייה אפשרית רק בהרמה ידנית של העפעף",
                   "severityIdsInRow": [
                     "category_60_disease_327_8rlqin",
                     "category_60_disease_327_8rlqim"
@@ -15580,9 +15583,10 @@
             {
               "id": "disease_333",
               "name": "חסימה במערכת ניקוז הדמעות",
+              "description": "הדמעות לא מתנקזות כמו שצריך – העין דומעת כל הזמן, לעיתים עם דלקות חוזרות",
               "severities": [
                 {
-                  "description": "(בעין אחת)",
+                  "description": "חסימה בעין אחת, דמעת קבועה או דלקות חוזרות קלות",
                   "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15590,7 +15594,7 @@
                   "severityId": "category_61_disease_333_f5jb4g"
                 },
                 {
-                  "description": "(בשתי עיניים)",
+                  "description": "חסימה בשתי העיניים, דמעות זולגות באופן קבוע או צורך בניקוי תדיר אצל רופא עיניים",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15607,9 +15611,10 @@
             {
               "id": "disease_328",
               "name": "פניית עפעף פנימה או החוצה (Entropion/Ectropion)",
+              "description": "מצב שבו העפעף התחתון מתכופף פנימה (השערות מתחככות בעין וגורמות לגירוי) או נפנה החוצה (העין לא נסגרת טוב ונשארת יבשה ודומעת)",
               "severities": [
                 {
-                  "description": "קל או בינוני (בעין אחת)",
+                  "description": "מצב קל או בינוני בעין אחת או בשתי העיניים – יש אי-נוחות קלה בלבד",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15617,15 +15622,7 @@
                   "severityId": "category_60_disease_328_cejnuh"
                 },
                 {
-                  "description": "קל או בינוני (בשתי עיניים)",
-                  "percentage": 0,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_60_disease_328_p3dqip"
-                },
-                {
-                  "description": "קשה - המלווה בסימנים של נזק ללחמית התחתונה או לקרנית (בעין אחת)",
+                  "description": "מצב קשה בעין אחת, עם נזק ללחמית (החלק הפנימי של העפעף) או לקרנית (השכבה השקופה של העין)",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15633,7 +15630,7 @@
                   "severityId": "category_60_disease_328_n1166"
                 },
                 {
-                  "description": "קשה - המלווה בסימנים של נזק ללחמית התחתונה או לקרנית (בשתי עיניים)",
+                  "description": "מצב קשה בשתי העיניים, עם נזק לעין, יובש, גירוי או כאב משמעותי",
                   "percentage": 15,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15650,9 +15647,10 @@
             {
               "id": "disease_329",
               "name": "אי-סגירה של העפעפיים (Lagophthalmos)",
+              "description": "מצב שבו העפעפיים לא נסגרים לגמרי – גם בזמן שינה או מצמוץ",
               "severities": [
                 {
-                  "description": "קל או בינוני (בעין אחת)",
+                  "description": "מצב קל או בינוני בעין אחת או בשתי העיניים – סגירה כמעט מלאה, בלי פגיעה בעין",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15660,15 +15658,7 @@
                   "severityId": "category_60_disease_329_hauddf"
                 },
                 {
-                  "description": "קל או בינוני (בשתי עיניים)",
-                  "percentage": 0,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_60_disease_329_7g1aqm"
-                },
-                {
-                  "description": "קשה - הגורם לסימני חשיפה בקרנית (קרטיטיס מחשיפה) (בעין אחת)",
+                  "description": "מצב קשה בעין אחת, עם סימנים של פגיעה בקרנית כתוצאה מחשיפה ממושכת",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15676,7 +15666,7 @@
                   "severityId": "category_60_disease_329_zmkyn"
                 },
                 {
-                  "description": "קשה - הגורם לסימני חשיפה בקרנית (קרטיטיס מחשיפה) (בשתי עיניים)",
+                  "description": "מצב קשה בשתי העיניים, עם יובש ופגיעה בעיניים שגורמים להפרעה בראייה או לכאב",
                   "percentage": 15,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15693,9 +15683,10 @@
             {
               "id": "disease_321",
               "name": "מצב לאחר עקירת עין אחת (Post-Enucleation)",
+              "description": "מצב שבו הוצאה עין אחת",
               "severities": [
                 {
-                  "description": "בחישוב אריתמטי נוסף על אחוזי נכות לפי הלוח",
+                  "description": "תוספת כללית על אחוזי הנכות שנקבעו לפי ליקויים אחרים",
                   "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15703,7 +15694,7 @@
                   "severityId": "category_58_disease_321_hy22zu"
                 },
                 {
-                  "description": "פגמים בעין עיוורת - פזילה של 15 מעלו ת לפחות, עיוות קשה בעפעפיים כולל צניחת עפעף  (PTOSIS) המהווה פגם קוסמטי קשה ",
+                  "description": "אם קיימת גם פזילה ניכרת (15 מעלות ומעלה) או עיוות בולט בעפעפיים – לדוגמה צניחת עפעף או מראה קוסמטי חריג",
                   "percentage": 15,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15719,7 +15710,7 @@
             },
             {
               "id": "disease_323",
-              "name": "מצב לאחר עקירת שתי העיניים",
+              "name": "מצב של עיוורון מוחלט לאחר עקירת שתי העיניים",
               "severities": [
                 {
                   "description": "מצב אחרי עקירת שתי העיניים",
@@ -15739,9 +15730,10 @@
             {
               "id": "disease_324",
               "name": "בלט עין (Exophthalmos)",
+              "description": "מצב שבו אחת או שתי העיניים בולטות קדימה מהרגיל",
               "severities": [
                 {
-                  "description": "קל או בינוני (בעין אחת)",
+                  "description": "בלט קל או בינוני, בעין אחת או בשתי העיניים, ללא פגיעה במראה או בתפקוד",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15749,15 +15741,7 @@
                   "severityId": "category_58_disease_324_2uyqi"
                 },
                 {
-                  "description": "קל או בינוני (שתי עיניים)",
-                  "percentage": 0,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_58_disease_324_vfa4jp"
-                },
-                {
-                  "description": "קשה - המהווה פגם קוסמטי ניכר או הגורם לסימני חשיפה בקרנית (בעין אחת)",
+                  "description": "בלט משמעותי בעין אחת, שגורם לשינוי ברור במראה הפנים או לחשיפת יתר של העין (קרנית חשופה או יבשה)",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15765,7 +15749,7 @@
                   "severityId": "category_58_disease_324_hbekrk"
                 },
                 {
-                  "description": "קשה - המהווה פגם קוסמטי ניכר או הגורם לסימני חשיפה בקרנית (שתי עיניים)",
+                  "description": " בלט משמעותי בשתי העיניים, עם פגיעה אסתטית בולטת או סימני יובש ונזק לקרנית",
                   "percentage": 15,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15781,9 +15765,10 @@
             {
               "id": "disease_325",
               "name": "עין שקועה (Enophthalmos)",
+              "description": "מצב שבו העין שוקעת פנימה לתוך הארובה, מה שיכול לשנות את מראה הפנים ולעיתים לגרום לאי־סימטריה או ראייה כפולה",
               "severities": [
                 {
-                  "description": "קל או בינוני (בעין אחת)",
+                  "description": " שקיעה קלה או בינונית, בעין אחת או בשתי העיניים, ללא שינוי ניכר במראה",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15791,15 +15776,7 @@
                   "severityId": "category_58_disease_325_90klm"
                 },
                 {
-                  "description": "קל או בינוני (בשתי עיניים)",
-                  "percentage": 0,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_58_disease_325_tytafj"
-                },
-                {
-                  "description": "קשה - המהווה פגם קוסמטי ניכר (בעין אחת)",
+                  "description": "שקיעה קשה בעין אחת, עם שינוי חיצוני ניכר במראה הפנים",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15807,7 +15784,7 @@
                   "severityId": "category_58_disease_325_k1gcdu"
                 },
                 {
-                  "description": "קשה - המהווה פגם קוסמטי ניכר (בשתי עיניים)",
+                  "description": " שקיעה קשה בשתי העיניים, עם שינוי בולט מאוד במראה",
                   "percentage": 15,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15830,9 +15807,10 @@
             {
               "id": "disease_334",
               "name": "פזילה סמויה או חולשת מיקוד (Heterophoria)",
+              "description": "מצב שבו העיניים לא מתואמות לגמרי, אך לרוב זה מתאזן כשממקדים מבט",
               "severities": [
                 {
-                  "description": "HETEROPHORIA או חולשת קונברגנציה הגורמים להפרעות תפקודיות",
+                  "description": "אם קיימת חולשת מיקוד או פזילה סמויה שגורמת להפרעות תפקודיות (כמו טשטוש, כאבים או קושי לשמור על מיקוד לאורך זמן)",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15849,9 +15827,10 @@
             {
               "id": "disease_335",
               "name": "פזילה גלויה (Heterotropia)",
+              "description": "מצב שבו אחת או שתי העיניים לא מיושרות – כלומר לא מסתכלות בדיוק לאותו כיוון",
               "severities": [
                 {
-                  "description": "של 15 P.D (פריזם דיופטר) לפחות ובלא כפילות ראייה (דיפלופיה)",
+                  "description": "פזילה בולטת (לפחות 15 מעלות), אך ללא ראייה כפולה",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15859,7 +15838,7 @@
                   "severityId": "category_62_disease_335_zu2j7"
                 },
                 {
-                  "description": "עם כפילות ראייה - במבט למעלה",
+                  "description": " יש ראייה כפולה (דיפלופיה) במבט כלפי מעלה בלבד",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15867,7 +15846,7 @@
                   "severityId": "category_62_disease_335_e13oa"
                 },
                 {
-                  "description": "עם כפילות ראייה - במבט למטה או לצדדים ",
+                  "description": " יש ראייה כפולה במבט לצדדים או כלפי מטה",
                   "percentage": 15,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15875,7 +15854,7 @@
                   "severityId": "category_62_disease_335_fr1t2ws"
                 },
                 {
-                  "description": "עם כפילות ראייה - במבט לפנים",
+                  "description": "יש ראייה כפולה גם במבט ישר קדימה – מצב שמפריע מאוד לתפקוד יום־יומי",
                   "percentage": 20,
                   "countForDisability": false,
                   "countForTax": true,
@@ -15897,6 +15876,7 @@
             {
               "id": "disease_344",
               "name": "ירוד (Cataract)",
+              "description": "מצב שבו העדשה שבתוך העין נעשית עכורה",
               "severities": [
                 {
                   "description": "דרגת הנכות תיקבע לפי הליקוי בכושר הראייה.",
@@ -15904,7 +15884,8 @@
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
-                  "severityId": "category_67_disease_344_4m75u3"
+                  "severityId": "category_67_disease_344_4m75u3",
+                  "linkedDiseaseId": "disease_307"
                 }
               ],
               "requiredDocuments": [
@@ -15916,22 +15897,15 @@
             {
               "id": "disease_341",
               "name": "מצב לאחר השתלת עדשה תוך עינית",
+              "description": "לאחר ניתוח קטרקט, מושתלת עדשה מלאכותית בעין במקום העדשה הטבעית",
               "severities": [
                 {
-                  "description": "(בעין אחת)",
+                  "description": "גם אם בוצעה השתלה בעין אחת או בשתי העיניים, ואין פגיעה בראייה",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_67_disease_341_rrhno"
-                },
-                {
-                  "description": "(בשתי עיניים)",
-                  "percentage": 0,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_67_disease_341_6e1c0f"
                 }
               ],
               "requiredDocuments": [
@@ -15943,9 +15917,10 @@
             {
               "id": "disease_339",
               "name": "כתמים בקרנית (Corneal Opacities)",
+              "description": "כתמים או עכירות בקרנית",
               "severities": [
                 {
-                  "description": "הגורמים לליקוי בחדות הראייה המזכה בנכות - הנכות תיקבע לפי חדות הראיה בלבד",
+                  "description": "אם הכתמים גורמים לירידה בראייה, אחוזי הנכות ייקבעו רק לפי חדות הראייה",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15954,7 +15929,7 @@
                   "linkedDiseaseId": "disease_307"
                 },
                 {
-                  "description": "בטווח של 2 מיימ ומעלה, בארבעת המילימטרים המרכזיים של הקרנית, שאינם גורמים לליקוי בראייה המזכה בנכות (בעין אחת)",
+                  "description": " כתמים מרכזיים בקוטר של 2 מ\"מ או יותר, בעין אחת, שלא גורמים לירידה ממשית בראייה אבל מפריעים",
                   "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15962,7 +15937,7 @@
                   "severityId": "category_66_disease_339_d8a658"
                 },
                 {
-                  "description": "בטווח של 2 מיימ ומעלה, בארבעת המילימטרים המרכזיים של הקרנית, שאינם גורמים לליקוי בראייה המזכה בנכות (בשתי העיניים)",
+                  "description": "כתמים בשתי העיניים בדומה לסעיף הקודם – עם הפרעה קלה לראייה או לסנוור",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15979,22 +15954,15 @@
             {
               "id": "disease_340",
               "name": "אובדן יכולת מיקוד העדשה (Loss of Accommodation)",
+              "description": "העדשה בעין מאבדת את הגמישות שלה, כך שקשה להתמקד מקרוב (כמו בקריאה או עבודה מול מחשב)",
               "severities": [
                 {
-                  "description": "(בעין אחת)",
+                  "description": "אם זה קורה בעין אחת או בשתיהן",
                   "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_67_disease_340_h14c8q"
-                },
-                {
-                  "description": "(בשתי עיניים)",
-                  "percentage": 5,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_67_disease_340_l278ma"
                 }
               ],
               "requiredDocuments": [
@@ -16005,19 +15973,20 @@
             },
             {
               "id": "disease_343",
-              "name": "חוסר עדשה או פריקת עדשה (Aphakia/Lens Dislocation)",
+              "name": "חוסר עדשה או נקע עדשה (Aphakia/Lens Dislocation)",
+              "description": "כשאין עדשה טבעית בעין (אחרי ניתוח או חבלה), או כשהעדשה זזה ממקומה",
               "severities": [
                 {
-                  "description": "חוסר עדשה או דיסלוקציה של עדשה (בעין אחת)",
-                  "percentage": 15,
+                  "description": "בעין אחת",
+                  "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_67_disease_343_fh9er2"
                 },
                 {
-                  "description": "חוסר עדשה או דיסלוקציה של עדשה (בשתי עיניים)",
-                  "percentage": 10,
+                  "description": "בשתי עיניים",
+                  "percentage": 15,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
@@ -16032,19 +16001,20 @@
             },
             {
               "id": "disease_342",
-              "name": "תת-פריקה של העדשה (Lens Subluxation)",
+              "name": "תת-נקע של העדשה (Lens Subluxation)",
+              "description": "כשעדשת העין לא במקומה המדויק, אבל לא זזה לגמרי",
               "severities": [
                 {
-                  "description": "(בעין אחת)",
-                  "percentage": 10,
+                  "description": "בעין אחת",
+                  "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_67_disease_342_rhvg9k"
                 },
                 {
-                  "description": "(בשתי עיניים)",
-                  "percentage": 5,
+                  "description": "בשתי עיניים",
+                  "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
@@ -16066,9 +16036,10 @@
             {
               "id": "disease_351",
               "name": "מחלת רשתית (Retinopathy)",
+              "description": "שינויים או נזק לרשתית יכולים לגרום לירידה הדרגתית בראייה",
               "severities": [
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי חדות הראייה",
+                  "description": "אחוזי הנכות ייקבעו לפי חדות הראייה, ע\"פ הסעיף המצורף",
                   "percentage": 0,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16087,9 +16058,10 @@
             {
               "id": "disease_348",
               "name": "עכירות בזגוגית (Vitreous Opacities)",
+              "description": "כשיש עכירות או “צפים” (floaters), הראייה יכולה להיות מטושטשת או עם כתמים שחורים שזזים",
               "severities": [
                 {
-                  "description": "קלה או בינונית (בעין אחת)",
+                  "description": "עכירות קלה או בינונית, בעין אחת או בשתי העיניים – לא מפריעה לתפקוד",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16097,15 +16069,7 @@
                   "severityId": "category_71_disease_348_jgdex5"
                 },
                 {
-                  "description": "קלה או בינונית (בשתי עיניים)",
-                  "percentage": 0,
-                  "countForDisability": true,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_71_disease_348_rezzf4"
-                },
-                {
-                  "description": "קשה (בעין אחת)",
+                  "description": "עכירות קשה בעין אחת, עם הפרעה ממשית בראייה",
                   "percentage": 5,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16113,7 +16077,7 @@
                   "severityId": "category_71_disease_348_on5gh"
                 },
                 {
-                  "description": "קשה (בשתי עיניים)",
+                  "description": "עכירות קשה בשתי העיניים, עם הפרעה בולטת לתפקוד יומיומי (קריאה, נהיגה בלילה וכד’)",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16132,7 +16096,7 @@
               "name": "מצב לאחר טיפול בהיפרדות רשתית",
               "severities": [
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי חדות הראייה",
+                  "description": "אחוזי הנכות ייקבעו לפי חדות הראייה - ראה סעיף מצורף",
                   "percentage": 0,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16151,6 +16115,7 @@
             {
               "id": "disease_352",
               "name": "עיוורון לילה (Night Blindness)",
+              "description": "מצב שבו קשה לראות בתנאי חושך או אור חלש, גם אם הראייה ביום תקינה",
               "severities": [
                 {
                   "description": "עיוורון לילה המוכח בבדיקות אלקטרו-פיזיולוגיות",
@@ -16171,9 +16136,10 @@
             {
               "id": "disease_349",
               "name": "מצב לאחר כריתת זגוגית (Vitrectomy)",
+              "description": "יתוח שבו מסירים את הזגוגית (הנוזל השקוף שבתוך העין)",
               "severities": [
                 {
-                  "description": "אחוזי הנכות ייקבעו לפי חדות הראייה",
+                  "description": "אחוזי הנכות ייקבעו לפי חדות הראייה - ראה סעיף מצורף",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16197,6 +16163,7 @@
             {
               "id": "disease_336",
               "name": "גלאוקומה ולחץ תוך עיני מוגבר (Glaucoma)",
+              "description": "גלאוקומה היא מחלה שפוגעת בעצב הראייה עקב לחץ גבוה בעין",
               "severities": [
                 {
                   "description": "דרגת הנכות תיקבע לפי ההגבלה בשדה הראייה והליקוי בכושר הראייה.",
@@ -16205,7 +16172,7 @@
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_63_disease_336_v8xirs",
-                  "disabled": true
+                  "linkedDiseaseId": "disease_307"
                 }
               ],
               "requiredDocuments": [
@@ -16218,6 +16185,7 @@
             {
               "id": "disease_338",
               "name": "גרענת (Trachoma)",
+              "description": "זיהום כרוני של הלחמית (שכבת הרירית של העין) שעלול לגרום לצלקות בעפעפיים ובקרנית",
               "severities": [
                 {
                   "description": "דרגת נכות תיקבע לפי הסעיף המצורף",
@@ -16238,9 +16206,10 @@
             {
               "id": "disease_345",
               "name": "אישון רחב או מעוות (Pupil Deformity)",
+              "description": "כאשר האישון אינו מתכווץ כראוי לאור, או שצורתו לא סימטרית",
               "severities": [
                 {
-                  "description": "אישון המתכווץ באור לקוטר של 5 מיימ או פחות (בעין אחת)",
+                  "description": "אם האישון מצומצם ל-5 מ\"מ או פחות – בעין אחת או בשתי העיניים",
                   "percentage": 0,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16248,15 +16217,7 @@
                   "severityId": "category_68_disease_345_9clm2"
                 },
                 {
-                  "description": "אישון המתכווץ באור לקוטר של 5 מיימ או פחות (בשתי עיניים)",
-                  "percentage": 0,
-                  "countForDisability": false,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_68_disease_345_ch8x0m"
-                },
-                {
-                  "description": "אישון המתכווץ באור לקוטר העולה על 5 מיימ (בעין אחת)",
+                  "description": "אם האישון נשאר רחב (מעל 5 מ\"מ) בעין אחת – יש רגישות לאור",
                   "percentage": 5,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16264,7 +16225,7 @@
                   "severityId": "category_68_disease_345_gl1ogp"
                 },
                 {
-                  "description": "אישון המתכווץ באור לקוטר העולה על 5 מיימ (בשתי עיניים)",
+                  "description": "אם האישונים רחבים בשתי העיניים – רגישות לאור וקשיי ראייה באור חזק",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16281,9 +16242,10 @@
             {
               "id": "disease_346",
               "name": "חסר בקשתית (Iris Coloboma)",
+              "description": "מצב שבו חסרה חתיכה קטנה מהקשתית (החלק הצבעוני של העין)",
               "severities": [
                 {
-                  "description": "קטנה או מוסתרת על ידי העפעף (בעין אחת)",
+                  "description": "אם הפגם קטן או מוסתר על ידי העפעף (לא נראה לעין)",
                   "percentage": 0,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16291,15 +16253,7 @@
                   "severityId": "category_69_disease_346_41cnrl"
                 },
                 {
-                  "description": "קטנה או מוסתרת על ידי העפעף (בשתי עיניים)",
-                  "percentage": 0,
-                  "countForDisability": false,
-                  "countForTax": true,
-                  "countForSpecial": true,
-                  "severityId": "category_69_disease_346_xtttne"
-                },
-                {
-                  "description": "גדולה ולא מוסתרת על ידי העפעף (בעין אחת)",
+                  "description": "אם חסר חלק גדול מהקשתית בעין אחת, והדבר גלוי או גורם לרגישות לאור",
                   "percentage": 5,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16307,7 +16261,7 @@
                   "severityId": "category_69_disease_346_i1eb08"
                 },
                 {
-                  "description": "גדולה ולא מוסתרת על ידי העפעף (בשתי עיניים)",
+                  "description": "אם חסר דומה קיים בשתי העיניים",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16338,9 +16292,10 @@
             {
               "id": "disease_378",
               "name": "מחלות כרוניות בחלל הפה (Chronic Oral Lesions)",
+              "description": "מחלות חוזרות או ממושכות בחלל הפה, כמו פצעים כרוניים, דלקות חניכיים קשות או שינויים ברירית הפה",
               "severities": [
                 {
-                  "description": "קלה",
+                  "description": "מחלה קלה, עם תסמינים מינימליים",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16348,7 +16303,7 @@
                   "severityId": "category_77_disease_378_6myv6o"
                 },
                 {
-                  "description": "בינונית",
+                  "description": "מחלה בינונית, עם פצעים חוזרים או כאבים שפוגעים באכילה או בדיבור",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16356,7 +16311,7 @@
                   "severityId": "category_77_disease_378_0a0w9d"
                 },
                 {
-                  "description": "קשה",
+                  "description": "מחלה קשה ומתמשכת, עם כאבים קבועים או נגעים נרחבים בפה שמגבילים תפקוד יומיומי",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16372,9 +16327,10 @@
             {
               "id": "disease_379",
               "name": "כאבים כרוניים בפנים, פה או לסתות (Chronic Orofacial Pain)",
+              "description": "כאבים מתמשכים באזור הפנים, הלסת או הפה",
               "severities": [
                 {
-                  "description": "בצורה בינונית",
+                  "description": "כאבים בדרגה בינונית, המופיעים לסירוגין וניתנים לשליטה",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16382,7 +16338,7 @@
                   "severityId": "category_77_disease_379_rniolj"
                 },
                 {
-                  "description": "בצורה קשה עם ממצאים אובייקטיבים שלא מגיבים לטיפול",
+                  "description": " כאבים קבועים וחזקים, עם ממצאים רפואיים ברורים, שאינם מגיבים לטיפול ומגבילים תפקוד",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16398,9 +16354,10 @@
             {
               "id": "disease_355",
               "name": "אובדן חוש הריח והטעם (Loss of Smell and Taste)",
+              "description": "אובדן חלקי או מלא של חוש הריח או הטעם",
               "severities": [
                 {
-                  "description": "אובדן חוש הריח או חוש הטעם",
+                  "description": " אובדן של אחד מהחושים (ריח או טעם)",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16408,7 +16365,7 @@
                   "severityId": "category_73_disease_355_ndjm8v"
                 },
                 {
-                  "description": "אובדן חוש הריח והטעם",
+                  "description": "גם ריח וגם טעם",
                   "percentage": 5,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16420,9 +16377,10 @@
             {
               "id": "disease_356",
               "name": "ליקויים בחך הרך (Soft Palate Defects)",
+              "description": "פגם בחך הרך הנמצא בחלק האחורי של הפה",
               "severities": [
                 {
-                  "description": "בצורה קלה",
+                  "description": "פגם קל, עם השפעה קלה על הדיבור או הבליעה",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16430,7 +16388,7 @@
                   "severityId": "category_74_disease_356_kwqxrf"
                 },
                 {
-                  "description": "בצורה קשה עם ליקויים ניכרים בדיבור",
+                  "description": "פגם קשה, עם שינוי ניכר בדיבור או ביכולת הבליעה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16446,9 +16404,10 @@
             {
               "id": "disease_357",
               "name": "חסר בחך הקשה (Hard Palate Defects)",
+              "description": "חסר בגג של חלל הפה, המפקיד בין חלל הפה לחלל האף",
               "severities": [
                 {
-                  "description": "איבוד פחות ממחצית",
+                  "description": "חסר של פחות ממחצית מהחך הקשה",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16456,7 +16415,7 @@
                   "severityId": "category_74_disease_357_o7muhj"
                 },
                 {
-                  "description": "איבוד מחצית או יותר",
+                  "description": " חסר של מחצית או יותר מהחך הקשה, עם פגיעה משמעותית בדיבור או באכילה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16472,9 +16431,10 @@
             {
               "id": "disease_381",
               "name": "אובדן חלקי של הלשון",
+              "description": "כאשר חסרה חלק מהלשון - פחות מחצי",
               "severities": [
                 {
-                  "description": "בלא השפעה בולטת על הדיבור והבליעה",
+                  "description": "אם הפגיעה בלשון קלה, הדיבור והבליעה כמעט רגילים",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16482,7 +16442,7 @@
                   "severityId": "category_77_disease_381_6x9ya"
                 },
                 {
-                  "description": "עם השפעה בולטת על הדיבור והבליעה",
+                  "description": "אם חסר משמעותי בלשון שגורם לדבר לא ברור או לקושי בבליעה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16498,9 +16458,10 @@
             {
               "id": "disease_382",
               "name": "אובדן חצי לשון או יותר",
+              "description": "כאשר חסר חצי מהלשון או יותר",
               "severities": [
                 {
-                  "description": "בלא איבוד מוחלט של הדיבור והבליעה",
+                  "description": "אם עדיין ניתן לדבר ולאכול, אבל עם מאמץ או הגבלה",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16508,7 +16469,7 @@
                   "severityId": "category_77_disease_382_ir4p87"
                 },
                 {
-                  "description": "עם איבוד מוחלט של הדיבור והפרעה ניכרת בבליעה",
+                  "description": "אם הדיבור כמעט בלתי אפשרי והבליעה קשה מאוד",
                   "percentage": 60,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16524,9 +16485,10 @@
             {
               "id": "disease_377",
               "name": "תת-פעילות בלוטות הרוק (Salivary Gland Hypofunction)",
+              "description": "ירידה בהפרשת הרוק, הגורמת לפגמים בחלל הפה",
               "severities": [
                 {
-                  "description": "קלה - הפרשת רוק קטנה מ-0.2 מייל לדקה וגדולה מ-0.15 מייל לדקה",
+                  "description": " יובש קל בפה, הפרשת רוק מעט נמוכה מהרגיל\n הפרשת רוק קטנה מ-0.2 מ\"ל לדקה וגדולה מ-0.15 מ\"ל לדקה",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16534,7 +16496,7 @@
                   "severityId": "category_77_disease_377_x60a9p"
                 },
                 {
-                  "description": "בינונית - הפרשת רוק קטנה מ-0.15 מייל לדקה וגדולה מ-0.1 מייל לדקה",
+                  "description": "יובש בינוני, תחושת פה דביק, צורך בשתייה תכופה בזמן דיבור או אכילה\nהפרשת רוק קטנה מ-0.15 מ\"ל לדקה וגדולה מ-0.1 מ\"ל לדקה",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16542,7 +16504,7 @@
                   "severityId": "category_77_disease_377_ijt7vo"
                 },
                 {
-                  "description": "קשה - הפרשת רוק קטנה מ-0.1 מייל לדקה",
+                  "description": "ובש קשה בפה, רוק כמעט לא מופרש, עם השפעה ממשית על בליעה ודיבור\nהפרשת רוק קטנה מ-0.1 מ\"ל לדקה",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16558,6 +16520,7 @@
             {
               "id": "disease_380",
               "name": "אובדן רקמה רכה באזור הפה, פנים ולסתות",
+              "description": "כאשר חסרה רקמת עור או שריר באזור הפנים או הפה",
               "severities": [
                 {
                   "description": "דרגת הנכות תיקבע לפי הסעיף המצורף",
@@ -16583,9 +16546,10 @@
             {
               "id": "disease_370",
               "name": "פריקה חוזרת של הלסת (Recurrent Jaw Dislocation)",
+              "description": "מצב שבו הלסת “קופצת ממקומה” (מתפרקת מהמפרק) בזמן פתיחת פה, פיהוק או אכילה",
               "severities": [
                 {
-                  "description": "בצורה קלה, המופיעה לעתים רחוקות ללא הפרעה בלעיסה או במנשך",
+                  "description": "פריקות נדירות, ללא הפרעה ממשית באכילה",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16593,7 +16557,7 @@
                   "severityId": "category_77_disease_370_bxrvm7"
                 },
                 {
-                  "description": "בצורה בינונית, המופיעה לעתים תכופות עם הפרעות קלות בלעיסה",
+                  "description": "פריקות תכופות, עם קושי קל בלעיסה או נעילת לסת זמנית",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16601,7 +16565,7 @@
                   "severityId": "category_77_disease_370_num21h"
                 },
                 {
-                  "description": "בצורה קשה, המופיעה עם כל פתיחת הפה והפרעות קשות בלעיסה",
+                  "description": "פריקות קבועות כמעט בכל פתיחת פה, עם כאב וקושי חמור באכילה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16617,9 +16581,10 @@
             {
               "id": "disease_371",
               "name": "הגבלת פתיחת הפה (Limited Mouth Opening)",
+              "description": "כאשר קשה לפתוח את הפה בגלל בעיה במפרקי הלסת",
               "severities": [
                 {
-                  "description": "בצורה קלה: פתיחת הפה אפשרית רק בין 3.5 ועד 2.5 ס\"מ",
+                  "description": "פתיחת הפה מוגבלת במידה קלה (בין 2.5 ל-3.5 ס\"מ). יש קושי קל באכילה או בדיבור",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16627,7 +16592,7 @@
                   "severityId": "category_77_disease_371_0pzqs6"
                 },
                 {
-                  "description": "בצורה בינונית: פתיחת הפה אפשרית פחות מ-2.5 ועד 1.5 ס\"מ",
+                  "description": "פתיחת הפה בינונית (בין 1.5 ל-2.5 ס\"מ). קשה לאכול מזון מוצק או לפתוח את הפה רחב",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16635,7 +16600,7 @@
                   "severityId": "category_77_disease_371_ya18r"
                 },
                 {
-                  "description": "בצורה קשה: פתיחת הפה אפשרית פחות מ-1.5 ס\"מ",
+                  "description": "פתיחת הפה קשה מאוד (פחות מ-1.5 ס\"מ). קשה לאכול, לדבר או לטפל בשיניים",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16651,9 +16616,10 @@
             {
               "id": "disease_366",
               "name": "שבר בלסת העליונה עם תזוזה",
+              "description": "כאשר יש שבר בעצם הלסת העליונה שגרם לתזוזה של העצם או לשינוי במנשך",
               "severities": [
                 {
-                  "description": "בצורה קלה, המנשך תקין",
+                  "description": "השבר התרפא, המנשך תקין ואין בעיה בתפקוד",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16661,7 +16627,7 @@
                   "severityId": "category_77_disease_366_kunct7"
                 },
                 {
-                  "description": "בצורה בינונית עם הפרעה קלה במנשך",
+                  "description": "השבר גרם להפרעה קלה בסגירת השיניים או באכילה",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16669,7 +16635,7 @@
                   "severityId": "category_77_disease_366_cs6vhl"
                 },
                 {
-                  "description": "בצורה קשה עם הפרעות ניכרות במנשך",
+                  "description": "השבר גרם לשינוי ניכר במנשך ולפגיעה באכילה או בדיבור",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16685,9 +16651,10 @@
             {
               "id": "disease_367",
               "name": "אי-חיבור של שבר בלסת העליונה",
+              "description": "כאשר השבר בלסת העליונה לא התאחה כמו שצריך, ונשארת תנועה או רגישות באזור",
               "severities": [
                 {
-                  "description": "בצורה קלה עם הפרעות קלות במנשך",
+                  "description": "השבר לא התחבר לגמרי, עם הפרעה קלה בסגירת הפה או באכילה",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16695,7 +16662,7 @@
                   "severityId": "category_77_disease_367_nj6qkpj"
                 },
                 {
-                  "description": "בצורה בינונית",
+                  "description": "חוסר חיבור בינוני, עם כאבים או קושי ממשי באכילה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16703,7 +16670,7 @@
                   "severityId": "category_77_disease_367_3avil"
                 },
                 {
-                  "description": "בצורה קשה עם הפרעות קשות במנשך",
+                  "description": "חוסר חיבור קשה, עם עיוות או קושי משמעותי בתפקוד היום-יומי (אכילה, דיבור, מראה)",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16719,9 +16686,10 @@
             {
               "id": "disease_368",
               "name": "אובדן חלק מהלסת העליונה (Alveolar Process)",
+              "description": "כאשר חסרה עצם מהחלק שבו יושבות השיניים בלסת העליונה",
               "severities": [
                 {
-                  "description": "לאורך מחצית הלסת העליונה",
+                  "description": "חסר של כ-חצי מהלסת העליונה, לרוב עם קושי קוסמטי או תפקודי קל",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16729,7 +16697,7 @@
                   "severityId": "category_77_disease_368_5k7dnn"
                 },
                 {
-                  "description": "לאורך כל הלסת",
+                  "description": "חסר של כמעט כל הלסת העליונה, עם קושי משמעותי באכילה, בדיבור ובמראה הפנים",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16745,6 +16713,7 @@
             {
               "id": "disease_369",
               "name": "אובדן לסת עליונה",
+              "description": "כאשר חלק מעצם הלסת העליונה חסר",
               "severities": [
                 {
                   "description": "אבדן חלקי",
@@ -16755,7 +16724,7 @@
                   "severityId": "category_77_disease_369_2rznfs"
                 },
                 {
-                  "description": "אבדן חצי לסת",
+                  "description": "אבדן חצי לסת עליונה",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16763,7 +16732,7 @@
                   "severityId": "category_77_disease_369_yv5cye"
                 },
                 {
-                  "description": "אבדן לסת שלמה",
+                  "description": "אבדן כל הלסת העליונה",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16779,9 +16748,10 @@
             {
               "id": "disease_373",
               "name": "אובדן חצי לסת תחתונה",
+              "description": "כאשר חסר חצי מהלסת התחתונה – משפיע על תפקוד הפה",
               "severities": [
                 {
-                  "description": "איבוד חצי הלסת התחתונה, כולל פרק אחד ללא תקנה",
+                  "description": "איבוד חצי מהלסת התחתונה כולל המפרק (פרק הלסת נהרס ולא ניתן לשיקום)",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16789,7 +16759,7 @@
                   "severityId": "category_77_disease_373_msc6j"
                 },
                 {
-                  "description": "איבוד חצי הלסת התחתונה, הפרקים נשארו",
+                  "description": "איבוד חצי מהלסת אך המפרקים נשארו תקינים",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16805,6 +16775,7 @@
             {
               "id": "disease_374",
               "name": "אובדן ענף הלסת התחתונה עם המפרק",
+              "description": "כאשר חסר אחד מענפי הלסת (החלק שעולה לכיוון האוזן) יחד עם מפרק הלסת",
               "severities": [
                 {
                   "description": "מצד אחד",
@@ -16831,6 +16802,7 @@
             {
               "id": "disease_375",
               "name": "אובדן ענף הלסת התחתונה ללא המפרק",
+              "description": "כאשר חסר רק חלק מהענף של הלסת, אך המפרק עצמו נשאר תקין",
               "severities": [
                 {
                   "description": "מצד אחד",
@@ -16857,9 +16829,10 @@
             {
               "id": "disease_372",
               "name": "אובדן מלא של הלסת התחתונה",
+              "description": "כאשר כל הלסת התחתונה חסרה, כולל שני המפרקים, ואין אפשרות לשיקום או שיקום תפקודי תקין",
               "severities": [
                 {
-                  "description": "לסת תחתונה - איבוד כל הלסת התחתונה, כולל הפרקים, ללא תקנה",
+                  "description": "אובדן מוחלט של כל הלסת התחתונה",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16883,7 +16856,7 @@
               "name": "אובדן שן בודדת",
               "severities": [
                 {
-                  "description": "שאינה ניתנת לשיקום",
+                  "description": "אם לא ניתן לשקם את השן (למשל, לא ניתן לשים שתל או גשר)",
                   "percentage": 0.5,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16891,7 +16864,7 @@
                   "severityId": "category_78_disease_384_2azza5"
                 },
                 {
-                  "description": "הניתנת לשיקום",
+                  "description": "אם ניתן לשקם את השן באמצעים דנטליים (כמו שתל או תותבת)",
                   "percentage": 0.25,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16908,9 +16881,10 @@
             {
               "id": "disease_383",
               "name": "אובדן שיניים ללא אפשרות לתותבת",
+              "description": "כאשר חסרות שיניים ואי אפשר להתקין תותבת או שתלים לשיקום התפקוד",
               "severities": [
                 {
-                  "description": "כל השיניים",
+                  "description": "חוסר של כל השיניים בפה",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16918,7 +16892,7 @@
                   "severityId": "category_78_disease_383_kvh4q7"
                 },
                 {
-                  "description": "כל השיניים של הלסת העליונה",
+                  "description": "חוסר של כל שיני הלסת העליונה בלבד",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16926,7 +16900,7 @@
                   "severityId": "category_78_disease_383_t9dd1h"
                 },
                 {
-                  "description": "כל השיניים של הלסת התחתונה",
+                  "description": "חוסר של כל שיני הלסת התחתונה בלבד",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16942,9 +16916,10 @@
             {
               "id": "disease_390",
               "name": "אובדן שיניים עם אפשרות לתותבת קבועה",
+              "description": "כאשר חסרות שיניים, אך ניתן לשקם את הפה באמצעות תותבת קבועה או גשר",
               "severities": [
                 {
-                  "description": "לכל הפה",
+                  "description": "אם חסרות כל השיניים בפה, אבל ניתן לשקם את כולן בתותבת קבועה",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16952,7 +16927,7 @@
                   "severityId": "category_78_disease_390_3db2bm"
                 },
                 {
-                  "description": "לכל הלסת (העליונה או התחתונה)",
+                  "description": "אם חסרות כל השיניים רק בלסת אחת (עליונה או תחתונה), אך ניתן לשקם אותה בתותבת קבועה",
                   "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16969,9 +16944,10 @@
             {
               "id": "disease_389",
               "name": "אובדן שיניים ללא אפשרות לשתלים",
+              "description": "כאשר חסרות שיניים ולא ניתן לבצע שתלים או שיקום קבוע",
               "severities": [
                 {
-                  "description": "לכל הפה",
+                  "description": "אם חסרות כל השיניים בפה ואי אפשר לשקם אותן בשתלים",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16979,7 +16955,7 @@
                   "severityId": "category_78_disease_389_yff2f"
                 },
                 {
-                  "description": "לכל לסת",
+                  "description": "אם חסרות כל השיניים בלסת אחת (עליונה או תחתונה) ואי אפשר לשקם אותה בשתלים",
                   "percentage": 15,
                   "countForDisability": true,
                   "countForTax": true,

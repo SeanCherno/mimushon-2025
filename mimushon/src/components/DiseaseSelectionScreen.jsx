@@ -11,16 +11,40 @@ const DiseaseSelectionScreen = ({ selectedCategory, selectedSubCategory, setSele
               onDiseaseSelected(category.diseases[0])
             }
         }
-        setSelectedCategory(category);
+        else {setSelectedCategory(category);}
+
+         const section = document.getElementById("calculator");
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth", // This makes the scroll smooth
+        block: "start", // Aligns the top of the element with the top of the viewport
+      });
+    }
     };
     
     const handleBackToCategories = () => {
         setSelectedCategory(null);
         setSelectedSubCategory(null);
+
+         const section = document.getElementById("calculator");
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth", // This makes the scroll smooth
+        block: "start", // Aligns the top of the element with the top of the viewport
+      });
+    }
     };
 
     const handleBackToSubCategories = () => {
         setSelectedSubCategory(null);
+
+         const section = document.getElementById("calculator");
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth", // This makes the scroll smooth
+        block: "start", // Aligns the top of the element with the top of the viewport
+      });
+    }
     };
 
 
@@ -34,7 +58,7 @@ const DiseaseSelectionScreen = ({ selectedCategory, selectedSubCategory, setSele
   className="flex items-center gap-1 text-sm font-semibold text-indigo-600 hover:underline"
 >
   <svg height="25px" width="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fillRule="evenodd" clipRule="evenodd" d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z" fill="#5a67d8"></path> </g></svg>
-  <span>חזור ל{selectedSubCategory.name}</span>
+  <span>חזור ל{selectedCategory?.name || "קטגוריות"}</span>
 </button>
         </div>
         <div className="space-y-2">
@@ -70,15 +94,16 @@ const DiseaseSelectionScreen = ({ selectedCategory, selectedSubCategory, setSele
                         ))}
                     </div>
                     {chosenDiseases.length > 0 && <div className="flex justify-center">
-                <button onClick={() => {setCurrentScreen("summary")}} className="w-75 mt-6 p-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">עבור לסיכום המחלות שנבחרו</button>
+                {/* <button onClick={() => {setCurrentScreen("summary")}} className="w-75 mt-6 p-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">עבור לסיכום המחלות שנבחרו</button> */}
             </div>}
                 </>
           <div id="calculation-exp" />
+          <div className="p-3">
           <button
             onClick={() => {
               setShowInfo(!showInfo)
             }}
-            className="w-full border border-indigo-200 flex items-center justify-between p-3 bg-white rounded-lg font-semibold hover:bg-indigo-300 transition duration-200 ease-in-out mt-6"
+            className="w-full border border-indigo-200 flex items-center justify-between p-3 bg-white rounded-lg font-semibold hover:bg-indigo-300 transition duration-200 ease-in-out mt-2"
           >
             <span>איך עובדת שיטת החישוב?</span>
             <svg
@@ -91,6 +116,7 @@ const DiseaseSelectionScreen = ({ selectedCategory, selectedSubCategory, setSele
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
             </svg>
            </button>
+           </div>
           {showInfo && 
           <div>
           <ol className="mt-2 list-decimal list-inside bg-slate-50 p-4 rounded-lg border border-indigo-200 space-y-1">

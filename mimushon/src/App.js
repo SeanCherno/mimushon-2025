@@ -20,46 +20,6 @@ import TermsPage from "./components/content/TermsPage";
 import PrivacyPage from "./components/content/PrivacyPage";
 
 function App() {
-  // const saveToCookie = (data) => {
-  //   // const filteredData = data.map(element => {
-  //   //   return {
-  //   //     disease: element.disease.id,
-  //   //     selectedSeverity: element.selectedSeverity.severityId
-  //   //   }
-  //   // })
-  //   try {
-  //     const serializedData = JSON.stringify(data);
-  //     console.log(serializedData);
-  //     const expirationDate = new Date();
-  //     expirationDate.setFullYear(expirationDate.getFullYear() + 1);
-  //     document.cookie = `chosenDiseases=${serializedData}; expires=${expirationDate.toUTCString()}; path=/`;
-  //   } catch (error) {
-  //     console.error("Failed to save to cookie:", error);
-  //   }
-  // };
-
-  // const loadFromCookie = () => {
-  //   try {
-  //     const name = "chosenDiseases=";
-  //     const decodedCookie = decodeURIComponent(document.cookie);
-  //     const ca = decodedCookie.split(";");
-  //     for (let i = 0; i < ca.length; i++) {
-  //       let c = ca[i];
-  //       while (c.charAt(0) === " ") {
-  //         c = c.substring(1);
-  //       }
-  //       if (c.indexOf(name) === 0) {
-  //         console.log(JSON.parse(c.substring(name.length, c.length)));
-  //         return JSON.parse(c.substring(name.length, c.length));
-  //       }
-  //     }
-  //     return [];
-  //   } catch (error) {
-  //     console.error("Failed to load from cookie:", error);
-  //     return [];
-  //   }
-  // };
-
   const [chosenDiseasesWithSeverities, setChosenDiseasesWithSeverities] =
     useState([]);
   const [selectedDiseaseForSeverityView, setSelectedDiseaseForSeverityView] =
@@ -137,21 +97,6 @@ function App() {
     // The outer flatMap merges the results from all categories.
     return [...directDiseases, ...nestedDiseases];
   });
-
-  // // Filter diseases based on selected category first
-  // const diseasesInSelectedCategory = selectedCategory
-  //   ? selectedCategory.diseases
-  //   : diseasesData?.categories?.flatMap((category) => category.diseases);
-
-  // // Filter diseases further based on the search term
-  // const filteredDiseases = diseasesInSelectedCategory?.filter((disease) =>
-  //   disease.name.toLowerCase().includes(searchTerm.toLowerCase())
-  // );
-
-  // useEffect(() => {
-  //   setCurrentScreen("diseaseSelection");
-  //   setChosenDiseasesWithSeverities([]);
-  // }, [currentMode, currentModeDataKey]);
 
   useEffect(() => {
     const section = document.getElementById("severitySelection");
@@ -365,43 +310,6 @@ function App() {
             setSelectedCategory={setSelectedCategory}
           />
         );
-      // case "summary":
-      //   return (
-      //     <>
-      //       <ChosenDiseasesSummary
-      //         chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}
-      //         onRemoveDisease={handleRemoveDisease}
-      //         onAddDisease={() => setCurrentScreen("diseaseSelection")}
-      //         onEmptyList={() => setCurrentScreen("diseaseSelection")}
-      //         onProceed={() => setCurrentScreen("userInfo")}
-      //         modes={modes}
-      //       />
-      //       <div className="mt-6 flex flex-col sm:flex-row gap-4">
-      //         <button
-      //           onClick={() => setCurrentScreen("diseaseSelection")}
-      //           className="flex-1 p-3 bg-slate-400 text-white rounded-lg font-semibold hover:bg-slate-600 transition"
-      //         >
-      //           הוסף/י מחלה נוספת
-      //         </button>
-      //         <button
-      //           onClick={() => {
-      //             handleFinalCalculation(chosenDiseasesWithSeverities);
-      //             setCurrentScreen("results");
-      //           }}
-      //           className="flex-1 p-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition"
-      //         >
-      //           המשך לחישוב
-      //         </button>
-      //       </div>
-      //     </>
-      //   );
-      // case "userInfo":
-      //   return (
-      //     <UserInfoForm
-      //       onBack={() => setCurrentScreen("summary")}
-      //       onFormSubmit={handleUserInfoFormSubmit}
-      //     />
-      //   );
       case "results":
         return isCalculating ? (
           <LoadingSpinner asOverlay={true} />
@@ -465,66 +373,84 @@ function App() {
                 </aside>
 
                 {/* Mobile FAB and Modal */}
+
                 <div className="md:hidden">
-                  <button
-                    onClick={() => setIsMobileSummaryOpen(true)}
-                    className="fixed bottom-4 left-4 z-30 bg-purple-600 text-white p-4 rounded-full shadow-lg hover:bg-purple-700 transition flex items-center justify-center"
-                    aria-label="View Summary"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                  {chosenDiseasesWithSeverities.length > 0 && (
+                    <button
+                      onClick={() => setIsMobileSummaryOpen(true)}
+                      className="fixed inset-x-0 bottom-6 mx-auto w-75 z-30 bg-indigo-600 border border-black text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition flex items-center justify-center"
+                      aria-label="View Summary"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
-                      />
-                    </svg>
-                    {chosenDiseasesWithSeverities.length > 0 && (
-                      <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center border-2 border-white">
-                        {chosenDiseasesWithSeverities.length}
-                      </span>
-                    )}
-                  </button>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                        />
+                      </svg>
+                      <p className="px-3">חשב את אחוזי הנכות</p>
+                      {chosenDiseasesWithSeverities.length > 0 && (
+                        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center border-2 border-white">
+                          {chosenDiseasesWithSeverities.length}
+                        </span>
+                      )}
+                    </button>
+                  )}
 
                   {isMobileSummaryOpen && (
                     <div
-                      className="fixed inset-0 bg-black/75 z-40"
+                      className={`fixed inset-0 bg-black/75 z-40 ${
+                        isMobileSummaryOpen ? "" : "pointer-events-none"
+                      }`}
                       onClick={() => setIsMobileSummaryOpen(false)}
                     >
                       <div
-                        className="fixed inset-y-0 mt-16 right-0 w-full max-w-sm bg-purple-50 shadow-xl p-4 transform transition-transform"
+                        className={`fixed inset-y-0 mt-16 right-0 w-full max-w-sm bg-indigo-50 shadow-xl p-4 transform transition-transform ${
+                          isMobileSummaryOpen ? "opacity-100" : "opacity-0"
+                        }`}
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <ChosenDiseasesSummary
-                          chosenDiseasesWithSeverities={
-                            chosenDiseasesWithSeverities
-                          }
-                          onRemoveDisease={handleRemoveDisease}
-                          onAddDisease={handleAddDiseaseAndCloseModal}
-                          onEmptyList={() => {
-                            setCurrentScreen("diseaseSelection");
-                            setIsMobileSummaryOpen(false);
-                          }}
-                          onProceed={handleProceedAndCloseModal}
-                          isMobileView={true}
-                          onClose={() => setIsMobileSummaryOpen(false)}
-                          modes={modes}
-                          onCalculate={handleFinalCalculation}
-                          setCurrentScreen={setCurrentScreen}
-                        />
+                        <div
+                          className={`modal-panel absolute top-0 bottom-0 right-0 w-full max-w-sm bg-purple-50 shadow-xl p-4 ${
+                            isMobileSummaryOpen
+                              ? "translate-x-0"
+                              : "translate-x-full"
+                          }`}
+                        >
+                          <ChosenDiseasesSummary
+                            chosenDiseasesWithSeverities={
+                              chosenDiseasesWithSeverities
+                            }
+                            onRemoveDisease={handleRemoveDisease}
+                            onAddDisease={handleAddDiseaseAndCloseModal}
+                            onEmptyList={() => {
+                              setCurrentScreen("diseaseSelection");
+                              setIsMobileSummaryOpen(false);
+                            }}
+                            onProceed={handleProceedAndCloseModal}
+                            isMobileView={true}
+                            onClose={() => setIsMobileSummaryOpen(false)}
+                            modes={modes}
+                            onCalculate={handleFinalCalculation}
+                            setCurrentScreen={setCurrentScreen}
+                          />
+                        </div>
                       </div>
                     </div>
                   )}
                 </div>
 
                 {/* Main Content */}
-                <main className="w-full md:w-2/3">{renderScreen()}</main>
+                <main className="w-full md:w-2/3 screen-container">
+                  {renderScreen()}
+                </main>
               </div>
             </div>
           </div>
