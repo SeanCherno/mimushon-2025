@@ -345,12 +345,12 @@ function App() {
         <div className=" bg-gradient-to-br from-indigo-50 to-indigo-50">
           <HeroSection setShowInfo={setShowInfo} />
           <div id="calculator"></div>
-          <div className="mt-6 p-4 sm:p-8 font-sans text-gray-800 flex items-center justify-center">
+          <div className="mt-3 p-4 sm:p-8 font-sans text-gray-800 flex items-center justify-center">
             <div
               className="bg-white p-6 sm:p-10 rounded-xl shadow-2xl w-full border border-indigo-200"
               dir="rtl"
             >
-              <h1 className="text-3xl sm:text-4xl font-semibold text-center text-indigo-800 mb-8">
+              <h1 className="text-3xl sm:text-4xl font-semibold text-center text-indigo-800 mb-1 sm:mb-8">
                 מחשבון אחוזי נכות למחלות
               </h1>
 

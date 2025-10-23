@@ -28,7 +28,7 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
       <button onClick={onStartOver} className="mt-6 px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">
         התחל מחדש
       </button>
-      <button onClick={() => {setCurrentScreen("diseaseSelection")}} className="mx-4 flex-1 p-3 bg-slate-500 text-white text-slate-800 rounded-lg font-semibold hover:bg-slate-400 transition">
+      <button onClick={() => {setCurrentScreen("diseaseSelection")}} className="mx-4 mt-3 flex-1 p-3 bg-slate-500 text-white text-slate-800 rounded-lg font-semibold hover:bg-slate-400 transition">
         הוסף מחלה נוספת
       </button>
       <p className="text-xs text-indigo-700 mt-2">המחשבון הינו כלי להערכה בלבד, ואינו מהווה גורם מוסמך לקביעת אחוזי נכות.</p>

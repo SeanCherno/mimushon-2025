@@ -1,8 +1,17 @@
-import React, { useState } from "react"
+import React, { useEffect } from "react"
 
 const DiseaseSelectionScreen = ({ selectedCategory, selectedSubCategory, setSelectedCategory, setSelectedSubCategory, showInfo, setShowInfo, categories, onDiseaseSelected, chosenDiseases, setCurrentScreen }) => {
     // const [selectedCategory, setSelectedCategory] = useState(null);
     // const [selectedSubCategory, setSelectedSubCategory] = useState(null);
+
+    useEffect(() => {
+  const section = document.getElementById("calculator");
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth", // This makes the scroll smooth
+        block: "start", // Aligns the top of the element with the top of the viewport
+      })}
+    }, [selectedCategory, selectedSubCategory])
 
     const handleCategoryClick = (category) => {
         if (!category.subcategories) {
@@ -13,38 +22,38 @@ const DiseaseSelectionScreen = ({ selectedCategory, selectedSubCategory, setSele
         }
         else {setSelectedCategory(category);}
 
-         const section = document.getElementById("calculator");
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth", // This makes the scroll smooth
-        block: "start", // Aligns the top of the element with the top of the viewport
-      });
-    }
+    //      const section = document.getElementById("calculator");
+    // if (section) {
+    //   section.scrollIntoView({
+    //     behavior: "smooth", // This makes the scroll smooth
+    //     block: "start", // Aligns the top of the element with the top of the viewport
+    //   });
+    // }
     };
     
     const handleBackToCategories = () => {
         setSelectedCategory(null);
         setSelectedSubCategory(null);
 
-         const section = document.getElementById("calculator");
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth", // This makes the scroll smooth
-        block: "start", // Aligns the top of the element with the top of the viewport
-      });
-    }
+    //      const section = document.getElementById("calculator");
+    // if (section) {
+    //   section.scrollIntoView({
+    //     behavior: "smooth", // This makes the scroll smooth
+    //     block: "start", // Aligns the top of the element with the top of the viewport
+    //   });
+    // }
     };
 
     const handleBackToSubCategories = () => {
         setSelectedSubCategory(null);
 
-         const section = document.getElementById("calculator");
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth", // This makes the scroll smooth
-        block: "start", // Aligns the top of the element with the top of the viewport
-      });
-    }
+    //      const section = document.getElementById("calculator");
+    // if (section) {
+    //   section.scrollIntoView({
+    //     behavior: "smooth", // This makes the scroll smooth
+    //     block: "start", // Aligns the top of the element with the top of the viewport
+    //   });
+    // }
     };
 
 
