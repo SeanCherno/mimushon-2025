@@ -276,6 +276,8 @@ function App() {
 
   const handleStartOver = () => {
     setChosenDiseasesWithSeverities([]);
+    setSelectedCategory(null);
+    setSelectedSubCategory(null);
     // setFormSubmitted(false);
     setCurrentScreen("diseaseSelection");
   };
