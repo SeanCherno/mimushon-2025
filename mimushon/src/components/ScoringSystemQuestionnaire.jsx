@@ -21,7 +21,6 @@ const ScoringSystemQuestionnaire = ({ questionnaireData, severities, onSuggestSe
         }
     });
 
-    console.log(questionnaireData, "\n rules: ", questionnaireData.rules)
     const matchingRule = questionnaireData?.rules?.find(rule => 
         totalScore >= rule?.scoreRange[0] && totalScore <= rule?.scoreRange[1]
     );

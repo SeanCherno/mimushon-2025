@@ -13,14 +13,17 @@ const DiseaseSelectionScreen = ({ selectedCategory, selectedSubCategory, setSele
       })}
     }, [selectedCategory, selectedSubCategory])
 
-    const handleCategoryClick = (category) => {
-        if (!category.subcategories) {
-            setSelectedSubCategory(category); // Treat it like a subcategory with its diseases
-            if(category.diseases.length === 1){
-              onDiseaseSelected(category.diseases[0])
+    const handleCategoryClick = async (category) => {
+      const response = await fetch (`/api/categories/${category.id}`)
+      const newCategory = await response.json()
+
+        if (!newCategory.subcategories) {
+            setSelectedSubCategory(newCategory); // Treat it like a subcategory with its diseases
+            if(newCategory.diseases.length === 1){
+              onDiseaseSelected(newCategory.diseases[0])
             }
         }
-        else {setSelectedCategory(category);}
+        else {setSelectedCategory(newCategory);}
     };
     
     const handleBackToCategories = () => {
@@ -32,6 +35,11 @@ const DiseaseSelectionScreen = ({ selectedCategory, selectedSubCategory, setSele
         setSelectedSubCategory(null);
     };
 
+
+    
+  if (!categories || categories.length === 0) {
+    return <div>Loading...</div>
+  }
 
     if (selectedSubCategory) {
     return (

@@ -117,8 +117,8 @@ const ChosenDiseasesSummary = ({ modes, chosenDiseasesWithSeverities, onCalculat
                     הוסף מחלה חדשה
                 </button> */}
                 <button 
-                    onClick={() =>{ onCalculate(chosenDiseasesWithSeverities); setCurrentScreen("results")}}
-                    disabled={chosenDiseasesWithSeverities.length === 0}
+                    onClick={() =>{ onCalculate(chosenDiseases); setCurrentScreen("results")}}
+                    disabled={chosenDiseases.length === 0}
                     className="w-full p-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition disabled:bg-gray-400"
                 >
                     חשב אחוזי נכות

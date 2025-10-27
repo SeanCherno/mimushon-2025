@@ -180,7 +180,7 @@ app.get("/api/diseases", (req, res) => {
 
 app.get("/api/categories", (req, res) => {
   res.json(
-    diseasesData.map((category) => {
+    diseasesData.categories.map((category) => {
       return {
         id: category.id,
         name: category.name,

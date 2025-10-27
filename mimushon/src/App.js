@@ -25,15 +25,10 @@ function App() {
   const [selectedDiseaseForSeverityView, setSelectedDiseaseForSeverityView] =
     useState([]);
   const [totalPercentages, setTotalPercentages] = useState({});
-  // const [userName, setUserName] = useState("");
-  // const [userPhone, setUserPhone] = useState("");
-  // const [userEmail, setUserEmail] = useState("");
-  // const [formSubmitted, setFormSubmitted] = useState(false);
-  // const [currentMode, setCurrentMode] = useState("generalDisability"); // Default mode
   const [isCalculating, setIsCalculating] = useState(false);
   const [diseasesData, setDiseasesData] = useState({});
   const [currentScreen, setCurrentScreen] = useState("diseaseSelection");
-  const [categories, setCatergories] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [showInfo, setShowInfo] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
@@ -65,18 +60,19 @@ function App() {
   ];
 
   useEffect(() => {
-    const fetchDiseases = async () => {
+    const fetchCategories = async () => {
       try {
-        const response = await fetch(`/api/diseases`);
+        const response = await fetch(`/api/categories`);
         const data = await response.json();
-        setDiseasesData(data);
-        setCatergories(data.categories);
+        console.log(data);
+        // setDiseasesData(data);
+        setCategories(data);
         // setChosenDiseasesWithSeverities(loadFromCookie());
       } catch (error) {
-        console.error("Failed to fetch diseases data:", error);
+        console.error("Failed to fetch categories data:", error);
       }
     };
-    fetchDiseases();
+    fetchCategories();
   }, []);
 
   // Flatten all diseases for searching across categories
@@ -484,16 +480,16 @@ function App() {
     </div>
   );
 
-  if (!diseasesData) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center p-8 bg-white rounded-xl shadow-lg">
-          <p className="text-2xl font-bold text-indigo-800">טוען נתונים...</p>
-          <div className="mt-4 animate-spin rounded-full h-12 w-12 border-4 border-indigo-500 border-t-transparent mx-auto"></div>
-        </div>
-      </div>
-    );
-  }
+  // if (!diseasesData) {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center">
+  //       <div className="text-center p-8 bg-white rounded-xl shadow-lg">
+  //         <p className="text-2xl font-bold text-indigo-800">טוען נתונים...</p>
+  //         <div className="mt-4 animate-spin rounded-full h-12 w-12 border-4 border-indigo-500 border-t-transparent mx-auto"></div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <>
