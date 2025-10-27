@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import GenericSeverityQuestionnaire from "./ScoringSystemQuestionnaire";
 import SeverityTable from "./SeverityTable";
 import BMICalculator from "./content/BmiCalculator";
 import Tooltip from "./content/Tooltip"
@@ -45,9 +44,9 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
 
   const handleBack = () => {
      if (selectedSubCategory) {
-            setSelectedSubCategory(back); // Treat it like a subcategory with its diseases
+            setSelectedSubCategory(back || selectedSubCategory); // Treat it like a subcategory with its diseases
         } else {
-        setSelectedCategory(back);
+        setSelectedCategory(back || selectedCategory);
         }
         setCurrentScreen('diseaseSelection')
   }
@@ -183,7 +182,7 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
                 onChange={() => onSeverityChange(selectedDiseaseForSeverityView, severity)} // Pass both disease and severity
               />
               <label htmlFor={`severity-${selectedDiseaseForSeverityView.id}-${index}`} className="ml-3 text-base text-gray-700 cursor-pointer preserve-whitespace">
-                <span className="font-medium"> &nbsp;{severity.percentage}%:</span> 
+                {/* <span className="font-medium"> &nbsp;{severity.percentage}%:</span>  */}
 
                 {severity.description.includes("\n") ?
                <span className="px-4 rounded-lg transition duration-200 ease-in-out"> 

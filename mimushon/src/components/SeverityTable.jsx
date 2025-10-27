@@ -109,7 +109,7 @@ const SeverityTable = ({ disease, onSeverityChange, chosenDiseasesWithSeverities
                             checked={isChecked}
                             onChange={() => onSeverityChange(disease, severity)}
                           />
-                          <span className="ml-2">{disease.eyesightTable ? "" : severity.percentage + "%"}</span>
+                          {/* <span className="ml-2">{disease.eyesightTable ? "" : severity.percentage + "%"}</span> */}
                         </label>
                       ) : (
                         <span className="text-gray-400">-</span>

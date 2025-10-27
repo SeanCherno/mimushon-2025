@@ -79,24 +79,19 @@ function App() {
     fetchDiseases();
   }, []);
 
-  // const currentModeName = modes.find((mode) => mode.id === currentMode).name;
-  // const currentModeDataKey = modes.find(
-  //   (mode) => mode.id === currentMode
-  // ).dataKey;
-
   // Flatten all diseases for searching across categories
-  const allDiseasesFlat = diseasesData?.categories?.flatMap((category) => {
-    // 1. Get diseases that are directly inside the category.
-    const directDiseases = category.diseases || [];
+  // const allDiseasesFlat = diseasesData?.categories?.flatMap((category) => {
+  //   // 1. Get diseases that are directly inside the category.
+  //   const directDiseases = category.diseases || [];
 
-    // 2. Get all diseases from all sub-categories, if they exist.
-    const nestedDiseases =
-      category.subcategories?.flatMap((sub) => sub.diseases || []) || [];
+  //   // 2. Get all diseases from all sub-categories, if they exist.
+  //   const nestedDiseases =
+  //     category.subcategories?.flatMap((sub) => sub.diseases || []) || [];
 
-    // 3. Return the combined list for this category.
-    // The outer flatMap merges the results from all categories.
-    return [...directDiseases, ...nestedDiseases];
-  });
+  //   // 3. Return the combined list for this category.
+  //   // The outer flatMap merges the results from all categories.
+  //   return [...directDiseases, ...nestedDiseases];
+  // });
 
   useEffect(() => {
     const section = document.getElementById("severitySelection");
@@ -110,6 +105,7 @@ function App() {
 
   const handleFinalCalculation = async (chosenDiseases, modeKey) => {
     setIsCalculating(true);
+    console.log(chosenDiseases);
     try {
       const response = await fetch(`/api/calculate`, {
         method: "POST",
@@ -183,12 +179,23 @@ function App() {
     // Removed automatic linking here, it will now only happen via the explicit button
   };
 
-  const handleNavigateToLinkedDisease = (linkedDiseaseId, linkedSeverityId) => {
-    console.log(allDiseasesFlat);
-    const linkedDisease = allDiseasesFlat.find((d) => d.id === linkedDiseaseId);
+  const handleNavigateToLinkedDisease = async (
+    linkedDiseaseId,
+    linkedSeverityId
+  ) => {
+    const response = await fetch(`/api/diseases/${linkedDiseaseId}`);
+    const data = await response.json();
+
+    const linkedDisease = data.disease;
     if (linkedDisease) {
       // Set the selected disease for viewing
       setSelectedDiseaseForSeverityView(linkedDisease);
+      console.log(data);
+      if (data.subCategory) {
+        console.log("subcat", data.subCategory);
+        setSelectedSubCategory(data.subCategory);
+      }
+      setSelectedCategory(data.category);
 
       setChosenDiseasesWithSeverities((prevChosen) => {
         const existingEntryIndex = prevChosen.findIndex(
@@ -375,7 +382,9 @@ function App() {
                 {/* Mobile FAB and Modal */}
 
                 <div className="md:hidden">
-                  {chosenDiseasesWithSeverities.length > 0 && (
+                  {chosenDiseasesWithSeverities.filter(
+                    (disease) => disease.selectedSeverity
+                  ).length > 0 && (
                     <button
                       onClick={() => setIsMobileSummaryOpen(true)}
                       className="fixed inset-x-0 bottom-6 mx-auto w-75 z-30 bg-indigo-600 border border-black text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition flex items-center justify-center"
@@ -396,9 +405,15 @@ function App() {
                         />
                       </svg>
                       <p className="px-3">חשב את אחוזי הנכות</p>
-                      {chosenDiseasesWithSeverities.length > 0 && (
+                      {chosenDiseasesWithSeverities.filter(
+                        (disease) => disease.selectedSeverity
+                      ).length > 0 && (
                         <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center border-2 border-white">
-                          {chosenDiseasesWithSeverities.length}
+                          {
+                            chosenDiseasesWithSeverities.filter(
+                              (disease) => disease.selectedSeverity
+                            ).length
+                          }
                         </span>
                       )}
                     </button>

@@ -21,39 +21,15 @@ const DiseaseSelectionScreen = ({ selectedCategory, selectedSubCategory, setSele
             }
         }
         else {setSelectedCategory(category);}
-
-    //      const section = document.getElementById("calculator");
-    // if (section) {
-    //   section.scrollIntoView({
-    //     behavior: "smooth", // This makes the scroll smooth
-    //     block: "start", // Aligns the top of the element with the top of the viewport
-    //   });
-    // }
     };
     
     const handleBackToCategories = () => {
         setSelectedCategory(null);
         setSelectedSubCategory(null);
-
-    //      const section = document.getElementById("calculator");
-    // if (section) {
-    //   section.scrollIntoView({
-    //     behavior: "smooth", // This makes the scroll smooth
-    //     block: "start", // Aligns the top of the element with the top of the viewport
-    //   });
-    // }
     };
 
     const handleBackToSubCategories = () => {
         setSelectedSubCategory(null);
-
-    //      const section = document.getElementById("calculator");
-    // if (section) {
-    //   section.scrollIntoView({
-    //     behavior: "smooth", // This makes the scroll smooth
-    //     block: "start", // Aligns the top of the element with the top of the viewport
-    //   });
-    // }
     };
 
 

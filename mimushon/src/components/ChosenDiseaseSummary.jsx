@@ -74,9 +74,9 @@ const ChosenDiseasesSummary = ({ modes, chosenDiseasesWithSeverities, onCalculat
                 </button>
             )}
             <h2 className="text-xl font-bold text-indigo-800 mb-4">המחלות שנבחרו</h2>
-            {chosenDiseasesWithSeverities.length > 0 ? (
+            {chosenDiseases.length > 0 ? (
                 <div className="space-y-4 flex-grow">
-                    {chosenDiseasesWithSeverities.map((entry) => (
+                    {chosenDiseases.map((entry) => (
                         <div key={entry.disease.id} className="bg-white p-3 rounded-lg shadow-sm border border-indigo-200">
                            <div className="flex items-center justify-between">
                              <p className="text-md font-semibold text-gray-800">{entry.disease.name}</p>
@@ -92,7 +92,7 @@ const ChosenDiseasesSummary = ({ modes, chosenDiseasesWithSeverities, onCalculat
                            </div>
                             {entry.selectedSeverity ? 
                             <p className="text-sm text-gray-700 mt-1">
-                                "{entry.selectedSeverity.description.split("\n")[0]}" - <span className="font-bold text-indigo-700">{entry.selectedSeverity.percentage}%</span>
+                                "{entry.selectedSeverity.description.split("\n")[0]}"
                                  <p className="text-xs text-gray-500">{getModeApplicability(entry.selectedSeverity)}</p>
                             </p>: 
                             <p className="font-bold text-sm text-gray-700 mt-1 border border-red-500">
@@ -118,7 +118,7 @@ const ChosenDiseasesSummary = ({ modes, chosenDiseasesWithSeverities, onCalculat
                 </button> */}
                 <button 
                     onClick={() =>{ onCalculate(chosenDiseasesWithSeverities); setCurrentScreen("results")}}
-                    disabled={chosenDiseasesWithSeverities.length === 0 || chosenDiseases.length !== chosenDiseasesWithSeverities.length}
+                    disabled={chosenDiseasesWithSeverities.length === 0}
                     className="w-full p-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition disabled:bg-gray-400"
                 >
                     חשב אחוזי נכות
