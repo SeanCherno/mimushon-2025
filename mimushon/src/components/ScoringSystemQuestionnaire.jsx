@@ -21,9 +21,9 @@ const ScoringSystemQuestionnaire = ({ questionnaireData, severities, onSuggestSe
         }
     });
 
-    const matchingRule = questionnaireData?.rules?.find(rule => 
-        totalScore >= rule?.scoreRange[0] && totalScore <= rule?.scoreRange[1]
-    );
+    // const matchingRule = questionnaireData?.rules?.find(rule => 
+    //     totalScore >= rule?.scoreRange[0] && totalScore <= rule?.scoreRange[1]
+    // );
     
     let suggestedSeverity = null;
    

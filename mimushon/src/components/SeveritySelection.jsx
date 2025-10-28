@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import SeverityTable from "./SeverityTable";
 import BMICalculator from "./content/BmiCalculator";
 import Tooltip from "./content/Tooltip"
 import ScoringSystemQuestionnaire from "./ScoringSystemQuestionnaire";
 import ConditionalQuestionnaire from "./ConditionalQuestionnaire";
 
-const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedSubCategory, setSelectedCategory, setCurrentScreen, selectedDiseaseForSeverityView, onSeverityChange, chosenDiseasesWithSeverities, onNavigateToLinkedDisease }) => {
+const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedSubCategory, isASeveritySelected, setSelectedCategory, setCurrentScreen, selectedDiseaseForSeverityView, onSeverityChange, chosenDiseasesWithSeverities, onNavigateToLinkedDisease }) => {
   const [severitySearchTerm, setSeveritySearchTerm] = useState('');
   const [showInteractiveGuide, setShowInteractiveGuide] = useState(false);
   const [isGuiding, setIsGuiding] = useState(false);
@@ -43,12 +43,12 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
   );
 
   const handleBack = () => {
-     if (selectedSubCategory) {
-            setSelectedSubCategory(back || selectedSubCategory); // Treat it like a subcategory with its diseases
-        } else {
-        setSelectedCategory(back || selectedCategory);
-        }
-        setCurrentScreen('diseaseSelection')
+    if (selectedSubCategory) {
+      setSelectedSubCategory(back || selectedSubCategory); // Treat it like a subcategory with its diseases
+    } else {
+      setSelectedCategory(back || selectedCategory);
+    }
+    setCurrentScreen('diseaseSelection')
   }
 
   const handleSeveritySuggestion = (suggestedSeverity) => {
@@ -58,6 +58,20 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
     setSeveritySearchTerm(''); // Clear search term
   };
 
+  const handleAddDisease = () => {
+    setSelectedCategory(null);
+    setSelectedSubCategory(null);
+    setCurrentScreen("diseaseSelection")
+
+    const section = document.getElementById("calculator");
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth", // This makes the scroll smooth
+        block: "start", // Aligns the top of the element with the top of the viewport
+      })
+    }
+  }
+
   const hasScoringQuestionnaire = selectedDiseaseForSeverityView.scoringQuestionnaire
   const hasConditionalQuestionnaire = selectedDiseaseForSeverityView.conditionalQuestionnaire
 
@@ -66,16 +80,16 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
   return (
     <div id="severitySelection" className="p-4 sm:p-6 bg-indigo-50 rounded-xl border border-indigo-200">
       <div className="flex justify-between items-center mb-4">
-      <h2 className="text-lg sm:text-2xl font-bold text-indigo-800 mb-4">
-        בחר דרגה עבור: <span className="text-indigo-500">{selectedDiseaseForSeverityView.name}</span>
-      </h2>
-     <button 
-  onClick={handleBack} 
-  className="flex items-center gap-1 text-sm font-semibold text-indigo-600 hover:underline"
->
-  <svg height="25px" width="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fillRule="evenodd" clipRule="evenodd" d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z" fill="#5a67d8"></path> </g></svg>
-  <span>חזור</span>
-</button>
+        <h2 className="text-lg sm:text-2xl font-bold text-indigo-800 mb-4">
+          בחר דרגה עבור: <span className="text-indigo-500">{selectedDiseaseForSeverityView.name}</span>
+        </h2>
+        <button
+          onClick={handleBack}
+          className="flex items-center gap-1 text-sm font-semibold text-indigo-600 hover:underline"
+        >
+          <svg height="25px" width="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fillRule="evenodd" clipRule="evenodd" d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z" fill="#5a67d8"></path> </g></svg>
+          <span>חזור</span>
+        </button>
       </div>
       {/* {selectedDiseaseForSeverityView.description && 
       <p className="text-indigo-600 text-m mb-6">{selectedDiseaseForSeverityView.description} </p>}
@@ -110,30 +124,30 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
           )}
           {showInteractiveGuide && (
             <>
-            {hasScoringQuestionnaire && 
-            <ScoringSystemQuestionnaire
-              questionnaireData={selectedDiseaseForSeverityView.scoringQuestionnaire}
-              severities={selectedDiseaseForSeverityView.severities}
-              onSuggestSeverity={handleSeveritySuggestion}
-              onCancel={() => { setShowInteractiveGuide(false); setIsGuiding(false); }}
-            />
-            }
-            {
-              hasConditionalQuestionnaire && 
-              <ConditionalQuestionnaire
-                questionnaire={selectedDiseaseForSeverityView.conditionalQuestionnaire} 
-                severities={selectedDiseaseForSeverityView.severities} 
-                onSuggestSeverity={handleSeveritySuggestion} 
-                onCancel={() => {setShowInteractiveGuide(false); setIsGuiding(false); }} 
-              />
-            }
+              {hasScoringQuestionnaire &&
+                <ScoringSystemQuestionnaire
+                  questionnaireData={selectedDiseaseForSeverityView.scoringQuestionnaire}
+                  severities={selectedDiseaseForSeverityView.severities}
+                  onSuggestSeverity={handleSeveritySuggestion}
+                  onCancel={() => { setShowInteractiveGuide(false); setIsGuiding(false); }}
+                />
+              }
+              {
+                hasConditionalQuestionnaire &&
+                <ConditionalQuestionnaire
+                  questionnaire={selectedDiseaseForSeverityView.conditionalQuestionnaire}
+                  severities={selectedDiseaseForSeverityView.severities}
+                  onSuggestSeverity={handleSeveritySuggestion}
+                  onCancel={() => { setShowInteractiveGuide(false); setIsGuiding(false); }}
+                />
+              }
             </>
           )}
         </div>
       )}
 
-      {selectedDiseaseForSeverityView.guide && 
-       <div className="mb-4">
+      {selectedDiseaseForSeverityView.guide &&
+        <div className="mb-4">
           <button
             onClick={() => {
               setShowGuide(!showGuide)
@@ -150,49 +164,50 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
             </svg>
-           </button>
-          {showGuide && 
-          <div className="preserve-whitespace mt-2 bg-slate-50 p-4 rounded-lg border border-indigo-200 text-slate-800 space-y-1">
-          {/* <ul className="mt-2 list-disc list-inside bg-slate-50 p-4 rounded-lg border border-indigo-200 text-indigo-800 space-y-1"> */}
-            {/* <p className="font-semibold">הועדה הרפואית עשויה לבקש מסמכים, תוצאות של בדיקות ומכתבי סיכום שיעזרו לה להבין את מצבכם הרפואי לעומק. <br /><br />עבור {selectedDiseaseForSeverityView.name} מומלץ להכין את המסמכים הבאים:</p> */}
-            {selectedDiseaseForSeverityView.guide} 
-          {/* </ul> */}
-          </div>}
-          </div>}
+          </button>
+          {showGuide &&
+            <div className="preserve-whitespace mt-2 bg-slate-50 p-4 rounded-lg border border-indigo-200 text-slate-800 space-y-1">
+              {/* <ul className="mt-2 list-disc list-inside bg-slate-50 p-4 rounded-lg border border-indigo-200 text-indigo-800 space-y-1"> */}
+              {/* <p className="font-semibold">הועדה הרפואית עשויה לבקש מסמכים, תוצאות של בדיקות ומכתבי סיכום שיעזרו לה להבין את מצבכם הרפואי לעומק. <br /><br />עבור {selectedDiseaseForSeverityView.name} מומלץ להכין את המסמכים הבאים:</p> */}
+              {selectedDiseaseForSeverityView.guide}
+              {/* </ul> */}
+            </div>}
+        </div>}
 
-      {displayAsTable && !isGuiding ? 
+      {displayAsTable && !isGuiding ?
         <SeverityTable
           disease={selectedDiseaseForSeverityView}
           onSeverityChange={onSeverityChange}
           chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}
         />
-      : !isGuiding && ( // Only show manual filter and options if not in interactive guide
-         <div className="pr-2 mb-6">
-        {selectedDiseaseForSeverityView.severities.length > 0 ? (
-          filteredSeverities.map((severity, index) => (
-            <div key={index} className="flex items-start mb-3">
-              <input
-                type="radio"
-                disabled={severity.linkedDiseaseId || severity.disabled}
-                id={`severity-${selectedDiseaseForSeverityView.id}-${index}`}
-                name={`severity-${selectedDiseaseForSeverityView.id}`} // Group radio buttons by disease
-                className="text-indigo-600 rounded-full border-gray-300 focus:ring-indigo-500 cursor-pointer"
-                style={{height: "15px", width: "15px", marginTop: "5px"}}
-                checked={selectedSeverityForThisDisease && selectedSeverityForThisDisease.description === severity.description}
-                onChange={() => onSeverityChange(selectedDiseaseForSeverityView, severity)} // Pass both disease and severity
-              />
-              <label htmlFor={`severity-${selectedDiseaseForSeverityView.id}-${index}`} className="ml-3 text-base text-gray-700 cursor-pointer preserve-whitespace">
-                {/* <span className="font-medium"> &nbsp;{severity.percentage}%:</span>  */}
+        : !isGuiding && ( // Only show manual filter and options if not in interactive guide
+          <div className="pr-2 mb-6">
+            {selectedDiseaseForSeverityView.severities.length > 0 ? (
+              <form>
+                {filteredSeverities.map((severity, index) => (
+                  <div key={index} className="flex items-start mb-3">
+                    <input
+                      type="radio"
+                      disabled={severity.linkedDiseaseId || severity.disabled}
+                      id={`severity-${selectedDiseaseForSeverityView.id}-${index}`}
+                      name={`severity-${selectedDiseaseForSeverityView.id}`} // Group radio buttons by disease
+                      className="text-indigo-600 rounded-full border-gray-300 focus:ring-indigo-500 cursor-pointer"
+                      style={{ height: "15px", width: "15px", marginTop: "5px" }}
+                      checked={selectedSeverityForThisDisease && selectedSeverityForThisDisease.description === severity.description}
+                      onChange={() => onSeverityChange(selectedDiseaseForSeverityView, severity)} // Pass both disease and severity
+                    />
+                    <label htmlFor={`severity-${selectedDiseaseForSeverityView.id}-${index}`} className="ml-3 text-base text-gray-700 cursor-pointer preserve-whitespace">
+                      {/* <span className="font-medium"> &nbsp;{severity.percentage}%:</span>  */}
 
-                {severity.description.includes("\n") ?
-               <span className="px-4 rounded-lg transition duration-200 ease-in-out"> 
-               <span>{severity.description.split("\n")[0]}</span>
-               <span className="relative">{<Tooltip style={{}} content={severity.description.split("\n").splice(1).join("\n")} />}</span>
-               </span>
-                 :
-                severity.description}
-              </label>
-                  {severity.linkedDiseaseId && (
+                      {severity.description.includes("\n") ?
+                        <span className="px-4 rounded-lg transition duration-200 ease-in-out">
+                          <span>{severity.description.split("\n")[0]}</span>
+                          <span className="relative">{<Tooltip style={{}} content={severity.description.split("\n").splice(1).join("\n")} />}</span>
+                        </span>
+                        :
+                        severity.description}
+                    </label>
+                    {severity.linkedDiseaseId && (
                       <button
                         onClick={() => onNavigateToLinkedDisease(severity.linkedDiseaseId, severity.linkedSeverityId)}
                         className="ml-4 px-3 py-1 bg-indigo-500 text-white text-sm rounded-lg hover:bg-indigo-600 transition duration-200 ease-in-out shadow-sm flex items-center"
@@ -204,19 +219,20 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
                         מעבר
                       </button>
                     )}
-            </div>
-            
-          ))
-        ) : (
-          <p className="text-gray-600">לא נמצאו דרגות עבור המחלה שנבחרה.</p>
+                  </div>
+
+                ))}
+              </form>
+            ) : (
+              <p className="text-gray-600">לא נמצאו דרגות עבור המחלה שנבחרה.</p>
+            )}
+          </div>
         )}
-      </div>
-      )}
 
-      {selectedDiseaseForSeverityView.id === "disease_68" && 
-      <><BMICalculator /></>}
+      {selectedDiseaseForSeverityView.id === "disease_68" &&
+        <><BMICalculator /></>}
 
-       {selectedDiseaseForSeverityView.requiredDocuments && selectedDiseaseForSeverityView.requiredDocuments.length > 0 && (
+      {selectedDiseaseForSeverityView.requiredDocuments && selectedDiseaseForSeverityView.requiredDocuments.length > 0 && (
         <div className="mb-4">
           <button
             onClick={() => {
@@ -234,18 +250,26 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
             </svg>
-           </button>
-          {showDocuments && 
-          <div>
-          <ul className="mt-2 list-disc list-inside bg-slate-50 p-4 rounded-lg border border-indigo-200 text-slate-800 space-y-1">
-            <p className="font-semibold">הועדה הרפואית עשויה לבקש מסמכים, תוצאות של בדיקות ומכתבי סיכום שיעזרו לה להבין את מצבכם הרפואי לעומק. <br /><br />עבור {selectedDiseaseForSeverityView.name} מומלץ להכין את המסמכים הבאים:</p>
-            {selectedDiseaseForSeverityView.requiredDocuments.map((doc, index) => (
-              <li key={index}>{doc}</li>
-            ))} 
-          </ul>
-          </div>}
+          </button>
+          {showDocuments &&
+            <div>
+              <ul className="mt-2 list-disc list-inside bg-slate-50 p-4 rounded-lg border border-indigo-200 text-slate-800 space-y-1">
+                <p className="font-semibold">הועדה הרפואית עשויה לבקש מסמכים, תוצאות של בדיקות ומכתבי סיכום שיעזרו לה להבין את מצבכם הרפואי לעומק. <br /><br />עבור {selectedDiseaseForSeverityView.name} מומלץ להכין את המסמכים הבאים:</p>
+                {selectedDiseaseForSeverityView.requiredDocuments.map((doc, index) => (
+                  <li key={index}>{doc}</li>
+                ))}
+              </ul>
+            </div>}
         </div>
       )}
+
+      {isASeveritySelected &&
+        <div className="flex justify-center">
+          <button className="bg-indigo-600 text-white w-50 text-center p-3 rounded-lg mt-4" onClick={handleAddDisease}>
+            הוסף מחלה
+          </button>
+        </div>
+      }
 
     </div>
   );

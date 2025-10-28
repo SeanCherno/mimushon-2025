@@ -26,7 +26,7 @@ function App() {
     useState([]);
   const [totalPercentages, setTotalPercentages] = useState({});
   const [isCalculating, setIsCalculating] = useState(false);
-  const [diseasesData, setDiseasesData] = useState({});
+  // const [diseasesData, setDiseasesData] = useState({});
   const [currentScreen, setCurrentScreen] = useState("diseaseSelection");
   const [categories, setCategories] = useState([]);
   const [showInfo, setShowInfo] = useState(false);
@@ -34,6 +34,7 @@ function App() {
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
   const [showContent, setShowContent] = useState(false);
   const [isMobileSummaryOpen, setIsMobileSummaryOpen] = useState(false);
+  const [isASeveritySelected, setIsASeveritySelected] = useState(false);
 
   const modes = [
     {
@@ -64,7 +65,6 @@ function App() {
       try {
         const response = await fetch(`/api/categories`);
         const data = await response.json();
-        console.log(data);
         // setDiseasesData(data);
         setCategories(data);
         // setChosenDiseasesWithSeverities(loadFromCookie());
@@ -99,9 +99,27 @@ function App() {
     }
   }, [selectedDiseaseForSeverityView]);
 
+  useEffect(() => {
+    const filteredDiseases = chosenDiseasesWithSeverities.filter(
+      (disease) => disease.selectedSeverity
+    );
+
+    const findSeverity = filteredDiseases.filter(
+      (disease) => disease.disease.id === selectedDiseaseForSeverityView.id
+    );
+
+    console.log(filteredDiseases);
+    console.log(findSeverity);
+
+    if (findSeverity.length > 0) {
+      setIsASeveritySelected(true);
+    } else {
+      setIsASeveritySelected(false);
+    }
+  }, [selectedDiseaseForSeverityView]);
+
   const handleFinalCalculation = async (chosenDiseases, modeKey) => {
     setIsCalculating(true);
-    console.log(chosenDiseases);
     try {
       const response = await fetch(`/api/calculate`, {
         method: "POST",
@@ -113,7 +131,6 @@ function App() {
         }),
       });
       const data = await response.json();
-      console.log(data);
       setTotalPercentages(data);
     } catch (error) {
       console.error("Failed to calculate percentage:", error);
@@ -147,14 +164,13 @@ function App() {
         }
         return prevChosen;
       });
-    } else {
-      console.log("failed");
     }
   };
 
   // Handle checkbox changes for severities
   const handleSeverityChange = (disease, severity) => {
     //setCurrentScreen("summary");
+    setIsASeveritySelected(true);
 
     const section = document.getElementById("calculator");
     if (section) {
@@ -186,9 +202,7 @@ function App() {
     if (linkedDisease) {
       // Set the selected disease for viewing
       setSelectedDiseaseForSeverityView(linkedDisease);
-      console.log(data);
       if (data.subCategory) {
-        console.log("subcat", data.subCategory);
         setSelectedSubCategory(data.subCategory);
       }
       setSelectedCategory(data.category);
@@ -236,7 +250,6 @@ function App() {
       const updatedList = prevChosen.filter(
         (entry) => entry.disease.id !== diseaseIdToRemove
       );
-      console.log(updatedList);
       // If the removed disease was the one currently being viewed, clear the view
       if (
         selectedDiseaseForSeverityView &&
@@ -251,18 +264,6 @@ function App() {
       return updatedList;
     });
   };
-
-  // const handleUserInfoFormSubmit = ({ name, phone, email }) => {
-  //   // setUserName(name);
-  //   // setUserPhone(phone);
-  //   // setUserEmail(email);
-
-  //   setFormSubmitted(true);
-  //   handleFinalCalculation(chosenDiseasesWithSeverities);
-  //   setCurrentScreen("results");
-  //   // In a real application, you would send this data to a backend or do something with it.
-  //   console.log("User Info Submitted:", { name, phone, email });
-  // };
 
   const handleAddDiseaseAndCloseModal = () => {
     setCurrentScreen("diseaseSelection");
@@ -313,6 +314,7 @@ function App() {
             selectedSubCategory={selectedSubCategory}
             setSelectedSubCategory={setSelectedSubCategory}
             setSelectedCategory={setSelectedCategory}
+            isASeveritySelected={isASeveritySelected}
           />
         );
       case "results":
