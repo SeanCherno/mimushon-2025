@@ -36,7 +36,8 @@ const Header = ({ setShowContent }) => {
                         <img
                             src="/logo.png"
                             alt="מימושון"
-                            className="h-10 mt-3" // Use fixed height for better alignment
+                            className="mt-3" // Use fixed height for better alignment
+                            width="150px"
                             onError={(e) => {
                                 e.target.onerror = null;
                                 e.target.src = "/logo.png";
