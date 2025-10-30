@@ -20,6 +20,10 @@ code {
   scroll-margin-top: 150px;
 }
 
+button {
+    cursor: pointer; 
+}
+
 .screen-container {
                 animation: screen-enter 0.4s ease-out;
             }

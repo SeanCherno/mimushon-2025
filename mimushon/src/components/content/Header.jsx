@@ -27,7 +27,7 @@ const Header = ({ setShowContent }) => {
     return (
         <header className="bg-white shadow-md sticky top-0 z-50">
             <nav className="bg-white border-gray-200">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
                     {/* Logo */}
                     <a
                         href="/"
@@ -37,7 +37,7 @@ const Header = ({ setShowContent }) => {
                             src="/logo.png"
                             alt="מימושון"
                             className="mt-3" // Use fixed height for better alignment
-                            width="150px"
+                            width="110px"
                             onError={(e) => {
                                 e.target.onerror = null;
                                 e.target.src = "/logo.png";
@@ -49,7 +49,7 @@ const Header = ({ setShowContent }) => {
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} // Toggle state on click
                         type="button"
-                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
+                        className="inline-flex cursor-pointer items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
                         aria-controls="navbar-default"
                         aria-expanded={isMobileMenuOpen} // Reflect state
                     >

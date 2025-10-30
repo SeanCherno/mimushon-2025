@@ -7,7 +7,7 @@ const BMICalculator = () => {
     // State for weight in kg and height in cm
     const [weight, setWeight] = useState('');
     const [height, setHeight] = useState('');
-    
+
     // State to hold the calculated BMI result
     const [bmi, setBmi] = useState(null);
 
@@ -95,7 +95,7 @@ const BMICalculator = () => {
                 </div>
                 <button
                     type="submit"
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition-colors duration-300"
+                    className="w-full cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline transition-colors duration-300"
                 >
                     חשב BMI
                 </button>

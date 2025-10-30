@@ -5,7 +5,7 @@ const AboutCalculatorSection = () => (
         <div className="container mx-auto px-6">
             <div className="lg:flex lg:items-center lg:gap-12">
                 <div className="lg:w-1/2">
-                    <img src="/images/medical-history.jpg" alt="אישה עובדת על מחשבון" className="rounded-lg shadow-2xl w-full h-auto object-cover"/>
+                    <img src="/images/medical-history.jpg" alt="אישה עובדת על מחשבון" className="rounded-lg shadow-2xl w-full h-auto object-cover" />
                 </div>
                 <div className="lg:w-1/2 mt-10 lg:mt-0">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900">כיצד המחשבון עובד?</h2>
@@ -14,16 +14,17 @@ const AboutCalculatorSection = () => (
                         <FeatureListItem>
                             <strong className="font-semibold text-gray-800">מבוסס על "ספר הליקויים":</strong> החישובים מתבססים על רשימת הליקויים והסעיפים המופיעה בתקנות הביטוח הלאומי, הידועה כ"ספר הליקויים". זהו המסמך שעליו מסתמכות הוועדות הרפואיות.
                         </FeatureListItem>
-                         <FeatureListItem>
+                        <FeatureListItem>
                             <strong className="font-semibold text-gray-800">חישוב נכות משוקללת:</strong> במקרים של מספר פגיעות, המחשבון יודע לבצע חישוב משוקלל, בדומה לאופן שבו הוועדה הרפואית מחשבת את אחוז הנכות הכולל, ולא פשוט מחבר את האחוזים.
                         </FeatureListItem>
-                         <FeatureListItem>
+                        <FeatureListItem>
                             <strong className="font-semibold text-gray-800">כלי להכוונה: </strong> חשוב לזכור שהמחשבון הוא כלי עזר להערכה ראשונית. התוצאה הסופית נקבעת אך ורק על ידי רופא הוועדה הרפואית, הלוקח בחשבון את מלוא התיק הרפואי והבדיקה הפיזית.
                         </FeatureListItem>
                     </ul>
                 </div>
             </div>
         </div>
+        <div id="calculation-exp" />
     </section>
 );
 

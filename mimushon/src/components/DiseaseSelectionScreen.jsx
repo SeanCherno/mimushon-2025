@@ -11,6 +11,7 @@ const DiseaseSelectionScreen = ({
   onDiseaseSelected,
   chosenDiseases,
   setCurrentScreen,
+  onStartOver
 }) => {
   // const [selectedCategory, setSelectedCategory] = useState(null);
   // const [selectedSubCategory, setSelectedSubCategory] = useState(null);
@@ -49,6 +50,14 @@ const DiseaseSelectionScreen = ({
   const handleBackToSubCategories = () => {
     setSelectedSubCategory(null);
   };
+
+  const StartOverButton = () => {
+    return (
+      <div className="flex justify-center mt-3">
+        <button className="bg-indigo-600 text-white p-3 rounded-lg" onClick={onStartOver}>אפס מחשבון</button>
+      </div>
+    )
+  }
 
   if (!categories || categories.length === 0) {
     return <div>Loading...</div>;
@@ -105,6 +114,9 @@ const DiseaseSelectionScreen = ({
             </button>
           ))}
         </div>
+        <div className="space-y-2">
+          <StartOverButton />
+        </div>
       </div>
     );
   }
@@ -142,53 +154,7 @@ const DiseaseSelectionScreen = ({
             </div>
           )}
         </>
-        <div id="calculation-exp" />
-        <div className="p-3">
-          <button
-            onClick={() => {
-              setShowInfo(!showInfo);
-            }}
-            className="w-full border border-indigo-200 flex items-center justify-between p-3 bg-white rounded-lg font-semibold hover:bg-indigo-300 transition duration-200 ease-in-out mt-2"
-          >
-            <span>איך עובדת שיטת החישוב?</span>
-            <svg
-              className={`w-5 h-5 transform transition-transform duration-200`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
-            </svg>
-          </button>
-        </div>
-        {showInfo && (
-          <div>
-            <ol className="mt-2 list-decimal list-inside bg-slate-50 p-4 rounded-lg border border-indigo-200 space-y-1">
-              <p className="font-semibold">
-                זה לא חיבור פשוט — זו שיטה מבוססת, שקופה וברורה. <br />
-                <br />
-              </p>
-              <li>מתחילים מהליקוי עם אחוז הנכות הגבוה ביותר, מתוך 100%.</li>
-              <li>הליקוי הבא מחושב מתוך האחוזים שנותרו, לא מתוך 100%.</li>
-              <li>כל ליקוי נוסף מחושב מתוך מה שנותר לאחר הקודם.</li>
-              <li>
-                התוצאות מכל שלב מצטברות — ואם מתקבל שבר, הוא מעוגל כלפי מעלה.
-              </li>
-              <br />
-              <br />
-              <p className="font-semibold">
-                כך מתקבל אחוז נכות משוקלל, שמייצג בצורה מדויקת את ההשפעה המצטברת
-                של הליקויים שלך, בהתאם לתקנות הביטוח הלאומי.
-              </p>
-            </ol>
-          </div>
-        )}
+        <StartOverButton />
       </div>
     );
   }
@@ -269,6 +235,9 @@ const DiseaseSelectionScreen = ({
             );
           }
         })}
+      </div>
+      <div className="space-y-2">
+        <StartOverButton />
       </div>
     </div>
   );

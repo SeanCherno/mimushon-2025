@@ -196,16 +196,18 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
                       checked={selectedSeverityForThisDisease && selectedSeverityForThisDisease.description === severity.description}
                       onChange={() => onSeverityChange(selectedDiseaseForSeverityView, severity)} // Pass both disease and severity
                     />
-                    <label htmlFor={`severity-${selectedDiseaseForSeverityView.id}-${index}`} className="ml-3 text-base text-gray-700 cursor-pointer preserve-whitespace">
+                    <label htmlFor={`severity-${selectedDiseaseForSeverityView.id}-${index}`} className="ml-3 text-base text-gray-700 cursor-pointer">
                       {/* <span className="font-medium"> &nbsp;{severity.percentage}%:</span>  */}
 
-                      {severity.description.includes("\n") ?
-                        <span className="px-4 rounded-lg transition duration-200 ease-in-out">
-                          <span>{severity.description.split("\n")[0]}</span>
-                          <span className="relative">{<Tooltip style={{}} content={severity.description.split("\n").splice(1).join("\n")} />}</span>
-                        </span>
-                        :
-                        severity.description}
+                      <div className="mr-2">
+                        {severity.description.includes("\n") ?
+                          <span className="rounded-lg transition duration-200 ease-in-out">
+                            <span>{severity.description.split("\n")[0]}</span>
+                            <span className="relative">{<Tooltip style={{}} content={severity.description.split("\n").splice(1).join("\n")} />}</span>
+                          </span>
+                          :
+                          severity.description}
+                      </div>
                     </label>
                     {severity.linkedDiseaseId && (
                       <button
@@ -265,7 +267,7 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
 
       {isASeveritySelected &&
         <div className="flex justify-center">
-          <button className="bg-indigo-600 text-white w-50 text-center p-3 rounded-lg mt-4" onClick={handleAddDisease}>
+          <button className="bg-white text-slate-800 font-semibold hover:bg-indigo-100 border border-indigo-500 w-50 text-center p-3 rounded-lg mt-4" onClick={handleAddDisease}>
             הוסף מחלה
           </button>
         </div>

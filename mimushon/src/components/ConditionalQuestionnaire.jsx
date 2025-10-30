@@ -36,15 +36,15 @@ const ConditionalQuestionnaire = ({ questionnaire, severities, onSuggestSeverity
         <p className="font-medium text-gray-700 mb-2">{currentQuestion.text}</p>
         <div className="flex flex-col space-y-2">
           {currentQuestion.options.map((option, index) => (
-            <button key={index} onClick={() => handleAnswer(option, currentQuestionId)} className="px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition duration-200 ease-in-out text-right">
+            <button key={index} onClick={() => handleAnswer(option, currentQuestionId)} className="px-4 py-2 bg-indigo-500 cursor-pointer text-white rounded-lg hover:bg-indigo-600 transition duration-200 ease-in-out text-right">
               {option.label}
             </button>
           ))}
         </div>
       </div>
       <div className="flex justify-between mt-4">
-        {history.length > 0 && <button onClick={handleBack} className="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">חזור</button>}
-        <button onClick={onCancel} className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-400">ביטול</button>
+        {history.length > 0 && <button onClick={handleBack} className="px-4 cursor-pointer py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">חזור</button>}
+        <button onClick={onCancel} className="px-4 py-2 cursor-pointer bg-red-500 text-white rounded-lg hover:bg-red-400">ביטול</button>
       </div>
     </div>
   );
