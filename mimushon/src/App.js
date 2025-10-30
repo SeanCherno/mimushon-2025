@@ -26,7 +26,7 @@ function App() {
   const [selectedDiseaseForSeverityView, setSelectedDiseaseForSeverityView] =
     useState([]);
   const [totalPercentages, setTotalPercentages] = useState({});
-  const [isCalculating, setIsCalculating] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   // const [diseasesData, setDiseasesData] = useState({});
   const [currentScreen, setCurrentScreen] = useState("diseaseSelection");
   const [categories, setCategories] = useState([]);
@@ -63,6 +63,7 @@ function App() {
 
   useEffect(() => {
     const fetchCategories = async () => {
+      setIsLoading(true);
       try {
         const response = await fetch(`/api/categories`);
         const data = await response.json();
@@ -72,6 +73,7 @@ function App() {
       } catch (error) {
         console.error("Failed to fetch categories data:", error);
       }
+      setIsLoading(false);
     };
     fetchCategories();
   }, []);
@@ -120,7 +122,7 @@ function App() {
   }, [selectedDiseaseForSeverityView]);
 
   const handleFinalCalculation = async (chosenDiseases, modeKey) => {
-    setIsCalculating(true);
+    setIsLoading(true);
     try {
       const response = await fetch(`/api/calculate`, {
         method: "POST",
@@ -137,7 +139,7 @@ function App() {
       console.error("Failed to calculate percentage:", error);
       setTotalPercentages(null); // Or some error state
     } finally {
-      setIsCalculating(false);
+      setIsLoading(false);
       setIsMobileSummaryOpen(false);
 
       const section = document.getElementById("final-percentage");
@@ -173,13 +175,13 @@ function App() {
     //setCurrentScreen("summary");
     setIsASeveritySelected(true);
 
-    const section = document.getElementById("calculator");
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth", // This makes the scroll smooth
-        block: "start", // Aligns the top of the element with the top of the viewport
-      });
-    }
+    // const section = document.getElementById("calculator");
+    // if (section) {
+    //   section.scrollIntoView({
+    //     behavior: "smooth", // This makes the scroll smooth
+    //     block: "start", // Aligns the top of the element with the top of the viewport
+    //   });
+    // }
 
     setChosenDiseasesWithSeverities((prevChosen) => {
       const updatedChosen = prevChosen.map((entry) =>
@@ -196,6 +198,7 @@ function App() {
     linkedDiseaseId,
     linkedSeverityId
   ) => {
+    setIsLoading(true);
     const response = await fetch(`/api/diseases/${linkedDiseaseId}`);
     const data = await response.json();
 
@@ -241,6 +244,7 @@ function App() {
           ];
         }
       });
+      setIsLoading(false);
     } else {
       console.warn(`Linked disease with ID ${linkedDiseaseId} not found.`);
     }
@@ -320,13 +324,13 @@ function App() {
           />
         );
       case "results":
-        return isCalculating ? (
+        return isLoading ? (
           <LoadingSpinner asOverlay={true} />
         ) : (
           <TotalPercentageDisplay
             totalPercentages={totalPercentages}
             chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}
-            isCalculating={isCalculating}
+            isLoading={isLoading}
             onStartOver={handleStartOver}
             modes={modes}
             setCurrentScreen={setCurrentScreen}
@@ -466,9 +470,7 @@ function App() {
                 </div>
 
                 {/* Main Content */}
-                <main className="w-full md:w-2/3 screen-container">
-                  {renderScreen()}
-                </main>
+                <main className="w-full md:w-2/3">{renderScreen()}</main>
               </div>
             </div>
           </div>
@@ -502,7 +504,7 @@ function App() {
   //   );
   // }
 
-  return (
+  return !isLoading ? (
     <>
       <Header setShowContent={setShowContent} />
       <main>
@@ -514,6 +516,8 @@ function App() {
       </main>
       <Footer />
     </>
+  ) : (
+    <LoadingSpinner asOverlay={true} />
   );
 }
 

@@ -282,7 +282,9 @@ app.post("/api/calculate", (req, res) => {
     }
   });
 
-  res.json({ newTotals });
+  setTimeout(() => {
+    res.json({ newTotals });
+  }, 2000);
 });
 
 app.listen(PORT, () => {

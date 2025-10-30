@@ -53,26 +53,22 @@ const DiseaseSelectionScreen = ({
 
   const StartOverButton = () => {
     return (
-      <div className="flex justify-center mt-3">
+      <div className="flex justify-center">
         <button className="bg-indigo-600 text-white p-3 rounded-lg" onClick={onStartOver}>אפס מחשבון</button>
       </div>
     )
   }
 
-  if (!categories || categories.length === 0) {
-    return <div>Loading...</div>;
-  }
-
   if (selectedSubCategory) {
     return (
-      <div className="mb-8 p-6 bg-indigo-50 rounded-xl border border-indigo-200">
+      <div className="mb-8 p-6 bg-indigo-50 rounded-xl border border-indigo-200 screen-container">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl font-bold text-indigo-800">
             {selectedSubCategory.name}
           </h2>
           <button
             onClick={handleBackToSubCategories}
-            className="flex items-center gap-1 text-sm font-semibold text-indigo-600 hover:underline"
+            className="mt-2 flex bg-white rounded-lg border border-indigo-200 p-2 items-center gap-1 text-sm font-semibold text-indigo-600 hover:underline"
           >
             <svg
               height="25px"
@@ -97,7 +93,7 @@ const DiseaseSelectionScreen = ({
                 ></path>{" "}
               </g>
             </svg>
-            <span>חזור ל{selectedCategory?.name || "קטגוריות"}</span>
+            <span >חזור ל{selectedCategory?.name || "קטגוריות"}</span>
           </button>
         </div>
         <div className="space-y-2">
@@ -114,7 +110,7 @@ const DiseaseSelectionScreen = ({
             </button>
           ))}
         </div>
-        <div className="space-y-2">
+        <div className="mt-6">
           <StartOverButton />
         </div>
       </div>
@@ -123,7 +119,7 @@ const DiseaseSelectionScreen = ({
 
   if (!selectedCategory) {
     return (
-      <div className="bg-indigo-50 rounded-xl border border-indigo-200">
+      <div className="bg-indigo-50 rounded-xl border border-indigo-200 screen-container">
         <>
           <h2 className="text-2xl font-bold text-indigo-800 mb-4 p-4">
             בחר/י קטגוריה
@@ -154,7 +150,9 @@ const DiseaseSelectionScreen = ({
             </div>
           )}
         </>
-        <StartOverButton />
+        <div className="pb-6 mt-3">
+          <StartOverButton />
+        </div>
       </div>
     );
   }
@@ -165,14 +163,14 @@ const DiseaseSelectionScreen = ({
   ];
 
   return (
-    <div className="mb-8 p-6 bg-indigo-50 rounded-xl border border-indigo-200">
+    <div className="mb-8 p-6 bg-indigo-50 rounded-xl border border-indigo-200 screen-container">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold text-indigo-800">
           {selectedCategory.name}
         </h2>
         <button
           onClick={handleBackToCategories}
-          className="flex items-center gap-1 text-sm font-semibold text-indigo-600 hover:underline"
+          className="mt-2 flex bg-white rounded-lg border border-indigo-200 p-2 items-center gap-1 text-sm font-semibold text-indigo-600 hover:underline"
         >
           <svg
             height="25px"
@@ -236,7 +234,7 @@ const DiseaseSelectionScreen = ({
           }
         })}
       </div>
-      <div className="space-y-2">
+      <div className="mt-6">
         <StartOverButton />
       </div>
     </div>

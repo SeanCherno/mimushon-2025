@@ -1,44 +1,60 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
-// We don't need ReactDOM.render or createRoot for this file.
-// This component will be rendered by the host environment.
 
 /**
- * A tooltip component that defaults to opening on the left,
+ * An icon-based tooltip component that defaults to opening on the left,
  * but flips to the right if it overflows the left side of the viewport.
+ *
+ * This component positions itself absolutely at the top-right of its
+ * nearest relative parent.
  */
 const Tooltip = ({ content }) => {
     const [isVisible, setIsVisible] = useState(false);
-    // Default direction is 'left'
+    // NEW: State to control conditional rendering for unmount animation
+    const [isMounted, setIsMounted] = useState(false);
     const [direction, setDirection] = useState('left');
     const popupRef = useRef(null);
 
-    // useLayoutEffect runs sync after render but before paint
+    // This effect runs first to set the correct position
     useLayoutEffect(() => {
         // Only run this check if we're trying to show the tooltip
-        // and its current direction is 'left'
-        if (isVisible && direction === 'left' && popupRef.current) {
-
-            // Get the bounding box of the popup
+        // We depend on isMounted, not isVisible
+        if (isMounted && direction === 'left' && popupRef.current) {
             const rect = popupRef.current.getBoundingClientRect();
-
-            // If the left edge is off-screen (less than 0)
             if (rect.left < 0) {
-                // Set direction to 'right'
-                // This will cause a re-render before paint,
-                // so the user only sees the final, correct position.
                 setDirection('right');
             }
         }
-    }, [isVisible, direction, content]); // Re-check if visibility, direction, or content changes
+    }, [isMounted, direction, content]); // Re-check if visibility, direction, or content changes
 
-    // Show the tooltip
-    const handleShow = () => setIsVisible(true);
+    // This effect runs *after* the position is set, to fade in
+    useLayoutEffect(() => {
+        if (isMounted) {
+            // We use a small timeout to allow the position effect to run
+            // and apply its changes before we make the tooltip visible.
+            // This prevents a "flicker" of the tooltip in the wrong position.
+            const timer = setTimeout(() => {
+                setIsVisible(true); // Trigger fade-in
+            }, 0); // 0ms timeout is enough to batch this in the next paint
+            return () => clearTimeout(timer);
+        }
+    }, [isMounted]);
 
-    // Hide the tooltip and reset its direction
+    // Show the tooltip and RESET its direction
+    const handleShow = () => {
+        setDirection('left'); // Reset the direction
+        setIsMounted(true);  // Mount the component
+    };
+
+    // Hide the tooltip
     const handleHide = () => {
-        setIsVisible(false);
-        // Reset direction to default when hiding
-        setDirection('left');
+        setIsVisible(false); // Trigger fade-out
+    };
+
+    // NEW: Handle the end of the fade-out transition
+    const handleTransitionEnd = () => {
+        if (!isVisible) {
+            setIsMounted(false); // Unmount component after fade-out
+        }
     };
 
     // --- Dynamic Class Definitions ---
@@ -75,16 +91,19 @@ const Tooltip = ({ content }) => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
 
-            {/* Popup */}
-            <div
-                ref={popupRef}
-                className={`${popupBaseClasses} ${popupPositionClasses} ${visibilityClass}`}
-                role="tooltip"
-            >
-                {content}
-                {/* Arrow */}
-                <div className={arrowClasses}></div>
-            </div>
+            {/* Popup - NOW CONDITIONALLY RENDERED */}
+            {isMounted && (
+                <div
+                    ref={popupRef}
+                    className={`${popupBaseClasses} ${popupPositionClasses} ${visibilityClass}`}
+                    role="tooltip"
+                    onTransitionEnd={handleTransitionEnd} // NEW: Listen for transition end
+                >
+                    {content}
+                    {/* Arrow */}
+                    <div className={arrowClasses}></div>
+                </div>
+            )}
         </div>
     );
 };
