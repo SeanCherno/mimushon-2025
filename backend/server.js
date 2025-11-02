@@ -1,6 +1,7 @@
 import express from "express";
 import fs from "fs";
 import cors from "cors";
+import path from "path";
 
 const modes = [
   {
@@ -171,6 +172,28 @@ const PORT = 3001;
 app.use(express.json());
 app.use(cors());
 
+const buildPath = path.join(__dirname, "client", "build");
+
+// 1. For HASHED ASSETS (e.g., /static/js, /static/css)
+// CRA puts them in 'static'. Vite puts them in 'assets'.
+// Check your 'build' folder to see what it's named.
+app.use(
+  "/static", // This is for Create React App
+  express.static(path.join(buildPath, "static"), {
+    immutable: true, // Tell the browser the file will NEVER change
+    maxAge: "1y", // Cache for 1 year
+  })
+);
+
+// 2. For UNHASHED ASSETS (e.g., index.html, favicon.ico)
+// These are served from the root of the build directory.
+// We set no-cache so the browser always re-validates.
+app.use(
+  express.static(buildPath, {
+    maxAge: "0", // Re-validate on every request
+  })
+);
+
 // API endpoint to get the entire diseases data structure
 app.get("/api/diseases", (req, res) => {
   res.json(diseasesData);
@@ -285,6 +308,13 @@ app.post("/api/calculate", (req, res) => {
   setTimeout(() => {
     res.json({ newTotals });
   }, 2000);
+});
+
+// 3. SPA Fallback
+// This must be LAST. It serves your index.html for any
+// route that isn't an API route or a static file.
+app.get("*", (req, res) => {
+  res.sendFile(path.join(buildPath, "index.html"));
 });
 
 app.listen(PORT, () => {
