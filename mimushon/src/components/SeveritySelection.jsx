@@ -13,13 +13,6 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
   const [showGuide, setShowGuide] = useState(false)
   const [back, setBack] = useState(null)
 
-  // const modeToCountKey = {
-  //   'generalDisability': 'countForDisability',
-  //   'taxIncome': 'countForTax',
-  //   'specialServices': 'countForSpecial'
-  // };
-  // const currentModeCountKey = modeToCountKey[currentMode];
-
   useEffect(() => {
     setBack(selectedCategory)
   }, [selectedCategory])
@@ -103,6 +96,7 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
               width={500}
               alt={`${selectedDiseaseForSeverityView.name} ${index + 1}`}
               className="inline-block h-auto rounded-lg shadow-md mr-4 last:mr-0 border border-gray-300"
+              img="תמונה להמחשה"
               onError={(e) => { e.target.src = 'https://placehold.co/400x200/94A3B8/FFFFFF?text=Image+Not+Found'; }}
             />
           ))}

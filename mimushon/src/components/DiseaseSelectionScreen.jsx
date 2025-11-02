@@ -137,7 +137,7 @@ const DiseaseSelectionScreen = ({
                     className="ml-2"
                     src={category.svg}
                     style={{ width: "1.5em" }}
-                    alt=""
+                    alt="אייקון קטגוריה"
                   />
                   {category.name}
                 </div>

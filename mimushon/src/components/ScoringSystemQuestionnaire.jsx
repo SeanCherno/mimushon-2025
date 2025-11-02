@@ -14,50 +14,47 @@ const ScoringSystemQuestionnaire = ({ questionnaireData, severities, onSuggestSe
     setSubmitted(true);
     let totalScore = 0;
     questionnaireData.questions.forEach(question => {
-        const selectedOptionValue = currentAnswers[question.id];
-        const selectedOption = question.options.find(opt => opt.value === selectedOptionValue);
-        if (selectedOption && typeof selectedOption.points === 'number') {
-            totalScore += selectedOption.points;
-        }
+      const selectedOptionValue = currentAnswers[question.id];
+      const selectedOption = question.options.find(opt => opt.value === selectedOptionValue);
+      if (selectedOption && typeof selectedOption.points === 'number') {
+        totalScore += selectedOption.points;
+      }
     });
 
-    // const matchingRule = questionnaireData?.rules?.find(rule => 
-    //     totalScore >= rule?.scoreRange[0] && totalScore <= rule?.scoreRange[1]
-    // );
-    
+
     let suggestedSeverity = null;
-   
-        for (const rule of questionnaireData.rules) {
-        let matchesRule = true;
 
-        if (rule.answers) {
-            for (const [questionId, expectedValue] of Object.entries(rule.answers)) {
-                if (currentAnswers[questionId] !== expectedValue) {
-                    matchesRule = false;
-                    break; 
-                }
-            }
-        }
+    for (const rule of questionnaireData.rules) {
+      let matchesRule = true;
 
-        if (matchesRule && rule.scoreRange) {
-            const [minScore, maxScore] = rule.scoreRange;
-            if (totalScore < minScore || totalScore > maxScore) {
-                matchesRule = false;
-            }
+      if (rule.answers) {
+        for (const [questionId, expectedValue] of Object.entries(rule.answers)) {
+          if (currentAnswers[questionId] !== expectedValue) {
+            matchesRule = false;
+            break;
+          }
         }
-        
-        if (matchesRule) {
-            const foundSeverity = severities.find(s => s.description === rule.suggestedSeverityDescription);
-            if (foundSeverity) {
-                suggestedSeverity = foundSeverity;
-                break;
-            }
+      }
+
+      if (matchesRule && rule.scoreRange) {
+        const [minScore, maxScore] = rule.scoreRange;
+        if (totalScore < minScore || totalScore > maxScore) {
+          matchesRule = false;
         }
+      }
+
+      if (matchesRule) {
+        const foundSeverity = severities.find(s => s.description === rule.suggestedSeverityDescription);
+        if (foundSeverity) {
+          suggestedSeverity = foundSeverity;
+          break;
+        }
+      }
     }
-    
+
     if (!suggestedSeverity) {
-        console.warn("No specific severity matched for the score, falling back.");
-        suggestedSeverity = severities[0] || null;
+      console.warn("No specific severity matched for the score, falling back.");
+      suggestedSeverity = severities[0] || null;
     }
     onSuggestSeverity(suggestedSeverity);
   };

@@ -24,6 +24,11 @@ button {
     cursor: pointer; 
 }
 
+img {
+  max-width: 100%; /* Ensures the image never exceeds its container's width */
+  height: auto;    /* Maintains the image's aspect ratio */
+}
+
 .screen-container {
                 animation: screen-enter 0.4s ease-out;
             }

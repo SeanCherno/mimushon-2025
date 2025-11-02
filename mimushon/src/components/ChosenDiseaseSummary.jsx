@@ -12,13 +12,6 @@ const ChosenDiseasesSummary = ({
         (entry) => entry.selectedSeverity
     );
 
-    // const modeToCountKey = {
-    //   'generalDisability': 'countForDisability',
-    //   'taxIncome': 'countForTax',
-    //   'specialServices': 'countForSpecial'
-    // };
-    // const currentModeCountKey = modeToCountKey[currentMode];
-
     const getModeApplicability = (severity) => {
         const applicableModes = modes
             .filter((mode) => severity[mode.dataKey])
@@ -113,12 +106,6 @@ const ChosenDiseasesSummary = ({
                 </div>
             )}
             <div className="mt-6 space-y-3">
-                {/* <button 
-                    onClick={onAddNew}
-                    className="w-full p-3 bg-slate-400 text-white rounded-lg font-semibold hover:bg-slate-500 transition"
-                 >
-                    הוסף מחלה חדשה
-                </button> */}
                 <button
                     onClick={() => {
                         onCalculate(chosenDiseases);

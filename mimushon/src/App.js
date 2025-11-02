@@ -78,20 +78,6 @@ function App() {
     fetchCategories();
   }, []);
 
-  // Flatten all diseases for searching across categories
-  // const allDiseasesFlat = diseasesData?.categories?.flatMap((category) => {
-  //   // 1. Get diseases that are directly inside the category.
-  //   const directDiseases = category.diseases || [];
-
-  //   // 2. Get all diseases from all sub-categories, if they exist.
-  //   const nestedDiseases =
-  //     category.subcategories?.flatMap((sub) => sub.diseases || []) || [];
-
-  //   // 3. Return the combined list for this category.
-  //   // The outer flatMap merges the results from all categories.
-  //   return [...directDiseases, ...nestedDiseases];
-  // });
-
   useEffect(() => {
     const section = document.getElementById("severitySelection");
     if (section) {
@@ -174,14 +160,6 @@ function App() {
   const handleSeverityChange = (disease, severity) => {
     //setCurrentScreen("summary");
     setIsASeveritySelected(true);
-
-    // const section = document.getElementById("calculator");
-    // if (section) {
-    //   section.scrollIntoView({
-    //     behavior: "smooth", // This makes the scroll smooth
-    //     block: "start", // Aligns the top of the element with the top of the viewport
-    //   });
-    // }
 
     setChosenDiseasesWithSeverities((prevChosen) => {
       const updatedChosen = prevChosen.map((entry) =>
@@ -493,16 +471,19 @@ function App() {
     </div>
   );
 
-  // if (!diseasesData) {
-  //   return (
-  //     <div className="min-h-screen flex items-center justify-center">
-  //       <div className="text-center p-8 bg-white rounded-xl shadow-lg">
-  //         <p className="text-2xl font-bold text-indigo-800">טוען נתונים...</p>
-  //         <div className="mt-4 animate-spin rounded-full h-12 w-12 border-4 border-indigo-500 border-t-transparent mx-auto"></div>
-  //       </div>
-  //     </div>
-  //   );
-  // }
+  const NotFoundPage = () => (
+    <>
+      <div className="p-4 text-center">
+        <h1 className="text-4xl font-bold">404</h1>
+        <p className="text-xl mt-3">לא מצאנו את הדף שחיפשת</p>
+      </div>
+      <div className="flex justify-center mt-6">
+        <a href="/" className="bg-indigo-700 text-white rounded-lg p-3">
+          חזור לדף הבית
+        </a>
+      </div>
+    </>
+  );
 
   return !isLoading ? (
     <>
@@ -512,9 +493,12 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
-      <Footer />
+      {(window.location.pathname === "/" ||
+        window.location.pathname === "/terms" ||
+        window.location.pathname === "/privacy") && <Footer />}
     </>
   ) : (
     <LoadingSpinner asOverlay={true} />
