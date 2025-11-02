@@ -125,6 +125,8 @@ const ChosenDiseasesSummary = ({
                         setCurrentScreen("results");
                     }}
                     disabled={chosenDiseases.length === 0}
+                    id="submit-diseases"
+                    name="submit-diseases"
                     className="w-full p-3 cursor-pointer bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition disabled:bg-gray-400"
                 >
                     חשב אחוזי נכות

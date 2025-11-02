@@ -5,7 +5,7 @@ const UserInfoForm = ({ onFormSubmit, onBack }) => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState({});
-    const [showBenefits, setShowBenefits] = useState(false); // New state for toggling benefits
+  const [showBenefits, setShowBenefits] = useState(false); // New state for toggling benefits
 
   const validate = () => {
     const newErrors = {};
@@ -31,7 +31,7 @@ const UserInfoForm = ({ onFormSubmit, onBack }) => {
     onFormSubmit({})
   }
 
-    return (
+  return (
     <div className="mt-8 p-6 bg-indigo-50 rounded-xl border border-indigo-200">
       <h2 className="text-xl font-bold text-indigo-800 mb-2">✋ מעוניינ/ת להשאיר פרטים להמשך ליווי אישי מקצועי?</h2>
       <h4 className="font-bold text-indigo-800">
@@ -80,10 +80,10 @@ const UserInfoForm = ({ onFormSubmit, onBack }) => {
               </li>
             </ul>
             <br />
-            <p className="text-indigo-800 mb-4">              
-                ✅ השארת הפרטים דרך טופס זה תחסוך ממך זמן ואנרגיה – ותבטיח שהליך קביעת אחוזי הנכות יתבצע בצורה הוגנת ונכונה יותר.
-                <br /><br />
-                🔔 לא בטוח/ה אם זה רלוונטי לתיק שלך? אין בעיה, תמיד אפשר להתייעץ ונשמח לעזור.   
+            <p className="text-indigo-800 mb-4">
+              ✅ השארת הפרטים דרך טופס זה תחסוך ממך זמן ואנרגיה – ותבטיח שהליך קביעת אחוזי הנכות יתבצע בצורה הוגנת ונכונה יותר.
+              <br /><br />
+              🔔 לא בטוח/ה אם זה רלוונטי לתיק שלך? אין בעיה, תמיד אפשר להתייעץ ונשמח לעזור.
             </p>
             {/* <p className="font-bold text-indigo-800 mb-4">
                 
@@ -105,7 +105,7 @@ const UserInfoForm = ({ onFormSubmit, onBack }) => {
         )}
       </div>
       <h4 className="font-bold text-indigo-800 mb-4">אנא מלא/י את פרטיך וניצור קשר בהקדם:</h4>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} id="user-info" name="user-info" className="space-y-4">
         <div>
           <label htmlFor="user-name" className="block text-base font-medium text-indigo-600 mb-1">
             שם מלא
@@ -151,7 +151,7 @@ const UserInfoForm = ({ onFormSubmit, onBack }) => {
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
         </div>
 
-            {/* <h4 className="font-bold text-indigo-800 mb-4">
+        {/* <h4 className="font-bold text-indigo-800 mb-4">
                 🔒 הפרטים יישמרו בסודיות מוחלטת ולא יועברו לצד שלישי.   
             </h4>
             <p className="font-bold text-indigo-800 mb-4">
@@ -170,13 +170,13 @@ const UserInfoForm = ({ onFormSubmit, onBack }) => {
                 🔔 לא בטוח/ה אם זה רלוונטי לתיק שלך? אין בעיה, תמיד אפשר להתייעץ ונשמח לעזור.   
             </p> */}
 
-         <div className="flex flex-col sm:flex-row gap-4">
-           <button type="button" onClick={onBack} className="flex-1 p-3 bg-slate-300 text-slate-800 rounded-lg font-semibold hover:bg-slate-400 transition">חזרה</button>
-            <button type="submit" className="flex-1 p-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">שלח וצפה בתוצאות</button>
-            <button onClick={handleNoUserInfo} className="flex-1 border border-indigo-300 bg-white text-indigo p-3 rounded-lg font-semibold hover:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 ease-in-out shadow-md">
-              המשך ללא השארת פרטים
-            </button>
-         </div>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <button type="button" onClick={onBack} className="flex-1 p-3 bg-slate-300 text-slate-800 rounded-lg font-semibold hover:bg-slate-400 transition">חזרה</button>
+          <button type="submit" className="flex-1 p-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">שלח וצפה בתוצאות</button>
+          <button onClick={handleNoUserInfo} className="flex-1 border border-indigo-300 bg-white text-indigo p-3 rounded-lg font-semibold hover:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 ease-in-out shadow-md">
+            המשך ללא השארת פרטים
+          </button>
+        </div>
       </form>
     </div>
   );
