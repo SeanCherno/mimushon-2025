@@ -193,6 +193,7 @@ const ContactSection = () => {
                         {/* Submit Button */}
                         <div className="text-center">
                             <button
+                                id="user-info-submit"
                                 onClick={handleUserInfoSubmit}
                                 className="bg-indigo-600 cursor-pointer hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg text-lg w-full transition duration-300"
                                 type="submit"
