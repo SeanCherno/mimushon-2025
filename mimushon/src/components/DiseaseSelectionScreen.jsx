@@ -119,7 +119,7 @@ const DiseaseSelectionScreen = ({
 
   if (!selectedCategory) {
     return (
-      <div className="bg-indigo-50 rounded-xl border border-indigo-200 screen-container">
+      <div className="bg-indigo-50 rounded-xl border border-indigo-200 screen-container" id="select-category">
         <>
           <h2 className="text-2xl font-bold text-indigo-800 mb-4 p-4">
             בחר/י קטגוריה

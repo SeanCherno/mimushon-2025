@@ -342,9 +342,9 @@ function App() {
               className="bg-white p-6 sm:p-10 rounded-xl shadow-2xl w-full border border-indigo-200"
               dir="rtl"
             >
-              <h1 className="text-3xl sm:text-4xl font-semibold text-center text-indigo-800 mb-1 sm:mb-8">
+              <h2 className="text-3xl sm:text-4xl font-semibold text-center text-indigo-800 mb-1 sm:mb-8">
                 מחשבון אחוזי נכות למחלות
-              </h1>
+              </h2>
 
               <div
                 className="flex flex-col md:flex-row-reverse gap-8"
@@ -474,7 +474,7 @@ function App() {
   const NotFoundPage = () => (
     <>
       <div className="p-4 text-center">
-        <h1 className="text-4xl font-bold">404</h1>
+        <h2 className="text-4xl font-bold">404</h2>
         <p className="text-xl mt-3">לא מצאנו את הדף שחיפשת</p>
       </div>
       <div className="flex justify-center mt-6">
