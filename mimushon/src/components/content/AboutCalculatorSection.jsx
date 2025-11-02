@@ -5,7 +5,7 @@ const AboutCalculatorSection = () => (
         <div className="container mx-auto px-6">
             <div className="lg:flex lg:items-center lg:gap-12">
                 <div className="lg:w-1/2">
-                    <img src="/images/medical-history.jpg" alt="אישה עובדת על מחשב" className="rounded-lg shadow-2xl w-full h-auto object-cover" />
+                    <img src="/images/medical-history.webp" alt="אישה עובדת על מחשב" className="rounded-lg shadow-2xl w-full h-auto object-cover" />
                 </div>
                 <div className="lg:w-1/2 mt-10 lg:mt-0">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900">כיצד המחשבון עובד?</h2>

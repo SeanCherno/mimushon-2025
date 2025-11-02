@@ -1,7 +1,7 @@
 const HeroSection = ({ setShowContent }) => (
     <section
         className="text-white py-20 md:py-32 bg-cover bg-center"
-        style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/hero-photo.jpg')" }}
+        style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/hero-photo.webp')" }}
     >
         <div className="container mx-auto px-6 text-center">
             <h1 className="text-4xl md:text-4xl font-bold leading-tight mb-4">מיצוי זכויות רפואיות: בחר את הליקויים שלך וקבל אחוז נכות משוקלל — עם הסבר צעד-אחר-צעד</h1>
