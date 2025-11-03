@@ -2,6 +2,9 @@ const ProcessSection = () => (
     <section id="process" className="py-16 md:py-24 bg-indigo-50">
         <div className="container mx-auto px-6">
             <div className="lg:flex lg:items-center lg:gap-16">
+                <div className="lg:w-1/2 mt-10 lg:mt-0">
+                    <img src="/images/bureaucracy.webp" alt="תהליך בירוקרטי" className="rounded-lg shadow-2xl w-full h-auto object-cover" />
+                </div>
                 <div className="lg:w-1/2">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900">לא הולכים לאיבוד בבירוקרטיה</h2>
                     <p className="mt-4 text-lg text-gray-600">הגשת תביעה לקצבת נכות יכולה להיות תהליך מורכב ומתיש. בדיוק בשביל זה אנחנו כאן - לעשות לך סדר.</p>
@@ -48,9 +51,7 @@ const ProcessSection = () => (
                         </div>
                     </div>
                 </div>
-                <div className="lg:w-1/2 mt-10 lg:mt-0">
-                    <img src="/images/bureaucracy.webp" alt="תהליך בירוקרטי" className="rounded-lg shadow-2xl w-full h-auto object-cover" />
-                </div>
+
             </div>
         </div>
     </section>
