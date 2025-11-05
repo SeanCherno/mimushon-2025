@@ -1,6 +1,18 @@
 import express from "express";
 import fs from "fs";
 import cors from "cors";
+import "dotenv/config"; // <-- MODIFIED: Load environment variables
+import { Pool } from "pg"; // <-- MODIFIED: Import the pg Pool
+
+// <-- MODIFIED: Set up the database connection pool
+// This automatically uses the .env file variables
+const pool = new Pool({
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+});
 
 const modes = [
   {
@@ -228,25 +240,28 @@ app.get("/api/diseases/:linkedDiseaseId", (req, res) => {
 });
 
 // POST USER INFO FROM BOTTOM OF PAGE FORM
+// <-- MODIFIED: This entire function is changed to use the database
+app.post("/api/user-info", async (req, res) => {
+  const { name, phone, hearot } = req.body;
 
-app.post("/api/user-info", (req, res) => {
-  const fileName = "users-info.txt";
-  const content = `${req.body.name}, ${req.body.phone}, ${req.body.hearot} \n`;
+  // Assumes your table is 'contact_messages' and has columns: name, phone, message
+  const queryText =
+    "INSERT INTO contact_messages(name, phone, message) VALUES($1, $2, $3)";
+  const values = [name, phone, hearot]; // 'hearot' is mapped to the 'message' column
 
-  fs.appendFile(fileName, content, "utf8", (err) => {
-    if (err) {
-      console.error("Error appending to file:", err);
-      res.json({ result: false });
-      return;
-    }
+  try {
+    await pool.query(queryText, values);
     res.json({ result: true });
-    console.log(`Content appended to "${fileName}" successfully.`);
-  });
+    console.log(`Contact info for "${name}" saved to database successfully.`);
+  } catch (err) {
+    console.error("Error inserting into database:", err);
+    res.json({ result: false });
+  }
 });
 
-// CALCULATE PERCENTAGE
-
-app.post("/api/calculate", (req, res) => {
+// <-- MODIFIED: Corrected '/api/calculate' to be async to handle logging
+app.post("/api/calculate", async (req, res) => {
+  // <-- MODIFIED: Added async
   const { chosenDiseasesWithSeverities } = req.body;
 
   if (!chosenDiseasesWithSeverities) {
@@ -265,7 +280,7 @@ app.post("/api/calculate", (req, res) => {
   chosenDiseasesWithSeverities.forEach((entry) => {
     const fullDisease = findDiseasesById(entry.disease.id);
 
-    console.log(fullDisease);
+    // console.log(fullDisease);
 
     const foundSeverity = fullDisease.severities.find((sev) => {
       return sev.severityId === entry.selectedSeverity.severityId;
@@ -282,6 +297,22 @@ app.post("/api/calculate", (req, res) => {
     }
   });
 
+  // <-- MODIFIED: Add logging to the 'disease_calculations' table
+  try {
+    const logQueryText =
+      "INSERT INTO disease_calculations(calculation_data) VALUES($1)";
+    const logValues = [chosenDiseasesWithSeverities];
+
+    // Now we can safely 'await' the query
+    await pool.query(logQueryText, logValues);
+    console.log("Calculation logged to database successfully.");
+  } catch (logErr) {
+    console.error("Error logging calculation to database:", logErr);
+    // Do not stop; continue to send response to user
+  }
+  // <-- END MODIFICATION
+
+  // The 2-second timeout is still here as in your original file
   setTimeout(() => {
     res.json({ newTotals });
   }, 2000);
