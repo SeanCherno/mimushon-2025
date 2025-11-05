@@ -246,7 +246,7 @@ app.post("/api/user-info", async (req, res) => {
 
   // Assumes your table is 'contact_messages' and has columns: name, phone, message
   const queryText =
-    "INSERT INTO contact_messages(name, phone, comment) VALUES($1, $2, $3)";
+    "INSERT INTO contact_us_users(name, phone, comment) VALUES($1, $2, $3)";
   const values = [name, phone, hearot]; // 'hearot' is mapped to the 'message' column
 
   try {
@@ -301,7 +301,19 @@ app.post("/api/calculate", async (req, res) => {
   try {
     const logQueryText =
       "INSERT INTO disease_calculations(calculation_data) VALUES($1)";
-    const logValues = [chosenDiseasesWithSeverities];
+    const logValues = [
+      {
+        diseases: JSON.stringify(chosenDiseasesWithSeverities).map(
+          (disease) => {
+            return {
+              disease: disease.disease,
+              selectedSeverity: disease.selectedSeverity,
+              totals: newTotals,
+            };
+          }
+        ),
+      },
+    ];
 
     // Now we can safely 'await' the query
     await pool.query(logQueryText, logValues);
