@@ -303,14 +303,14 @@ app.post("/api/calculate", async (req, res) => {
       "INSERT INTO disease_calculations(calculation_data) VALUES($1)";
     const logValues = [
       {
-        diseases: JSON.stringify(chosenDiseasesWithSeverities).map(
-          (disease) => {
+        diseases: JSON.stringify(
+          chosenDiseasesWithSeverities.map((disease) => {
             return {
               disease: disease.disease,
               selectedSeverity: disease.selectedSeverity,
               totals: newTotals,
             };
-          }
+          })
         ),
       },
     ];
