@@ -246,7 +246,7 @@ app.post("/api/user-info", async (req, res) => {
 
   // Assumes your table is 'contact_messages' and has columns: name, phone, message
   const queryText =
-    "INSERT INTO contact_messages(name, phone, message) VALUES($1, $2, $3)";
+    "INSERT INTO contact_messages(name, phone, comment) VALUES($1, $2, $3)";
   const values = [name, phone, hearot]; // 'hearot' is mapped to the 'message' column
 
   try {
