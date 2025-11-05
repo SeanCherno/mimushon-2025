@@ -311,10 +311,10 @@ app.post("/api/calculate", async (req, res) => {
                 name: disease.disease.name,
               },
               selectedSeverity: disease.selectedSeverity,
-              totals: newTotals,
             };
           })
         ),
+        totals: newTotals,
       },
     ];
 
