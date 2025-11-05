@@ -306,7 +306,10 @@ app.post("/api/calculate", async (req, res) => {
         diseases: JSON.stringify(
           chosenDiseasesWithSeverities.map((disease) => {
             return {
-              disease: disease.disease,
+              disease: {
+                id: disease.disease.id,
+                name: disease.disease.name,
+              },
               selectedSeverity: disease.selectedSeverity,
               totals: newTotals,
             };
