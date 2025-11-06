@@ -308,7 +308,7 @@ export default function Calculator({ initialCategories }) {
 
   return (
     <div className="assistant-400">
-      <main>
+      <div>
         {isLoading && <LoadingSpinner asOverlay={true} />}
         <div className=" bg-gradient-to-br from-indigo-50 to-indigo-50">
           <div id="calculator"></div>
@@ -422,12 +422,12 @@ export default function Calculator({ initialCategories }) {
                 </div>
 
                 {/* Main Content */}
-                <main className="w-full md:w-2/3">{renderScreen()}</main>
+                <div className="w-full md:w-2/3">{renderScreen()}</div>
               </div>
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

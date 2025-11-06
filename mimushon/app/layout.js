@@ -71,7 +71,7 @@ export default function RootLayout({ children }) {
       {/* The <head> is now automatically managed by Next.js */}
 
       {/* 7. Your <body> tag */}
-      <body>
+      <body className="flex flex-col min-h-screen">
         {/* Google Tag Manager (noscript) - must be first in <body> */}
         <noscript>
           <iframe
@@ -88,7 +88,7 @@ export default function RootLayout({ children }) {
         {/* Your old <div id="root"> is replaced by {children} */}
         {/* We add your Header/Footer here to make them global */}
         <Header />
-        {children}
+        <main className="flex-1">{children}</main>
         <Footer />
 
         {/* 8. All your 3rd-party scripts go here, using <Script> */}

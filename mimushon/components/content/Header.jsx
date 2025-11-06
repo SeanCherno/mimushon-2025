@@ -41,8 +41,8 @@ const Header = ({ setShowContent }) => {
                             src="/logo.png"
                             alt="מימושון"
                             className="mt-3" // Use fixed height for better alignment
-                            height={110}
-                            width={50}
+                            height={50}
+                            width={110}
                             onError={(e) => {
                                 e.target.onerror = null;
                                 e.target.src = "/logo.png";
@@ -97,8 +97,8 @@ const Header = ({ setShowContent }) => {
                     >
                         <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:gap-x-6 md:mt-0 md:border-0 md:bg-white">
                             <li>
-                                <a
-                                    href="#calculator"
+                                <Link
+                                    href="/#calculator"
                                     onClick={
                                         isMobileMenuOpen
                                             ? handleMobileLinkClick
@@ -107,11 +107,11 @@ const Header = ({ setShowContent }) => {
                                     className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-600 md:p-0"
                                 >
                                     מחשבון נכות
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="#about-calculator"
+                                <Link
+                                    href="/#about-calculator"
                                     onClick={
                                         isMobileMenuOpen
                                             ? handleMobileLinkClick
@@ -120,11 +120,11 @@ const Header = ({ setShowContent }) => {
                                     className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-600 md:p-0"
                                 >
                                     על המחשבון
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="#process"
+                                <Link
+                                    href="/#process"
                                     onClick={
                                         isMobileMenuOpen
                                             ? handleMobileLinkClick
@@ -133,11 +133,11 @@ const Header = ({ setShowContent }) => {
                                     className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-600 md:p-0"
                                 >
                                     התהליך
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="#contact"
+                                <Link
+                                    href="/#contact"
                                     onClick={
                                         isMobileMenuOpen
                                             ? handleMobileLinkClick
@@ -146,7 +146,7 @@ const Header = ({ setShowContent }) => {
                                     className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-600 md:p-0"
                                 >
                                     צרו קשר
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
