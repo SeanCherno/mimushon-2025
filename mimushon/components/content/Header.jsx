@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Header = ({ setShowContent }) => {
     // State to manage the mobile menu's open/closed status
@@ -36,11 +37,12 @@ const Header = ({ setShowContent }) => {
                         href="/"
                         className="flex items-center space-x-3 rtl:space-x-reverse"
                     >
-                        <img
+                        <Image
                             src="/logo.png"
                             alt="מימושון"
                             className="mt-3" // Use fixed height for better alignment
-                            width="110px"
+                            height={110}
+                            width={50}
                             onError={(e) => {
                                 e.target.onerror = null;
                                 e.target.src = "/logo.png";

@@ -1,4 +1,5 @@
 import FeatureListItem from "./FeatureListItem";
+import Image from "next/image";
 
 const WhyUsSection = () => (
     <section id="why-us" className="py-8 md:py-24 bg-indigo-50">
@@ -20,7 +21,7 @@ const WhyUsSection = () => (
                     </ul>
                 </div>
                 <div className="lg:w-1/2 mt-10 lg:mt-0">
-                    <img src="/images/doctor-lawyer.webp" alt="צוות מקצועי" className="rounded-lg shadow-2xl w-full h-auto object-cover" />
+                    <Image src="/images/doctor-lawyer.webp" alt="צוות מקצועי" className="rounded-lg shadow-2xl w-full h-auto object-cover" width={1600} height={1066} />
                 </div>
             </div>
         </div>

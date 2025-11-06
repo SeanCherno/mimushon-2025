@@ -1,13 +1,18 @@
+import Image from "next/image";
+
 const HeroSection = ({ setShowContent }) => (
     <section
         className="text-white py-20 md:py-32 relative overflow-hidden" // 1. Added relative & overflow-hidden, removed bg classes
     // 2. Removed the style prop
     >
         {/* 3. Added the img tag as an absolute background */}
-        <img
+        <Image
             src="/images/hero-photo.webp"
             alt="רקע" // 4. Added alt text for accessibility
             className="absolute inset-0 w-full h-full object-cover object-center"
+            width={1920}
+            height={1080}
+            priority
         />
 
         {/* 5. Kept the dark overlay in its own div to ensure text readability */}

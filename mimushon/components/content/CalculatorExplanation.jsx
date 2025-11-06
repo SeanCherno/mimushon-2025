@@ -1,3 +1,4 @@
+import Image from "next/image"
 const CalculatorExplanation = () => {
     return (
 
@@ -26,7 +27,7 @@ const CalculatorExplanation = () => {
                         </div>
                     </div>
                     <div className="lg:w-1/2 mt-10 lg:mt-0">
-                        <img src="/images/calculation.webp" alt="תהליך בירוקרטי" className="rounded-lg shadow-2xl w-full h-auto object-cover" />
+                        <Image src="/images/calculation.webp" alt="תהליך בירוקרטי" className="rounded-lg shadow-2xl w-full h-auto object-cover" width={1920} height={1080} />
                     </div>
                 </div>
             </div>
