@@ -1,5 +1,3 @@
-import React from 'react';
-
 // This component contains the formatted Terms of Service page.
 // For the styles to apply correctly, make sure your project is set up with Tailwind CSS
 // and the 'Assistant' font is linked in your main public/index.html file.

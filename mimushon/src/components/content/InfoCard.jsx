@@ -1,5 +1,3 @@
-import React from "react";
-
 const InfoCard = ({ icon, title, children }) => (
     <div className="flex flex-col items-center text-center">
         <div className="bg-indigo-200 p-5 rounded-full mb-4">

@@ -1,5 +1,3 @@
-import React from "react";
-
 const CalculatorExplanation = ({ showContent, setShowContent }) => {
     return (
 

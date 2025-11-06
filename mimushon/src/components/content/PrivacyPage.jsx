@@ -1,8 +1,3 @@
-import React from 'react';
-
-// This component contains the formatted Privacy Policy page.
-// For the styles to apply correctly, make sure your project is set up with Tailwind CSS
-// and the 'Assistant' font is linked in your main public/index.html file.
 const PrivacyPage = () => {
     const customStyles = `
         .prose h2 {
@@ -27,10 +22,10 @@ const PrivacyPage = () => {
             <style>{customStyles}</style>
             <div className="py-12 sm:py-16 bg-indigo-50">
                 <div className="container mx-auto px-6 max-w-4xl bg-white p-8 sm:p-12 rounded-lg shadow-md">
-                    
+
                     <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">מדיניות פרטיות</h1>
                     <p className="text-sm text-gray-500 text-center mb-10">עדכון אחרון: 26 באוגוסט 2025</p>
-                    
+
                     <div className="prose prose-lg max-w-none text-right">
                         <p>"מימושון" (להלן: "האתר") מכבד את פרטיות המשתמשים. מסמך זה מפרט את האופן שבו אנו אוספים, משתמשים ושומרים על המידע הנאסף באתר.</p>
 
@@ -59,7 +54,7 @@ const PrivacyPage = () => {
 
                         <h2>6. שינויים במדיניות הפרטיות</h2>
                         <p>אנו שומרים לעצמנו את הזכות לעדכן מדיניות זו מעת לעת. אנו ממליצים לחזור ולעיין בדף זה מדי פעם.</p>
-                        
+
                         <hr className="my-8" />
 
                         <p>לכל שאלה בנוגע למדיניות הפרטיות, ניתן לפנות אלינו דרך עמוד "צור קשר".</p>
