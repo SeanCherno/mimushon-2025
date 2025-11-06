@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import pool from "@/lib/db"; // ייבוא ה-pool המשותף
+import pool from "../../../lib/db"; // ייבוא ה-pool המשותף
 
 export async function POST(request) {
   try {
