@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const ProcessSection = () => (
     <section id="process" className="py-16 md:py-24 bg-indigo-50">
@@ -52,6 +53,8 @@ const ProcessSection = () => (
                             </div>
                         </div>
                     </div>
+                    <br />
+                    <Link href="/articles/how-to-file-claim" className="text-indigo-600 underline text-lg">קרא עוד ←</Link>
                 </div>
 
             </div>

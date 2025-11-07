@@ -96,7 +96,7 @@ const Header = ({ setShowContent }) => {
                         id="navbar-default"
                     >
                         <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:gap-x-6 md:mt-0 md:border-0 md:bg-white">
-                            <li>
+                            <li className="md:ml-6">
                                 <Link
                                     href="/#calculator"
                                     onClick={
@@ -124,7 +124,7 @@ const Header = ({ setShowContent }) => {
                             </li>
                             <li>
                                 <Link
-                                    href="/#process"
+                                    href="/about-us"
                                     onClick={
                                         isMobileMenuOpen
                                             ? handleMobileLinkClick
@@ -132,7 +132,7 @@ const Header = ({ setShowContent }) => {
                                     }
                                     className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-600 md:p-0"
                                 >
-                                    התהליך
+                                    מי אנחנו?
                                 </Link>
                             </li>
                             <li>
@@ -146,6 +146,19 @@ const Header = ({ setShowContent }) => {
                                     className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-600 md:p-0"
                                 >
                                     צרו קשר
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/articles"
+                                    onClick={
+                                        isMobileMenuOpen
+                                            ? handleMobileLinkClick
+                                            : handleDesktopLinkClick
+                                    }
+                                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-600 md:p-0"
+                                >
+                                    מאמרים
                                 </Link>
                             </li>
                         </ul>
