@@ -7,7 +7,7 @@ import Tooltip from "./content/Tooltip"
 import ScoringSystemQuestionnaire from "./ScoringSystemQuestionnaire";
 import ConditionalQuestionnaire from "./ConditionalQuestionnaire";
 
-const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedSubCategory, isASeveritySelected, setSelectedCategory, setCurrentScreen, selectedDiseaseForSeverityView, onSeverityChange, chosenDiseasesWithSeverities, onNavigateToLinkedDisease }) => {
+const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedSubCategory, isASeveritySelected, setSelectedCategory, setCurrentScreen, selectedDiseaseForSeverityView, onSeverityChange, chosenDiseasesWithSeverities, onNavigateToLinkedDisease, onCalculate, modes }) => {
   const [severitySearchTerm, setSeveritySearchTerm] = useState('');
   const [showInteractiveGuide, setShowInteractiveGuide] = useState(false);
   const [isGuiding, setIsGuiding] = useState(false);
@@ -82,7 +82,7 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
           onClick={handleBack}
           className="mt-2 flex bg-white rounded-lg border border-indigo-200 p-2 items-center gap-1 text-sm font-semibold text-indigo-600 hover:underline"
         >
-          <svg height="25px" width="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fillRule="evenodd" clipRule="evenodd" d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z" fill="#5a67d8"></path> </g></svg>
+          <svg height="25px" width="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transform: "scaleX(-1)" }}><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fillRule="evenodd" clipRule="evenodd" d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z" fill="#5a67d8"></path> </g></svg>
           <span>חזור</span>
         </button>
       </div>
@@ -180,47 +180,51 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
           <div className="pr-2 mb-6">
             {selectedDiseaseForSeverityView.severities.length > 0 ? (
               <form>
-                {filteredSeverities.map((severity, index) => (
-                  <div key={index} className="flex items-start mb-3">
-                    <input
-                      type="radio"
-                      disabled={severity.linkedDiseaseId || severity.disabled}
-                      id={`severity-${selectedDiseaseForSeverityView.id}-${index}`}
-                      name={`severity-${selectedDiseaseForSeverityView.id}`} // Group radio buttons by disease
-                      className="text-indigo-600 rounded-full border-gray-300 focus:ring-indigo-500 cursor-pointer"
-                      style={{ height: "15px", width: "15px", marginTop: "5px" }}
-                      checked={selectedSeverityForThisDisease && selectedSeverityForThisDisease.description === severity.description}
-                      onChange={() => onSeverityChange(selectedDiseaseForSeverityView, severity)} // Pass both disease and severity
-                    />
-                    <label htmlFor={`severity-${selectedDiseaseForSeverityView.id}-${index}`} className="ml-3 text-base text-gray-700 cursor-pointer">
-                      {/* <span className="font-medium"> &nbsp;{severity.percentage}%:</span>  */}
-
-                      <div className="mr-2">
-                        {severity.description.includes("\n") ?
-                          <span className="rounded-lg transition duration-200 ease-in-out">
-                            <span>{severity.description.split("\n")[0]}</span>
-                            <span className="relative">{<Tooltip style={{}} content={severity.description.split("\n").splice(1).join("\n")} />}</span>
-                          </span>
-                          :
-                          severity.description}
-                      </div>
-                    </label>
-                    {severity.linkedDiseaseId && (
-                      <button
-                        type="button"
-                        onClick={() => onNavigateToLinkedDisease(severity.linkedDiseaseId, severity.linkedSeverityId)}
-                        className="ml-4 px-3 py-1 bg-indigo-500 text-white text-sm rounded-lg hover:bg-indigo-600 transition duration-200 ease-in-out shadow-sm flex items-center"
-                        title="מעבר למחלה קשורה"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                        מעבר
-                      </button>
-                    )}
-                  </div>
-
-                ))}
+                {filteredSeverities.map((severity, index) => {
+                  const isSelected = selectedSeverityForThisDisease && selectedSeverityForThisDisease.description === severity.description;
+                  return (
+                    <div
+                      key={index}
+                      className={`flex items-start mb-2 p-2 rounded-lg transition duration-150 cursor-pointer ${isSelected ? "bg-indigo-100 border border-indigo-400" : "border border-transparent hover:bg-indigo-50"}`}
+                      onClick={() => !severity.linkedDiseaseId && !severity.disabled && onSeverityChange(selectedDiseaseForSeverityView, severity)}
+                    >
+                      <input
+                        type="radio"
+                        disabled={severity.linkedDiseaseId || severity.disabled}
+                        id={`severity-${selectedDiseaseForSeverityView.id}-${index}`}
+                        name={`severity-${selectedDiseaseForSeverityView.id}`}
+                        className="text-indigo-600 rounded-full border-gray-300 focus:ring-indigo-500 cursor-pointer"
+                        style={{ height: "15px", width: "15px", marginTop: "5px" }}
+                        checked={isSelected}
+                        onChange={() => onSeverityChange(selectedDiseaseForSeverityView, severity)}
+                      />
+                      <label htmlFor={`severity-${selectedDiseaseForSeverityView.id}-${index}`} className="ml-3 text-base text-gray-700 cursor-pointer flex-1">
+                        <div className="mr-2">
+                          {severity.description.includes("\n") ?
+                            <span className="rounded-lg transition duration-200 ease-in-out">
+                              <span>{severity.description.split("\n")[0]}</span>
+                              <span className="relative">{<Tooltip style={{}} content={severity.description.split("\n").splice(1).join("\n")} />}</span>
+                            </span>
+                            :
+                            severity.description}
+                        </div>
+                      </label>
+                      {severity.linkedDiseaseId && (
+                        <button
+                          type="button"
+                          onClick={(e) => { e.stopPropagation(); onNavigateToLinkedDisease(severity.linkedDiseaseId, severity.linkedSeverityId); }}
+                          className="ml-4 px-3 py-1 bg-indigo-500 text-white text-sm rounded-lg hover:bg-indigo-600 transition duration-200 ease-in-out shadow-sm flex items-center"
+                          title="מעבר למחלה קשורה"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                          מעבר
+                        </button>
+                      )}
+                    </div>
+                  );
+                })}
               </form>
             ) : (
               <p className="text-gray-600">לא נמצאו דרגות עבור המחלה שנבחרה.</p>
@@ -263,9 +267,22 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
       )}
 
       {isASeveritySelected &&
-        <div className="flex justify-center">
-          <button className="bg-white text-slate-800 font-semibold hover:bg-indigo-100 border border-indigo-500 w-50 text-center p-3 rounded-lg mt-4" onClick={handleAddDisease}>
-            הוסף מחלה
+        <div className="flex flex-col sm:flex-row gap-3 mt-4">
+          <button
+            className="flex-1 bg-indigo-600 text-white font-semibold hover:bg-indigo-700 text-center p-3 rounded-lg transition"
+            onClick={() => {
+              const chosenWithSeverities = chosenDiseasesWithSeverities.filter(d => d.selectedSeverity);
+              onCalculate(chosenWithSeverities);
+              setCurrentScreen("results");
+            }}
+          >
+            חשב אחוזי נכות
+          </button>
+          <button
+            className="flex-1 bg-white text-slate-800 font-semibold hover:bg-indigo-100 border border-indigo-500 text-center p-3 rounded-lg transition"
+            onClick={handleAddDisease}
+          >
+            הוסף מחלה נוספת
           </button>
         </div>
       }

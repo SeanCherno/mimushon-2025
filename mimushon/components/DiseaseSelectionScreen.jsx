@@ -52,9 +52,10 @@ const DiseaseSelectionScreen = ({
   };
 
   const StartOverButton = () => {
+    if (chosenDiseases.length === 0) return null;
     return (
       <div className="flex justify-center">
-        <button className="bg-indigo-600 text-white p-3 rounded-lg" onClick={onStartOver}>אפס מחשבון</button>
+        <button className="bg-white text-indigo-600 border border-indigo-400 p-3 rounded-lg hover:bg-indigo-50 transition text-sm font-semibold" onClick={onStartOver}>אפס מחשבון</button>
       </div>
     )
   }
@@ -76,6 +77,7 @@ const DiseaseSelectionScreen = ({
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              style={{ transform: "scaleX(-1)" }}
             >
               <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
               <g

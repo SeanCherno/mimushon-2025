@@ -262,7 +262,7 @@ export default function Calculator({ initialCategories }) {
       case "severitySelection":
         return (
           <SeveritySelection
-            key={selectedDiseaseForSeverityView.id} // This is the key fix
+            key={selectedDiseaseForSeverityView.id}
             selectedDiseaseForSeverityView={selectedDiseaseForSeverityView}
             onSeverityChange={handleSeverityChange}
             chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}
@@ -274,6 +274,8 @@ export default function Calculator({ initialCategories }) {
             setSelectedSubCategory={setSelectedSubCategory}
             setSelectedCategory={setSelectedCategory}
             isASeveritySelected={isASeveritySelected}
+            onCalculate={handleFinalCalculation}
+            modes={modes}
           />
         );
       case "results":
@@ -317,9 +319,40 @@ export default function Calculator({ initialCategories }) {
               className="bg-white p-6 sm:p-10 rounded-xl shadow-2xl w-full border border-indigo-200"
               dir="rtl"
             >
-              <h2 className="text-3xl sm:text-4xl font-semibold text-center text-indigo-800 mb-1 sm:mb-8">
+              <h2 className="text-3xl sm:text-4xl font-semibold text-center text-indigo-800 mb-4 sm:mb-6">
                 מחשבון אחוזי נכות למחלות
               </h2>
+
+              {/* Step indicator */}
+              <div className="flex items-center justify-center gap-2 mb-6 text-sm font-medium" dir="rtl">
+                {[
+                  { key: "diseaseSelection", label: "בחירת מחלה", step: 1 },
+                  { key: "severitySelection", label: "בחירת דרגה", step: 2 },
+                  { key: "results", label: "חישוב", step: 3 },
+                ].map(({ key, label, step }, i, arr) => {
+                  const isActive = currentScreen === key;
+                  const isDone =
+                    (key === "diseaseSelection" && (currentScreen === "severitySelection" || currentScreen === "results")) ||
+                    (key === "severitySelection" && currentScreen === "results");
+                  return (
+                    <React.Fragment key={key}>
+                      <div className="flex flex-col items-center gap-1">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition-colors ${isActive ? "bg-indigo-600 text-white" : isDone ? "bg-indigo-300 text-white" : "bg-indigo-100 text-indigo-400"}`}>
+                          {isDone ? (
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                          ) : step}
+                        </div>
+                        <span className={`text-xs ${isActive ? "text-indigo-700 font-semibold" : "text-indigo-400"}`}>{label}</span>
+                      </div>
+                      {i < arr.length - 1 && (
+                        <div className={`h-0.5 w-10 mb-4 rounded transition-colors ${isDone ? "bg-indigo-400" : "bg-indigo-100"}`} />
+                      )}
+                    </React.Fragment>
+                  );
+                })}
+              </div>
 
               <div
                 className="flex flex-col md:flex-row-reverse gap-8"
@@ -360,10 +393,10 @@ export default function Calculator({ initialCategories }) {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeWidth="2"
-                          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                          d="M4 6h16M4 10h16M4 14h10"
                         />
                       </svg>
-                      <p className="px-3">חשב אחוזי נכות</p>
+                      <p className="px-3">סיכום מחלות</p>
                       {chosenDiseasesWithSeverities.filter(
                         (disease) => disease.selectedSeverity
                       ).length > 0 && (
