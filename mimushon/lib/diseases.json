@@ -411,7 +411,6 @@
               "countForSpecial": false,
               "severityId": "hl_sev_1_y_d"
             },
-
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 15-20",
               "percentage": 0,
@@ -524,7 +523,6 @@
               "countForSpecial": false,
               "severityId": "hl_sev_2_y_d"
             },
-
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 15-20",
               "percentage": 0,
@@ -637,7 +635,6 @@
               "countForSpecial": true,
               "severityId": "hl_sev_3_y_d"
             },
-
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 15-20",
               "percentage": 0,
@@ -750,7 +747,6 @@
               "countForSpecial": true,
               "severityId": "hl_sev_4_y_d"
             },
-
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 15-20",
               "percentage": 5,
@@ -863,7 +859,6 @@
               "countForSpecial": true,
               "severityId": "hl_sev_5_y_d"
             },
-
             {
               "description": "פתח כושר השמיעה בדציבלים: 41-45, 15-20",
               "percentage": 5,
@@ -976,7 +971,6 @@
               "countForSpecial": true,
               "severityId": "hl_sev_6_y_d"
             },
-
             {
               "description": "פתח כושר השמיעה בדציבלים: 46-50, 15-20",
               "percentage": 5,
@@ -1089,7 +1083,6 @@
               "countForSpecial": true,
               "severityId": "hl_sev_7_y_d"
             },
-
             {
               "description": "פתח כושר השמיעה בדציבלים: 51-55, 15-20",
               "percentage": 5,
@@ -1202,7 +1195,6 @@
               "countForSpecial": true,
               "severityId": "hl_sev_8_y_d"
             },
-
             {
               "description": "פתח כושר השמיעה בדציבלים: 56-60, 15-20",
               "percentage": 5,
@@ -1315,7 +1307,6 @@
               "countForSpecial": true,
               "severityId": "hl_sev_9_y_d"
             },
-
             {
               "description": "פתח כושר השמיעה בדציבלים: 61-65, 15-20",
               "percentage": 5,
@@ -1428,7 +1419,6 @@
               "countForSpecial": true,
               "severityId": "hl_sev_10_y_d"
             },
-
             {
               "description": "פתח כושר השמיעה בדציבלים: 66-70, 15-20",
               "percentage": 10,
@@ -1541,7 +1531,6 @@
               "countForSpecial": true,
               "severityId": "hl_sev_11_y_d"
             },
-
             {
               "description": "פתח כושר השמיעה בדציבלים: 71-75, 15-20",
               "percentage": 10,
@@ -1654,7 +1643,6 @@
               "countForSpecial": true,
               "severityId": "hl_sev_12_y_d"
             },
-
             {
               "description": "פתח כושר השמיעה בדציבלים: 76-80, 15-20",
               "percentage": 10,
@@ -1767,7 +1755,6 @@
               "countForSpecial": true,
               "severityId": "hl_sev_13_y_d"
             },
-
             {
               "description": "פתח כושר השמיעה בדציבלים: למעלה מ-80, 15-20",
               "percentage": 10,
@@ -1981,7 +1968,8 @@
                 "תוצאות בדיקת טימפנומטריה",
                 "התאמת מכשיר שמיעה",
                 "תוצאות בדיקת רישום הדים קוכליאריים (OAE)"
-              ]
+              ],
+              "description": "אוזן חיצונית חסרה מלידה או כתוצאה מתאונה/ניתוח. האפרכסת (החלק החיצוני של האוזן) לא קיימת."
             },
             {
               "id": "disease_362",
@@ -2016,7 +2004,8 @@
                 "תוצאות בדיקת טימפנומטריה",
                 "התאמת מכשיר שמיעה",
                 "תוצאות בדיקת רישום הדים קוכליאריים (OAE)"
-              ]
+              ],
+              "description": "דלקת חוזרת של תעלת האוזן החיצונית (הנקב שמחוץ לעור התוף). יכולה לגרום לכאבים, הפרשות ולפעמים היצרות בתעלה."
             }
           ]
         },
@@ -2044,7 +2033,8 @@
                 "מכתב סיכום מרופא - אף אוזן גרון",
                 "סיכום מחלה מרופא מטפל",
                 "תוצאות בדיקה וסטיבולרית של מערכת שיווי המשקל (ENG)"
-              ]
+              ],
+              "description": "לאחר ניתוח באוזן התיכונה נשארת צלקת או שקע בעור התוף. אחוזי הנכות נקבעים לפי ירידת השמיעה בפועל – יש לעבור לסעיף ליקוי שמיעה."
             },
             {
               "id": "disease_1005",
@@ -2072,7 +2062,8 @@
                 "מכתב סיכום מרופא - אף אוזן גרון",
                 "סיכום מחלה מרופא מטפל",
                 "תוצאות בדיקה וסטיבולרית של מערכת שיווי המשקל (ENG)"
-              ]
+              ],
+              "description": "לאחר ניתוח רדיקלי באוזן שבו הוסרו רקמות מהאוזן התיכונה. חשוב לבדוק אם יש הפרשות קבועות מהאוזן לאחר הניתוח."
             },
             {
               "id": "disease_1006",
@@ -2116,7 +2107,8 @@
                 "מכתב סיכום מרופא - אף אוזן גרון",
                 "סיכום מחלה מרופא מטפל",
                 "תוצאות בדיקה וסטיבולרית של מערכת שיווי המשקל (ENG)"
-              ]
+              ],
+              "description": "דלקת מתמשכת של האוזן התיכונה (החלק שמאחורי עור התוף). בדרך כלל גורמת להפרשות ולפעמים גם לפגיעה בעצם."
             }
           ]
         },
@@ -2144,7 +2136,8 @@
                 "תוצאות בדיקה וסטיבולרית של מערכת שיווי המשקל (ENG)",
                 "מכתב סיכום מרופא - נוירולוג",
                 "מכתב סיכום מרופא תעסוקתי"
-              ]
+              ],
+              "description": "פגיעה בחלק השומע של האוזן הפנימית (קוכליאה). אחוזי הנכות נקבעים לפי רמת ירידת השמיעה בפועל – יש לעבור לסעיף ליקוי שמיעה."
             },
             {
               "id": "disease_1008",
@@ -2188,7 +2181,8 @@
                 "תוצאות בדיקה וסטיבולרית של מערכת שיווי המשקל (ENG)",
                 "מכתב סיכום מרופא - נוירולוג",
                 "מכתב סיכום מרופא תעסוקתי"
-              ]
+              ],
+              "description": "פגיעה בחלק שמאחורי האוזן הפנימית האחראי לשיווי המשקל. גורמת לסחרחורות, בחילות, ולעיתים לתנועות לא רצוניות של העיניים."
             },
             {
               "id": "disease_1009",
@@ -2209,7 +2203,8 @@
                 "תוצאות בדיקה וסטיבולרית של מערכת שיווי המשקל (ENG)",
                 "מכתב סיכום מרופא - נוירולוג",
                 "מכתב סיכום מרופא תעסוקתי"
-              ]
+              ],
+              "description": "מחלת מנייר היא מחלה של האוזן הפנימית הגורמת לשלושה תסמינים יחד: ירידת שמיעה, סחרחורות חריפות ורעשים באוזניים (טיניטוס). אחוזי הנכות נקבעים לפי שילוב הפגיעות השונות."
             }
           ]
         }
@@ -3505,7 +3500,11 @@
               "name": "אבדן גף עליון",
               "description": "איפה בגוף: כל היד, מהכתף ומטה",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קטיעה ברמת מפרק הכתף",
@@ -3595,7 +3594,11 @@
               "name": "אבדן האמה",
               "description": "איפה בגוף: חלק היד שמתחת למרפק ועד לשורש כף היד",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קטיעה מעל השריר pronator teres (חלק עליון של האמה)",
@@ -3726,10 +3729,16 @@
             {
               "id": "disease_243",
               "name": "שורש היד",
-              "imageUrls": ["/images/palm.png"],
+              "imageUrls": [
+                "/images/palm.png"
+              ],
               "description": "איפה בגוף: מפרק שורש כף היד – בין האמה לכף היד",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "אחרי חבלה שהתרפאה ללא הפרעות",
@@ -3917,7 +3926,11 @@
               "name": "נקיעה חוזרת של הכתף (Recurrent Shoulder Dislocation)",
               "description": "איפה בגוף: מפרק הכתף – בין עצם הזרוע לשכמה",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "נקיעות חוזרות שמופיעות כשמרימים את היד מעל גובה הכתף",
@@ -4063,7 +4076,11 @@
               "name": "קשיון של הכתף (Shoulder Ankylosis)",
               "description": "איפה בגוף: מפרק הכתף",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קשיון נוח - הזרוע בריחוק של 50°-45° מהגוף",
@@ -4130,7 +4147,11 @@
               "name": "הגבלת התנועות בפרק הכתף",
               "description": "איפה בגוף: מפרק הכתף",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "היד עולה מעל גובה הכתף",
@@ -4297,9 +4318,15 @@
               "id": "disease_237",
               "name": "קשיון במרפק",
               "description": "איפה בגוף: מפרק המרפק",
-              "imageUrls": ["/images/elbow.png"],
+              "imageUrls": [
+                "/images/elbow.png"
+              ],
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קשיון נוח - תנוחת המרפק בזווית שבין 70° עד 90° (ראה ציור) ובעמדה אמצעית של האמה;",
@@ -4365,9 +4392,15 @@
               "id": "disease_238",
               "description": "איפה בגוף: מפרק המרפק",
               "name": "הגבלת התנועות במרפק - הגבלות בכיפוף",
-              "imageUrls": ["/images/elbow2.png"],
+              "imageUrls": [
+                "/images/elbow2.png"
+              ],
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "כיפוף עד 35°",
@@ -4480,8 +4513,14 @@
               "name": "הגבלת התנועות במרפק - הגבלות ביישור",
               "description": "איפה בגוף: מפרק המרפק",
               "displayAsTable": true,
-              "imageUrls": ["/images/elbow2.png"],
-              "tableColumns": ["", "ימין", "שמאל"],
+              "imageUrls": [
+                "/images/elbow2.png"
+              ],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "יישור עד 90°",
@@ -4657,7 +4696,11 @@
               "id": "disease_250",
               "name": "פציעת שרירי הכתף - TRAPEZIUS, SERRATUS MAGNUS LLEVATOR SCAPULAE",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -4740,13 +4783,18 @@
                 "סיכום פיזיותרפיה",
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
-              ]
+              ],
+              "description": "פציעה בשרירי הכתף העליונה: טרפציוס, סראטוס, לבאטור סקאפולה. גורמת לחולשה ביד, קושי בהרמת היד ובתנועות הכתף."
             },
             {
               "id": "disease_251",
               "name": "פציעת שרירי הכתף - PECTORALIS MAJOR/MINOR, LATISSIMUS DORSI, TERES MAJOR",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -4829,13 +4877,18 @@
                 "סיכום פיזיותרפיה",
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
-              ]
+              ],
+              "description": "פציעה בשרירי חזה הכתף: פקטוראליס, לטיסימוס דורסי, ראמבואיד. גורמת לחולשה בחזה ובגב, קושי בדחיפה ובמשיכה."
             },
             {
               "id": "disease_253",
               "name": "פציעת שרירי הכתף - DELTOIDEUS",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -4918,13 +4971,18 @@
                 "סיכום פיזיותרפיה",
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
-              ]
+              ],
+              "description": "פציעה בשריר הדלטואיד (השריר העגלגל של הכתף). גורמת לקושי להרים את הזרוע לצדדים ולמעלה."
             },
             {
               "id": "disease_254",
               "name": "פציעת שרירי הכתף - TERES MINOR, SUPRASPINATUS, INFRASPINATUS SUBSCAPULARIS, CORACOBRACHIALIS",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5007,7 +5065,8 @@
                 "סיכום פיזיותרפיה",
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
-              ]
+              ],
+              "description": "פציעה בשרירי סבב הכתף (Rotator Cuff): טרס מינור, סופרסינאטוס, אינפרסינאטוס. גורמת לכאב, חולשה ומגבלה בסיבוב הכתף."
             }
           ]
         },
@@ -5019,7 +5078,11 @@
               "id": "disease_255",
               "name": "פציעת שרירי המרפק - BICEPS, BRACHIALIS, BRACHIORADIALIS",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5102,13 +5165,18 @@
                 "סיכום פיזיותרפיה",
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
-              ]
+              ],
+              "description": "פציעה בשרירי כפיפת המרפק: ביספס, בראכיאליס, בראכיורדיאליס. גורמת לקושי לכופף את המרפק ולפעילויות כמו הרמת חפצים."
             },
             {
               "id": "disease_256",
               "name": "פציעת שרירי המרפק - TRICEPS, ANCONEUS",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5191,13 +5259,18 @@
                 "סיכום פיזיותרפיה",
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
-              ]
+              ],
+              "description": "פציעה בשרירי פשיטת המרפק: טריספס, אנקונאוס. גורמת לקושי לפשוט את הזרוע ולפעילויות שדורשות דחיפה."
             },
             {
               "id": "disease_257",
               "name": "פציעת שרירי המרפק - FLEXOR CARPI, DIGITI",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5280,13 +5353,18 @@
                 "סיכום פיזיותרפיה",
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
-              ]
+              ],
+              "description": "פציעה בשרירי כפיפת כף היד והאצבעות. גורמת לחולשה בסגירת האגרוף ובאחיזה."
             },
             {
               "id": "disease_258",
               "name": "פציעת שרירי המרפק - EXTENSOR CARPI, DIGITI",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5369,7 +5447,8 @@
                 "סיכום פיזיותרפיה",
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
-              ]
+              ],
+              "description": "פציעה בשרירי פשיטת כף היד והאצבעות. גורמת לקושי לפתוח את כף היד ולהזיז את האצבעות כלפי מעלה."
             }
           ]
         },
@@ -5381,7 +5460,11 @@
               "id": "disease_259",
               "name": "קטיעה של אצבע בודדת או חלק ממנה - אגודל",
               "description": "איפה בגוף - האגודל",
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קטיעת אגודל עם עצם המסרק או חלק ממנה",
@@ -5493,7 +5576,11 @@
               "id": "disease_260",
               "name": "קטיעה של אצבע בודדת או חלק ממנה - אצבע 2",
               "description": "איפה בגוף: האצבע הסמוכה לאגודל",
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קטיעת אצבע 2 עם עצם המסרק או חלק ממנה",
@@ -5606,7 +5693,11 @@
               "name": "קטיעה של אצבע בודדת או חלק ממנה - אצבע 3",
               "description": "איפה בגוף: האצבע השלישית",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קטיעת אצבע 3 עם עצם המסרק או חלק ממנה",
@@ -5719,7 +5810,11 @@
               "name": "קטיעה של אצבע בודדת או חלק ממנה - אצבע 4 או אצבע 5",
               "description": "איפה בגוף: האצבעות הקטנות",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קטיעת אצבע 4 או 5 עם עצם המסרק או חלק ממנה",
@@ -6365,7 +6460,9 @@
               "id": "disease_278",
               "name": "פרק הירך",
               "description": "איפה בגוף: מפרק הירך – מחבר את האגן לירך",
-              "imageUrls": ["/images/thigh.png"],
+              "imageUrls": [
+                "/images/thigh.png"
+              ],
               "severities": [
                 {
                   "description": "מפרק נד - רפוי\nדוגמה: המפרק לא יציב, קשה לעמוד או ללכת ללא תמיכה",
@@ -6469,7 +6566,8 @@
                 "מכתב סיכום מרופא שיקום",
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
-              ]
+              ],
+              "description": "פציעה בשרירי החלק האחורי של הירך (המסטרינגס): ביספס פמוריס, סמיטנדינוסוס. גורמת לחולשה בכיפוף הברך ובעלייה במדרגות."
             },
             {
               "id": "disease_303",
@@ -6507,7 +6605,8 @@
                 "מכתב סיכום מרופא שיקום",
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
-              ]
+              ],
+              "description": "פציעה בשרירי השוק הקדמיים: טיביאליס אנטריור, אקסטנסור דיגיטורום. גורמת לקושי בהרמת כף הרגל ועלולה לגרום להיתקלות בהליכה (\"צניחת כף רגל\")."
             },
             {
               "id": "disease_304",
@@ -6545,7 +6644,8 @@
                 "מכתב סיכום מרופא שיקום",
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
-              ]
+              ],
+              "description": "פציעה בשרירי השוק האחוריים: טריספס סוראה (שריר השוק), פרונאוס, טיביאליס פוסטריור. גורמת לחולשה בדחיפה עם כף הרגל ובשיווי משקל."
             },
             {
               "id": "disease_301",
@@ -6583,7 +6683,8 @@
                 "מכתב סיכום מרופא שיקום",
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
-              ]
+              ],
+              "description": "פציעה בשרירי החלק הקדמי של הירך: ריקטוס פמוריס, ואסטוס, סארטוריוס. גורמת לחולשה בפשיטת הברך ובהליכה."
             }
           ]
         },
@@ -6595,7 +6696,9 @@
               "id": "disease_279",
               "name": "מצבים אורתופדיים בברך",
               "description": "איפה בגוף: מפרק הברך",
-              "imageUrls": ["/images/knee.png"],
+              "imageUrls": [
+                "/images/knee.png"
+              ],
               "severities": [
                 {
                   "description": "אי־יציבות צדדית קשה (הברך מתעקמת לצדדים)\nדוגמה: הברך \"בורחת\" החוצה או פנימה בזמן הליכה",
@@ -6635,7 +6738,9 @@
               "id": "disease_1010",
               "name": "הגבלות בכיפוף הברך",
               "description": "איפה בגוף: מפרק הברך",
-              "imageUrls": ["/images/knee.png"],
+              "imageUrls": [
+                "/images/knee.png"
+              ],
               "severities": [
                 {
                   "description": "כיפוף עד 90°\nדוגמה: אפשר לשבת, אבל יש קושי לכרוע",
@@ -6683,7 +6788,9 @@
               "id": "disease_1011",
               "name": "הגבלות ביישור הברך",
               "description": "איפה בגוף: מפרק הברך",
-              "imageUrls": ["/images/knee.png"],
+              "imageUrls": [
+                "/images/knee.png"
+              ],
               "severities": [
                 {
                   "description": "יישור עד 5°\nדוגמה: כמעט אין בעיה, הברך כמעט ישרה",
@@ -7112,7 +7219,8 @@
                 "מכתב סיכום מרופא שיקום",
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
-              ]
+              ],
+              "description": "פציעה בשרירים הקצרים של גב כף הרגל. גורמת לקושי בהרמת האצבעות ובהתכווצות כף הרגל."
             },
             {
               "id": "disease_306",
@@ -7150,7 +7258,8 @@
                 "מכתב סיכום מרופא שיקום",
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
-              ]
+              ],
+              "description": "פציעה בשרירים הקצרים של כף הרגל מלמטה (פלקסורים, אבדוקטורים). גורמת לכאב ולחולשה בכפיפת האצבעות ובהליכה."
             }
           ]
         },
@@ -7465,7 +7574,8 @@
             "סיכום אשפוז בבית חולים",
             "תוצאות בדיקות מעבדה עדכניות",
             "סיכום מחלה מרופא מטפל"
-          ]
+          ],
+          "description": "מחלות של בלוטות ההפרשה הפנימית כגון: בלוטת התריס (תת-פעילות/יתר-פעילות), יותרת הכליה, בלוטת יותרת המוח. הנכות נקבעת לפי חומרת ההפרעה ההורמונלית ומידת ההגבלה בפעילות היומיומית."
         },
         {
           "id": "disease_68",
@@ -7507,7 +7617,8 @@
           "requiredDocuments": [
             "תוצאות בדיקות מעבדה עדכניות",
             "סיכום מחלה מרופא מטפל"
-          ]
+          ],
+          "description": "עודף משקל ניכר (השמנה) שנגרם כתוצאה מתאונת עבודה או מחלה מקצועית. נמדד לפי מדד BMI. חשוב: השמנה רגילה שאינה קשורה לאירוע עבודתי אינה מקנה נכות."
         }
       ]
     },
@@ -8560,7 +8671,8 @@
             "מכתב סיכום מרופא - קרדיולוג",
             "תוצאות בדיקות מעבדה - קריאטינין בדם",
             "תוצאות מבחן מאמץ"
-          ]
+          ],
+          "description": "לחץ דם גבוה (היפרטנציה). הנכות נקבעת לפי רמת לחץ הדם, הצורך בתרופות והאם נגרם נזק לאיברים כמו לב, כליות או עיניים."
         },
         {
           "id": "disease_44",
@@ -8598,7 +8710,8 @@
             "מכתב סיכום מרופא - קרדיולוג",
             "תוצאות בדיקות מעבדה - קריאטינין בדם",
             "תוצאות מבחן מאמץ"
-          ]
+          ],
+          "description": "לחץ דם נמוך (היפוטנציה), כולל נפילת לחץ הדם בעמידה (אורתוסטטי). יכול לגרום לסחרחורות, עילפון ותשישות, במיוחד בקימה פתאומית."
         }
       ]
     },
@@ -8662,7 +8775,7 @@
               ],
               "severities": [
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO >60%, מדרג מבחן מאמץ NYHA I",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO >60%, מדרג מבחן מאמץ NYHA I\n(כח שאיבת הלב תקין (>60%); NYHA I – אין הגבלה בפעילות רגילה)",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8670,7 +8783,7 @@
                   "severityId": "category_50_disease_34_8zem5o"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO >60%, מדרג מבחן מאמץ NYHA II",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO >60%, מדרג מבחן מאמץ NYHA II\n(כח שאיבת הלב תקין (>60%); NYHA II – הגבלה קלה, אי נוחות בפעילות יותר ממה שרגיל)",
                   "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8678,7 +8791,7 @@
                   "severityId": "category_50_disease_34_36nud4"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO >60%, מדרג מבחן מאמץ NYHA III",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO >60%, מדרג מבחן מאמץ NYHA III\n(כח שאיבת הלב תקין (>60%); NYHA III – הגבלה ניכרת, גם פעילות קלה (כגון הליכה עד 100 מ') גורמת לתסמינים)",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8686,7 +8799,7 @@
                   "severityId": "category_50_disease_34_ktphfx"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO >60%, מדרג מבחן מאמץ NYHA IV",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO >60%, מדרג מבחן מאמץ NYHA IV\n(כח שאיבת הלב תקין (>60%); NYHA IV – מוגבל גם במנוחה, כל מאמץ גורם לתסמינים)",
                   "percentage": 15,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8694,7 +8807,7 @@
                   "severityId": "category_50_disease_34_exm62c"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 45%-60%, מדרג מבחן מאמץ NYHA I",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 45%-60%, מדרג מבחן מאמץ NYHA I\n(כח שאיבת הלב מעט ירוד (45–60%); NYHA I – אין הגבלה בפעילות רגילה)",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8702,7 +8815,7 @@
                   "severityId": "category_50_disease_34_ix6sd"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 45%-60%, מדרג מבחן מאמץ NYHA II",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 45%-60%, מדרג מבחן מאמץ NYHA II\n(כח שאיבת הלב מעט ירוד (45–60%); NYHA II – הגבלה קלה, אי נוחות בפעילות יותר ממה שרגיל)",
                   "percentage": 25,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8710,7 +8823,7 @@
                   "severityId": "category_50_disease_34_6i4xp"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 45%-60%, מדרג מבחן מאמץ NYHA III",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 45%-60%, מדרג מבחן מאמץ NYHA III\n(כח שאיבת הלב מעט ירוד (45–60%); NYHA III – הגבלה ניכרת, גם פעילות קלה (כגון הליכה עד 100 מ') גורמת לתסמינים)",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8718,7 +8831,7 @@
                   "severityId": "category_50_disease_34_98479p"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 45%-60%, מדרג מבחן מאמץ NYHA IV",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 45%-60%, מדרג מבחן מאמץ NYHA IV\n(כח שאיבת הלב מעט ירוד (45–60%); NYHA IV – מוגבל גם במנוחה, כל מאמץ גורם לתסמינים)",
                   "percentage": 35,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8726,7 +8839,7 @@
                   "severityId": "category_50_disease_34_ofvlz"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 30%-44%, מדרג מבחן מאמץ NYHA I",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 30%-44%, מדרג מבחן מאמץ NYHA I\n(כח שאיבת הלב ירוד (30–44%); NYHA I – אין הגבלה בפעילות רגילה)",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8734,7 +8847,7 @@
                   "severityId": "category_50_disease_34_qt53d8"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 30%-44%, מדרג מבחן מאמץ NYHA II",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 30%-44%, מדרג מבחן מאמץ NYHA II\n(כח שאיבת הלב ירוד (30–44%); NYHA II – הגבלה קלה, אי נוחות בפעילות יותר ממה שרגיל)",
                   "percentage": 45,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8742,7 +8855,7 @@
                   "severityId": "category_50_disease_34_777ise"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 30%-44%, מדרג מבחן מאמץ NYHA III",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 30%-44%, מדרג מבחן מאמץ NYHA III\n(כח שאיבת הלב ירוד (30–44%); NYHA III – הגבלה ניכרת, גם פעילות קלה (כגון הליכה עד 100 מ') גורמת לתסמינים)",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8750,7 +8863,7 @@
                   "severityId": "category_50_disease_34_qp5lxc"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 30%-44%, מדרג מבחן מאמץ NYHA IV",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO 30%-44%, מדרג מבחן מאמץ NYHA IV\n(כח שאיבת הלב ירוד (30–44%); NYHA IV – מוגבל גם במנוחה, כל מאמץ גורם לתסמינים)",
                   "percentage": 60,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8758,7 +8871,7 @@
                   "severityId": "category_50_disease_34_jht97x"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO <30%, מדרג מבחן מאמץ NYHA I",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO <30%, מדרג מבחן מאמץ NYHA I\n(כח שאיבת הלב נמוך מאוד (<30%); NYHA I – אין הגבלה בפעילות רגילה)",
                   "percentage": 70,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8766,7 +8879,7 @@
                   "severityId": "category_50_disease_34_50g0e"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO <30%, מדרג מבחן מאמץ NYHA II",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO <30%, מדרג מבחן מאמץ NYHA II\n(כח שאיבת הלב נמוך מאוד (<30%); NYHA II – הגבלה קלה, אי נוחות בפעילות יותר ממה שרגיל)",
                   "percentage": 80,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8774,7 +8887,7 @@
                   "severityId": "category_50_disease_34_zrkm1"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO <30%, מדרג מבחן מאמץ NYHA III",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO <30%, מדרג מבחן מאמץ NYHA III\n(כח שאיבת הלב נמוך מאוד (<30%); NYHA III – הגבלה ניכרת, גם פעילות קלה (כגון הליכה עד 100 מ') גורמת לתסמינים)",
                   "percentage": 90,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8782,7 +8895,7 @@
                   "severityId": "category_50_disease_34_2u0nt9"
                 },
                 {
-                  "description": "מקטע פליטה לפי בדיקת ה-ECHO <30%, מדרג מבחן מאמץ NYHA IV",
+                  "description": "מקטע פליטה לפי בדיקת ה-ECHO <30%, מדרג מבחן מאמץ NYHA IV\n(כח שאיבת הלב נמוך מאוד (<30%); NYHA IV – מוגבל גם במנוחה, כל מאמץ גורם לתסמינים)",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8800,12 +8913,15 @@
                 "סיכום מחלה מרופא מטפל",
                 "תוצאות צנתור לב",
                 "סיכום ניתוח"
-              ]
+              ],
+              "description": "מחלה שבה כלי הדם המזינים את שריר הלב (העורקים הכליליים) צרים או חסומים. יכולה להתבטא בכאבי חזה (תעוקה), קוצר נשימה, עייפות ולפעמים התקף לב. הנכות נקבעת לפי שני גורמים: עוצמת סידת הלב (ECHO) וכמה הפעילות מוגבלת (NYHA).\nNYHA I = פעילות רגילה ללא כל הגבלה | NYHA II = הגבלה קלה | NYHA III = הגבלה ניכרת | NYHA IV = מוגבל גם במנוחה."
             },
             {
               "id": "disease_35",
               "name": "מחלות המסתמים - Valvular Heart Disease",
-              "imageUrls": ["/images/valvular_disease.png"],
+              "imageUrls": [
+                "/images/valvular_disease.png"
+              ],
               "displayAsTable": true,
               "tableColumns": [
                 "רמת הליקוי המסתמי לפי בדיקות ה-ECHO, כמוצג בטבלה למעלה",
@@ -8849,7 +8965,7 @@
               ],
               "severities": [
                 {
-                  "description": "רמת הליקוי המסתמי קל, מדרג מבחן מאמץ NYHA I",
+                  "description": "רמת הליקוי המסתמי קל, מדרג מבחן מאמץ NYHA I (אין הגבלה בפעילות רגילה)",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8857,7 +8973,7 @@
                   "severityId": "category_50_disease_35_7mwmu"
                 },
                 {
-                  "description": "רמת הליקוי המסתמי קל, מדרג מבחן מאמץ NYHA II",
+                  "description": "רמת הליקוי המסתמי קל, מדרג מבחן מאמץ NYHA II (הגבלה קלה בפעילות אינטנסיבית)",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8865,7 +8981,7 @@
                   "severityId": "category_50_disease_35_3x4zij"
                 },
                 {
-                  "description": "רמת הליקוי המסתמי קל, מדרג מבחן מאמץ NYHA III",
+                  "description": "רמת הליקוי המסתמי קל, מדרג מבחן מאמץ NYHA III (הגבלה ניכרת, גם פעילות קלה גורמת לתסמינים)",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8873,7 +8989,7 @@
                   "severityId": "category_50_disease_35_7daig"
                 },
                 {
-                  "description": "רמת הליקוי המסתמי קל, מדרג מבחן מאמץ NYHA IV",
+                  "description": "רמת הליקוי המסתמי קל, מדרג מבחן מאמץ NYHA IV (מוגבל גם במנוחה)",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8881,7 +8997,7 @@
                   "severityId": "category_50_disease_35_7htzupi"
                 },
                 {
-                  "description": "רמת הליקוי המסתמי בינוני, מדרג מבחן מאמץ NYHA I",
+                  "description": "רמת הליקוי המסתמי בינוני, מדרג מבחן מאמץ NYHA I (אין הגבלה בפעילות רגילה)",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8889,7 +9005,7 @@
                   "severityId": "category_50_disease_35_e4lnnl7"
                 },
                 {
-                  "description": "רמת הליקוי המסתמי בינוני, מדרג מבחן מאמץ NYHA II",
+                  "description": "רמת הליקוי המסתמי בינוני, מדרג מבחן מאמץ NYHA II (הגבלה קלה בפעילות אינטנסיבית)",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8897,7 +9013,7 @@
                   "severityId": "category_50_disease_35_qemz5"
                 },
                 {
-                  "description": "רמת הליקוי המסתמי בינוני, מדרג מבחן מאמץ NYHA III",
+                  "description": "רמת הליקוי המסתמי בינוני, מדרג מבחן מאמץ NYHA III (הגבלה ניכרת, גם פעילות קלה גורמת לתסמינים)",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8905,7 +9021,7 @@
                   "severityId": "category_50_disease_35_bfedo"
                 },
                 {
-                  "description": "רמת הליקוי המסתמי בינוני, מדרג מבחן מאמץ NYHA IV",
+                  "description": "רמת הליקוי המסתמי בינוני, מדרג מבחן מאמץ NYHA IV (מוגבל גם במנוחה)",
                   "percentage": 60,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8913,7 +9029,7 @@
                   "severityId": "category_50_disease_35_98cs8n"
                 },
                 {
-                  "description": "רמת הליקוי המסתמי חמור, מדרג מבחן מאמץ NYHA I",
+                  "description": "רמת הליקוי המסתמי חמור, מדרג מבחן מאמץ NYHA I (אין הגבלה בפעילות רגילה)",
                   "percentage": 70,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8921,7 +9037,7 @@
                   "severityId": "category_50_disease_35_cyvtc4"
                 },
                 {
-                  "description": "רמת הליקוי המסתמי חמור, מדרג מבחן מאמץ NYHA II",
+                  "description": "רמת הליקוי המסתמי חמור, מדרג מבחן מאמץ NYHA II (הגבלה קלה בפעילות אינטנסיבית)",
                   "percentage": 80,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8929,7 +9045,7 @@
                   "severityId": "category_50_disease_35_plrc7a"
                 },
                 {
-                  "description": "רמת הליקוי המסתמי חמור, מדרג מבחן מאמץ NYHA III",
+                  "description": "רמת הליקוי המסתמי חמור, מדרג מבחן מאמץ NYHA III (הגבלה ניכרת, גם פעילות קלה גורמת לתסמינים)",
                   "percentage": 90,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8937,7 +9053,7 @@
                   "severityId": "category_50_disease_35_tigxol"
                 },
                 {
-                  "description": "רמת הליקוי המסתמי חמור, מדרג מבחן מאמץ NYHA IV",
+                  "description": "רמת הליקוי המסתמי חמור, מדרג מבחן מאמץ NYHA IV (מוגבל גם במנוחה)",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -8951,7 +9067,8 @@
                 "אקו לב (TTE)",
                 "סיכום מחלה מרופא מטפל",
                 "תוצאות צנתור לב"
-              ]
+              ],
+              "description": "פגיעה במסתמי הלב (מסתם אאורטה, מיטרלי, וכו') שגורמת לדליפה (אי-ספיקה) או לצרות (היצרות). יכולה לגרום לקוצר נשימה, עייפות ודפיקות לב חזקות. הנכות נקבעת לפי חומרת הפגיעה ומידת ההגבלה התפקודית (NYHA)."
             }
           ]
         },
@@ -8963,7 +9080,12 @@
               "id": "disease_36",
               "name": "מחלת שריר הלב המורחב - Dilated Cardiomyopathy",
               "displayAsTable": true,
-              "tableColumns": ["מקטע פליטה (ECHO)", ">40%", "30%-40%", "<30%"],
+              "tableColumns": [
+                "מקטע פליטה (ECHO)",
+                ">40%",
+                "30%-40%",
+                "<30%"
+              ],
               "tableRows": [
                 {
                   "header": "מחלת לב ללא הגבלה בפעילות הגופנית כתוצאה מכך. פעילות גופנית רגילה אינה גורמת לעייפות,  תחושת דפיקות לב בחזה, קוצר נשימה או כאבים בחזה",
@@ -9106,7 +9228,8 @@
                 "סיכום מחלה מרופא מטפל",
                 "תוצאות צנתור לב",
                 "סיכום ניתוח"
-              ]
+              ],
+              "description": "מחלה שבה שריר הלב נחלש ומתרחב, ומתקשה לשאוב דם ביעילות. גורמת לקוצר נשימה, עייפות ולעיתים נפיחות ברגליים. הנכות נקבעת לפי עוצמת שאיבת הלב (ECHO) ומידת ההגבלה התפקודית (NYHA)."
             },
             {
               "id": "disease_37",
@@ -9147,7 +9270,8 @@
                 "סיכום מחלה מרופא מטפל",
                 "תוצאות צנתור לב",
                 "סיכום ניתוח"
-              ]
+              ],
+              "description": "מחלה שבה שריר הלב מתעבה ומקשה על זרימת הדם. יכולה להיות ללא תסמינים או לגרום לקוצר נשימה, כאבי חזה ואפילו עילפון. הנכות נקבעת לפי חומרת ההפרעה ומידת הגבלת המאמץ."
             },
             {
               "id": "disease_38",
@@ -9180,7 +9304,8 @@
                 "סיכום מחלה מרופא מטפל",
                 "תוצאות צנתור לב",
                 "סיכום ניתוח"
-              ]
+              ],
+              "description": "מחלה שבה שריר הלב נוקשה ולא מתרחב כראוי, מה שמפריע למילוי הלב בדם. גורמת לקוצר נשימה ועייפות, גם במאמץ קטן. הנכות נקבעת לפי מידת ההגבלה התפקודית (NYHA)."
             },
             {
               "id": "disease_39",
@@ -9244,7 +9369,8 @@
                 "סיכום מחלה מרופא מטפל",
                 "תוצאות מבחן מאמץ",
                 "תוצאות צנתור לב"
-              ]
+              ],
+              "description": "דלקת בשריר הלב (מיוקרדיטיס) או בקרום שסביבו (פריקרדיטיס). יכולה להיגרם מוירוסים, חיידקים או סיבות אוטואימוניות. הנכות נקבעת לפי חומרת הדלקת ומשך ההתאוששות."
             }
           ]
         },
@@ -9272,7 +9398,8 @@
                 "אקו לב (TTE)",
                 "סיכום מחלה מרופא מטפל",
                 "הולטר לבבי - רישום אק\"ג רציף"
-              ]
+              ],
+              "description": "הפרעה בקצב פעימות הלב – הלב פועם מהיר מדי, לאט מדי, או בצורה לא סדירה. הנכות נקבעת לפי סוג ההפרעה, הצורך בקוצב לב ומידת ההגבלה התפקודית."
             },
             {
               "id": "disease_41",
@@ -9328,7 +9455,8 @@
                 "סיכום מחלה מרופא מטפל",
                 "תוצאות מבחן מאמץ",
                 "תוצאות צנתור לב"
-              ]
+              ],
+              "description": "לחץ דם גבוה בכלי הדם שבין הלב והריאות. גורם לקוצר נשימה, עייפות וקושי במאמץ. הנכות נקבעת לפי הגורם, רמת הלחץ ומידת ההגבלה התפקודית."
             },
             {
               "id": "disease_42",
@@ -9354,7 +9482,8 @@
                 "סיכום מחלה מרופא מטפל",
                 "תוצאות צנתור לב",
                 "סיכום ניתוח"
-              ]
+              ],
+              "description": "מום מולד בלב שנגרם בזמן ההתפתחות ברחם. הנכות נקבעת לפי אותם קריטריונים של מחלות לב כליליות – לפי עוצמת הלב (ECHO) ומידת ההגבלה (NYHA)."
             }
           ]
         },
@@ -9419,7 +9548,8 @@
                 " מכתב סיכום מרופא - כירורג כללי",
                 "מכתב סיכום מרופא - כירורג כלי דם",
                 "תוצאות בדיקת דופלר של זרימת דם בכלי דם היקפיים"
-              ]
+              ],
+              "description": "ורידים מורחבים ובולטים בגפיים התחתונות (ורידי דליות). יכולים לגרום לכאבים, נפיחות, עייפות ברגליים ולעיתים לכיבים בעור. הנכות נקבעת לפי חומרת הדליות והסיבוכים."
             },
             {
               "id": "disease_49",
@@ -9478,7 +9608,8 @@
                 " תוצאות בדיקות מעבדה עדכניות",
                 "מכתב סיכום מרופא - כירורג כלי דם",
                 "תוצאות בדיקת דופלר של זרימת דם בכלי דם היקפיים"
-              ]
+              ],
+              "description": "נזק לוורידים העמוקים של הגפיים (בדרך כלל אחרי פקקת). יכול לגרום לנפיחות כרונית, כאבים ושינויים בעור הרגל. הנכות נקבעת לפי חומרת הנפיחות, הכאב ומידת ההגבלה."
             },
             {
               "id": "disease_50",
@@ -9555,7 +9686,8 @@
                 "תוצאות בדיקת CT",
                 "סיכום אשפוז בבית חולים",
                 "מכתב שחרור מחדר מיון"
-              ]
+              ],
+              "description": "הרחבה חריגה של כלי דם (עורק) שיכולה לנפוח ואף להיקרע. הנכות נקבעת לפי גודל המפרצת, מיקומה והגבלות בתפקוד שנגרמות ממנה."
             },
             {
               "id": "disease_52",
@@ -9616,7 +9748,8 @@
                 "תוצאות בדיקת CT",
                 "סיכום אשפוז בבית חולים",
                 "מכתב שחרור מחדר מיון"
-              ]
+              ],
+              "description": "מחלת רנו: ספזם (התכווצות) של כלי הדם בקצות האצבעות בגלל קור או מתח, גורמת לחוורון, כחלון וכאב באצבעות. מחלת בירגר: דלקת ועצירה בכלי הדם הקטנים, בעיקר ברגליים, בקשר לעישון."
             },
             {
               "id": "disease_51",
@@ -9638,7 +9771,8 @@
                 "תוצאות בדיקת CT",
                 "סיכום אשפוז בבית חולים",
                 "מכתב שחרור מחדר מיון"
-              ]
+              ],
+              "description": "חיבור לא תקין בין עורק לווריד (שנגרם לרוב מפציעה). הנכות נקבעת לפי אותם קריטריונים של מפרצת בכלי דם."
             },
             {
               "id": "disease_53",
@@ -9684,7 +9818,8 @@
                 "תוצאות בדיקת CT",
                 "סיכום אשפוז בבית חולים",
                 "מכתב שחרור מחדר מיון"
-              ]
+              ],
+              "description": "נזק שנגרם לרקמות בגלל חשיפה לקור קיצוני (כפור). הנכות נקבעת לפי חומרת הנזק שנשאר לאחר ההחלמה."
             }
           ]
         }
@@ -9694,7 +9829,6 @@
       "id": "cat_gastro",
       "name": "מערכת העיכול והבטן",
       "svg": "svgs/abdomen-digestion-gaster-svgrepo-com.svg",
-
       "subcategories": [
         {
           "id": "sub_cat_esophagus",
@@ -9737,7 +9871,8 @@
                 "תוצאות בדיקות מעבדה - ספירת דם כללית",
                 "שיקוף ו/או צילום ושט, קיבה ותרסריון",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "דלקת בוושט (הצינור שמחבר את הפה לקיבה), לרוב בגלל עליית חומצה מהקיבה (רפלוקס). יכולה לגרום לצרבת, כאב בבליעה, ולעיתים לצלקות בוושט."
             },
             {
               "id": "disease_54",
@@ -9776,7 +9911,8 @@
                 "תוצאות בדיקות מעבדה - ספירת דם כללית",
                 "שיקוף ו/או צילום ושט, קיבה ותרסריון",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "הוושט (הצינור שמחבר פה לקיבה) נהיה צר, מה שמקשה על הבליעה. יכולה לנבוע מצרבת כרונית, צלקות לאחר ניתוח, או גורמים אחרים."
             },
             {
               "id": "disease_55",
@@ -9815,7 +9951,8 @@
                 "תוצאות בדיקות מעבדה - ספירת דם כללית",
                 "שיקוף ו/או צילום ושט, קיבה ותרסריון",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "שקית (דיברטיקול) שנוצרת בדופן הוושט. ברוב המקרים היא קטנה וללא תסמינים, אך אם היא גדולה יכולה לגרום לקושי בבליעה ורגשת מזון."
             },
             {
               "id": "disease_57",
@@ -9856,7 +9993,8 @@
                 "תוצאות בדיקות מעבדה - ספירת דם כללית",
                 "שיקוף ו/או צילום ושט, קיבה ותרסריון",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "כיווץ לא רצוני של שרירי הוושט (קרדיוספזם/אכלסיה) שמונע מעבר תקין של מזון. הנכות נקבעת לפי מידת ההיצרות ודרגת הקושי בבליעה."
             }
           ]
         },
@@ -9900,7 +10038,8 @@
                 "תוצאות בדיקות מעבדה - ספירת דם כללית",
                 "שיקוף ו/או צילום ושט, קיבה ותרסריון",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "דלקת כרונית של רירית הקיבה. יכולה לגרום לכאבי בטן, בחילות, אי-נוחות לאחר אכילה. גורמים שכיחים: חיידק הליקובקטר פילורי, נטילת תרופות ממשפחת ה-NSAID."
             },
             {
               "id": "disease_61",
@@ -9931,7 +10070,8 @@
                 "מכתב סיכום מרופא - כירורג כללי",
                 "אנדוסקופיה של דרכי העיכול",
                 "תוצאות בדיקות מעבדה - ספירת דם כללית"
-              ]
+              ],
+              "description": "דלקת כרונית של המעיים הגורמת להפרעות בצואה. יכולה לכלול שלשולים, עצירות, כאבי בטן ובמקרים קשים גם פגיעה במצב הכללי."
             },
             {
               "id": "disease_63",
@@ -9962,7 +10102,8 @@
                 "מכתב סיכום מרופא - כירורג כללי",
                 "אנדוסקופיה של דרכי העיכול",
                 "תוצאות בדיקות מעבדה - ספירת דם כללית"
-              ]
+              ],
+              "description": "כיסים קטנים (דיברטיקולים) שנוצרים בדופן המעי הגס ומתלקחים. יכולים לגרום לכאבי בטן, חום ובמקרים קשים לסיבוכים כמו ניקוב."
             },
             {
               "id": "disease_60",
@@ -10017,7 +10158,8 @@
                 "תוצאות בדיקות מעבדה - ספירת דם כללית",
                 "שיקוף ו/או צילום ושט, קיבה ותרסריון",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "פצע בדופן הקיבה (כיב קיבה) או בתריסריון (כיב תריסריון). גורם לכאבי בטן, לעיתים בדיקת צואה חיובית לדם. גורמים שכיחים: חיידק הליקובקטר, תרופות נוגדות דלקת (NSAID)."
             },
             {
               "id": "disease_64",
@@ -10055,7 +10197,8 @@
                 "מכתב סיכום מרופא - כירורג כללי",
                 "אנדוסקופיה של דרכי העיכול",
                 "תוצאות בדיקות מעבדה - ספירת דם כללית"
-              ]
+              ],
+              "description": "מצב שבו המעי לא מצליח לספוג כראוי חלבונים, שומנים וסוכרים. גורם לשלשולים, ירידה במשקל וחסרים תזונתיים. יכול לנבוע ממחלת צליאק, ניתוחי מעי, מחלת קרוהן ועוד."
             },
             {
               "id": "disease_62",
@@ -10110,7 +10253,8 @@
                 "מכתב סיכום מרופא - כירורג כללי",
                 "אנדוסקופיה של דרכי העיכול",
                 "תוצאות בדיקות מעבדה - ספירת דם כללית"
-              ]
+              ],
+              "description": "מחלה דלקתית כרונית של המעי הגס הגורמת לכיבים ברירית. תסמינים: שלשולים עם דם, כאבי בטן, חום בהחמרות. הנכות נקבעת לפי תדירות וחומרת ההתלקחויות."
             },
             {
               "id": "disease_65",
@@ -10133,7 +10277,8 @@
                 "מכתב סיכום מרופא - כירורג כללי",
                 "אנדוסקופיה של דרכי העיכול",
                 "תוצאות בדיקות מעבדה - ספירת דם כללית"
-              ]
+              ],
+              "description": "מחלות דלקתיות כרוניות של המעי (קרוהן, קוליטיס כיבית ואחרות). הנכות נקבעת לפי אותם קריטריונים של קוליטיס כיבית – תדירות ועצימות ההתלקחויות."
             },
             {
               "id": "disease_90",
@@ -10164,7 +10309,8 @@
                 "אנדוסקופיה של דרכי העיכול",
                 "תוצאות בדיקות מעבדה - ספירת דם כללית",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "שחפת שפוגעת בקרום הבטן (הציפוי הפנימי של חלל הבטן). נדירה יחסית, יכולה לגרום לכאבי בטן, חום ונוזל בבטן."
             }
           ]
         },
@@ -10208,7 +10354,8 @@
                 "סיכום אשפוז בבית חולים",
                 "מכתב שחרור מחדר מיון",
                 "סיכום פיזיותרפיה"
-              ]
+              ],
+              "description": "בקע בסרעפת (המחיצה השרירית בין חזה לבטן) שדרכו חלקי הקיבה או מעיים עולים לחזה. הנכות לאחר ניתוח נקבעת לפי מצב הוושט ותסמיני הרפלוקס שנשארו."
             },
             {
               "id": "disease_91",
@@ -10228,7 +10375,8 @@
                 "סיכום אשפוז בבית חולים",
                 "מכתב שחרור מחדר מיון",
                 "סיכום פיזיותרפיה"
-              ]
+              ],
+              "description": "בקע שבו חלק מהמעי בולט דרך חולשה בדופן הבטן באזור המפשעה. ניתן להחזיר אותו פנימה ביד. הנכות נקבעת לפי גודל הבקע וסיבוכיו."
             },
             {
               "id": "disease_104",
@@ -10256,7 +10404,8 @@
                 "סיכום אשפוז בבית חולים",
                 "מכתב שחרור מחדר מיון",
                 "סיכום פיזיותרפיה"
-              ]
+              ],
+              "description": "בקע שבולט מאזור הטבור או בקו האמצע של הבטן. הנכות נקבעת לפי גודל הבקע ומידת ההגבלה שהוא גורם."
             },
             {
               "id": "disease_100",
@@ -10300,7 +10449,8 @@
                 "סיכום אשפוז בבית חולים",
                 "מכתב שחרור מחדר מיון",
                 "סיכום פיזיותרפיה"
-              ]
+              ],
+              "description": "מצב לאחר ניתוח או פציעה בבטן. הנכות נקבעת לפי מה שנשאר אחרי הניתוח – בקע, חולשה בדופן הבטן, הידבקויות וכד'."
             },
             {
               "id": "disease_89",
@@ -10346,7 +10496,8 @@
                 "אנדוסקופיה של דרכי העיכול",
                 "תוצאות בדיקות מעבדה - ספירת דם כללית",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "לאחר ניתוח בבטן, לעיתים נוצרות הידבקויות (סינכיות) בין איברים. יכולות לגרום לכאבי בטן, חסימת מעי חלקית ובעיות עיכול."
             },
             {
               "id": "disease_92",
@@ -10366,7 +10517,8 @@
                 "סיכום אשפוז בבית חולים",
                 "מכתב שחרור מחדר מיון",
                 "סיכום פיזיותרפיה"
-              ]
+              ],
+              "description": "מצב לאחר ניתוח תיקון בקע מפשעתי. הנכות נקבעת לפי תוצאות הניתוח – האם הבקע נסגר כראוי ואין בעיות שנשארו."
             },
             {
               "id": "disease_95",
@@ -10394,7 +10546,8 @@
                 "סיכום אשפוז בבית חולים",
                 "מכתב שחרור מחדר מיון",
                 "סיכום פיזיותרפיה"
-              ]
+              ],
+              "description": "בקע מפשעתי שחזר לאחר ניתוח תיקון. הנכות נקבעת לפי גודל הבקע החוזר וחומרת הבעיות."
             },
             {
               "id": "disease_99",
@@ -10415,7 +10568,8 @@
                 "סיכום אשפוז בבית חולים",
                 "מכתב שחרור מחדר מיון",
                 "סיכום פיזיותרפיה"
-              ]
+              ],
+              "description": "בקע בפתח שדרכו עוברים כלי הדם לאזור הירך (פמורלי). הנכות נקבעת בדומה לבקע מפשעתי."
             },
             {
               "id": "disease_1011",
@@ -10477,7 +10631,8 @@
                   "countForSpecial": true,
                   "severityId": "category_21_disease_1011_fh50o8"
                 }
-              ]
+              ],
+              "description": "מצב לאחר פציעה או ניתוח בקיבה ובמעיים (כריתה חלקית, מעקף קיבה, קולוסטומיה). הנכות נקבעת לפי הפרעות בתפקוד: ירידה במשקל, שלשולים, הפרעות ספיגה, צורך בתזונה מיוחדת."
             },
             {
               "id": "disease_67",
@@ -10515,7 +10670,8 @@
                 "מכתב סיכום מרופא - כירורג כללי",
                 "אנדוסקופיה של דרכי העיכול",
                 "תוצאות בדיקות מעבדה - ספירת דם כללית"
-              ]
+              ],
+              "description": "פתח לא תקין שנוצר בין המעי לעור (פיסטולה), דרכו יוצאים גזים או צואה. הנכות נקבעת לפי כמות ותדירות ההפרשות."
             }
           ]
         },
@@ -10559,7 +10715,8 @@
                 "אנדוסקופיה של דרכי העיכול",
                 "תוצאות בדיקות מעבדה - ספירת דם כללית",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "טחורים הם הרחבה (דילוג) של ורידי פי הטבעת. יכולים לגרום לדימום, כאב, גרד ולעיתים לבליטה חיצונית. הנכות נקבעת לפי חומרת התסמינים."
             },
             {
               "id": "disease_69",
@@ -11019,7 +11176,8 @@
                 "אנדוסקופיה של דרכי העיכול",
                 "תוצאות בדיקות מעבדה - ספירת דם כללית",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "מחלת כבד מתקדמת שבה רקמת הכבד הבריאה מוחלפת ברקמת צלקת. גורמת לפגיעה בתפקודי כבד, יכולה לגרום לצהבת, נוזל בבטן ודימומים. הנכות נקבעת לפי חומרת הפגיעה בתפקוד הכבד ונוכחות סיבוכים."
             },
             {
               "id": "disease_77",
@@ -11162,7 +11320,11 @@
               "name": "חולשה או שיתוק בחצי גוף (המיפרזיס) - Hemiparesis",
               "description": "קושי בכוח, זריזות ושיווי־משקל ביד וברגל של צד ימין/צד שמאל; לפעמים נוקשות/עוויתיות ",
               "displayAsTable": true,
-              "tableColumns": ["", "פלג גוף דומיננטי", "פלג גוף לא דומיננטי"],
+              "tableColumns": [
+                "",
+                "פלג גוף דומיננטי",
+                "פלג גוף לא דומיננטי"
+              ],
               "tableRows": [
                 {
                   "header": "“קלה מאוד” בלי הפרעה תפקודית. דוגמה: רפלקסים “גבוהים”, היד מעט נוטה כלפי מטה כשמרימים—אבל מתלבש/נוהג/עובד רגיל",
@@ -12947,28 +13109,68 @@
                     "id": "q_mechanical_ventilation",
                     "text": "1. האם אתה כרגע מונשם באופן מלאכותי (למעט מכשירי CPAP או BIPAP) עקב אסתמה?",
                     "options": [
-                      { "label": "כן", "value": "yes", "points": 2000 },
-                      { "label": "לא", "value": "no", "points": 0 }
+                      {
+                        "label": "כן",
+                        "value": "yes",
+                        "points": 2000
+                      },
+                      {
+                        "label": "לא",
+                        "value": "no",
+                        "points": 0
+                      }
                     ]
                   },
                   {
                     "id": "q_icu_admissions_count",
                     "text": "2. כמה אשפוזים בטיפול נמרץ על רקע נשימתי עקב אסתמה חווית בשנה האחרונה?",
                     "options": [
-                      { "label": "0", "value": "0", "points": 0 },
-                      { "label": "1", "value": "1", "points": 0 },
-                      { "label": "2 או יותר", "value": "2_plus", "points": 0 }
+                      {
+                        "label": "0",
+                        "value": "0",
+                        "points": 0
+                      },
+                      {
+                        "label": "1",
+                        "value": "1",
+                        "points": 0
+                      },
+                      {
+                        "label": "2 או יותר",
+                        "value": "2_plus",
+                        "points": 0
+                      }
                     ]
                   },
                   {
                     "id": "q_fev1",
                     "text": "3. מהי רמת ה-FEV1 שלך (מצומצם)?",
                     "options": [
-                      { "label": "FEV1 >80%", "value": "0", "points": 0 },
-                      { "label": "FEV1 70-80%", "value": "1", "points": 1 },
-                      { "label": "FEV1 60-69%", "value": "2", "points": 2 },
-                      { "label": "FEV1 50-59%", "value": "3", "points": 3 },
-                      { "label": "FEV1 <50%", "value": "4", "points": 4 }
+                      {
+                        "label": "FEV1 >80%",
+                        "value": "0",
+                        "points": 0
+                      },
+                      {
+                        "label": "FEV1 70-80%",
+                        "value": "1",
+                        "points": 1
+                      },
+                      {
+                        "label": "FEV1 60-69%",
+                        "value": "2",
+                        "points": 2
+                      },
+                      {
+                        "label": "FEV1 50-59%",
+                        "value": "3",
+                        "points": 3
+                      },
+                      {
+                        "label": "FEV1 <50%",
+                        "value": "4",
+                        "points": 4
+                      }
                     ]
                   },
                   {
@@ -13031,33 +13233,58 @@
                 ],
                 "rules": [
                   {
-                    "answers": { "q_mechanical_ventilation": "yes" },
-                    "scoreRange": [1999, 10000],
+                    "answers": {
+                      "q_mechanical_ventilation": "yes"
+                    },
+                    "scoreRange": [
+                      1999,
+                      10000
+                    ],
                     "suggestedSeverityDescription": "בעת הנשמה מלאכותית באמצעות מכשירי הנשמה (ולמעט מכשירי CPAP או BIPAP)"
                   },
                   {
-                    "answers": { "q_icu_admissions_count": "2_plus" },
-                    "scoreRange": [5, 1000],
+                    "answers": {
+                      "q_icu_admissions_count": "2_plus"
+                    },
+                    "scoreRange": [
+                      5,
+                      1000
+                    ],
                     "suggestedSeverityDescription": "סיכום הניקוד גדול מ-5 ועם שני אשפוזים לפחות בטיפול נמרץ על רקע נשימתי"
                   },
                   {
-                    "scoreRange": [10, 14],
+                    "scoreRange": [
+                      10,
+                      14
+                    ],
                     "suggestedSeverityDescription": "סיכום הניקוד שווה ל-10 או גדול ממנו"
                   },
                   {
-                    "scoreRange": [7, 9],
+                    "scoreRange": [
+                      7,
+                      9
+                    ],
                     "suggestedSeverityDescription": "סיכום הניקוד 7 עד 9"
                   },
                   {
-                    "scoreRange": [4, 6],
+                    "scoreRange": [
+                      4,
+                      6
+                    ],
                     "suggestedSeverityDescription": "סיכום הניקוד 4 עד 6"
                   },
                   {
-                    "scoreRange": [1, 3],
+                    "scoreRange": [
+                      1,
+                      3
+                    ],
                     "suggestedSeverityDescription": "סיכום הניקוד 1 עד 3"
                   },
                   {
-                    "scoreRange": [0, 0],
+                    "scoreRange": [
+                      0,
+                      0
+                    ],
                     "suggestedSeverityDescription": "סיכום הניקוד 0"
                   }
                 ]
@@ -13070,7 +13297,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "מכתב סיכום - טיפול נשימתי",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "מחלה כרונית של דרכי הנשימה הגורמת להתקפי קוצר נשימה, צפצופים ושיעול. בין ההתקפים, רוב החולים מתפקדים ברגיל. הנכות נקבעת לפי ניקוד שמחשב תפקודי ריאות + תדירות וחומרת ההתקפים."
             },
             {
               "id": "disease_24",
@@ -13245,7 +13473,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "מכתב סיכום - טיפול נשימתי",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "דלקת ריאות פעילה הדורשת אשפוז, או מצב לאחר ניתוח להסרת ציסטות מהריאות. הנכות הזמנית (100%) ניתנת בזמן המחלה החריפה ועד חודש לאחר שחרור מבית החולים."
             },
             {
               "id": "disease_29",
@@ -13510,7 +13739,8 @@
               "requiredDocuments": [
                 "סיכום אשפוז בבית חולים",
                 "מכתב סיכום מרופא - אף אוזן גרון"
-              ]
+              ],
+              "description": "הפרעות נשימה הנגרמות מבעיות באף: עקמת מחיצה, נזלת כרונית, פוליפים באף, סינוסיטיס. הנכות נקבעת לפי מידת ההפרעה בנשימה ואיכות החיים."
             },
             {
               "id": "disease_353",
@@ -13544,7 +13774,8 @@
               "requiredDocuments": [
                 "סיכום אשפוז בבית חולים",
                 "מכתב סיכום מרופא - אף אוזן גרון"
-              ]
+              ],
+              "description": "עיוות גלוי במבנה האף החיצוני שנגרם מפציעה או מחלה. הנכות נקבעת לפי האם יש הפרעה תפקודית בנשימה, ולפי חומרת האסתטיקה."
             }
           ]
         },
@@ -13584,7 +13815,8 @@
               "requiredDocuments": [
                 "מכתב סיכום מרופא - אף אוזן גרון",
                 "תוצאות בדיקת לרינגוסקופיה עם סיב אופטי"
-              ]
+              ],
+              "description": "מחלות כרוניות של הלוע (הגרון האחורי): דלקת כרונית, גרד, יובש, לפעמים קשה לבלוע. הנכות נקבעת לפי חומרת התסמינים ומידת ההגבלה בדיבור ובבליעה."
             },
             {
               "id": "disease_359",
@@ -13636,7 +13868,8 @@
                 "תוצאות בדיקת לרינגוסקופיה עם סיב אופטי",
                 "מכתב סיכום - קלינאי/ת תקשורת",
                 "סיכום ניתוח"
-              ]
+              ],
+              "description": "הפרעות בדיבור כגון צרידות קבועה (הקול נעלם לסירוגין או לחלוטין). יכולה לנבוע מפציעה, ניתוח, מחלה של מיתרי הקול. הנכות נקבעת לפי מידת הצרידות ורמת הפגיעה בתקשורת."
             },
             {
               "id": "disease_360",
@@ -13672,7 +13905,8 @@
                 "סיכום אשפוז בבית חולים",
                 "מכתב סיכום מרופא - אף אוזן גרון",
                 "מכתב שחרור מחדר מיון"
-              ]
+              ],
+              "description": "הפרעות נשימה שמקורן בגרון או קנה הנשימה: היצרות, פצע, גוף זר. הנכות נקבעת לפי חומרת קושי הנשימה ומידת ההגבלה."
             }
           ]
         }
@@ -13810,15 +14044,27 @@
               "q5_stability_intensive": {
                 "text": "האם הסוכרת מתאפיינת באי יציבות קלינית בולטת (כגון חסר נוירולוגי, חמצת, אירועי היפוגליקמיה קשים)?",
                 "options": [
-                  { "label": "כן", "severityId": "diabetes_sev_50" },
-                  { "label": "לא", "severityId": "diabetes_sev_40" }
+                  {
+                    "label": "כן",
+                    "severityId": "diabetes_sev_50"
+                  },
+                  {
+                    "label": "לא",
+                    "severityId": "diabetes_sev_40"
+                  }
                 ]
               },
               "q6_stability_regular": {
                 "text": "האם הסוכרת מתאפיינת באי יציבות קלינית בולטת (כגון חסר נוירולוגי, חמצת, אירועי היפוגליקמיה קשים)?",
                 "options": [
-                  { "label": "כן", "severityId": "diabetes_sev_50" },
-                  { "label": "לא", "severityId": "diabetes_sev_20" }
+                  {
+                    "label": "כן",
+                    "severityId": "diabetes_sev_50"
+                  },
+                  {
+                    "label": "לא",
+                    "severityId": "diabetes_sev_20"
+                  }
                 ]
               }
             }
@@ -13836,7 +14082,8 @@
             "תוצאות בדיקות מעבדה - מיקרואלבומין כמותי - איסוף שתן ב-24 שעות",
             "צילום קרקעית העין",
             "תוצאות בדיקת ראייה, כולל שדה ראייה"
-          ]
+          ],
+          "description": "סוכרת היא מחלה שבה רמת הסוכר בדם גבוהה בגלל חסר או תנגודת לאינסולין. הנכות נקבעת לפי סוג הטיפול (דיאטה/כדורים/אינסולין) ולפי נוכחות סיבוכים (עיניים, כליות, עצבים, כלי דם).\nחשוב: בדקו האם יש לכם סיבוכי סוכרת – הם מוסיפים אחוזים נוספים.\nסוכרת הריון (גסטציונלית) – אחוזי הנכות בדרך כלל 0% לאחר הלידה."
         }
       ]
     },
@@ -13904,7 +14151,8 @@
                 "תוצאות ביופסיה",
                 "תוצאות בדיקות מעבדה - תבחין עור אלרגי",
                 "מכתב סיכום מרופא - כירורג כללי"
-              ]
+              ],
+              "description": "צלקות בגוף שנגרמו מפציעה, כוויות או ניתוח. הנכות נקבעת לפי מידת ההפרעה, הכאב ומידת הכיעור."
             },
             {
               "id": "disease_396",
@@ -13958,7 +14206,8 @@
                 "תוצאות ביופסיה",
                 "תוצאות בדיקות מעבדה - תבחין עור אלרגי",
                 "מכתב סיכום מרופא - כירורג כללי"
-              ]
+              ],
+              "description": "צלקות בפנים ובצוואר שנגרמו מפציעה, כוויות או ניתוח. הנכות נקבעת לפי מידת הכיעור ושינוי צורת הפנים."
             },
             {
               "id": "disease_401",
@@ -13977,7 +14226,8 @@
                 "סיכום מחלה מרופא מטפל",
                 "מכתב סיכום מרופא - עור ומין",
                 "מכתב סיכום מרופא - אימונולוגיה קלינית ואלרגולוגיה"
-              ]
+              ],
+              "description": "נשירת שיער מקומית (כתמי קרחת) שנגרמה כתוצאה מתאונה או מחלה. כאשר ההפרעות בלתי ניכרות – לרוב 0%."
             },
             {
               "id": "disease_402",
@@ -13995,7 +14245,8 @@
               "requiredDocuments": [
                 "סיכום מחלה מרופא מטפל",
                 "מכתב סיכום מרופא - עור ומין"
-              ]
+              ],
+              "description": "נשירת שיער מלאה (כולל גבות, ריסים, שיח גוף) שנגרמה כתוצאה מתאונה או מחלה. מקנה 20% נכות."
             }
           ]
         },
@@ -14035,7 +14286,8 @@
               "requiredDocuments": [
                 "סיכום מחלה מרופא מטפל",
                 "מכתב סיכום מרופא - עור ומין"
-              ]
+              ],
+              "description": "אקנה (פצעונים) שנגרמה כתוצאה מחשיפה תעסוקתית לשמנים, חומרים כימיים או חום. הנכות נקבעת לפי חומרת האקנה ומידת הפגיעה בחיי היומיום."
             },
             {
               "id": "disease_405",
@@ -14079,7 +14331,8 @@
                 "מכתב סיכום מרופא - אימונולוגיה קלינית ואלרגולוגיה",
                 "מכתב סיכום מרופא - עור ומין",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "אקזמה כרונית (גרד ופריחה) שנגרמה לרוב מחשיפה תעסוקתית לחומרים מגרים. הנכות נקבעת לפי שטח הגוף הפגוע ועצימות התסמינים."
             },
             {
               "id": "disease_408",
@@ -14098,7 +14351,8 @@
               "requiredDocuments": [
                 "סיכום מחלה מרופא מטפל",
                 "מכתב סיכום מרופא - עור ומין"
-              ]
+              ],
+              "description": "דלקת עור (דרמטיטיס) שנגרמה מגורם חיצוני שאינו קרינה. הנכות נקבעת לפי אותם קריטריונים של אקזמה כרונית."
             },
             {
               "id": "disease_411",
@@ -14140,7 +14394,8 @@
               "requiredDocuments": [
                 "סיכום מחלה מרופא מטפל",
                 "מכתב סיכום מרופא - עור ומין"
-              ]
+              ],
+              "description": "זיהום חיידקי חוזר בעור (שושנה/ארז) שגורם לאדמומיות, נפיחות וחום. הנכות נקבעת לפי מספר ההתקפים בשנה."
             },
             {
               "id": "disease_406",
@@ -14177,7 +14432,8 @@
                 "מכתב סיכום מרופא - עור ומין",
                 "תוצאות ביופסיה",
                 "סיכום מחלה מרופא מטפל"
-              ]
+              ],
+              "description": "מחלה עורית אוטואימונית שגורמת לפריחה אדומה ומרוקדת בעיקר באזורים חשופים לשמש. הנכות נקבעת לפי שטח הפריחה ועצימות התסמינים."
             },
             {
               "id": "disease_414",
@@ -14203,7 +14459,8 @@
               "requiredDocuments": [
                 "סיכום מחלה מרופא מטפל",
                 "מכתב סיכום מרופא - עור ומין"
-              ]
+              ],
+              "description": "מחלה אוטואימונית נדירה ורצינית שגורמת לשלפוחיות ופצעים גדולים בעור ובפה. הנכות נקבעת לפי פעילות המחלה בזמן הבדיקה."
             },
             {
               "id": "disease_409",
@@ -14222,7 +14479,8 @@
               "requiredDocuments": [
                 "סיכום מחלה מרופא מטפל",
                 "מכתב סיכום מרופא - עור ומין"
-              ]
+              ],
+              "description": "דלקת עור הנגרמת מחשיפה ממושכת לשמש, רנטגן או קרינה אחרת. הנכות נקבעת לפי אותם קריטריונים של אקזמה כרונית."
             },
             {
               "id": "disease_410",
@@ -14241,7 +14499,8 @@
               "requiredDocuments": [
                 "סיכום מחלה מרופא מטפל",
                 "מכתב סיכום מרופא - עור ומין"
-              ]
+              ],
+              "description": "נזק לעור שנגרם מחשיפה לקרינה מייננת (רנטגן, רדיום). הנכות נקבעת לפי הצלקות שנוצרו."
             }
           ]
         },
@@ -14273,7 +14532,8 @@
               "requiredDocuments": [
                 "סיכום מחלה מרופא מטפל",
                 "מכתב סיכום מרופא - עור ומין"
-              ]
+              ],
+              "description": "יבלות בכף הרגל (Plantar Warts) או קשיות כואבות שנגרמו מלחץ מקצועי. הנכות נקבעת לפי מידת ההפרעה בהליכה."
             },
             {
               "id": "disease_403",
@@ -14307,7 +14567,8 @@
               "requiredDocuments": [
                 "סיכום מחלה מרופא מטפל",
                 "מכתב סיכום מרופא - עור ומין"
-              ]
+              ],
+              "description": "כיב כרוני שנוצר בעור, לרוב בגפיים, בגלל ירידה בזרימת הדם, זיהום או סיבה מטבולית. הנכות נקבעת לפי גודל הכיב, עומקו ומידת הריפוי."
             },
             {
               "id": "disease_412",
@@ -14349,7 +14610,8 @@
               "requiredDocuments": [
                 "סיכום מחלה מרופא מטפל",
                 "מכתב סיכום מרופא - עור ומין"
-              ]
+              ],
+              "description": "שחפת שפוגעת בעור (נדירה). הנכות נקבעת לפי פעילות המחלה ומידת הפגיעה בעור."
             },
             {
               "id": "disease_413",
@@ -14367,7 +14629,8 @@
               "requiredDocuments": [
                 "סיכום מחלה מרופא מטפל",
                 "מכתב סיכום מרופא - עור ומין"
-              ]
+              ],
+              "description": "דלקת כרונית בעור (בעיקר ברגליים) שגורמת לגושים קשים ואדומים. קשורה לפעמים לשחפת. הנכות נקבעת לפי חומרת התסמינים."
             },
             {
               "id": "disease_415",
@@ -14402,7 +14665,8 @@
               "requiredDocuments": [
                 "סיכום מחלה מרופא מטפל",
                 "מכתב סיכום מרופא - עור ומין"
-              ]
+              ],
+              "description": "זיהום טפילי שגורם לכיבים בעור, לרוב מחיידקים המועברים על ידי יתושים. הנכות נקבעת לפי מספר הכיבים ומידת הריפוי."
             }
           ]
         }
@@ -15033,14 +15297,19 @@
               "requiredDocuments": [
                 "מכתב סיכום מרופא - עיניים",
                 "תוצאות בדיקת ראייה, כולל שדה ראייה"
-              ]
+              ],
+              "description": "ירידה בחדות הראייה בעין אחת או בשתיהן. הנכות נקבעת לפי טבלה שמשלבת את חדות הראייה בשתי העיניים (עם תיקון בעדשות). כדי לדעת את הנכות המדויקת, נדרשת בדיקה אצל רופא עיניים."
             },
             {
               "id": "disease_320",
               "name": "צמצום שדה הראייה (Visual Field Constriction)",
               "description": "ניתן לראות רק חלק קטן מהסביבה, בדומה להסתכלות דרך צינור או עם “מסך שחור” בצדדים",
               "displayAsTable": true,
-              "tableColumns": ["", "בעין אחת", "בשתי העיניים"],
+              "tableColumns": [
+                "",
+                "בעין אחת",
+                "בשתי העיניים"
+              ],
               "tableRows": [
                 {
                   "header": "מעל 80 מעלות",
@@ -15169,7 +15438,11 @@
               "id": "disease_308",
               "name": "אובדן חלקי של שדה הראייה (Partial Field Loss)",
               "displayAsTable": true,
-              "tableColumns": ["", "בעין אחת", "בשתי העיניים"],
+              "tableColumns": [
+                "",
+                "בעין אחת",
+                "בשתי העיניים"
+              ],
               "tableRows": [
                 {
                   "header": "אובדן של פחות מרביע שדה הראייה",
@@ -15180,7 +15453,10 @@
                 },
                 {
                   "header": "אבדן של רביע שדה הראייה",
-                  "severityIdsInRow": ["", ""]
+                  "severityIdsInRow": [
+                    "",
+                    ""
+                  ]
                 },
                 {
                   "header": "אפי (נזאלי) עליון - עליון מרכזי",
@@ -15212,11 +15488,17 @@
                 },
                 {
                   "header": "אפי תחתון (תחתון מרכזי) עין אחת, ורקתי תחתון (תחתון צדדי) עין שנייה",
-                  "severityIdsInRow": ["", "category_57_disease_314_xoye4vg"]
+                  "severityIdsInRow": [
+                    "",
+                    "category_57_disease_314_xoye4vg"
+                  ]
                 },
                 {
                   "header": "אבדן מחצית שדה הראייה",
-                  "severityIdsInRow": ["", ""]
+                  "severityIdsInRow": [
+                    "",
+                    ""
+                  ]
                 },
                 {
                   "header": "עליונה",
@@ -15234,7 +15516,10 @@
                 },
                 {
                   "header": "הומונימית, ימנית או שמאלית מוחלטת",
-                  "severityIdsInRow": ["", "category_57_disease_317_ghqi7s"]
+                  "severityIdsInRow": [
+                    "",
+                    "category_57_disease_317_ghqi7s"
+                  ]
                 },
                 {
                   "header": "חיצונית",
@@ -15416,7 +15701,8 @@
               "requiredDocuments": [
                 "מכתב סיכום מרופא - עיניים",
                 "תוצאות בדיקת ראייה, כולל שדה ראייה"
-              ]
+              ],
+              "description": "אובדן חלקי של שדה הראייה (הטווח הכולל שניתן לראות ללא סיבוב הראש). הנכות נקבעת לפי כמה מהשדה אבד ובאיזו עין."
             }
           ]
         },
@@ -15465,7 +15751,11 @@
               "name": "צניחת עפעף (Ptosis)",
               "description": "מצב שבו העפעף העליון יורד מטה ומכסה חלק מהעין, לפעמים עד כדי הפרעה לראייה",
               "displayAsTable": true,
-              "tableColumns": ["", "בעין אחת", "בשתי העיניים"],
+              "tableColumns": [
+                "",
+                "בעין אחת",
+                "בשתי העיניים"
+              ],
               "tableRows": [
                 {
                   "header": "העפעף צונח קלות (יותר מ-2.5 מ\"מ), אבל לא מפריע לראייה",
@@ -15483,7 +15773,10 @@
                 },
                 {
                   "header": "הבדל משמעותי בין שתי העיניים (לפחות 2 מ\"מ בגובה העפעף העליון)",
-                  "severityIdsInRow": ["", "category_60_disease_327_efp6eo"]
+                  "severityIdsInRow": [
+                    "",
+                    "category_60_disease_327_efp6eo"
+                  ]
                 },
                 {
                   "header": "אישון מכוסה עד למרכז אך מאפשר ראייה בהטיית ראש",
@@ -15725,7 +16018,8 @@
                 "מכתב סיכום מרופא - עיניים",
                 "תוצאות בדיקת ראייה, כולל שדה ראייה",
                 "סיכום אשפוז בבית חולים"
-              ]
+              ],
+              "description": "מצב לאחר עקירת שתי העיניים – עיוורון מוחלט. מקנה נכות מקסימלית (100%)."
             },
             {
               "id": "disease_324",
@@ -16110,7 +16404,8 @@
                 "תוצאות בדיקת ראייה, כולל שדה ראייה",
                 "סיכום אשפוז בבית חולים",
                 "צילום קרקעית העין"
-              ]
+              ],
+              "description": "מצב לאחר טיפול (ניתוח/לייזר) להיפרדות רשתית. הנכות נקבעת לפי חדות הראייה שנשארה לאחר הטיפול – לפי טבלת ירידה בחדות הראייה."
             },
             {
               "id": "disease_352",
@@ -16876,7 +17171,8 @@
                 "מכתב סיכום מרופא - פה ולסת",
                 "מכתב סיכום מרופא שיניים",
                 "מכתב שחרור מחדר מיון"
-              ]
+              ],
+              "description": "אובדן שן בודדת שלא ניתן לשקמה (שתל, גשר). הנכות נקבעת רק כאשר אין אפשרות לשיקום. שיניים שניתן לשקם בפרוסתטיקה – אינן מקנות נכות."
             },
             {
               "id": "disease_383",
@@ -18033,7 +18329,9 @@
                   "severityId": "category_27_disease_125_8yd5sm"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             },
             {
               "id": "disease_126",
@@ -18049,7 +18347,9 @@
                   "severityId": "category_27_disease_126_tf1ddc"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             },
             {
               "id": "disease_132",
@@ -18102,7 +18402,9 @@
                   "severityId": "category_27_disease_127_auqzln"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             },
             {
               "id": "disease_128",
@@ -18134,7 +18436,9 @@
                   "severityId": "category_27_disease_128_vr95fj"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             },
             {
               "id": "disease_129",
@@ -18150,7 +18454,9 @@
                   "severityId": "category_27_disease_129_79w7d"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             },
             {
               "id": "disease_130",
@@ -18166,7 +18472,9 @@
                   "severityId": "category_27_disease_130_f4q5d"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             },
             {
               "id": "disease_131",
@@ -18190,7 +18498,9 @@
                   "severityId": "category_27_disease_131_6pe38s"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             }
           ]
         },
@@ -18405,7 +18715,9 @@
                   "severityId": "category_31_disease_141_sj2mjc"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - כירורג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - כירורג"
+              ]
             },
             {
               "id": "disease_142",
@@ -18437,7 +18749,9 @@
                   "severityId": "category_31_disease_143_aoxfzm"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - כירורג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - כירורג"
+              ]
             },
             {
               "id": "disease_138",
@@ -18553,11 +18867,11 @@
             " מכתב סיכום מרופא - כירורג",
             "סיכום אשפוז בבית חולים",
             "תוצאות בדיקות מעבדה"
-          ]
+          ],
+          "description": "מצב לאחר השתלת איבר פנימי: לב, ריאות, כבד, כליות. הנכות הגבוהה ניתנת בשנה הראשונה לאחר ההשתלה. לאחר מכן, הנכות נקבעת לפי תפקוד האיבר המושתל ורמת הפגיעה."
         }
       ]
     },
-
     {
       "id": "category_82",
       "name": "מחלות כתוצאה ממקצוע",
@@ -18577,7 +18891,8 @@
               "severityId": "category_82_disease_422_ssdm3e",
               "disabled": true
             }
-          ]
+          ],
+          "description": "הרעלות הנגרמות מחשיפה תעסוקתית לחומרים רעילים (כספית, עופרת, מתכות, אורגנופוספטים וכד'). הנכות נקבעת לפי הנזק שנגרם לאיברי הגוף השונים כתוצאה מההרעלה."
         },
         {
           "id": "disease_423",
@@ -18830,7 +19145,8 @@
               "countForSpecial": true,
               "severityId": "category_83_disease_426_pf11c"
             }
-          ]
+          ],
+          "description": "שחפת ריאות שנגרמה כתוצאה מחשיפה מקצועית (לרוב בקרב עובדי בריאות). הנכות נקבעת לפי אותם קריטריונים של שחפת הריאות הכללית."
         }
       ]
     }
