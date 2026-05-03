@@ -45,8 +45,14 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
     <>
       <style dangerouslySetInnerHTML={{ __html: `
         @media print {
-          body > *:not(.print-area) { display: none !important; }
-          .print-area { display: block !important; }
+          body * { visibility: hidden; }
+          .print-area, .print-area * { visibility: visible; }
+          .print-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+          }
           .no-print { display: none !important; }
         }
       ` }} />
