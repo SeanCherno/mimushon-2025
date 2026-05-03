@@ -36,11 +36,16 @@ const pool = new Pool({
   idleTimeoutMillis: 30_000, // Close idle connections after 30s
   connectionTimeoutMillis: 5_000, // Fail fast if no connection available in 5s
 
-  // --- SSL: enforce encrypted connections in production ---
-  ssl:
-    process.env.NODE_ENV === "production"
-      ? { rejectUnauthorized: true }
-      : false,
+  // --- SSL ---
+  // Set DB_SSL=true in your env only when connecting to a remote managed
+  // database that has a CA-signed certificate (e.g. DigitalOcean Managed PG).
+  // For same-server deployments the default self-signed cert is fine with
+  // rejectUnauthorized: false, and for localhost SSL isn't needed at all.
+  ssl: process.env.DB_SSL === "true"
+    ? { rejectUnauthorized: true }
+    : process.env.DB_SSL === "self-signed"
+    ? { rejectUnauthorized: false }
+    : false,
 });
 
 // Log pool errors to avoid silent failures
