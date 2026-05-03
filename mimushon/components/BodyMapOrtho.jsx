@@ -88,10 +88,12 @@ export default function BodyMapOrtho({ items = [], highlightSubcat, onSelect }) 
       </div>
 
       {/* ── SVG body ───────────────────────────────────────────────────────── */}
+      <div style={{ maxWidth: 160, width: '100%' }}>
       <svg
         viewBox="0 0 260 535"
-        width="160"
-        height="330"
+        width="100%"
+        height="auto"
+        preserveAspectRatio="xMidYMid meet"
         aria-label="מפת גוף אינטראקטיבית – אורתופדיה"
         role="img"
       >
@@ -187,6 +189,7 @@ export default function BodyMapOrtho({ items = [], highlightSubcat, onSelect }) 
         <rect x="73"  y="520" width="50" height="14" rx="5" {...rp('l_toes')} />
         <rect x="137" y="520" width="50" height="14" rx="5" {...rp('r_toes')} />
       </svg>
+      </div>
 
       {/* Legend */}
       <p className="mt-1 text-xs text-gray-400 text-center leading-tight">

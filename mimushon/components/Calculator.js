@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import SeveritySelection from "../components/SeveritySelection";
 import TotalPercentageDisplay from "../components/TotalPercentageDisplay";
 import ChosenDiseasesSummary from "../components/ChosenDiseaseSummary";
 import LoadingSpinner from "../components/util/LoadingSpinner";
 import DiseaseSelectionScreen from "../components/DiseaseSelectionScreen";
+import ProgressBar from "../components/ProgressBar";
 
 export default function Calculator({ initialCategories }) {
   const [chosenDiseasesWithSeverities, setChosenDiseasesWithSeverities] =
@@ -21,6 +22,8 @@ export default function Calculator({ initialCategories }) {
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
   const [isMobileSummaryOpen, setIsMobileSummaryOpen] = useState(false);
   const [isASeveritySelected, setIsASeveritySelected] = useState(false);
+  const [liveTotals, setLiveTotals] = useState(null);
+  const liveCalcTimerRef = useRef(null);
 
   const modes = [
     {
@@ -81,7 +84,46 @@ export default function Calculator({ initialCategories }) {
     }
   }, [chosenDiseasesWithSeverities]);
 
+  // Auto-calculate live totals whenever all chosen diseases have a severity
+  useEffect(() => {
+    if (liveCalcTimerRef.current) {
+      clearTimeout(liveCalcTimerRef.current);
+    }
+
+    const allHaveSeverity =
+      chosenDiseasesWithSeverities.length > 0 &&
+      chosenDiseasesWithSeverities.every((entry) => entry.selectedSeverity);
+
+    if (!allHaveSeverity) {
+      return;
+    }
+
+    liveCalcTimerRef.current = setTimeout(async () => {
+      try {
+        const response = await fetch('/api/calculate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chosenDiseasesWithSeverities }),
+        });
+        const data = await response.json();
+        setLiveTotals(data);
+      } catch (err) {
+        console.error('Live calculation failed:', err);
+      }
+    }, 600);
+
+    return () => {
+      if (liveCalcTimerRef.current) {
+        clearTimeout(liveCalcTimerRef.current);
+      }
+    };
+  }, [chosenDiseasesWithSeverities]);
+
   const handleFinalCalculation = async (chosenDiseases, modeKey) => {
+    try {
+      window.dataLayer?.push({ event: 'calc_calculated', disease_count: chosenDiseases.length });
+    } catch (e) {}
+
     setIsLoading(true);
     try {
       const response = await fetch(`/api/calculate`, {
@@ -95,6 +137,10 @@ export default function Calculator({ initialCategories }) {
       });
       const data = await response.json();
       setTotalPercentages(data);
+
+      try {
+        window.dataLayer?.push({ event: 'calc_contact_form_submitted' });
+      } catch (e) {}
     } catch (error) {
       console.error("Failed to calculate percentage:", error);
       setTotalPercentages(null); // Or some error state
@@ -115,6 +161,10 @@ export default function Calculator({ initialCategories }) {
   // Handle selection of a disease from the dropdown/list
   const handleDiseaseSelect = (disease) => {
     if (disease) {
+      try {
+        window.dataLayer?.push({ event: 'calc_disease_selected', disease_id: disease.id, disease_name: disease.name });
+      } catch (e) {}
+
       // Set the disease for severity viewing
       setSelectedDiseaseForSeverityView(disease);
       //setFormSubmitted(false);
@@ -132,6 +182,10 @@ export default function Calculator({ initialCategories }) {
 
   // Handle checkbox changes for severities
   const handleSeverityChange = (disease, severity) => {
+    try {
+      window.dataLayer?.push({ event: 'calc_severity_selected', disease_id: disease.id, severity_id: severity.severityId });
+    } catch (e) {}
+
     //setCurrentScreen("summary");
     setIsASeveritySelected(true);
 
@@ -233,6 +287,24 @@ export default function Calculator({ initialCategories }) {
     setIsMobileSummaryOpen(false);
   };
 
+  const handleCommonConditionClick = async (diseaseId) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(`/api/diseases/${diseaseId}`);
+      const data = await response.json();
+      const disease = data.disease;
+      if (disease) {
+        handleDiseaseSelect(disease);
+      } else {
+        console.warn(`Common condition disease not found: ${diseaseId}`);
+      }
+    } catch (err) {
+      console.error("Failed to load common condition disease:", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const handleStartOver = () => {
     setChosenDiseasesWithSeverities([]);
     setSelectedCategory(null);
@@ -257,6 +329,12 @@ export default function Calculator({ initialCategories }) {
             setSelectedSubCategory={setSelectedSubCategory}
             selectedSubCategory={selectedSubCategory}
             onStartOver={handleStartOver}
+            onCategorySelected={(name) => {
+              try {
+                window.dataLayer?.push({ event: 'calc_category_selected', category_name: name });
+              } catch (e) {}
+            }}
+            onCommonConditionClick={handleCommonConditionClick}
           />
         );
       case "severitySelection":
@@ -302,6 +380,11 @@ export default function Calculator({ initialCategories }) {
           setSelectedSubCategory={setSelectedSubCategory}
           selectedSubCategory={selectedSubCategory}
           onStartOver={handleStartOver}
+          onCategorySelected={(name) => {
+            try {
+              window.dataLayer?.push({ event: 'calc_category_selected', category_name: name });
+            } catch (e) {}
+          }}
         />;
     }
   };
@@ -363,7 +446,14 @@ export default function Calculator({ initialCategories }) {
                           d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
                         />
                       </svg>
-                      <p className="px-3">חשב אחוזי נכות</p>
+                      <p className="px-3">
+                        חשב אחוזי נכות
+                        {liveTotals?.newTotals?.generalDisability != null && (
+                          <span className="mr-1 font-bold">
+                            ~{Math.round(liveTotals.newTotals.generalDisability)}%
+                          </span>
+                        )}
+                      </p>
                       {chosenDiseasesWithSeverities.filter(
                         (disease) => disease.selectedSeverity
                       ).length > 0 && (
@@ -422,7 +512,12 @@ export default function Calculator({ initialCategories }) {
                 </div>
 
                 {/* Main Content */}
-                <div className="w-full md:w-2/3">{renderScreen()}</div>
+                <div className="w-full md:w-2/3">
+                  {currentScreen !== 'results' && (
+                    <ProgressBar currentScreen={currentScreen} />
+                  )}
+                  {renderScreen()}
+                </div>
               </div>
             </div>
           </div>

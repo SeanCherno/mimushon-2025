@@ -2,6 +2,16 @@
 
 import React, { useEffect, useState } from "react";
 import BodyMapOrtho from "./BodyMapOrtho";
+import CategoryGuide from "./CategoryGuide";
+
+const COMMON_CONDITIONS = [
+  { id: 'disease_205', name: 'בקע דיסק', icon: '🦴' },
+  { id: 'disease_202', name: 'כאבי גב תחתון', icon: '🔙' },
+  { id: 'disease_279', name: 'פציעת ברך', icon: '🦵' },
+  { id: 'disease_234', name: 'הגבלות כתף', icon: '💪' },
+  { id: 'disease_1',   name: 'ירידה בשמיעה', icon: '👂' },
+  { id: 'disease_68',  name: 'סוכרת', icon: '💉' },
+];
 
 const DiseaseSelectionScreen = ({
   selectedCategory,
@@ -11,7 +21,9 @@ const DiseaseSelectionScreen = ({
   categories,
   onDiseaseSelected,
   chosenDiseases,
-  onStartOver
+  onStartOver,
+  onCommonConditionClick,
+  onCategorySelected,
 }) => {
   // const [selectedCategory, setSelectedCategory] = useState(null);
   // const [selectedSubCategory, setSelectedSubCategory] = useState(null);
@@ -19,6 +31,7 @@ const DiseaseSelectionScreen = ({
   // Tracks which subcategory text-button the user is hovering,
   // so the body map can highlight the matching region.
   const [hoveredSubcat, setHoveredSubcat] = useState(null);
+  const [showGuide, setShowGuide] = useState(false);
 
   useEffect(() => {
     if (selectedCategory || selectedSubCategory) {
@@ -36,6 +49,10 @@ const DiseaseSelectionScreen = ({
   const handleCategoryClick = async (category) => {
     const response = await fetch(`/api/categories/${category.id}`);
     const newCategory = await response.json();
+
+    if (onCategorySelected) {
+      onCategorySelected(newCategory.name);
+    }
 
     if (!newCategory.subcategories) {
       setSelectedSubCategory(newCategory); // Treat it like a subcategory with its diseases
@@ -126,9 +143,37 @@ const DiseaseSelectionScreen = ({
     return (
       <div className="bg-indigo-50 rounded-xl border border-indigo-200 screen-container select-category" id="select-category">
         <>
+          {/* Common conditions shortcuts */}
+          <div className="px-4 pt-4 pb-2">
+            <h3 className="text-base font-bold text-indigo-800 mb-0.5">קיצורי דרך – מחלות נפוצות</h3>
+            <p className="text-xs text-gray-500 mb-3">לחצ/י ישירות על המחלה שלך</p>
+            <div className="flex flex-wrap gap-2">
+              {COMMON_CONDITIONS.map((cond) => (
+                <button
+                  key={cond.id}
+                  onClick={() => onCommonConditionClick && onCommonConditionClick(cond.id)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border-2 border-indigo-400 bg-white text-indigo-700 text-sm font-medium hover:bg-indigo-50 hover:border-indigo-600 transition"
+                >
+                  <span>{cond.icon}</span>
+                  <span>{cond.name}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="border-t border-indigo-200 mx-4 mt-3" />
+
           <h2 className="text-2xl font-bold text-indigo-800 mb-4 p-4">
             בחר/י קטגוריה
           </h2>
+          <div className="px-3">
+            <button
+              onClick={() => setShowGuide(true)}
+              className="w-full mb-4 p-3 bg-white border-2 border-dashed border-indigo-400 rounded-xl text-indigo-600 font-semibold hover:bg-indigo-50 transition"
+            >
+              לא בטוח/ה איפה להתחיל? 🤔 לחצ/י כאן לעזרה
+            </button>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 p-3 gap-4">
             {categories.map((category) => (
               <button
@@ -158,6 +203,16 @@ const DiseaseSelectionScreen = ({
         <div className="pb-6 mt-3">
           <StartOverButton />
         </div>
+        {showGuide && (
+          <CategoryGuide
+            categories={categories}
+            onCategoryClick={(cat) => {
+              setShowGuide(false);
+              handleCategoryClick(cat);
+            }}
+            onClose={() => setShowGuide(false)}
+          />
+        )}
       </div>
     );
   }
@@ -201,7 +256,7 @@ const DiseaseSelectionScreen = ({
         <div className="flex flex-col sm:flex-row gap-5 items-start">
 
           {/* Body map */}
-          <div className="flex-shrink-0 self-center sm:self-start sm:sticky sm:top-4">
+          <div className="flex-shrink-0 self-center sm:self-start sm:sticky sm:top-4 max-w-[200px] mx-auto sm:mx-0 sm:max-w-none w-full sm:w-auto">
             <BodyMapOrtho
               items={subcategoryItems}
               highlightSubcat={hoveredSubcat}

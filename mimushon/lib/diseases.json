@@ -9602,6 +9602,14 @@
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_11_disease_49_6wplt"
+                },
+                {
+                  "description": "המצב כמתואר בסעיף הקודם - בשתי הרגליים, בצורה קשה מאוד\nדוגמה: שתי הרגליים נפוחות קשות עם כיבים ועור כחלחל גם במנוחה",
+                  "percentage": 50,
+                  "countForDisability": true,
+                  "countForTax": true,
+                  "countForSpecial": true,
+                  "severityId": "disease_49_sev_7"
                 }
               ],
               "requiredDocuments": [
