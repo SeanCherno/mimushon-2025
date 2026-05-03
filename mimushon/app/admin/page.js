@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 export const metadata = {
   title: "Admin Dashboard | מימושון",
   robots: { index: false, follow: false },
@@ -26,22 +28,7 @@ export default async function AdminPage() {
   const data = await getStats();
 
   if (!data) {
-    return (
-      <main
-        dir="rtl"
-        className="min-h-screen flex items-center justify-center bg-gray-50"
-      >
-        <div className="bg-white rounded-2xl shadow p-10 text-center max-w-md">
-          <h1 className="text-2xl font-bold text-gray-700 mb-3">
-            Admin not configured
-          </h1>
-          <p className="text-gray-500 text-sm">
-            Set <code className="bg-gray-100 px-1 rounded">ADMIN_SECRET</code>{" "}
-            in your environment to enable the admin dashboard.
-          </p>
-        </div>
-      </main>
-    );
+    notFound();
   }
 
   const { topDiseases, totalCalculations } = data;
