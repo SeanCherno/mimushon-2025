@@ -24,7 +24,15 @@ async function getStats() {
   }
 }
 
-export default async function AdminPage() {
+export default async function AdminPage({ searchParams }) {
+  const envSecret = process.env.ADMIN_SECRET;
+  const provided = (await searchParams)?.key;
+
+  // Return 404 if secret not configured or provided key doesn't match
+  if (!envSecret || provided !== envSecret) {
+    notFound();
+  }
+
   const data = await getStats();
 
   if (!data) {
