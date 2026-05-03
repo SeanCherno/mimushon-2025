@@ -15,6 +15,7 @@ export default function Calculator({ initialCategories }) {
     useState([]);
   const [totalPercentages, setTotalPercentages] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [calcError, setCalcError] = useState(false);
   const [currentScreen, setCurrentScreen] = useState("diseaseSelection");
   const [categories, setCategories] = useState(initialCategories);
   const [showInfo, setShowInfo] = useState(false);
@@ -137,22 +138,25 @@ export default function Calculator({ initialCategories }) {
       });
       const data = await response.json();
       setTotalPercentages(data);
+      setCalcError(false);
+      setCurrentScreen("results");
 
       try {
         window.dataLayer?.push({ event: 'calc_contact_form_submitted' });
       } catch (e) {}
     } catch (error) {
       console.error("Failed to calculate percentage:", error);
-      setTotalPercentages(null); // Or some error state
+      setCalcError(true);
+      setCurrentScreen("results");
     } finally {
       setIsLoading(false);
       setIsMobileSummaryOpen(false);
 
-      const section = document.getElementById("final-percentage");
+      const section = document.getElementById("calculator");
       if (section) {
         section.scrollIntoView({
-          behavior: "smooth", // This makes the scroll smooth
-          block: "start", // Aligns the top of the element with the top of the viewport
+          behavior: "smooth",
+          block: "start",
         });
       }
     }
@@ -309,7 +313,7 @@ export default function Calculator({ initialCategories }) {
     setChosenDiseasesWithSeverities([]);
     setSelectedCategory(null);
     setSelectedSubCategory(null);
-    // setFormSubmitted(false);
+    setCalcError(false);
     setCurrentScreen("diseaseSelection");
   };
 
@@ -355,9 +359,20 @@ export default function Calculator({ initialCategories }) {
           />
         );
       case "results":
-        return isLoading ? (
-          <LoadingSpinner asOverlay={true} />
-        ) : (
+        if (isLoading) return <LoadingSpinner asOverlay={true} />;
+        if (calcError) return (
+          <div className="text-center py-12 space-y-4" dir="rtl">
+            <p className="text-2xl">⚠️</p>
+            <p className="text-gray-700 font-semibold">אירעה שגיאה בחישוב. אנא נסה/י שוב.</p>
+            <button
+              onClick={() => handleFinalCalculation(chosenDiseasesWithSeverities)}
+              className="px-5 py-2.5 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition"
+            >
+              נסה שוב
+            </button>
+          </div>
+        );
+        return (
           <TotalPercentageDisplay
             totalPercentages={totalPercentages}
             chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}

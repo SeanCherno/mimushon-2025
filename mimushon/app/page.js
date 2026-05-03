@@ -4,6 +4,7 @@ import ProcessSection from "../components/content/ProcessSection";
 import ContactSection from "../components/content/ContactSection";
 import AboutCalculatorSection from "../components/content/AboutCalculatorSection";
 import CalculatorExplanation from "../components/content/CalculatorExplanation";
+import FaqSection from "../components/content/FaqSection";
 
 // Import the new Client Component we're about to create
 import Calculator from "../components/Calculator";
@@ -47,6 +48,7 @@ export default async function HomePage() {
             <HowWeHelpSection />
             <AboutCalculatorSection />
             <CalculatorExplanation />
+            <FaqSection />
             <ProcessSection />
             {/* <WhyUsSection /> */}
           </>

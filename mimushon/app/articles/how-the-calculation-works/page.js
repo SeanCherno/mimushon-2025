@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 export const metadata = {
   title: "איך עובד חישוב אחוזי נכות משוקלל (הנוסחה)",
@@ -50,6 +51,11 @@ const Article5Page = () => {
 
   return (
     <>
+      <ArticleJsonLd
+        title="איך עובד חישוב אחוזי נכות משוקלל (הנוסחה)"
+        description="למה 20% + 10% הם 28%? ההסבר המלא מאחורי נוסחת החישוב המשוקלל הרשמית של ביטוח לאומי, כולל דוגמאות מספריות מפורטות."
+        url="https://mimushon.co.il/articles/how-the-calculation-works"
+      />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">
         <div className="container mx-auto px-6 max-w-4xl bg-white p-8 sm:p-12 rounded-lg shadow-md">

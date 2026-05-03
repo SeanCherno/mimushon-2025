@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 export const metadata = {
   title: "מהו ספר הליקויים של ביטוח לאומי?",
@@ -42,6 +43,11 @@ const Article3Page = () => {
 
   return (
     <>
+      <ArticleJsonLd
+        title="מהו ספר הליקויים של ביטוח לאומי?"
+        description='הסבר על "ספר הליקויים" (תקנות הנכות) של ביטוח לאומי. איך הוא בנוי, כיצד רופאים משתמשים בו כדי לקבוע אחוז נכות, ומה ההבדל בין ליקוי בודד לחישוב משוקלל.'
+        url="https://mimushon.co.il/articles/about-book-of-impairments"
+      />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">
         <div className="container mx-auto px-6 max-w-4xl bg-white p-8 sm:p-12 rounded-lg shadow-md">

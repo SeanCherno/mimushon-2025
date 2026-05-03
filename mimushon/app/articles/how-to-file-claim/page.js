@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 export const metadata = {
   title: "המדריך המלא: איך מגישים תביעה לקצבת נכות כללית",
@@ -41,6 +42,11 @@ const Article1Page = () => {
 
   return (
     <>
+      <ArticleJsonLd
+        title="המדריך המלא: איך מגישים תביעה לקצבת נכות כללית"
+        description="מדריך שלב אחר שלב להגשת תביעת נכות כללית בביטוח לאומי. מאיסוף מסמכים רפואיים, דרך מילוי טופס 7801 ועד ההכנה לוועדה הרפואית."
+        url="https://mimushon.co.il/articles/how-to-file-claim"
+      />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">
         <div className="container mx-auto px-6 max-w-4xl bg-white p-8 sm:p-12 rounded-lg shadow-md">

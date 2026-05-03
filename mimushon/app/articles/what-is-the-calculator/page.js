@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 export const metadata = {
   title: 'מחשבון אחוזי נכות "מימושון": מדריך למשתמש',
@@ -37,6 +38,11 @@ const Article4Page = () => {
 
   return (
     <>
+      <ArticleJsonLd
+        title='מחשבון אחוזי נכות "מימושון": מדריך למשתמש'
+        description="איך להשתמש במחשבון אחוזי הנכות שלנו? מדריך משתמש פשוט ומהיר שמסביר כיצד להזין ליקויים, איך לקרוא את התוצאה המשוקללת ומה המשמעות שלה."
+        url="https://mimushon.co.il/articles/what-is-the-calculator"
+      />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">
         <div className="container mx-auto px-6 max-w-4xl bg-white p-8 sm:p-12 rounded-lg shadow-md">

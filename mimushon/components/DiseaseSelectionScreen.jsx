@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import BodyMapOrtho from "./BodyMapOrtho";
 import CategoryGuide from "./CategoryGuide";
 
@@ -33,6 +33,12 @@ const DiseaseSelectionScreen = ({
   const [hoveredSubcat, setHoveredSubcat] = useState(null);
   const [showGuide, setShowGuide] = useState(false);
 
+  // Search state
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const searchTimerRef = useRef(null);
+
   useEffect(() => {
     if (selectedCategory || selectedSubCategory) {
       const section = document.getElementById("calculator");
@@ -45,6 +51,30 @@ const DiseaseSelectionScreen = ({
     }
     console.log(selectedCategory, selectedSubCategory)
   }, [selectedCategory, selectedSubCategory])
+
+  // Debounced search effect
+  useEffect(() => {
+    if (searchTimerRef.current) clearTimeout(searchTimerRef.current);
+    const q = searchQuery.trim();
+    if (q.length < 2) {
+      setSearchResults([]);
+      setIsSearching(false);
+      return;
+    }
+    setIsSearching(true);
+    searchTimerRef.current = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/search?q=${encodeURIComponent(q)}`);
+        const data = await res.json();
+        setSearchResults(data);
+      } catch {
+        setSearchResults([]);
+      } finally {
+        setIsSearching(false);
+      }
+    }, 300);
+    return () => clearTimeout(searchTimerRef.current);
+  }, [searchQuery]);
 
   const handleCategoryClick = async (category) => {
     const response = await fetch(`/api/categories/${category.id}`);
@@ -143,8 +173,49 @@ const DiseaseSelectionScreen = ({
     return (
       <div className="bg-indigo-50 rounded-xl border border-indigo-200 screen-container select-category" id="select-category">
         <>
+          {/* Search box */}
+          <div className="px-4 pt-4 pb-2 relative">
+            <div className="relative">
+              <input
+                type="search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="🔍 חפש/י מחלה לפי שם..."
+                className="w-full px-4 py-2.5 rounded-xl border-2 border-indigo-300 bg-white text-gray-800 placeholder-gray-400 focus:outline-none focus:border-indigo-500 text-sm"
+                dir="rtl"
+              />
+              {isSearching && (
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-indigo-400 text-xs">מחפש...</span>
+              )}
+            </div>
+            {searchQuery.trim().length >= 2 && (
+              <div className="mt-1 bg-white rounded-xl border border-indigo-200 shadow-md overflow-hidden z-10">
+                {searchResults.length === 0 && !isSearching ? (
+                  <p className="px-4 py-3 text-sm text-gray-500">לא נמצאו תוצאות עבור &quot;{searchQuery}&quot;</p>
+                ) : (
+                  searchResults.map((result) => (
+                    <button
+                      key={result.id}
+                      onClick={() => {
+                        setSearchQuery('');
+                        setSearchResults([]);
+                        onCommonConditionClick && onCommonConditionClick(result.id);
+                      }}
+                      className="w-full text-right px-4 py-3 hover:bg-indigo-50 transition border-b border-gray-100 last:border-0"
+                    >
+                      <p className="text-sm font-semibold text-indigo-800">{result.name}</p>
+                      <p className="text-xs text-gray-500">{result.categoryName}</p>
+                    </button>
+                  ))
+                )}
+              </div>
+            )}
+          </div>
+
+          <div className="border-t border-indigo-200 mx-4 mt-1 mb-0" />
+
           {/* Common conditions shortcuts */}
-          <div className="px-4 pt-4 pb-2">
+          <div className="px-4 pt-3 pb-2">
             <h3 className="text-base font-bold text-indigo-800 mb-0.5">קיצורי דרך – מחלות נפוצות</h3>
             <p className="text-xs text-gray-500 mb-3">לחצ/י ישירות על המחלה שלך</p>
             <div className="flex flex-wrap gap-2">
@@ -161,7 +232,7 @@ const DiseaseSelectionScreen = ({
             </div>
           </div>
 
-          <div className="border-t border-indigo-200 mx-4 mt-3" />
+          <div className="border-t border-indigo-200 mx-4 mt-2" />
 
           <h2 className="text-2xl font-bold text-indigo-800 mb-4 p-4">
             בחר/י קטגוריה

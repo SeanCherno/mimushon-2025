@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 export const metadata = {
   title: "קיבלתי אחוזי נכות נמוכים? המדריך לערעור",
@@ -42,6 +43,11 @@ const Article2Page = () => {
 
   return (
     <>
+      <ArticleJsonLd
+        title="קיבלתי אחוזי נכות נמוכים? המדריך לערעור"
+        description="מה עושים אם ביטוח לאומי קבע אחוזי נכות נמוכים מדי? המדריך המלא לאפשרויות הפעולה: ערעור לוועדה לעררים, ערעור לבית הדין והגשת תביעה להחמרת מצב."
+        url="https://mimushon.co.il/articles/disability-percentage-appeal"
+      />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">
         <div className="container mx-auto px-6 max-w-4xl bg-white p-8 sm:p-12 rounded-lg shadow-md">
