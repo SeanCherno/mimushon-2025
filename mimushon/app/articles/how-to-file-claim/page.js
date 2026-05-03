@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ArticleJsonLd from "@/components/ArticleJsonLd";
+import ArticleJsonLd from "../../../components/ArticleJsonLd";
 
 export const metadata = {
   title: "המדריך המלא: איך מגישים תביעה לקצבת נכות כללית",

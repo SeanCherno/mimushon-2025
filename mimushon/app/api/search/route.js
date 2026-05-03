@@ -1,4 +1,4 @@
-import { safeStructure } from "@/lib/data";
+import { safeStructure } from "../../../lib/data";
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
