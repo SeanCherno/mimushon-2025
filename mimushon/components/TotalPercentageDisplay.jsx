@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Tooltip from "./content/Tooltip";
 
 const getExplanation = (modeId, percentage) => {
@@ -37,29 +38,54 @@ const getModeBarColor = (modeId, percentage) => {
   return "bg-indigo-400";
 };
 
+const WHAT_NOW_LINKS = [
+  {
+    href: "/articles/how-to-file-claim",
+    icon: "📝",
+    title: "כיצד מגישים תביעה לביטוח לאומי?",
+    desc: "מדריך שלב-אחר-שלב להגשת תביעת נכות",
+  },
+  {
+    href: "/articles/disability-percentage-appeal",
+    icon: "⚖️",
+    title: "ערעור על אחוזי נכות",
+    desc: "מה עושים אם ההחלטה לא משקפת את מצבך",
+  },
+  {
+    href: "/articles/about-book-of-impairments",
+    icon: "📖",
+    title: "ספר הליקויים",
+    desc: "הבסיס החוקי לקביעת אחוזי הנכות",
+  },
+];
+
 const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, chosenDiseasesWithSeverities, onStartOver }) => {
   const allRequiredDocuments = chosenDiseasesWithSeverities.flatMap(entry => entry.disease.requiredDocuments || []);
   const uniqueDocuments = [...new Set(allRequiredDocuments)];
 
   return (
     <>
+      {/* ── Print styles ────────────────────────────────────────────────────── */}
       <style dangerouslySetInnerHTML={{ __html: `
         @media print {
+          @page { margin: 1cm; size: auto; }
+          html, body { height: auto !important; overflow: visible !important; }
+          header, footer, nav, .no-print { display: none !important; }
           body * { visibility: hidden; }
           .print-area, .print-area * { visibility: visible; }
           .print-area {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
+            right: 0;
+            padding: 16px;
           }
-          .no-print { display: none !important; }
         }
       ` }} />
 
       <div className="print-area space-y-6" id="total-percentage">
 
-        {/* Results header */}
+        {/* ── Results header ───────────────────────────────────────────────── */}
         <div className="text-center pb-2 border-b border-indigo-200">
           <div className="flex justify-center items-center gap-3 mb-1">
             <span className="text-4xl">✅</span>
@@ -68,7 +94,26 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
           <p className="text-sm text-gray-500">להלן הערכת אחוזי הנכות על פי המחלות והחומרות שנבחרו</p>
         </div>
 
-        {/* Mode cards */}
+        {/* ── Mobile disease summary (hidden on desktop — sidebar covers it) ── */}
+        <div className="md:hidden bg-white rounded-xl border border-indigo-200 shadow-sm p-4">
+          <h3 className="text-sm font-semibold text-indigo-700 mb-3 flex items-center gap-2">
+            <span>🩺</span> מחלות שנבחרו
+          </h3>
+          <ul className="space-y-2">
+            {chosenDiseasesWithSeverities.map((entry) => (
+              <li key={entry.disease.id} className="flex justify-between items-start gap-2 text-sm">
+                <span className="font-medium text-gray-800">{entry.disease.name}</span>
+                {entry.selectedSeverity && (
+                  <span className="shrink-0 text-xs text-indigo-600 bg-indigo-50 border border-indigo-200 rounded-full px-2 py-0.5">
+                    {entry.selectedSeverity.percentage}%
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* ── Mode cards ───────────────────────────────────────────────────── */}
         <div className="space-y-4">
           {modes.map(mode => {
             const pct = Math.round(totalPercentages.newTotals?.[mode.id] ?? 0);
@@ -84,16 +129,12 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
                   </div>
                   <span className="text-3xl font-extrabold text-indigo-700">{pct}%</span>
                 </div>
-
-                {/* Progress bar */}
                 <div className="w-full bg-gray-100 rounded-full h-3 mb-3 overflow-hidden">
                   <div
                     className={`h-3 rounded-full transition-all duration-500 ${barColor}`}
                     style={{ width: `${pct}%` }}
                   />
                 </div>
-
-                {/* Plain-language explanation */}
                 <p className="text-sm text-gray-700 bg-indigo-50 rounded-lg px-3 py-2 border border-indigo-100">
                   {explanation}
                 </p>
@@ -102,14 +143,14 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
           })}
         </div>
 
-        {/* Disclaimer */}
+        {/* ── Disclaimer ───────────────────────────────────────────────────── */}
         <div className="bg-yellow-50 border border-yellow-200 rounded-lg px-4 py-3">
           <p className="text-xs text-yellow-800 font-medium">
             ⚠️ המחשבון הינו כלי להערכה בלבד, ואינו מהווה גורם מוסמך לקביעת אחוזי נכות. לקביעה רשמית יש לפנות לרופא מוסמך ו/או לביטוח לאומי.
           </p>
         </div>
 
-        {/* Action buttons */}
+        {/* ── Action buttons ───────────────────────────────────────────────── */}
         <div className="no-print flex flex-wrap gap-3 justify-center">
           <button
             onClick={() => setCurrentScreen("diseaseSelection")}
@@ -131,7 +172,7 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
           </button>
         </div>
 
-        {/* Required documents */}
+        {/* ── Required documents ───────────────────────────────────────────── */}
         {uniqueDocuments.length > 0 && (
           <div className="bg-white rounded-xl border border-indigo-200 shadow-sm p-4">
             <h3 className="text-base font-semibold text-indigo-700 mb-3 flex items-center gap-2">
@@ -147,6 +188,32 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
             </ul>
           </div>
         )}
+
+        {/* ── What now? ────────────────────────────────────────────────────── */}
+        <div className="no-print bg-indigo-50 rounded-xl border border-indigo-200 p-4">
+          <h3 className="text-base font-bold text-indigo-800 mb-3 flex items-center gap-2">
+            <span>🚀</span> מה עושים עכשיו?
+          </h3>
+          <div className="space-y-3">
+            {WHAT_NOW_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="flex items-start gap-3 p-3 bg-white rounded-lg border border-indigo-200 hover:bg-indigo-100 hover:border-indigo-400 transition group"
+              >
+                <span className="text-2xl shrink-0">{link.icon}</span>
+                <div>
+                  <p className="text-sm font-semibold text-indigo-700 group-hover:text-indigo-900">
+                    {link.title}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-0.5">{link.desc}</p>
+                </div>
+                <span className="mr-auto text-indigo-400 group-hover:text-indigo-600 self-center text-lg">←</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
       </div>
     </>
   );
