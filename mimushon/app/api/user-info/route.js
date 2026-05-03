@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import pool from "../../../lib/db";
 import { checkCsrfOrigin } from "../../../lib/csrf";
-import { rateLimit, getClientIp } from "../../../lib/rateLimit";
 
 // ── Validation constants ──────────────────────────────────────────────────────
 const MAX_NAME_LEN = 100;
@@ -9,10 +8,6 @@ const MAX_PHONE_LEN = 15;
 const MAX_COMMENT_LEN = 1_000;
 // Accepts digits, spaces, hyphens, plus signs, parentheses — 7–15 chars
 const PHONE_REGEX = /^[\d\s\-()+]{7,15}$/;
-
-// ── Rate-limit: 5 submissions per 10 minutes per IP (contact form) ────────────
-const RL_LIMIT = 5;
-const RL_WINDOW_MS = 10 * 60_000;
 
 // ── Helper ────────────────────────────────────────────────────────────────────
 function badRequest(message) {
@@ -26,20 +21,7 @@ export async function POST(request) {
     return NextResponse.json({ result: false, error: "Forbidden" }, { status: 403 });
   }
 
-  // 2. Rate limiting
-  const ip = getClientIp(request);
-  const { allowed, retryAfterMs } = rateLimit(ip, RL_LIMIT, RL_WINDOW_MS);
-  if (!allowed) {
-    return NextResponse.json(
-      { result: false, error: "Too many requests" },
-      {
-        status: 429,
-        headers: { "Retry-After": String(Math.ceil(retryAfterMs / 1000)) },
-      }
-    );
-  }
-
-  // 3. Parse body safely
+  // 2. Parse body safely
   let body;
   try {
     body = await request.json();

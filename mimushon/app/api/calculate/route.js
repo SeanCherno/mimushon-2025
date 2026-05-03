@@ -2,14 +2,9 @@ import { NextResponse } from "next/server";
 import pool from "../../../lib/db";
 import { modes, findDiseasesById } from "../../../lib/data";
 import { checkCsrfOrigin } from "../../../lib/csrf";
-import { rateLimit, getClientIp } from "../../../lib/rateLimit";
 
 // ── Validation constants ──────────────────────────────────────────────────────
 const MAX_DISEASES = 20; // Hard cap — prevents DoS amplification attacks
-
-// ── Rate-limit: 60 requests per minute per IP ─────────────────────────────────
-const RL_LIMIT = 60;
-const RL_WINDOW_MS = 60_000;
 
 // ── Route handler ─────────────────────────────────────────────────────────────
 export async function POST(request) {
@@ -18,20 +13,7 @@ export async function POST(request) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
-  // 2. Rate limiting
-  const ip = getClientIp(request);
-  const { allowed, retryAfterMs } = rateLimit(ip, RL_LIMIT, RL_WINDOW_MS);
-  if (!allowed) {
-    return NextResponse.json(
-      { error: "Too many requests" },
-      {
-        status: 429,
-        headers: { "Retry-After": String(Math.ceil(retryAfterMs / 1000)) },
-      }
-    );
-  }
-
-  // 3. Parse body safely
+  // 2. Parse body safely
   let body;
   try {
     body = await request.json();
