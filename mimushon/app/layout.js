@@ -4,6 +4,11 @@ import "./global.css"; // Your global styles
 import Header from "../components/content/Header"; // Assuming this is your header
 import Footer from "../components/content/Footer"; // Assuming this is your footer
 
+// Analytics IDs — read from environment so they can be rotated without code changes.
+// Set NEXT_PUBLIC_GTM_ID and NEXT_PUBLIC_GA_ID in .env.local / your deployment env.
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-N4TBR9S8";
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-M68N1KQEZG";
+
 // 3. Replaces your commented-out Google Font link
 const assistant = Assistant({
   subsets: ["latin", "hebrew"],
@@ -27,8 +32,12 @@ export const metadata = {
   },
 
   // <meta name="google-site-verification" content="..." />
+  // Prefer setting NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in env to avoid
+  // committing this token to source control.
   verification: {
-    google: "CHkK81Ymof4xC5mffpgvoBWk8evHtJBOe8odmen_gy0",
+    google:
+      process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+      "CHkK81Ymof4xC5mffpgvoBWk8evHtJBOe8odmen_gy0",
   },
 
   // <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
@@ -75,7 +84,7 @@ export default function RootLayout({ children }) {
         {/* Google Tag Manager (noscript) - must be first in <body> */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-N4TBR9S8"
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
@@ -103,7 +112,7 @@ export default function RootLayout({ children }) {
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-N4TBR9S8');
+              })(window,document,'script','dataLayer','${GTM_ID}');
             `,
           }}
         />
@@ -111,7 +120,7 @@ export default function RootLayout({ children }) {
         {/* Google tag (gtag.js) */}
         <Script
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-M68N1KQEZG"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
         />
         <Script
           id="gtag-init"
@@ -121,16 +130,21 @@ export default function RootLayout({ children }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-M68N1KQEZG');
+              gtag('config', '${GA_ID}');
             `,
           }}
         />
 
-        {/* Sienna Accessibility */}
+        {/* Sienna Accessibility — pinned to exact version + SRI hash to guard
+            against supply-chain attacks. To upgrade: bump the version in the
+            src URL, fetch the new hash from
+            https://data.jsdelivr.com/v1/package/npm/sienna-accessibility@<ver>/flat
+            and update the integrity attribute below. */}
         <Script
           strategy="afterInteractive"
-          src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js"
-          defer
+          src="https://cdn.jsdelivr.net/npm/sienna-accessibility@2.2.331/dist/sienna-accessibility.umd.js"
+          integrity="sha256-BiwjmW+jnAqCHj2W44s7SbdyVsot1+09q0uoF+/9Rqk="
+          crossOrigin="anonymous"
         />
       </body>
     </html>

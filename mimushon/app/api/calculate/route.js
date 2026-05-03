@@ -1,29 +1,91 @@
 import { NextResponse } from "next/server";
 import pool from "../../../lib/db";
 import { modes, findDiseasesById } from "../../../lib/data";
+import { checkCsrfOrigin } from "../../../lib/csrf";
+import { rateLimit, getClientIp } from "../../../lib/rateLimit";
 
+// ── Validation constants ──────────────────────────────────────────────────────
+const MAX_DISEASES = 20; // Hard cap — prevents DoS amplification attacks
+
+// ── Rate-limit: 60 requests per minute per IP ─────────────────────────────────
+const RL_LIMIT = 60;
+const RL_WINDOW_MS = 60_000;
+
+// ── Route handler ─────────────────────────────────────────────────────────────
 export async function POST(request) {
-  const { chosenDiseasesWithSeverities } = await request.json();
+  // 1. CSRF origin check
+  if (!checkCsrfOrigin(request)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
 
-  if (!chosenDiseasesWithSeverities) {
+  // 2. Rate limiting
+  const ip = getClientIp(request);
+  const { allowed, retryAfterMs } = rateLimit(ip, RL_LIMIT, RL_WINDOW_MS);
+  if (!allowed) {
     return NextResponse.json(
+      { error: "Too many requests" },
       {
-        error: "Missing required parameters: chosenDiseasesWithSeverities",
-      },
+        status: 429,
+        headers: { "Retry-After": String(Math.ceil(retryAfterMs / 1000)) },
+      }
+    );
+  }
+
+  // 3. Parse body safely
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
+  }
+
+  const { chosenDiseasesWithSeverities } = body ?? {};
+
+  // 4. Validate: must be a non-empty array within the allowed limit
+  if (!Array.isArray(chosenDiseasesWithSeverities)) {
+    return NextResponse.json(
+      { error: "chosenDiseasesWithSeverities must be an array" },
+      { status: 400 }
+    );
+  }
+  if (chosenDiseasesWithSeverities.length === 0) {
+    return NextResponse.json(
+      { error: "chosenDiseasesWithSeverities must not be empty" },
+      { status: 400 }
+    );
+  }
+  if (chosenDiseasesWithSeverities.length > MAX_DISEASES) {
+    return NextResponse.json(
+      { error: `Cannot calculate more than ${MAX_DISEASES} diseases at once` },
       { status: 400 }
     );
   }
 
+  // 5. Validate the shape of each entry
+  for (const entry of chosenDiseasesWithSeverities) {
+    if (
+      !entry ||
+      typeof entry !== "object" ||
+      !entry.disease?.id ||
+      typeof entry.selectedSeverity?.severityId !== "string"
+    ) {
+      return NextResponse.json(
+        { error: "Each entry must have disease.id and selectedSeverity.severityId" },
+        { status: 400 }
+      );
+    }
+  }
+
+  // 6. Run the Israeli combined-values weighted calculation
   const newTotals = {
     generalDisability: 0,
     taxIncome: 0,
     specialServices: 0,
   };
 
-  // --- לוגיקת החישוב שלך (העתק-הדבק) ---
   chosenDiseasesWithSeverities.forEach((entry) => {
     const fullDisease = findDiseasesById(entry.disease.id);
-    if (!fullDisease) return; // הגנה מפני מחלה לא קיימת
+    if (!fullDisease) return; // Unknown disease — skip gracefully
 
     const foundSeverity = fullDisease.severities.find(
       (sev) => sev.severityId === entry.selectedSeverity.severityId
@@ -32,6 +94,7 @@ export async function POST(request) {
     if (foundSeverity) {
       modes.forEach((mode) => {
         if (foundSeverity[mode.dataKey]) {
+          // Formula: accumulated += (1 - accumulated/100) * percentage
           newTotals[mode.id] +=
             (1 - newTotals[mode.id] / 100) *
             (foundSeverity ? foundSeverity.percentage : 0);
@@ -39,9 +102,8 @@ export async function POST(request) {
       });
     }
   });
-  // --- סוף לוגיקת החישוב ---
 
-  // --- לוגיקת התיעוד למסד הנתונים ---
+  // 7. Log to database (best-effort — never fail the main request on log error)
   try {
     const logQueryText =
       "INSERT INTO disease_calculations(calculation_data) VALUES($1)";
@@ -59,17 +121,14 @@ export async function POST(request) {
         totals: newTotals,
       },
     ];
-
     await pool.query(logQueryText, logValues);
-    console.log("Calculation logged to database successfully.");
   } catch (logErr) {
-    console.error("Error logging calculation to database:", logErr);
-    // אנחנו לא עוצרים את הבקשה אם התיעוד נכשל
+    // Log server-side only — don't surface DB errors to the client
+    console.error("[calculate] Failed to log calculation to database:", logErr);
   }
-  // --- סוף לוגיקת התיעוד ---
 
-  // המרת ה-setTimeout ל-Promise תואם async/await
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  // NOTE: The artificial 2-second setTimeout that was here has been removed.
+  // It was holding a server thread open on every request — a DoS amplifier.
 
   return NextResponse.json({ newTotals });
 }

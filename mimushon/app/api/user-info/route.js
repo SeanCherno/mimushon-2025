@@ -1,24 +1,98 @@
 import { NextResponse } from "next/server";
-import pool from "../../../lib/db"; // ייבוא ה-pool המשותף
+import pool from "../../../lib/db";
+import { checkCsrfOrigin } from "../../../lib/csrf";
+import { rateLimit, getClientIp } from "../../../lib/rateLimit";
 
+// ── Validation constants ──────────────────────────────────────────────────────
+const MAX_NAME_LEN = 100;
+const MAX_PHONE_LEN = 15;
+const MAX_COMMENT_LEN = 1_000;
+// Accepts digits, spaces, hyphens, plus signs, parentheses — 7–15 chars
+const PHONE_REGEX = /^[\d\s\-()+]{7,15}$/;
+
+// ── Rate-limit: 5 submissions per 10 minutes per IP (contact form) ────────────
+const RL_LIMIT = 5;
+const RL_WINDOW_MS = 10 * 60_000;
+
+// ── Helper ────────────────────────────────────────────────────────────────────
+function badRequest(message) {
+  return NextResponse.json({ result: false, error: message }, { status: 400 });
+}
+
+// ── Route handler ─────────────────────────────────────────────────────────────
 export async function POST(request) {
-  try {
-    const { name, phone, hearot } = await request.json();
+  // 1. CSRF origin check
+  if (!checkCsrfOrigin(request)) {
+    return NextResponse.json({ result: false, error: "Forbidden" }, { status: 403 });
+  }
 
+  // 2. Rate limiting
+  const ip = getClientIp(request);
+  const { allowed, retryAfterMs } = rateLimit(ip, RL_LIMIT, RL_WINDOW_MS);
+  if (!allowed) {
+    return NextResponse.json(
+      { result: false, error: "Too many requests" },
+      {
+        status: 429,
+        headers: { "Retry-After": String(Math.ceil(retryAfterMs / 1000)) },
+      }
+    );
+  }
+
+  // 3. Parse body safely
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return badRequest("Invalid request body");
+  }
+
+  const { name, phone, hearot } = body ?? {};
+
+  // 2. Server-side input validation
+  if (
+    typeof name !== "string" ||
+    name.trim().length === 0 ||
+    name.length > MAX_NAME_LEN
+  ) {
+    return badRequest("Invalid name (must be 1–100 characters)");
+  }
+
+  if (
+    typeof phone !== "string" ||
+    phone.trim().length === 0 ||
+    phone.length > MAX_PHONE_LEN ||
+    !PHONE_REGEX.test(phone.trim())
+  ) {
+    return badRequest("Invalid phone number");
+  }
+
+  if (
+    hearot !== undefined &&
+    hearot !== null &&
+    (typeof hearot !== "string" || hearot.length > MAX_COMMENT_LEN)
+  ) {
+    return badRequest(`Comment must not exceed ${MAX_COMMENT_LEN} characters`);
+  }
+
+  // 3. Insert — use parameterized query (no SQL injection risk)
+  try {
     const queryText =
       "INSERT INTO contact_us_users(name, phone, comment) VALUES($1, $2, $3)";
-    const values = [name, phone, hearot];
+    const values = [
+      name.trim(),
+      phone.trim(),
+      typeof hearot === "string" ? hearot.trim() : "",
+    ];
 
     await pool.query(queryText, values);
 
-    console.log(`Contact info for "${name}" saved to database successfully.`);
+    // Don't log PII (name/phone) in production logs
+    console.log("[user-info] Contact form submission saved successfully.");
     return NextResponse.json({ result: true });
   } catch (err) {
-    console.error("Error inserting into database:", err);
-    // החזרת שגיאת שרת 500, זהו נוהג תקין יותר
-    return NextResponse.json(
-      { result: false, error: err.message },
-      { status: 500 }
-    );
+    // Log the full error server-side only — never expose internals to the client
+    console.error("[user-info] Database insert failed:", err);
+    return NextResponse.json({ result: false }, { status: 500 });
   }
 }
