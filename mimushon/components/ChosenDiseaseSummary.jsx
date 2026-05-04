@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from "react";
+
 const ChosenDiseasesSummary = ({
     modes,
     chosenDiseasesWithSeverities,
@@ -7,6 +11,8 @@ const ChosenDiseasesSummary = ({
     isMobileView = false,
     onClose,
 }) => {
+    const [tosAccepted, setTosAccepted] = useState(false);
+
     const chosenDiseases = chosenDiseasesWithSeverities.filter(
         (entry) => entry.selectedSeverity
     );
@@ -101,27 +107,43 @@ const ChosenDiseasesSummary = ({
                 </div>
             )}
             <div className="mt-6 space-y-3">
+                {/* TOS checkbox */}
+                <label className="flex items-start gap-2 cursor-pointer select-none">
+                    <input
+                        type="checkbox"
+                        checked={tosAccepted}
+                        onChange={(e) => setTosAccepted(e.target.checked)}
+                        className="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                    />
+                    <span className="text-xs text-slate-700 leading-relaxed">
+                        קראתי ואני מסכים/ה ל
+                        <a className="text-blue-700 underline" href="/terms" target="_blank">תנאי השימוש</a>
+                        {" "}ול
+                        <a className="text-blue-700 underline" href="/privacy" target="_blank">מדיניות הפרטיות</a>
+                        . ידוע לי שהמחשבון הוא כלי הערכה בלבד ואינו תחליף לייעוץ מקצועי.
+                    </span>
+                </label>
+
                 <button
                     onClick={() => {
                         onCalculate(chosenDiseases);
                         setCurrentScreen("results");
                     }}
-                    disabled={chosenDiseases.length === 0}
+                    disabled={chosenDiseases.length === 0 || !tosAccepted}
                     id="submit-diseases"
                     name="submit-diseases"
-                    className="w-full p-3 cursor-pointer bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition disabled:bg-gray-400"
+                    className="w-full p-3 cursor-pointer bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
                 >
                     חשב אחוזי נכות
                 </button>
                 {isMobileView && (
                     <button
                         onClick={onClose}
-                        className="w-full p-3 cursor-pointer bg-gray-600 text-white p-2 rounded-lg font-semibold hover:bg-gray-700"
+                        className="w-full p-3 cursor-pointer bg-gray-600 text-white rounded-lg font-semibold hover:bg-gray-700"
                     >
                         סגור סיכום
                     </button>
                 )}
-                <p className="text-xs text-slate-700 text-center">המשך לחישוב סופי של אחוזי הנכות מהווה אישור של <a className="text-blue-700 underline" href="/terms" target="_blank">תנאי השימוש</a> ושל <a className="text-blue-700 underline" href="privacy" target="_blank">מדיניות הפרטיות</a></p>
             </div>
         </div>
     );

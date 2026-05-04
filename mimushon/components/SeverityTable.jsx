@@ -61,70 +61,104 @@ const SeverityTable = ({ disease, onSeverityChange, chosenDiseasesWithSeverities
   const columnHeaders = disease.tableColumns.slice(1); // Exclude the first column header (for rows)
 
   return (!disease.topLabel && !disease.sideLabel) ? (
-    <div className={`mb-8 p-4 sm:p-6 rounded-xl`} dir="rtl">
-      {disease.topLabel && (
-        <h3 className="text-xl font-bold text-center text-indigo-800 mb-4">
-          {disease.topLabel}
-        </h3>
-      )}
+    <div className="mb-8 rounded-xl" dir="rtl">
 
-      {/* 2. Flex Container: Wraps both the side label and the table */}
-      <div className="flex items-center gap-1">
-
-        {/* 3. Side Label: Rotated text */}
-        {disease.sideLabel && (
-          <div className="flex-shrink-0">
-            <p className="text-lg font-semibold text-indigo-700 transform -rotate-90 whitespace-nowrap">
-              {disease.sideLabel}
-            </p>
-          </div>
-        )}
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border border-indigo-300 rounded-lg shadow-sm">
-            <thead>
-              <tr className="bg-indigo-200 text-indigo-700 uppercase text-sm leading-normal">
-                <th className={`py-3 ${disease.eyesightTable ? "px-1" : "px-6"} text-right`}>{disease.tableColumns[0]}</th>
-                {columnHeaders.map((colHeader, idx) => (
-                  <th key={idx} className={`py-3 ${disease.eyesightTable ? "px-1" : "px-6"} text-right`}>{colHeader}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="text-gray-600 text-sm font-light">
-              {disease.tableRows.map((row, rowIndex) => (
-                <tr key={rowIndex} className="border-b border-gray-200 hover:bg-gray-100">
-                  <td className={`py-3 ${disease.eyesightTable ? "px-1" : "px-6"} text-right font-semibold`}>{row.header}</td> {/* Row header */}
-                  {row.severityIdsInRow.map((severityId, colIndex) => {
-                    const severity = severitiesById[severityId];
-                    // Check if severity exists AND is relevant for the current mode
-                    const isRelevantAndExists = severity
-                    const isChecked = selectedSeverityForThisDisease && severity && selectedSeverityForThisDisease.severityId === severity.severityId;
-
-                    return (
-                      <td key={colIndex} className={`py-3 ${disease.eyesightTable ? "px-1" : "px-6"} text-right whitespace-nowrap`}>
-                        {isRelevantAndExists ? (
-                          <label className="inline-flex items-center cursor-pointer">
-                            <input
-                              type="radio"
-                              id={`severity-${disease.id}-${severity.severityId}`}
-                              name={`severity-${disease.id}`}
-                              className="form-radio h-5 w-5 text-green-600 rounded-full border-gray-300 focus:ring-green-500"
-                              checked={isChecked}
-                              onChange={() => onSeverityChange(disease, severity)}
-                            />
-                            {/* <span className="ml-2">{disease.eyesightTable ? "" : severity.percentage + "%"}</span> */}
-                          </label>
-                        ) : (
-                          <span className="text-gray-400">-</span>
-                        )}
-                      </td>
-                    );
-                  })}
-                </tr>
+      {/* ── Desktop / tablet: scrollable table ─────────────────────────── */}
+      <div className="hidden sm:block overflow-x-auto rounded-xl border border-indigo-200 shadow-sm">
+        <table className="min-w-full bg-white text-sm">
+          <thead>
+            <tr className="bg-indigo-100 text-indigo-700 text-xs uppercase">
+              <th className={`py-3 ${disease.eyesightTable ? "px-2" : "px-4"} text-right font-semibold whitespace-nowrap`}>
+                {disease.tableColumns[0]}
+              </th>
+              {columnHeaders.map((colHeader, idx) => (
+                <th key={idx} className={`py-3 ${disease.eyesightTable ? "px-2" : "px-4"} text-center font-semibold whitespace-nowrap`}>
+                  {colHeader}
+                </th>
               ))}
-            </tbody>
-          </table>
-        </div>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-100">
+            {disease.tableRows.map((row, rowIndex) => (
+              <tr key={rowIndex} className={rowIndex % 2 === 0 ? "bg-white" : "bg-indigo-50/40"}>
+                <td className={`py-3 ${disease.eyesightTable ? "px-2" : "px-4"} text-right font-semibold text-gray-700 whitespace-nowrap`}>
+                  {row.header}
+                </td>
+                {row.severityIdsInRow.map((severityId, colIndex) => {
+                  const severity = severitiesById[severityId];
+                  const isChecked = selectedSeverityForThisDisease && severity &&
+                    selectedSeverityForThisDisease.severityId === severity.severityId;
+                  return (
+                    <td key={colIndex} className={`py-3 ${disease.eyesightTable ? "px-2" : "px-4"} text-center`}>
+                      {severity ? (
+                        <label className="inline-flex items-center justify-center cursor-pointer">
+                          <input
+                            type="radio"
+                            id={`severity-${disease.id}-${severity.severityId}`}
+                            name={`severity-${disease.id}`}
+                            className={`h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500 cursor-pointer ${isChecked ? "ring-2 ring-indigo-400" : ""}`}
+                            checked={!!isChecked}
+                            onChange={() => onSeverityChange(disease, severity)}
+                          />
+                        </label>
+                      ) : (
+                        <span className="text-gray-300 text-lg">—</span>
+                      )}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
+
+      {/* ── Mobile: stacked cards ────────────────────────────────────────── */}
+      <div className="sm:hidden space-y-3">
+        {disease.tableRows.map((row, rowIndex) => (
+          <div key={rowIndex} className="bg-white rounded-xl border border-indigo-200 shadow-sm overflow-hidden">
+            {/* Row header */}
+            <div className="bg-indigo-100 px-4 py-2">
+              <p className="text-sm font-bold text-indigo-800">{row.header}</p>
+            </div>
+            {/* Options grid */}
+            <div className="grid grid-cols-2 gap-2 p-3">
+              {row.severityIdsInRow.map((severityId, colIndex) => {
+                const severity = severitiesById[severityId];
+                const colLabel = columnHeaders[colIndex];
+                const isChecked = selectedSeverityForThisDisease && severity &&
+                  selectedSeverityForThisDisease.severityId === severity.severityId;
+                if (!severity) return (
+                  <div key={colIndex} className="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-50 opacity-40">
+                    <span className="text-xs text-gray-500">{colLabel}</span>
+                    <span className="text-gray-300">—</span>
+                  </div>
+                );
+                return (
+                  <label
+                    key={colIndex}
+                    className={`flex items-center justify-between gap-2 px-3 py-2 rounded-lg border-2 cursor-pointer transition ${
+                      isChecked
+                        ? "border-indigo-500 bg-indigo-50"
+                        : "border-gray-200 bg-white hover:border-indigo-300"
+                    }`}
+                  >
+                    <span className="text-xs font-medium text-gray-700 leading-snug">{colLabel}</span>
+                    <input
+                      type="radio"
+                      name={`severity-${disease.id}`}
+                      className="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 shrink-0"
+                      checked={!!isChecked}
+                      onChange={() => onSeverityChange(disease, severity)}
+                    />
+                  </label>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+
     </div>
   )
 
