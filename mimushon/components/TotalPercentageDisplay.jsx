@@ -4,10 +4,11 @@ import Tooltip from "./content/Tooltip";
 const getExplanation = (modeId, percentage) => {
   if (modeId === "generalDisability") {
     if (percentage === 0) return "לא נמצאה נכות כללית במחלות שנבחרו.";
-    if (percentage <= 24) return "אחוזי הנכות נמוכים. ייתכן שתהיה זכאי/ת להטבות קלות. מומלץ לפנות לייעוץ.";
-    if (percentage <= 49) return "אחוזי נכות בינוניים. ייתכן שתהיה זכאי/ת לקצבת נכות בסיסית מביטוח לאומי.";
-    if (percentage <= 74) return "אחוזי נכות משמעותיים. סביר שתהיה זכאי/ת לקצבת נכות גבוהה יותר מביטוח לאומי.";
-    if (percentage <= 89) return "אחוזי נכות גבוהים מאוד. צפויה זכאות לקצבת נכות מקסימלית ועוד הטבות נוספות.";
+    if (percentage <= 24) return "אחוזי הנכות נמוכים. הסף המינימלי לקצבת נכות כללית הוא 40% — בטווח זה אין עדיין בסיס לקצבה. ייתכן זכאות להטבות אחרות — מומלץ לפנות לייעוץ.";
+    if (percentage <= 39) return "אחוזי הנכות עדיין מתחת לסף המינימלי של 40% הנדרש לקצבת נכות כללית. ייתכן זכאות לנקודות זיכוי במס הכנסה — מומלץ לבדוק עם רואה חשבון.";
+    if (percentage <= 49) return "הגעת לסף המינימלי של 40% לקצבת נכות כללית. זכאות בפועל תלויה גם בדרגת אי-כושר שנקבעת בנפרד על ידי ביטוח לאומי.";
+    if (percentage <= 74) return "אחוזי נכות משמעותיים. סביר שתהיה זכאי/ת לקצבת נכות מביטוח לאומי, בכפוף לדרגת אי-כושר.";
+    if (percentage <= 89) return "אחוזי נכות גבוהים מאוד. צפויה זכאות לקצבת נכות גבוהה, בכפוף לדרגת אי-כושר.";
     return "אחוזי נכות קיצוניים. צפויה זכאות לקצבה המקסימלית וייתכן פטור ממס הכנסה.";
   }
   if (modeId === "taxIncome") {
@@ -16,6 +17,7 @@ const getExplanation = (modeId, percentage) => {
   }
   if (modeId === "specialServices") {
     if (percentage === 0) return "לא נמצאה זכאות לשירותים מיוחדים במחלות שנבחרו.";
+    if (percentage < 60) return `נמצאה נכות רלוונטית לשירותים מיוחדים (${percentage}%), אך זהו מתחת לסף החוקי של 60% הנדרש לזכאות לקצבה.`;
     return "ייתכן שתהיה זכאי/ת לקצבת שירותים מיוחדים — סיוע כספי לתשלום עבור מטפל/ת אישי/ת.";
   }
   return "";
@@ -23,17 +25,20 @@ const getExplanation = (modeId, percentage) => {
 
 const getModeBarColor = (modeId, percentage) => {
   if (modeId === "generalDisability") {
-    if (percentage === 0) return "bg-gray-300";
-    if (percentage <= 24) return "bg-blue-400";
-    if (percentage <= 49) return "bg-yellow-400";
-    if (percentage <= 74) return "bg-orange-400";
+    if (percentage === 0)  return "bg-gray-300";
+    if (percentage <= 24)  return "bg-blue-300";
+    if (percentage <= 39)  return "bg-blue-400";
+    if (percentage <= 49)  return "bg-yellow-400";
+    if (percentage <= 74)  return "bg-orange-400";
     return "bg-red-500";
   }
   if (modeId === "taxIncome") {
     return percentage >= 90 ? "bg-green-500" : "bg-blue-400";
   }
   if (modeId === "specialServices") {
-    return percentage === 0 ? "bg-gray-300" : "bg-purple-500";
+    if (percentage === 0) return "bg-gray-300";
+    if (percentage < 60) return "bg-yellow-400";
+    return "bg-purple-500";
   }
   return "bg-indigo-400";
 };
