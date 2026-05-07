@@ -16,11 +16,7 @@ for (const key of REQUIRED_ENV_VARS) {
     const message =
       `[db] Missing required environment variable: ${key}. ` +
       `Ensure it is set in .env.local (development) or your deployment environment.`;
-    if (process.env.NODE_ENV === "production") {
-      throw new Error(message);
-    } else {
-      console.warn(message);
-    }
+    console.warn(message);
   }
 }
 

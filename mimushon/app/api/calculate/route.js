@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import pool from "../../../lib/db";
 import { modes, findDiseasesById } from "../../../lib/data";
+import { checkCsrfOrigin } from "../../../lib/csrf";
 
 export const dynamic = 'force-dynamic';
-import { checkCsrfOrigin } from "../../../lib/csrf";
 
 // ── Validation constants ──────────────────────────────────────────────────────
 const MAX_DISEASES = 20; // Hard cap — prevents DoS amplification attacks
