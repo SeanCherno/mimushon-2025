@@ -6,11 +6,11 @@ import CategoryGuide from "./CategoryGuide";
 
 const COMMON_CONDITIONS = [
   { id: 'disease_205', name: 'בקע דיסק', icon: '🦴' },
-  { id: 'disease_202', name: 'כאבי גב תחתון', icon: '🔙' },
-  { id: 'disease_279', name: 'פציעת ברך', icon: '🦵' },
-  { id: 'disease_234', name: 'הגבלות כתף', icon: '💪' },
-  { id: 'disease_1',   name: 'ירידה בשמיעה', icon: '👂' },
-  { id: 'disease_68',  name: 'סוכרת', icon: '💉' },
+  { id: 'disease_202', name: 'גב תחתון', icon: '🔙' },
+  { id: 'disease_279', name: 'ברך', icon: '🦵' },
+  { id: 'disease_234', name: 'כתף', icon: '💪' },
+  { id: 'disease_361', name: 'ירידה בשמיעה', icon: '👂' },
+  { id: 'disease_23',  name: 'סוכרת', icon: '💉' },
 ];
 
 const DiseaseSelectionScreen = ({

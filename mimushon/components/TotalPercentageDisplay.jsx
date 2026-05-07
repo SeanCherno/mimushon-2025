@@ -1,47 +1,39 @@
 import Link from "next/link";
 import Tooltip from "./content/Tooltip";
 
-const getExplanation = (modeId, percentage) => {
+const getExplanation = (modeId, percentage, chosenDiseasesWithSeverities) => {
   if (modeId === "generalDisability") {
     if (percentage === 0) return "לא נמצאה נכות כללית במחלות שנבחרו.";
     if (percentage <= 24) return "אחוזי הנכות נמוכים. הסף המינימלי לקצבת נכות כללית הוא 40% — בטווח זה אין עדיין בסיס לקצבה. ייתכן זכאות להטבות אחרות — מומלץ לפנות לייעוץ.";
     if (percentage <= 39) return "אחוזי הנכות עדיין מתחת לסף המינימלי של 40% הנדרש לקצבת נכות כללית. ייתכן זכאות לנקודות זיכוי במס הכנסה — מומלץ לבדוק עם רואה חשבון.";
-    if (percentage <= 49) return "הגעת לסף המינימלי של 40% לקצבת נכות כללית. זכאות בפועל תלויה גם בדרגת אי-כושר שנקבעת בנפרד על ידי ביטוח לאומי.";
-    if (percentage <= 74) return "אחוזי נכות משמעותיים. סביר שתהיה זכאי/ת לקצבת נכות מביטוח לאומי, בכפוף לדרגת אי-כושר.";
-    if (percentage <= 89) return "אחוזי נכות גבוהים מאוד. צפויה זכאות לקצבת נכות גבוהה, בכפוף לדרגת אי-כושר.";
+    if (percentage <= 59) {
+      // The 40% threshold applies when there is a single impairment of ≥25%.
+      // The general threshold (without a qualifying single impairment) is 60%.
+      const hasHighSingleImpairment = chosenDiseasesWithSeverities?.some(
+        e => (e.selectedSeverity?.percentage ?? 0) >= 25
+      );
+      if (hasHighSingleImpairment) {
+        return "הגעת לסף של 40% הנדרש לקצבת נכות כללית (בשל ליקוי בודד של 25% ומעלה). זכאות בפועל תלויה גם בדרגת אי-כושר של 50% ומעלה, שנקבעת בנפרד על ידי ביטוח לאומי.";
+      }
+      return `אחוזי הנכות עדיין מתחת לסף הכללי של 60% הנדרש לקצבה ללא ליקוי בודד מוגדר. אם אחד הליקויים עומד על 25% ומעלה — הסף יורד ל-40%. מומלץ לבדוק עם יועץ נכות.`;
+    }
+    if (percentage <= 74) return "אחוזי נכות משמעותיים. סביר שתהיה זכאי/ת לקצבת נכות מביטוח לאומי, בכפוף לדרגת אי-כושר של 50% ומעלה.";
+    if (percentage <= 89) return "אחוזי נכות גבוהים מאוד. צפויה זכאות לקצבת נכות גבוהה, בכפוף לדרגת אי-כושר של 50% ומעלה.";
     return "אחוזי נכות קיצוניים. צפויה זכאות לקצבה המקסימלית וייתכן פטור ממס הכנסה.";
   }
   if (modeId === "taxIncome") {
-    if (percentage <= 89) return "עם אחוזים אלו, בדרך כלל אין פטור מלא ממס הכנסה. ייתכנו נקודות זיכוי.";
-    return "עם 90% ומעלה, ייתכן שתהיה זכאי/ת לפטור מלא ממס הכנסה על הכנסה מעבודה (עד תקרה שנתית). מומלץ לבדוק עם רואה חשבון.";
+    if (percentage <= 89) return "עם אחוזים אלו, בדרך כלל אין פטור מלא ממס הכנסה. ייתכנו נקודות זיכוי — מומלץ לבדוק עם רואה חשבון. לפטור ממס לא נדרשת דרגת אי-כושר — האחוזים הרפואיים בלבד קובעים.";
+    return "עם 90% ומעלה, ייתכן שתהיה זכאי/ת לפטור מלא ממס הכנסה על הכנסה מעבודה (עד תקרה שנתית). לפטור זה לא נדרשת דרגת אי-כושר — האחוזים הרפואיים בלבד קובעים. מומלץ לבדוק עם רואה חשבון.";
   }
   if (modeId === "specialServices") {
     if (percentage === 0) return "לא נמצאה זכאות לשירותים מיוחדים במחלות שנבחרו.";
     if (percentage < 60) return `נמצאה נכות רלוונטית לשירותים מיוחדים (${percentage}%), אך זהו מתחת לסף החוקי של 60% הנדרש לזכאות לקצבה.`;
-    return "ייתכן שתהיה זכאי/ת לקצבת שירותים מיוחדים — סיוע כספי לתשלום עבור מטפל/ת אישי/ת.";
+    return "ייתכן שתהיה זכאי/ת לקצבת שירותים מיוחדים — סיוע כספי לתשלום עבור מטפל/ת אישי/ת. בנוסף לאחוזי הנכות, ביטוח לאומי בוחן גם מידת התלות בעזרת הזולת בפעולות היומיום (ADL). מומלץ לתעד את הצורך בעזרה.";
   }
   return "";
 };
 
-const getModeBarColor = (modeId, percentage) => {
-  if (modeId === "generalDisability") {
-    if (percentage === 0)  return "bg-gray-300";
-    if (percentage <= 24)  return "bg-blue-300";
-    if (percentage <= 39)  return "bg-blue-400";
-    if (percentage <= 49)  return "bg-yellow-400";
-    if (percentage <= 74)  return "bg-orange-400";
-    return "bg-red-500";
-  }
-  if (modeId === "taxIncome") {
-    return percentage >= 90 ? "bg-green-500" : "bg-blue-400";
-  }
-  if (modeId === "specialServices") {
-    if (percentage === 0) return "bg-gray-300";
-    if (percentage < 60) return "bg-yellow-400";
-    return "bg-purple-500";
-  }
-  return "bg-indigo-400";
-};
+const getModeBarColor = () => "bg-indigo-500";
 
 const WHAT_NOW_LINKS = [
   {
@@ -74,17 +66,8 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
       <style dangerouslySetInnerHTML={{ __html: `
         @media print {
           @page { margin: 1cm; size: auto; }
-          html, body { height: auto !important; overflow: visible !important; }
           header, footer, nav, .no-print { display: none !important; }
-          body * { visibility: hidden; }
-          .print-area, .print-area * { visibility: visible; }
-          .print-area {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 16px;
-          }
+          .print-area { padding: 0; }
         }
       ` }} />
 
@@ -122,8 +105,8 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
         <div className="space-y-4">
           {modes.map(mode => {
             const pct = Math.round(totalPercentages.newTotals?.[mode.id] ?? 0);
-            const barColor = getModeBarColor(mode.id, pct);
-            const explanation = getExplanation(mode.id, pct);
+            const barColor = getModeBarColor();
+            const explanation = getExplanation(mode.id, pct, chosenDiseasesWithSeverities);
 
             return (
               <div key={mode.id} className="bg-white rounded-xl border border-indigo-200 shadow-sm p-4">
@@ -146,6 +129,18 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
               </div>
             );
           })}
+        </div>
+
+        {/* ── Work injury info card ────────────────────────────────────────── */}
+        <div className="bg-white rounded-xl border border-amber-200 shadow-sm p-4">
+          <div className="flex justify-between items-center mb-2">
+            <div className="flex items-center gap-2">
+              <span className="text-base font-semibold text-amber-700">💼 פגיעה בעבודה / תאונת עבודה</span>
+            </div>
+          </div>
+          <p className="text-sm text-gray-700 bg-amber-50 rounded-lg px-3 py-2 border border-amber-100">
+            פגיעה בעבודה נבחנת במסלול נפרד לחלוטין מנכות כללית. הסף לקצבת נכות מעבודה הוא <strong>20% ומעלה</strong> (ללא צורך בדרגת אי-כושר). בין 9% ל-19.9% ניתן מענק חד-פעמי. תקנה 15 עשויה להוסיף עד 50% נוספים בנסיבות מחמירות. אם הפגיעה קשורה לעבודה — מומלץ מאוד לפנות לייעוץ משפטי נפרד.
+          </p>
         </div>
 
         {/* ── Disclaimer ───────────────────────────────────────────────────── */}

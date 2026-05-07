@@ -76,11 +76,11 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     // 6. Your <html> tag
-    <html lang="he" dir="rtl" className={assistant.className}>
+    <html lang="he" dir="rtl" className={assistant.className} suppressHydrationWarning>
       {/* The <head> is now automatically managed by Next.js */}
 
       {/* 7. Your <body> tag */}
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen" suppressHydrationWarning>
         {/* Google Tag Manager (noscript) - must be first in <body> */}
         <noscript>
           <iframe

@@ -39,20 +39,27 @@ const SeverityTable = ({ disease, onSeverityChange, chosenDiseasesWithSeverities
       return;
     }
 
-    const selectedRow = disease.tableRows.find(row => row.header === rightLabel);
-    const columnIndex = disease.tableColumns.findIndex(col => col === topLabel);
+    // rightLabel = value from the sideLabel dropdown (e.g. left eye / left ear)
+    // topLabel   = value from the topLabel dropdown  (e.g. right eye / right ear)
+    const tryLookup = (rowKey, colKey) => {
+      const row = disease.tableRows.find(r => r.header === rowKey);
+      const colIndex = disease.tableColumns.findIndex(c => c === colKey);
+      if (!row || colIndex === -1) return null;
+      const severityId = row.severityIdsInRow[colIndex - 1]; // -1 to account for header column
+      return severitiesById[severityId] || null;
+    };
 
-    // --- Logic for Original Data Structure ---
-    if (selectedRow && columnIndex !== -1) {
-      // 1. Find the ID from the grid
-      const severityId = selectedRow.severityIdsInRow[columnIndex - 1]; // -1 to account for header column
+    // First try the direct mapping (sideLabel = row, topLabel = column)
+    let severity = tryLookup(rightLabel, topLabel);
 
-      // 2. Look up the full severity object in the map
-      const severity = severitiesById[severityId];
+    // If the table is triangular (e.g. visual acuity) and the user picked the
+    // "wrong" side first, swap the axes and try again.
+    if (!severity) {
+      severity = tryLookup(topLabel, rightLabel);
+    }
 
-      if (severity) {
-        onSeverityChange(disease, severity);
-      }
+    if (severity) {
+      onSeverityChange(disease, severity);
     }
   };
 

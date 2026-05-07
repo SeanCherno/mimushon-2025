@@ -42,7 +42,7 @@ const nextConfig = {
               // Images: own origin + data URIs + any HTTPS source (for og images etc.)
               "img-src 'self' data: https:",
               // API calls: own origin + GA
-              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com",
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://cdn.jsdelivr.net",
               // Frames: only GTM noscript iframe
               "frame-src https://www.googletagmanager.com",
               // Forbid this page from being framed anywhere

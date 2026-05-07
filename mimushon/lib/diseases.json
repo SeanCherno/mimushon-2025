@@ -14695,6 +14695,8 @@
               "name": "ירידה בחדות הראייה (Visual Acuity)",
               "eyesightTable": true,
               "displayAsTable": true,
+              "topLabel": "עין ימין",
+              "sideLabel": "עין שמאל",
               "tableColumns": [
                 "",
                 "6/6",

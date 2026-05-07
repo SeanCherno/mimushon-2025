@@ -415,7 +415,7 @@ export default function Calculator({ initialCategories }) {
               className="bg-white p-6 sm:p-10 rounded-xl shadow-2xl w-full border border-indigo-200"
               dir="rtl"
             >
-              <h2 className="text-3xl sm:text-4xl font-semibold text-center text-indigo-800 mb-1 sm:mb-8">
+              <h2 className="no-print text-3xl sm:text-4xl font-semibold text-center text-indigo-800 mb-1 sm:mb-8">
                 מחשבון אחוזי נכות למחלות
               </h2>
 
@@ -424,7 +424,7 @@ export default function Calculator({ initialCategories }) {
                 dir="rtl"
               >
                 {/* Sidebar */}
-                <aside className="w-full md:w-1/3 hidden md:block">
+                <aside className="no-print w-full md:w-1/3 hidden md:block">
                   <ChosenDiseasesSummary
                     chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}
                     onRemoveDisease={handleRemoveDisease}
@@ -438,7 +438,7 @@ export default function Calculator({ initialCategories }) {
 
                 {/* Mobile FAB and Modal */}
 
-                <div className="md:hidden">
+                <div className="no-print md:hidden">
                   {chosenDiseasesWithSeverities.filter(
                     (disease) => disease.selectedSeverity
                   ).length > 0 && (

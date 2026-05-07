@@ -30,7 +30,7 @@ export default async function HomePage() {
       <main>
         <div className=" bg-gradient-to-br from-indigo-50 to-indigo-50">
           {/* Your static Hero section */}
-          <HeroSection />
+          <div className="no-print"><HeroSection /></div>
 
           <div id="calculator"></div>
 
@@ -44,16 +44,15 @@ export default async function HomePage() {
             This is all server-rendered HTML.
           */}
 
-          <>
+          <div className="no-print">
             <HowWeHelpSection />
             <AboutCalculatorSection />
             <CalculatorExplanation />
             <FaqSection />
             <ProcessSection />
-            {/* <WhyUsSection /> */}
-          </>
+          </div>
 
-          <ContactSection />
+          <div className="no-print"><ContactSection /></div>
         </div>
       </main>
     </div>
