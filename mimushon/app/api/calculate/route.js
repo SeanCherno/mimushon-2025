@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import pool from "../../../lib/db";
 import { modes, findDiseasesById } from "../../../lib/data";
+
+export const dynamic = 'force-dynamic';
 import { checkCsrfOrigin } from "../../../lib/csrf";
 
 // ── Validation constants ──────────────────────────────────────────────────────

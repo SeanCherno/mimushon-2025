@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import pool from "../../../lib/db";
 import { checkCsrfOrigin } from "../../../lib/csrf";
 
+export const dynamic = 'force-dynamic';
+
 // ── Validation constants ──────────────────────────────────────────────────────
 const MAX_NAME_LEN = 100;
 const MAX_PHONE_LEN = 15;
