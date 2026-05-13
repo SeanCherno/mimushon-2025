@@ -9,6 +9,9 @@ const ContactSection = () => {
         hearot: ''
     });
 
+    const [consent, setConsent] = useState(false);
+    const [consentError, setConsentError] = useState('');
+
     const [errors, setErrors] = useState({
         name: '',
         phone: ''
@@ -80,20 +83,25 @@ const ContactSection = () => {
             phone: phoneError,
         });
 
+        // --- Check consent ---
+        if (!consent) {
+            setConsentError('יש לאשר את הסכמתך לפני שליחת הטופס');
+            return;
+        }
+        setConsentError('');
+
         // --- Check if any errors exist ---
         if (nameError || phoneError) {
-            console.log("Validation failed. Please check the fields.");
-            return; // Stop submission
+            return;
         }
 
-        console.log("Submitting:", userInfo);
         try {
             const response = await fetch(`/api/user-info`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(userInfo),
+                body: JSON.stringify({ ...userInfo, consent }),
             });
 
             if (!response.ok) {
@@ -106,15 +114,10 @@ const ContactSection = () => {
 
             // If successful, clear the form
             if (data.result === true) {
-                setUserInfo({
-                    name: '',
-                    phone: '',
-                    hearot: ''
-                });
-                setErrors({
-                    name: '',
-                    phone: ''
-                });
+                setUserInfo({ name: '', phone: '', hearot: '' });
+                setErrors({ name: '', phone: '' });
+                setConsent(false);
+                setConsentError('');
             }
 
         } catch (error) {
@@ -190,6 +193,25 @@ const ContactSection = () => {
                                 onChange={handleUserInfoChange}
                                 className="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             />
+                        </div>
+
+                        {/* Consent Checkbox */}
+                        <div className="mb-6">
+                            <label className="flex items-start gap-3 cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    checked={consent}
+                                    onChange={(e) => {
+                                        setConsent(e.target.checked);
+                                        if (e.target.checked) setConsentError('');
+                                    }}
+                                    className="mt-1 h-4 w-4 text-indigo-600 border-gray-300 rounded shrink-0"
+                                />
+                                <span className="text-sm text-gray-600">
+                                    אני מסכים/ה שעורך דין או נציג מטעם מימושון ייצור איתי קשר לצורך ייעוץ ראשוני חינמי, וכי פרטיי יועברו לגורם המטפל בפנייתי.
+                                </span>
+                            </label>
+                            {consentError && <p className="text-red-500 text-xs italic mt-1">{consentError}</p>}
                         </div>
 
                         {/* Submit Button */}

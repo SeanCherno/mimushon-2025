@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import pool from "../../../lib/db";
 import { checkCsrfOrigin } from "../../../lib/csrf";
+import { sendLeadNotification } from "../../../lib/mailer";
 
 export const dynamic = 'force-dynamic';
 
@@ -31,7 +32,12 @@ export async function POST(request) {
     return badRequest("Invalid request body");
   }
 
-  const { name, phone, hearot } = body ?? {};
+  const { name, phone, hearot, consent } = body ?? {};
+
+  // 2a. Consent check
+  if (!consent) {
+    return badRequest("יש לאשר את תנאי השימוש לפני שליחת הטופס");
+  }
 
   // 2. Server-side input validation
   if (
@@ -70,6 +76,17 @@ export async function POST(request) {
     ];
 
     await pool.query(queryText, values);
+
+    // Send email notification (best-effort — never fail the request on email error)
+    try {
+      await sendLeadNotification({
+        name: name.trim(),
+        phone: phone.trim(),
+        comment: typeof hearot === "string" ? hearot.trim() : "",
+      });
+    } catch (emailErr) {
+      console.error("[user-info] Failed to send lead notification email:", emailErr.message);
+    }
 
     // Don't log PII (name/phone) in production logs
     console.log("[user-info] Contact form submission saved successfully.");
