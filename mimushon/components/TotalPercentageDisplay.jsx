@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Tooltip from "./content/Tooltip";
+import ContactForm from "./content/ContactForm";
 
 const getExplanation = (modeId, percentage, chosenDiseasesWithSeverities) => {
   if (modeId === "generalDisability") {
@@ -188,6 +189,24 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
             </ul>
           </div>
         )}
+
+        {/* ── CTA + Lead form ──────────────────────────────────────────────── */}
+        <div className="no-print bg-indigo-700 rounded-xl p-6 text-white">
+          <div className="text-center mb-5">
+            <h3 className="text-xl font-bold mb-2">רוצה לדעת אם מגיע לך יותר?</h3>
+            <p className="text-indigo-200 text-sm">
+              עורך דין מומחה לנכות יבחן את המקרה שלך ללא עלות וללא התחייבות — ויגיד לך בדיוק היכן אתה עומד.
+            </p>
+            <div className="flex justify-center gap-4 mt-3 text-xs text-indigo-200">
+              <span>✅ ייעוץ חינמי</span>
+              <span>✅ ללא התחייבות</span>
+              <span>✅ מומחים בנכות</span>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl p-5">
+            <ContactForm variant="compact" />
+          </div>
+        </div>
 
         {/* ── What now? ────────────────────────────────────────────────────── */}
         <div className="no-print bg-indigo-50 rounded-xl border border-indigo-200 p-4">
