@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import pool from "../../../lib/db";
 import { modes, findDiseasesById } from "../../../lib/data";
 import { checkCsrfOrigin } from "../../../lib/csrf";
+import { rateLimit, getClientIp } from "../../../lib/rateLimit";
 
 export const dynamic = 'force-dynamic';
 
@@ -10,7 +11,17 @@ const MAX_DISEASES = 20; // Hard cap — prevents DoS amplification attacks
 
 // ── Route handler ─────────────────────────────────────────────────────────────
 export async function POST(request) {
-  // 1. CSRF origin check
+  // 1. Rate limit — 60 calculations per IP per minute
+  const ip = getClientIp(request);
+  const { allowed } = rateLimit(`calculate:${ip}`, { windowMs: 60_000, max: 60 });
+  if (!allowed) {
+    return NextResponse.json(
+      { error: "יותר מדי בקשות. אנא נסה שוב מאוחר יותר." },
+      { status: 429 }
+    );
+  }
+
+  // 2. CSRF origin check
   if (!checkCsrfOrigin(request)) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }

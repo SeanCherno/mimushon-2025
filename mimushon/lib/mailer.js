@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 /**
  * Send a lead notification email to the site owner.
  */
-export async function sendLeadNotification({ name, phone, comment }) {
+export async function sendLeadNotification({ name, phone, comment, percentages }) {
   if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.NOTIFICATION_EMAIL) {
     console.warn("[mailer] Email not configured — skipping notification.");
     return;
@@ -39,6 +39,19 @@ export async function sendLeadNotification({ name, phone, comment }) {
           <tr>
             <td style="padding: 8px; border: 1px solid #e5e7eb; font-weight: bold; background: #f9fafb;">הערות</td>
             <td style="padding: 8px; border: 1px solid #e5e7eb;">${comment}</td>
+          </tr>` : ""}
+          ${percentages ? `
+          <tr>
+            <td style="padding: 8px; border: 1px solid #e5e7eb; font-weight: bold; background: #f9fafb;">נכות כללית</td>
+            <td style="padding: 8px; border: 1px solid #e5e7eb; font-weight: bold; color: #4338ca;">${Math.round(percentages.generalDisability ?? 0)}%</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #e5e7eb; font-weight: bold; background: #f9fafb;">מס הכנסה</td>
+            <td style="padding: 8px; border: 1px solid #e5e7eb;">${Math.round(percentages.taxIncome ?? 0)}%</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #e5e7eb; font-weight: bold; background: #f9fafb;">שירותים מיוחדים</td>
+            <td style="padding: 8px; border: 1px solid #e5e7eb;">${Math.round(percentages.specialServices ?? 0)}%</td>
           </tr>` : ""}
         </table>
         <p style="color: #6b7280; font-size: 12px; margin-top: 16px;">

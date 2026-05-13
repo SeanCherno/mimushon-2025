@@ -11,7 +11,7 @@ export async function GET(request) {
   }
 
   try {
-    const [topDiseasesResult, totalResult] = await Promise.all([
+    const [topDiseasesResult, totalResult, leadsResult] = await Promise.all([
       pool.query(`
         SELECT
           d->'disease'->>'id'   AS disease_id,
@@ -26,11 +26,18 @@ export async function GET(request) {
       pool.query(`
         SELECT COUNT(*)::int AS total FROM disease_calculations
       `),
+      pool.query(`
+        SELECT id, name, phone, comment, percentages, created_at
+        FROM contact_us_users
+        ORDER BY created_at DESC
+        LIMIT 100
+      `),
     ]);
 
     return NextResponse.json({
       topDiseases: topDiseasesResult.rows,
       totalCalculations: totalResult.rows[0]?.total ?? 0,
+      leads: leadsResult.rows,
     });
   } catch (err) {
     console.error("[admin/stats] DB error:", err.message);

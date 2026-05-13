@@ -204,7 +204,7 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
             </div>
           </div>
           <div className="bg-white rounded-xl p-5">
-            <ContactForm variant="compact" />
+            <ContactForm variant="compact" percentages={totalPercentages?.newTotals} />
           </div>
         </div>
 
