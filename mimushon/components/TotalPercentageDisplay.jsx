@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Tooltip from "./content/Tooltip";
 import ContactForm from "./content/ContactForm";
+import IncapacityQuestionnaire from "./IncapacityQuestionnaire";
 
 const getExplanation = (modeId, percentage, chosenDiseasesWithSeverities) => {
   if (modeId === "generalDisability") {
@@ -18,9 +19,9 @@ const getExplanation = (modeId, percentage, chosenDiseasesWithSeverities) => {
       }
       return `אחוזי הנכות עדיין מתחת לסף הכללי של 60% הנדרש לקצבה ללא ליקוי בודד מוגדר. אם אחד הליקויים עומד על 25% ומעלה — הסף יורד ל-40%. מומלץ לבדוק עם יועץ נכות.`;
     }
-    if (percentage <= 74) return "אחוזי נכות משמעותיים. סביר שתהיה זכאי/ת לקצבת נכות מביטוח לאומי, בכפוף לדרגת אי-כושר של 50% ומעלה.";
-    if (percentage <= 89) return "אחוזי נכות גבוהים מאוד. צפויה זכאות לקצבת נכות גבוהה, בכפוף לדרגת אי-כושר של 50% ומעלה.";
-    return "אחוזי נכות קיצוניים. צפויה זכאות לקצבה המקסימלית וייתכן פטור ממס הכנסה.";
+    if (percentage <= 74) return "עברת את הסף הרפואי לקצבת נכות כללית. שלב הבא: ביטוח לאומי קובע את דרגת אי-הכושר — מדד נפרד שבוחן עד כמה הנכות פוגעת ביכולת ההשתכרות. דרגת אי-הכושר (60%–100%) היא שקובעת את גובה הקצבה בפועל.";
+    if (percentage <= 89) return "אחוזי נכות גבוהים — עברת את הסף הרפואי בבירור. שלב הבא: ביטוח לאומי קובע את דרגת אי-הכושר בנפרד, לפי השפעת הנכות על יכולת ההשתכרות. היא תקבע אם תקבל 60%, 65%, 74% או 100% — וזה שקובע את סכום הקצבה.";
+    return "אחוזי נכות גבוהים מאוד — עברת את הסף הרפואי. שלב הבא: ביטוח לאומי קובע את דרגת אי-הכושר בנפרד, לפי השפעת הנכות על יכולת ההשתכרות. היא תקבע אם תקבל 60%, 65%, 74% או 100% — וזה שקובע את סכום הקצבה.";
   }
   if (modeId === "taxIncome") {
     if (percentage <= 89) return "עם אחוזים אלו, בדרך כלל אין פטור מלא ממס הכנסה. ייתכנו נקודות זיכוי — מומלץ לבדוק עם רואה חשבון. לפטור ממס לא נדרשת דרגת אי-כושר — האחוזים הרפואיים בלבד קובעים.";
@@ -28,8 +29,9 @@ const getExplanation = (modeId, percentage, chosenDiseasesWithSeverities) => {
   }
   if (modeId === "specialServices") {
     if (percentage === 0) return "לא נמצאה זכאות לשירותים מיוחדים במחלות שנבחרו.";
-    if (percentage < 60) return `נמצאה נכות רלוונטית לשירותים מיוחדים (${percentage}%), אך זהו מתחת לסף החוקי של 60% הנדרש לזכאות לקצבה.`;
-    return "ייתכן שתהיה זכאי/ת לקצבת שירותים מיוחדים — סיוע כספי לתשלום עבור מטפל/ת אישי/ת. בנוסף לאחוזי הנכות, ביטוח לאומי בוחן גם מידת התלות בעזרת הזולת בפעולות היומיום (ADL). מומלץ לתעד את הצורך בעזרה.";
+    if (percentage < 60) return `נמצאה נכות רלוונטית לשירותים מיוחדים (${percentage}%), אך זהו מתחת לסף של 60% הנדרש למי שמקבל קצבת נכות כללית, ומתחת ל-75% הנדרש למי שאינו מקבל קצבה כזו.`;
+    if (percentage < 75) return "אתה/את עשוי/ה לעמוד בסף לשירותים מיוחדים — אם אתה/את כבר מקבל/ת קצבת נכות כללית, הסף הוא 60%. אם לא — הסף הוא 75%. בנוסף לאחוזי הנכות, ביטוח לאומי בוחן מידת התלות בעזרת הזולת בפעולות היומיום (ADL). מומלץ לתעד את הצורך בעזרה.";
+    return "אחוזי הנכות עוברים את סף ה-75% — עשוי/ה להיות זכאי/ת לשירותים מיוחדים גם ללא קצבת נכות כללית. הזכאות מותנית גם במבחן תלות בפעולות היומיום (ADL) שנקבע על ידי ביטוח לאומי.";
   }
   return "";
 };
@@ -110,23 +112,32 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
             const explanation = getExplanation(mode.id, pct, chosenDiseasesWithSeverities);
 
             return (
-              <div key={mode.id} className="bg-white rounded-xl border border-indigo-200 shadow-sm p-4">
-                <div className="flex justify-between items-center mb-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-base font-semibold text-indigo-700">{mode.name}</span>
-                    <Tooltip content={mode.content} />
+              <div key={mode.id}>
+                <div className="bg-white rounded-xl border border-indigo-200 shadow-sm p-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-base font-semibold text-indigo-700">{mode.name}</span>
+                      <Tooltip content={mode.content} />
+                    </div>
+                    <span className="text-3xl font-extrabold text-indigo-700">{pct}%</span>
                   </div>
-                  <span className="text-3xl font-extrabold text-indigo-700">{pct}%</span>
+                  <div className="w-full bg-gray-100 rounded-full h-3 mb-3 overflow-hidden">
+                    <div
+                      className={`h-3 rounded-full transition-all duration-500 ${barColor}`}
+                      style={{ width: `${pct}%` }}
+                    />
+                  </div>
+                  <p className="text-sm text-gray-700 bg-indigo-50 rounded-lg px-3 py-2 border border-indigo-100">
+                    {explanation}
+                  </p>
                 </div>
-                <div className="w-full bg-gray-100 rounded-full h-3 mb-3 overflow-hidden">
-                  <div
-                    className={`h-3 rounded-full transition-all duration-500 ${barColor}`}
-                    style={{ width: `${pct}%` }}
-                  />
-                </div>
-                <p className="text-sm text-gray-700 bg-indigo-50 rounded-lg px-3 py-2 border border-indigo-100">
-                  {explanation}
-                </p>
+
+                {/* ── Incapacity questionnaire — appears only under general disability ── */}
+                {mode.id === 'generalDisability' && (
+                  <div className="mt-3 mr-4 border-r-2 border-indigo-200 pr-3">
+                    <IncapacityQuestionnaire />
+                  </div>
+                )}
               </div>
             );
           })}
