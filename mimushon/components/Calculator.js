@@ -26,6 +26,40 @@ export default function Calculator({ initialCategories }) {
   const [liveTotals, setLiveTotals] = useState(null);
   const liveCalcTimerRef = useRef(null);
 
+  const SESSION_KEY = 'mimushon_calc_state';
+
+  // ── Restore state from sessionStorage on mount ─────────────────────────
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem(SESSION_KEY);
+      if (!saved) return;
+      const { diseases, screen, totals } = JSON.parse(saved);
+      if (diseases && diseases.length > 0) {
+        setChosenDiseasesWithSeverities(diseases);
+      }
+      if (screen && screen !== 'severitySelection') {
+        setCurrentScreen(screen);
+      }
+      if (totals && Object.keys(totals).length > 0) {
+        setTotalPercentages(totals);
+      }
+    } catch (e) {
+      // Corrupt / unreadable — ignore
+      sessionStorage.removeItem(SESSION_KEY);
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // ── Persist state to sessionStorage whenever it changes ────────────────
+  useEffect(() => {
+    try {
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify({
+        diseases: chosenDiseasesWithSeverities,
+        screen: currentScreen,
+        totals: totalPercentages,
+      }));
+    } catch (e) { /* quota exceeded or private browsing — silent */ }
+  }, [chosenDiseasesWithSeverities, currentScreen, totalPercentages]);
+
   const modes = [
     {
       id: "generalDisability",
@@ -84,6 +118,13 @@ export default function Calculator({ initialCategories }) {
       setCurrentScreen("diseaseSelection");
     }
   }, [chosenDiseasesWithSeverities]);
+
+  // Close mobile summary when the user navigates via the header menu
+  useEffect(() => {
+    const close = () => setIsMobileSummaryOpen(false);
+    window.addEventListener('header-nav', close);
+    return () => window.removeEventListener('header-nav', close);
+  }, []);
 
   // Auto-calculate live totals whenever all chosen diseases have a severity
   useEffect(() => {
@@ -282,6 +323,8 @@ export default function Calculator({ initialCategories }) {
   };
 
   const handleAddDiseaseAndCloseModal = () => {
+    setSelectedCategory(null);
+    setSelectedSubCategory(null);
     setCurrentScreen("diseaseSelection");
     setIsMobileSummaryOpen(false);
   };
@@ -310,9 +353,12 @@ export default function Calculator({ initialCategories }) {
   };
 
   const handleStartOver = () => {
+    sessionStorage.removeItem(SESSION_KEY);
     setChosenDiseasesWithSeverities([]);
     setSelectedCategory(null);
     setSelectedSubCategory(null);
+    setTotalPercentages({});
+    setLiveTotals(null);
     setCalcError(false);
     setCurrentScreen("diseaseSelection");
   };
@@ -444,42 +490,39 @@ export default function Calculator({ initialCategories }) {
                   ).length > 0 && (
                     <button
                       onClick={() => setIsMobileSummaryOpen(true)}
-                      className="fixed inset-x-0 bottom-6 mx-auto w-1/2 z-30 bg-indigo-600 border border-black text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition flex items-center justify-center"
+                      className="fixed inset-x-0 bottom-6 mx-auto w-1/2 z-30 bg-indigo-600 border border-black text-white px-4 py-2.5 rounded-full shadow-lg hover:bg-indigo-700 transition flex flex-col items-center justify-center gap-0.5"
                       aria-label="View Summary"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
-                        />
-                      </svg>
-                      <p className="px-3">
-                        חשב אחוזי נכות
-                        {liveTotals?.newTotals?.generalDisability != null && (
-                          <span className="mr-1 font-bold">
-                            ~{Math.round(liveTotals.newTotals.generalDisability)}%
-                          </span>
-                        )}
-                      </p>
-                      {chosenDiseasesWithSeverities.filter(
-                        (disease) => disease.selectedSeverity
-                      ).length > 0 && (
-                        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center border-2 border-white">
-                          {
-                            chosenDiseasesWithSeverities.filter(
-                              (disease) => disease.selectedSeverity
-                            ).length
-                          }
+                      {/* Disease count line */}
+                      <span className="text-xs text-indigo-200 leading-none">
+                        {chosenDiseasesWithSeverities.filter(d => d.selectedSeverity).length} מחלות נבחרו
+                      </span>
+
+                      {/* Main action row */}
+                      <span className="flex items-center gap-2">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 shrink-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                          />
+                        </svg>
+                        <span className="font-semibold text-sm leading-none">
+                          חשב אחוזי נכות
+                          {liveTotals?.newTotals?.generalDisability != null && (
+                            <span className="mr-1 font-bold">
+                              ~{Math.round(liveTotals.newTotals.generalDisability)}%
+                            </span>
+                          )}
                         </span>
-                      )}
+                      </span>
                     </button>
                   )}
 

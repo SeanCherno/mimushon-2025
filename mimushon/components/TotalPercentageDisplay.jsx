@@ -66,20 +66,53 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
   return (
     <>
       {/* ── Print styles ────────────────────────────────────────────────────── */}
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media print {
-          @page { margin: 1cm; size: auto; }
+          @page { margin: 1.5cm; size: A4; }
           header, footer, nav, .no-print { display: none !important; }
-          .print-area { padding: 0; }
+          .print-area { padding: 0; font-family: Arial, sans-serif; }
+          .print-header { display: block !important; }
+          body { font-size: 12px; color: #111; }
+          .print-area .space-y-6 > * { margin-bottom: 12px; }
+          .rounded-xl, .rounded-lg { border-radius: 6px; }
+          .shadow-sm { box-shadow: none; }
+          .bg-indigo-50, .bg-indigo-700 { background: #f8f9ff !important; color: #111 !important; }
+          .text-indigo-700, .text-indigo-800 { color: #3730a3 !important; }
+          .border-indigo-200 { border-color: #c7d2fe !important; }
+          h2, h3 { color: #1e1b4b; }
+          .print-disease-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #e5e7eb; font-size: 11px; }
         }
+        .print-header { display: none; }
       ` }} />
 
-      <div className="print-area space-y-6" id="total-percentage">
+      <div className="print-area space-y-3" id="total-percentage">
+
+        {/* ── Print-only header (hidden on screen) ─────────────────────────── */}
+        <div className="print-header" style={{ marginBottom: '16px', borderBottom: '2px solid #3730a3', paddingBottom: '12px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#1e1b4b', margin: 0 }}>מימושון — מחשבון אחוזי נכות</div>
+              <div style={{ fontSize: '11px', color: '#6b7280', marginTop: '2px' }}>mimushon.co.il</div>
+            </div>
+            <div style={{ fontSize: '11px', color: '#6b7280', textAlign: 'left' }}>
+              תאריך הפקה: {new Date().toLocaleDateString('he-IL')}
+            </div>
+          </div>
+          <div style={{ marginTop: '12px' }}>
+            <div style={{ fontSize: '12px', fontWeight: '600', color: '#1e1b4b', marginBottom: '6px' }}>מחלות שנבחרו:</div>
+            {chosenDiseasesWithSeverities.map(entry => (
+              <div key={entry.disease.id} className="print-disease-row">
+                <span>{entry.disease.name}</span>
+                <span>{entry.selectedSeverity?.percentage ?? 0}%</span>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* ── Results header ───────────────────────────────────────────────── */}
         <div className="text-center pb-2 border-b border-indigo-200">
           <div className="flex justify-center items-center gap-3 mb-1">
-            <span className="text-4xl">✅</span>
             <h2 className="text-2xl font-bold text-indigo-800">תוצאות החישוב שלך</h2>
           </div>
           <p className="text-sm text-gray-500">להלן הערכת אחוזי הנכות על פי המחלות והחומרות שנבחרו</p>
@@ -163,22 +196,28 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
         </div>
 
         {/* ── Action buttons ───────────────────────────────────────────────── */}
-        <div className="no-print flex flex-wrap gap-3 justify-center">
+        <div className="no-print grid grid-cols-1 sm:grid-cols-4 gap-3">
           <button
             onClick={() => setCurrentScreen("diseaseSelection")}
-            className="px-5 py-2.5 bg-white text-indigo-700 border-2 border-indigo-400 rounded-lg font-semibold hover:bg-indigo-50 transition"
+            className="w-full py-2.5 bg-white text-indigo-700 border-2 border-indigo-400 rounded-lg font-semibold hover:bg-indigo-50 transition"
           >
             הוסף מחלה
           </button>
           <button
             onClick={() => window.print()}
-            className="px-5 py-2.5 bg-indigo-100 text-indigo-800 border border-indigo-300 rounded-lg font-semibold hover:bg-indigo-200 transition"
+            className="w-full py-2.5 bg-indigo-100 text-indigo-800 border border-indigo-300 rounded-lg font-semibold hover:bg-indigo-200 transition"
           >
-            🖨️ הדפס / שמור PDF
+            🖨️ הדפס
+          </button>
+          <button
+            onClick={() => window.print()}
+            className="w-full py-2.5 bg-indigo-100 text-indigo-800 border border-indigo-300 rounded-lg font-semibold hover:bg-indigo-200 transition"
+          >
+            💾 שמור כ-PDF
           </button>
           <button
             onClick={onStartOver}
-            className="px-5 py-2.5 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition"
+            className="w-full py-2.5 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition"
           >
             התחל מחדש
           </button>
@@ -209,14 +248,69 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
               עורך דין מומחה לנכות יבחן את המקרה שלך ללא עלות וללא התחייבות — ויגיד לך בדיוק היכן אתה עומד.
             </p>
             <div className="flex justify-center gap-4 mt-3 text-xs text-indigo-200">
-              <span>✅ ייעוץ חינמי</span>
-              <span>✅ ללא התחייבות</span>
-              <span>✅ מומחים בנכות</span>
+              <span>ייעוץ חינמי</span>
+              <span>ללא התחייבות</span>
+              <span>מומחים בליווי</span>
             </div>
           </div>
           <div className="bg-white rounded-xl p-5">
             <ContactForm variant="compact" percentages={totalPercentages?.newTotals} />
           </div>
+        </div>
+
+        {/* ── Process timeline ─────────────────────────────────────────────── */}
+        <div className="no-print bg-white rounded-xl border border-indigo-200 shadow-sm p-4">
+          <h3 className="text-base font-bold text-indigo-800 mb-4 flex items-center gap-2">
+            <span>🗓️</span> ציר הזמן הצפוי — מהמחשבון ועד לקצבה
+          </h3>
+          <div className="space-y-3">
+            {[
+              {
+                step: 1,
+                title: 'הגשת תביעה לביטוח לאומי',
+                time: 'מיידי',
+                desc: 'מגישים טופס תביעה לנכות כללית (ב-250) עם כל המסמכים הרפואיים. ניתן גם להגיש אונליין.',
+              },
+              {
+                step: 2,
+                title: 'זימון לוועדה הרפואית',
+                time: '1–3 חודשים',
+                desc: 'ביטוח לאומי בוחן את הבקשה ומשבץ לוועדה. בדחיפות רפואית ניתן לבקש זירוז.',
+              },
+              {
+                step: 3,
+                title: 'ישיבת הוועדה הרפואית',
+                time: '10–30 דקות',
+                desc: 'הרופא בוועדה בוחן מסמכים ומבצע בדיקה קצרה. ההחלטה על אחוזי הנכות מגיעה בדואר תוך כמה שבועות.',
+              },
+              {
+                step: 4,
+                title: 'קביעת דרגת אי-כושר',
+                time: '2–4 שבועות',
+                desc: 'פקיד תביעות קובע (לנכות כללית) עד כמה הנכות פוגעת ביכולת ההשתכרות. זה קובע את גובה הקצבה בפועל.',
+              },
+              {
+                step: 5,
+                title: 'אישור קצבה ותשלום ראשון',
+                time: '2–4 שבועות',
+                desc: 'לאחר אישור הזכאות, הקצבה מתחילה להשתלם. ייתכן תשלום רטרואקטיבי ממועד הגשת התביעה.',
+              },
+            ].map(({ step, title, time, desc }) => (
+              <div key={step} className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-indigo-600 text-white text-sm font-bold flex items-center justify-center shrink-0 mt-0.5">
+                  {step}
+                </div>
+                <div className="flex-1 bg-indigo-50 rounded-lg p-3 border border-indigo-100">
+                  <div className="flex flex-wrap justify-between items-start gap-2 mb-1">
+                    <span className="text-sm font-semibold text-indigo-800">{title}</span>
+                    <span className="text-xs bg-indigo-100 text-indigo-700 rounded-full px-2 py-0.5 shrink-0 border border-indigo-200">{time}</span>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-gray-400 mt-3 text-center">* הזמנים הם הערכה בלבד ועשויים להשתנות לפי עומס ביטוח לאומי ומורכבות המקרה</p>
         </div>
 
         {/* ── What now? ────────────────────────────────────────────────────── */}

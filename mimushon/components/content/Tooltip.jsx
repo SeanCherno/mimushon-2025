@@ -41,14 +41,23 @@ const Tooltip = ({ content }) => {
         }
     }, [isMounted]);
 
+    // Auto-hide timer ref (used for touch/mobile fade-out)
+    const autoHideTimer = useRef(null);
+
     // Show the tooltip and RESET its direction
     const handleShow = () => {
         setDirection('left'); // Reset the direction
         setIsMounted(true);  // Mount the component
+        // Auto-dismiss after 2.5s (mainly useful on touch screens)
+        if (autoHideTimer.current) clearTimeout(autoHideTimer.current);
+        autoHideTimer.current = setTimeout(() => {
+            handleHide();
+        }, 2500);
     };
 
     // Hide the tooltip
     const handleHide = () => {
+        if (autoHideTimer.current) clearTimeout(autoHideTimer.current);
         setIsVisible(false); // Trigger fade-out
     };
 
@@ -86,7 +95,8 @@ const Tooltip = ({ content }) => {
             onMouseLeave={handleHide}
             onFocus={handleShow}
             onBlur={handleHide}
-            tabIndex="0" // Make it focusable for accessibility
+            onTouchStart={(e) => { e.preventDefault(); isMounted ? handleHide() : handleShow(); }}
+            tabIndex="0"
         >
             {/* Icon */}
             <svg className="w-4 h-4 sm:w-4 sm:h-4 text-slate-500 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

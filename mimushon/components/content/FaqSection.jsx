@@ -41,7 +41,7 @@ export default function FaqSection() {
   const [open, setOpen] = useState(null);
 
   return (
-    <section className="max-w-3xl mx-auto px-4 py-12" dir="rtl">
+    <section className="max-w-3xl mx-auto px-4 pt-4" dir="rtl">
       <h2 className="text-2xl font-bold text-indigo-800 mb-6 text-center">שאלות נפוצות</h2>
       <div className="space-y-3">
         {FAQ_ITEMS.map((item, i) => (

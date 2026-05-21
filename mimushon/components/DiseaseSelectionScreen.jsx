@@ -10,7 +10,7 @@ const COMMON_CONDITIONS = [
   { id: 'disease_279', name: 'ברך', icon: '🦵' },
   { id: 'disease_234', name: 'כתף', icon: '💪' },
   { id: 'disease_361', name: 'ירידה בשמיעה', icon: '👂' },
-  { id: 'disease_23',  name: 'סוכרת', icon: '💉' },
+  { id: 'disease_23', name: 'סוכרת', icon: '💉' },
 ];
 
 const DiseaseSelectionScreen = ({
@@ -111,42 +111,29 @@ const DiseaseSelectionScreen = ({
     )
   }
 
+  // Shared back-arrow icon — declared before any early returns so it's always in scope
+  const BackArrow = () => (
+    <svg height="22px" width="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fillRule="evenodd" clipRule="evenodd"
+        d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z"
+        fill="#5a67d8" />
+    </svg>
+  );
+
   if (selectedSubCategory) {
     return (
       <div className="mb-8 p-6 bg-indigo-50 rounded-xl border border-indigo-200 screen-container">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold text-indigo-800">
-            {selectedSubCategory.name}
-          </h2>
+        <div className="relative flex items-center mb-4">
           <button
             onClick={handleBackToSubCategories}
-            className="mt-2 flex bg-white rounded-lg border border-indigo-200 p-2 items-center gap-1 text-sm font-semibold text-indigo-600 hover:underline"
+            title={`חזור ל${selectedCategory?.name || "קטגוריות"}`}
+            className="absolute right-0 flex bg-white rounded-lg border border-indigo-200 p-2 items-center text-indigo-600 hover:bg-indigo-50 transition"
           >
-            <svg
-              height="25px"
-              width="25px"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-              <g
-                id="SVGRepo_tracerCarrier"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              ></g>
-              <g id="SVGRepo_iconCarrier">
-                {" "}
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z"
-                  fill="#5a67d8"
-                ></path>{" "}
-              </g>
-            </svg>
-            <span >חזור ל{selectedCategory?.name || "קטגוריות"}</span>
+            <BackArrow />
           </button>
+          <h2 className="w-full text-center text-2xl font-bold text-indigo-800 px-14">
+            {selectedSubCategory.name}
+          </h2>
         </div>
         <div className="space-y-2">
           {selectedSubCategory.diseases.map((disease) => (
@@ -242,7 +229,7 @@ const DiseaseSelectionScreen = ({
               onClick={() => setShowGuide(true)}
               className="w-full mb-4 p-3 bg-white border-2 border-dashed border-indigo-400 rounded-xl text-indigo-600 font-semibold hover:bg-indigo-50 transition"
             >
-              לא בטוח/ה איפה להתחיל? 🤔 לחצ/י כאן לעזרה
+              לא בטוח/ה איפה להתחיל? לחצ/י כאן לעזרה
             </button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 p-3 gap-4">
@@ -297,29 +284,22 @@ const DiseaseSelectionScreen = ({
   const isOrtho = selectedCategory.id === 'category_2';
   const subcategoryItems = combinedItems.filter((item) => 'diseases' in item);
 
-  // Shared back-arrow icon
-  const BackArrow = () => (
-    <svg height="25px" width="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fillRule="evenodd" clipRule="evenodd"
-        d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z"
-        fill="#5a67d8" />
-    </svg>
-  );
+  // BackArrow is declared earlier (before early returns) — no duplicate needed here
 
   return (
     <div className="mb-8 p-6 bg-indigo-50 rounded-xl border border-indigo-200 screen-container">
       {/* Header */}
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-bold text-indigo-800">
-          {selectedCategory.name}
-        </h2>
+      <div className="relative flex items-center mb-4">
         <button
           onClick={handleBackToCategories}
-          className="mt-2 flex bg-white rounded-lg border border-indigo-200 p-2 items-center gap-1 text-sm font-semibold text-indigo-600 hover:underline"
+          title="חזור לקטגוריות"
+          className="absolute right-0 flex bg-white rounded-lg border border-indigo-200 p-2 items-center text-indigo-600 hover:bg-indigo-50 transition"
         >
           <BackArrow />
-          <span>חזור לקטגוריות</span>
         </button>
+        <h2 className="w-full text-center text-2xl font-bold text-indigo-800 px-14">
+          {selectedCategory.name}
+        </h2>
       </div>
 
       {isOrtho ? (
@@ -361,11 +341,10 @@ const DiseaseSelectionScreen = ({
                   onClick={() => setSelectedSubCategory(item)}
                   onMouseEnter={() => setHoveredSubcat(item.id)}
                   onMouseLeave={() => setHoveredSubcat(null)}
-                  className={`w-full text-right p-3 rounded-lg border transition ${
-                    isHovered
+                  className={`w-full text-right p-3 rounded-lg border transition ${isHovered
                       ? 'bg-indigo-100 border-indigo-500 shadow-sm'
                       : 'bg-white border-indigo-200 hover:bg-indigo-50 hover:border-indigo-400'
-                  }`}
+                    }`}
                 >
                   <div className="font-semibold">{item.name}</div>
                   {item.description && (

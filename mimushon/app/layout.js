@@ -3,6 +3,7 @@ import Script from "next/script"; // 2. The new way to add 3rd-party scripts
 import "./global.css"; // Your global styles
 import Header from "../components/content/Header"; // Assuming this is your header
 import Footer from "../components/content/Footer"; // Assuming this is your footer
+import PageTransitionWrapper from "../components/PageTransitionWrapper";
 
 // Analytics IDs — read from environment so they can be rotated without code changes.
 // Set NEXT_PUBLIC_GTM_ID and NEXT_PUBLIC_GA_ID in .env.local / your deployment env.
@@ -97,7 +98,7 @@ export default function RootLayout({ children }) {
         {/* Your old <div id="root"> is replaced by {children} */}
         {/* We add your Header/Footer here to make them global */}
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1"><PageTransitionWrapper>{children}</PageTransitionWrapper></main>
         <Footer />
 
         {/* 8. All your 3rd-party scripts go here, using <Script> */}

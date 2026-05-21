@@ -3,7 +3,10 @@
 @tailwind utilities;
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior is intentionally NOT set here so Next.js page-to-page
+     navigation snaps to the top instantly (no upward-scroll animation).
+     Smooth scrolling for in-page anchor links is handled explicitly in JS
+     via scrollIntoView({ behavior: 'smooth' }). */
 }
 
 body {
@@ -67,3 +70,11 @@ img {
                 from { opacity: 0; }
                 to { opacity: 1; }
             }
+
+@keyframes page-slide-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter {
+  animation: page-slide-up 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

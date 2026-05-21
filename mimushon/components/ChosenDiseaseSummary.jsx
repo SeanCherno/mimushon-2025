@@ -8,10 +8,22 @@ const ChosenDiseasesSummary = ({
     onCalculate,
     setCurrentScreen,
     onRemoveDisease,
+    onAddDisease,
     isMobileView = false,
     onClose,
 }) => {
     const [tosAccepted, setTosAccepted] = useState(false);
+    const [tosShake, setTosShake] = useState(false);
+
+    const handleCalculateClick = () => {
+        if (!tosAccepted && chosenDiseases.length > 0) {
+            setTosShake(true);
+            setTimeout(() => setTosShake(false), 700);
+            return;
+        }
+        onCalculate(chosenDiseases);
+        setCurrentScreen("results");
+    };
 
     const chosenDiseases = chosenDiseasesWithSeverities.filter(
         (entry) => entry.selectedSeverity
@@ -36,7 +48,7 @@ const ChosenDiseasesSummary = ({
             {isMobileView && (
                 <button
                     onClick={onClose}
-                    className="absolute cursor-pointer top-4 right-4 text-gray-600 hover:text-gray-900 z-10"
+                    className="absolute cursor-pointer top-3 left-3 text-gray-600 hover:text-gray-900 z-10 p-1 rounded-full hover:bg-gray-100"
                 >
                     <svg
                         className="h-6 w-6"
@@ -53,7 +65,7 @@ const ChosenDiseasesSummary = ({
                     </svg>
                 </button>
             )}
-            <h2 className="text-xl font-bold text-indigo-800 mb-4">המחלות שנבחרו</h2>
+            <h2 className="text-xl font-bold text-indigo-800 mb-4 px-3">המחלות שנבחרו</h2>
             {chosenDiseases.length > 0 ? (
                 <div className="space-y-4 flex-grow">
                     {chosenDiseases.map((entry) => (
@@ -106,9 +118,21 @@ const ChosenDiseasesSummary = ({
                     <p className="text-indigo-700 text-center">יש לבחור מחלות כדי לצפות בסיכום</p>
                 </div>
             )}
+            <style>{`
+                @keyframes tos-shake {
+                    0%,100% { transform: translateX(0); }
+                    20% { transform: translateX(-6px); }
+                    40% { transform: translateX(6px); }
+                    60% { transform: translateX(-4px); }
+                    80% { transform: translateX(4px); }
+                }
+                .tos-shake { animation: tos-shake 0.6s ease; }
+            `}</style>
             <div className="mt-6 space-y-3">
                 {/* TOS checkbox */}
-                <label className="flex items-start gap-2 cursor-pointer select-none">
+                <label
+                    className={`flex items-start gap-2 cursor-pointer select-none rounded-lg p-2 transition-all duration-200 ${tosShake ? 'tos-shake bg-red-50 border border-red-400' : 'border border-transparent'}`}
+                >
                     <input
                         type="checkbox"
                         checked={tosAccepted}
@@ -123,13 +147,15 @@ const ChosenDiseasesSummary = ({
                         . ידוע לי שהמחשבון הוא כלי הערכה בלבד ואינו תחליף לייעוץ מקצועי.
                     </span>
                 </label>
+                {tosShake && (
+                    <p className="text-xs text-red-600 font-semibold text-center -mt-1">
+                        יש לאשר את תנאי השימוש לפני המשך
+                    </p>
+                )}
 
                 <button
-                    onClick={() => {
-                        onCalculate(chosenDiseases);
-                        setCurrentScreen("results");
-                    }}
-                    disabled={chosenDiseases.length === 0 || !tosAccepted}
+                    onClick={handleCalculateClick}
+                    disabled={chosenDiseases.length === 0}
                     id="submit-diseases"
                     name="submit-diseases"
                     className="w-full p-3 cursor-pointer bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
@@ -137,12 +163,20 @@ const ChosenDiseasesSummary = ({
                     חשב אחוזי נכות
                 </button>
                 {isMobileView && (
-                    <button
-                        onClick={onClose}
-                        className="w-full p-3 cursor-pointer bg-gray-600 text-white rounded-lg font-semibold hover:bg-gray-700"
-                    >
-                        סגור סיכום
-                    </button>
+                    <>
+                        <button
+                            onClick={onAddDisease}
+                            className="w-full p-3 cursor-pointer bg-white text-indigo-700 border-2 border-indigo-400 rounded-lg font-semibold hover:bg-indigo-50 transition"
+                        >
+                            + הוסף מחלה
+                        </button>
+                        <button
+                            onClick={onClose}
+                            className="w-full p-3 cursor-pointer bg-gray-100 text-gray-700 border border-gray-300 rounded-lg font-semibold hover:bg-gray-200 transition"
+                        >
+                            סגור סיכום
+                        </button>
+                    </>
                 )}
             </div>
         </div>
