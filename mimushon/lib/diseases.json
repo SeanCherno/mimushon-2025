@@ -3500,11 +3500,7 @@
               "name": "אבדן גף עליון",
               "description": "איפה בגוף: כל היד, מהכתף ומטה",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "קטיעה ברמת מפרק הכתף",
@@ -3594,11 +3590,7 @@
               "name": "אבדן האמה",
               "description": "איפה בגוף: חלק היד שמתחת למרפק ועד לשורש כף היד",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "קטיעה מעל השריר pronator teres (חלק עליון של האמה)",
@@ -3729,16 +3721,10 @@
             {
               "id": "disease_243",
               "name": "שורש היד",
-              "imageUrls": [
-                "/images/palm.png"
-              ],
+              "imageUrls": ["/images/palm.png"],
               "description": "איפה בגוף: מפרק שורש כף היד – בין האמה לכף היד",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "אחרי חבלה שהתרפאה ללא הפרעות",
@@ -3926,11 +3912,7 @@
               "name": "נקיעה חוזרת של הכתף (Recurrent Shoulder Dislocation)",
               "description": "איפה בגוף: מפרק הכתף – בין עצם הזרוע לשכמה",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "נקיעות חוזרות שמופיעות כשמרימים את היד מעל גובה הכתף",
@@ -4076,11 +4058,7 @@
               "name": "קשיון של הכתף (Shoulder Ankylosis)",
               "description": "איפה בגוף: מפרק הכתף",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "קשיון נוח - הזרוע בריחוק של 50°-45° מהגוף",
@@ -4147,11 +4125,7 @@
               "name": "הגבלת התנועות בפרק הכתף",
               "description": "איפה בגוף: מפרק הכתף",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "היד עולה מעל גובה הכתף",
@@ -4318,15 +4292,9 @@
               "id": "disease_237",
               "name": "קשיון במרפק",
               "description": "איפה בגוף: מפרק המרפק",
-              "imageUrls": [
-                "/images/elbow.png"
-              ],
+              "imageUrls": ["/images/elbow.png"],
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "קשיון נוח - תנוחת המרפק בזווית שבין 70° עד 90° (ראה ציור) ובעמדה אמצעית של האמה;",
@@ -4392,15 +4360,9 @@
               "id": "disease_238",
               "description": "איפה בגוף: מפרק המרפק",
               "name": "הגבלת התנועות במרפק - הגבלות בכיפוף",
-              "imageUrls": [
-                "/images/elbow2.png"
-              ],
+              "imageUrls": ["/images/elbow2.png"],
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "כיפוף עד 35°",
@@ -4513,14 +4475,8 @@
               "name": "הגבלת התנועות במרפק - הגבלות ביישור",
               "description": "איפה בגוף: מפרק המרפק",
               "displayAsTable": true,
-              "imageUrls": [
-                "/images/elbow2.png"
-              ],
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "imageUrls": ["/images/elbow2.png"],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "יישור עד 90°",
@@ -4696,11 +4652,7 @@
               "id": "disease_250",
               "name": "פציעת שרירי הכתף - TRAPEZIUS, SERRATUS MAGNUS LLEVATOR SCAPULAE",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -4790,11 +4742,7 @@
               "id": "disease_251",
               "name": "פציעת שרירי הכתף - PECTORALIS MAJOR/MINOR, LATISSIMUS DORSI, TERES MAJOR",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -4884,11 +4832,7 @@
               "id": "disease_253",
               "name": "פציעת שרירי הכתף - DELTOIDEUS",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -4978,11 +4922,7 @@
               "id": "disease_254",
               "name": "פציעת שרירי הכתף - TERES MINOR, SUPRASPINATUS, INFRASPINATUS SUBSCAPULARIS, CORACOBRACHIALIS",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5078,11 +5018,7 @@
               "id": "disease_255",
               "name": "פציעת שרירי המרפק - BICEPS, BRACHIALIS, BRACHIORADIALIS",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5172,11 +5108,7 @@
               "id": "disease_256",
               "name": "פציעת שרירי המרפק - TRICEPS, ANCONEUS",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5266,11 +5198,7 @@
               "id": "disease_257",
               "name": "פציעת שרירי המרפק - FLEXOR CARPI, DIGITI",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5360,11 +5288,7 @@
               "id": "disease_258",
               "name": "פציעת שרירי המרפק - EXTENSOR CARPI, DIGITI",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5460,11 +5384,7 @@
               "id": "disease_259",
               "name": "קטיעה של אצבע בודדת או חלק ממנה - אגודל",
               "description": "איפה בגוף - האגודל",
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "קטיעת אגודל עם עצם המסרק או חלק ממנה",
@@ -5576,11 +5496,7 @@
               "id": "disease_260",
               "name": "קטיעה של אצבע בודדת או חלק ממנה - אצבע 2",
               "description": "איפה בגוף: האצבע הסמוכה לאגודל",
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "קטיעת אצבע 2 עם עצם המסרק או חלק ממנה",
@@ -5693,11 +5609,7 @@
               "name": "קטיעה של אצבע בודדת או חלק ממנה - אצבע 3",
               "description": "איפה בגוף: האצבע השלישית",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "קטיעת אצבע 3 עם עצם המסרק או חלק ממנה",
@@ -5810,11 +5722,7 @@
               "name": "קטיעה של אצבע בודדת או חלק ממנה - אצבע 4 או אצבע 5",
               "description": "איפה בגוף: האצבעות הקטנות",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "ימין",
-                "שמאל"
-              ],
+              "tableColumns": ["", "ימין", "שמאל"],
               "tableRows": [
                 {
                   "header": "קטיעת אצבע 4 או 5 עם עצם המסרק או חלק ממנה",
@@ -6460,9 +6368,7 @@
               "id": "disease_278",
               "name": "פרק הירך",
               "description": "איפה בגוף: מפרק הירך – מחבר את האגן לירך",
-              "imageUrls": [
-                "/images/thigh.png"
-              ],
+              "imageUrls": ["/images/thigh.png"],
               "severities": [
                 {
                   "description": "מפרק נד - רפוי\nדוגמה: המפרק לא יציב, קשה לעמוד או ללכת ללא תמיכה",
@@ -6696,9 +6602,7 @@
               "id": "disease_279",
               "name": "מצבים אורתופדיים בברך",
               "description": "איפה בגוף: מפרק הברך",
-              "imageUrls": [
-                "/images/knee.png"
-              ],
+              "imageUrls": ["/images/knee.png"],
               "severities": [
                 {
                   "description": "אי־יציבות צדדית קשה (הברך מתעקמת לצדדים)\nדוגמה: הברך \"בורחת\" החוצה או פנימה בזמן הליכה",
@@ -6738,9 +6642,7 @@
               "id": "disease_1010",
               "name": "הגבלות בכיפוף הברך",
               "description": "איפה בגוף: מפרק הברך",
-              "imageUrls": [
-                "/images/knee.png"
-              ],
+              "imageUrls": ["/images/knee.png"],
               "severities": [
                 {
                   "description": "כיפוף עד 90°\nדוגמה: אפשר לשבת, אבל יש קושי לכרוע",
@@ -6788,9 +6690,7 @@
               "id": "disease_1011",
               "name": "הגבלות ביישור הברך",
               "description": "איפה בגוף: מפרק הברך",
-              "imageUrls": [
-                "/images/knee.png"
-              ],
+              "imageUrls": ["/images/knee.png"],
               "severities": [
                 {
                   "description": "יישור עד 5°\nדוגמה: כמעט אין בעיה, הברך כמעט ישרה",
@@ -7582,7 +7482,7 @@
           "name": "עודף משקל והשמנת יתר",
           "severities": [
             {
-              "description": "של עודף משקל קל (BMI 25-29.9)",
+              "description": "עודף משקל קל (BMI 25-29.9)",
               "percentage": 0,
               "countForDisability": true,
               "countForTax": true,
@@ -8919,9 +8819,7 @@
             {
               "id": "disease_35",
               "name": "מחלות המסתמים - Valvular Heart Disease",
-              "imageUrls": [
-                "/images/valvular_disease.png"
-              ],
+              "imageUrls": ["/images/valvular_disease.png"],
               "displayAsTable": true,
               "tableColumns": [
                 "רמת הליקוי המסתמי לפי בדיקות ה-ECHO, כמוצג בטבלה למעלה",
@@ -9080,12 +8978,7 @@
               "id": "disease_36",
               "name": "מחלת שריר הלב המורחב - Dilated Cardiomyopathy",
               "displayAsTable": true,
-              "tableColumns": [
-                "מקטע פליטה (ECHO)",
-                ">40%",
-                "30%-40%",
-                "<30%"
-              ],
+              "tableColumns": ["מקטע פליטה (ECHO)", ">40%", "30%-40%", "<30%"],
               "tableRows": [
                 {
                   "header": "מחלת לב ללא הגבלה בפעילות הגופנית כתוצאה מכך. פעילות גופנית רגילה אינה גורמת לעייפות,  תחושת דפיקות לב בחזה, קוצר נשימה או כאבים בחזה",
@@ -11328,11 +11221,7 @@
               "name": "חולשה או שיתוק בחצי גוף (המיפרזיס) - Hemiparesis",
               "description": "קושי בכוח, זריזות ושיווי־משקל ביד וברגל של צד ימין/צד שמאל; לפעמים נוקשות/עוויתיות ",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "פלג גוף דומיננטי",
-                "פלג גוף לא דומיננטי"
-              ],
+              "tableColumns": ["", "פלג גוף דומיננטי", "פלג גוף לא דומיננטי"],
               "tableRows": [
                 {
                   "header": "“קלה מאוד” בלי הפרעה תפקודית. דוגמה: רפלקסים “גבוהים”, היד מעט נוטה כלפי מטה כשמרימים—אבל מתלבש/נוהג/עובד רגיל",
@@ -13244,55 +13133,34 @@
                     "answers": {
                       "q_mechanical_ventilation": "yes"
                     },
-                    "scoreRange": [
-                      1999,
-                      10000
-                    ],
+                    "scoreRange": [1999, 10000],
                     "suggestedSeverityDescription": "בעת הנשמה מלאכותית באמצעות מכשירי הנשמה (ולמעט מכשירי CPAP או BIPAP)"
                   },
                   {
                     "answers": {
                       "q_icu_admissions_count": "2_plus"
                     },
-                    "scoreRange": [
-                      5,
-                      1000
-                    ],
+                    "scoreRange": [5, 1000],
                     "suggestedSeverityDescription": "סיכום הניקוד גדול מ-5 ועם שני אשפוזים לפחות בטיפול נמרץ על רקע נשימתי"
                   },
                   {
-                    "scoreRange": [
-                      10,
-                      14
-                    ],
+                    "scoreRange": [10, 14],
                     "suggestedSeverityDescription": "סיכום הניקוד שווה ל-10 או גדול ממנו"
                   },
                   {
-                    "scoreRange": [
-                      7,
-                      9
-                    ],
+                    "scoreRange": [7, 9],
                     "suggestedSeverityDescription": "סיכום הניקוד 7 עד 9"
                   },
                   {
-                    "scoreRange": [
-                      4,
-                      6
-                    ],
+                    "scoreRange": [4, 6],
                     "suggestedSeverityDescription": "סיכום הניקוד 4 עד 6"
                   },
                   {
-                    "scoreRange": [
-                      1,
-                      3
-                    ],
+                    "scoreRange": [1, 3],
                     "suggestedSeverityDescription": "סיכום הניקוד 1 עד 3"
                   },
                   {
-                    "scoreRange": [
-                      0,
-                      0
-                    ],
+                    "scoreRange": [0, 0],
                     "suggestedSeverityDescription": "סיכום הניקוד 0"
                   }
                 ]
@@ -15315,11 +15183,7 @@
               "name": "צמצום שדה הראייה (Visual Field Constriction)",
               "description": "ניתן לראות רק חלק קטן מהסביבה, בדומה להסתכלות דרך צינור או עם “מסך שחור” בצדדים",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "בעין אחת",
-                "בשתי העיניים"
-              ],
+              "tableColumns": ["", "בעין אחת", "בשתי העיניים"],
               "tableRows": [
                 {
                   "header": "מעל 80 מעלות",
@@ -15448,11 +15312,7 @@
               "id": "disease_308",
               "name": "אובדן חלקי של שדה הראייה (Partial Field Loss)",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "בעין אחת",
-                "בשתי העיניים"
-              ],
+              "tableColumns": ["", "בעין אחת", "בשתי העיניים"],
               "tableRows": [
                 {
                   "header": "אובדן של פחות מרביע שדה הראייה",
@@ -15463,10 +15323,7 @@
                 },
                 {
                   "header": "אבדן של רביע שדה הראייה",
-                  "severityIdsInRow": [
-                    "",
-                    ""
-                  ]
+                  "severityIdsInRow": ["", ""]
                 },
                 {
                   "header": "אפי (נזאלי) עליון - עליון מרכזי",
@@ -15498,17 +15355,11 @@
                 },
                 {
                   "header": "אפי תחתון (תחתון מרכזי) עין אחת, ורקתי תחתון (תחתון צדדי) עין שנייה",
-                  "severityIdsInRow": [
-                    "",
-                    "category_57_disease_314_xoye4vg"
-                  ]
+                  "severityIdsInRow": ["", "category_57_disease_314_xoye4vg"]
                 },
                 {
                   "header": "אבדן מחצית שדה הראייה",
-                  "severityIdsInRow": [
-                    "",
-                    ""
-                  ]
+                  "severityIdsInRow": ["", ""]
                 },
                 {
                   "header": "עליונה",
@@ -15526,10 +15377,7 @@
                 },
                 {
                   "header": "הומונימית, ימנית או שמאלית מוחלטת",
-                  "severityIdsInRow": [
-                    "",
-                    "category_57_disease_317_ghqi7s"
-                  ]
+                  "severityIdsInRow": ["", "category_57_disease_317_ghqi7s"]
                 },
                 {
                   "header": "חיצונית",
@@ -15761,11 +15609,7 @@
               "name": "צניחת עפעף (Ptosis)",
               "description": "מצב שבו העפעף העליון יורד מטה ומכסה חלק מהעין, לפעמים עד כדי הפרעה לראייה",
               "displayAsTable": true,
-              "tableColumns": [
-                "",
-                "בעין אחת",
-                "בשתי העיניים"
-              ],
+              "tableColumns": ["", "בעין אחת", "בשתי העיניים"],
               "tableRows": [
                 {
                   "header": "העפעף צונח קלות (יותר מ-2.5 מ\"מ), אבל לא מפריע לראייה",
@@ -15783,10 +15627,7 @@
                 },
                 {
                   "header": "הבדל משמעותי בין שתי העיניים (לפחות 2 מ\"מ בגובה העפעף העליון)",
-                  "severityIdsInRow": [
-                    "",
-                    "category_60_disease_327_efp6eo"
-                  ]
+                  "severityIdsInRow": ["", "category_60_disease_327_efp6eo"]
                 },
                 {
                   "header": "אישון מכוסה עד למרכז אך מאפשר ראייה בהטיית ראש",
@@ -18339,9 +18180,7 @@
                   "severityId": "category_27_disease_125_8yd5sm"
                 }
               ],
-              "requiredDocuments": [
-                "מכתב סיכום מרופא - אורולוג"
-              ]
+              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
             },
             {
               "id": "disease_126",
@@ -18357,9 +18196,7 @@
                   "severityId": "category_27_disease_126_tf1ddc"
                 }
               ],
-              "requiredDocuments": [
-                "מכתב סיכום מרופא - אורולוג"
-              ]
+              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
             },
             {
               "id": "disease_132",
@@ -18412,9 +18249,7 @@
                   "severityId": "category_27_disease_127_auqzln"
                 }
               ],
-              "requiredDocuments": [
-                "מכתב סיכום מרופא - אורולוג"
-              ]
+              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
             },
             {
               "id": "disease_128",
@@ -18446,9 +18281,7 @@
                   "severityId": "category_27_disease_128_vr95fj"
                 }
               ],
-              "requiredDocuments": [
-                "מכתב סיכום מרופא - אורולוג"
-              ]
+              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
             },
             {
               "id": "disease_129",
@@ -18464,9 +18297,7 @@
                   "severityId": "category_27_disease_129_79w7d"
                 }
               ],
-              "requiredDocuments": [
-                "מכתב סיכום מרופא - אורולוג"
-              ]
+              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
             },
             {
               "id": "disease_130",
@@ -18482,9 +18313,7 @@
                   "severityId": "category_27_disease_130_f4q5d"
                 }
               ],
-              "requiredDocuments": [
-                "מכתב סיכום מרופא - אורולוג"
-              ]
+              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
             },
             {
               "id": "disease_131",
@@ -18508,9 +18337,7 @@
                   "severityId": "category_27_disease_131_6pe38s"
                 }
               ],
-              "requiredDocuments": [
-                "מכתב סיכום מרופא - אורולוג"
-              ]
+              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
             }
           ]
         },
@@ -18725,9 +18552,7 @@
                   "severityId": "category_31_disease_141_sj2mjc"
                 }
               ],
-              "requiredDocuments": [
-                "מכתב סיכום מרופא - כירורג"
-              ]
+              "requiredDocuments": ["מכתב סיכום מרופא - כירורג"]
             },
             {
               "id": "disease_142",
@@ -18759,9 +18584,7 @@
                   "severityId": "category_31_disease_143_aoxfzm"
                 }
               ],
-              "requiredDocuments": [
-                "מכתב סיכום מרופא - כירורג"
-              ]
+              "requiredDocuments": ["מכתב סיכום מרופא - כירורג"]
             },
             {
               "id": "disease_138",

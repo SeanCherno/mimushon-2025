@@ -34,8 +34,8 @@ export default function ProgressBar({ currentScreen }) {
                     isCompleted
                       ? 'bg-indigo-600 text-white'
                       : isActive
-                      ? 'bg-indigo-500 text-white ring-2 ring-indigo-300'
-                      : 'bg-gray-200 text-gray-500',
+                        ? 'bg-indigo-500 text-white ring-2 ring-indigo-300'
+                        : 'bg-gray-200 text-gray-500',
                   ].join(' ')}
                 >
                   {isCompleted ? (

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProcessSection = () => (
-    <section id="process" className="py-16 md:py-24 bg-indigo-50">
+    <section id="process" className="py-8 md:py-24 bg-indigo-50">
         <div className="container mx-auto px-6">
             <div className="lg:flex lg:items-center lg:gap-16">
                 <div className="lg:w-1/2 mt-10 lg:mt-0">
