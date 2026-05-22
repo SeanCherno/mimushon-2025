@@ -9,6 +9,7 @@ import DiseaseSelectionScreen from "../components/DiseaseSelectionScreen";
 import ProgressBar from "../components/ProgressBar";
 import ClaimTypeSelection from "../components/ClaimTypeSelection";
 import WorkAccidentScreen from "../components/WorkAccidentScreen";
+import CalculatingScreen from "../components/CalculatingScreen";
 
 export default function Calculator({ initialCategories }) {
   const [chosenDiseasesWithSeverities, setChosenDiseasesWithSeverities] =
@@ -28,6 +29,7 @@ export default function Calculator({ initialCategories }) {
   const [liveTotals, setLiveTotals] = useState(null);
   const [claimType, setClaimType] = useState(null);
   const [workAccidentAnswers, setWorkAccidentAnswers] = useState(null);
+  const [isCalculating, setIsCalculating] = useState(false);
   const liveCalcTimerRef = useRef(null);
 
   const SESSION_KEY = 'mimushon_calc_state';
@@ -182,22 +184,28 @@ export default function Calculator({ initialCategories }) {
       window.dataLayer?.push({ event: 'calc_calculated', disease_count: chosenDiseases.length });
     } catch (e) {}
 
-    setIsLoading(true);
+    setIsCalculating(true);
+    setCurrentScreen("calculating");
+    setIsMobileSummaryOpen(false);
+
+    const section = document.getElementById("calculator");
+    if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+
     try {
-      const response = await fetch(`/api/calculate`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          chosenDiseasesWithSeverities: chosenDiseases,
-          claimType,
+      // Run the API call and a minimum 2-second delay in parallel.
+      // The user sees the calculating screen for at least 2s regardless of API speed.
+      const [response] = await Promise.all([
+        fetch(`/api/calculate`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chosenDiseasesWithSeverities: chosenDiseases, claimType }),
         }),
-      });
+        new Promise(resolve => setTimeout(resolve, 2000)),
+      ]);
+
       const data = await response.json();
       setTotalPercentages(data);
       setCalcError(false);
-      setCurrentScreen("results");
 
       try {
         window.dataLayer?.push({ event: 'calc_contact_form_submitted' });
@@ -205,18 +213,9 @@ export default function Calculator({ initialCategories }) {
     } catch (error) {
       console.error("Failed to calculate percentage:", error);
       setCalcError(true);
-      setCurrentScreen("results");
     } finally {
-      setIsLoading(false);
-      setIsMobileSummaryOpen(false);
-
-      const section = document.getElementById("calculator");
-      if (section) {
-        section.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
+      setIsCalculating(false);
+      setCurrentScreen("results");
     }
   };
 
@@ -449,6 +448,9 @@ export default function Calculator({ initialCategories }) {
             isASeveritySelected={isASeveritySelected}
           />
         );
+      case "calculating":
+        return <CalculatingScreen />;
+
       case "results":
         if (isLoading) return <LoadingSpinner asOverlay={true} />;
         if (calcError) return (
@@ -618,7 +620,7 @@ export default function Calculator({ initialCategories }) {
 
                 {/* Main Content */}
                 <div className="w-full md:w-2/3">
-                  {currentScreen !== 'results' && (
+                  {currentScreen !== 'results' && currentScreen !== 'calculating' && (
                     <ProgressBar currentScreen={currentScreen} />
                   )}
                   {renderScreen()}
