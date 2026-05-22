@@ -185,7 +185,6 @@ export default function Calculator({ initialCategories }) {
     } catch (e) {}
 
     setIsCalculating(true);
-    setCurrentScreen("calculating");
     setIsMobileSummaryOpen(false);
 
     const section = document.getElementById("calculator");
@@ -448,9 +447,6 @@ export default function Calculator({ initialCategories }) {
             isASeveritySelected={isASeveritySelected}
           />
         );
-      case "calculating":
-        return <CalculatingScreen />;
-
       case "results":
         if (isLoading) return <LoadingSpinner asOverlay={true} />;
         if (calcError) return (
@@ -620,10 +616,10 @@ export default function Calculator({ initialCategories }) {
 
                 {/* Main Content */}
                 <div className="w-full md:w-2/3">
-                  {currentScreen !== 'results' && currentScreen !== 'calculating' && (
+                  {!isCalculating && currentScreen !== 'results' && (
                     <ProgressBar currentScreen={currentScreen} />
                   )}
-                  {renderScreen()}
+                  {isCalculating ? <CalculatingScreen /> : renderScreen()}
                 </div>
               </div>
             </div>
