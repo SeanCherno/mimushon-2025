@@ -4,6 +4,7 @@ const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: parseInt(process.env.SMTP_PORT || "587", 10),
   secure: process.env.SMTP_SECURE === "true", // true for port 465, false for 587
+  family: 4, // force IPv4 — prevents ENETUNREACH on servers without IPv6
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
