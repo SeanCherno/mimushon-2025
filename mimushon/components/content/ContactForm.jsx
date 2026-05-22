@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const ContactForm = ({ variant = "default", percentages = null }) => {
+const ContactForm = ({ variant = "default", percentages = null, claimType = null }) => {
     const [userInfo, setUserInfo] = useState({ name: '', phone: '', hearot: '' });
     const [consent, setConsent] = useState(false);
     const [consentError, setConsentError] = useState('');
@@ -56,7 +56,7 @@ const ContactForm = ({ variant = "default", percentages = null }) => {
             const response = await fetch('/api/user-info', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ ...userInfo, consent, percentages }),
+                body: JSON.stringify({ ...userInfo, consent, percentages, claimType }),
             });
 
             const data = await response.json();

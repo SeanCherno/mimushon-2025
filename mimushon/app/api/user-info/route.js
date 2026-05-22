@@ -42,7 +42,11 @@ export async function POST(request) {
     return badRequest("Invalid request body");
   }
 
-  const { name, phone, hearot, consent, percentages } = body ?? {};
+  const { name, phone, hearot, consent, percentages, claimType } = body ?? {};
+
+  // Validate claimType
+  const VALID_CLAIM_TYPES = ['illness', 'work_accident', 'idf_disabled', 'other'];
+  const safeClaimType = VALID_CLAIM_TYPES.includes(claimType) ? claimType : null;
 
   // 4. Consent check
   if (!consent) {
@@ -83,12 +87,13 @@ export async function POST(request) {
   // 6. Insert
   try {
     const queryText =
-      "INSERT INTO contact_us_users(name, phone, comment, percentages) VALUES($1, $2, $3, $4)";
+      "INSERT INTO contact_us_users(name, phone, comment, percentages, claim_type) VALUES($1, $2, $3, $4, $5)";
     const values = [
       name.trim(),
       phone.trim(),
       typeof hearot === "string" ? hearot.trim() : "",
       safePercentages ? JSON.stringify(safePercentages) : null,
+      safeClaimType,
     ];
 
     await pool.query(queryText, values);
@@ -100,6 +105,7 @@ export async function POST(request) {
         phone: phone.trim(),
         comment: typeof hearot === "string" ? hearot.trim() : "",
         percentages: safePercentages,
+        claimType: safeClaimType,
       });
     } catch (emailErr) {
       console.error("[user-info] Failed to send lead notification email:", emailErr.message);

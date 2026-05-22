@@ -34,7 +34,11 @@ export async function POST(request) {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
 
-  const { chosenDiseasesWithSeverities } = body ?? {};
+  const { chosenDiseasesWithSeverities, claimType } = body ?? {};
+
+  // Validate claimType if provided
+  const VALID_CLAIM_TYPES = ['illness', 'work_accident', 'idf_disabled', 'other'];
+  const safeClaimType = VALID_CLAIM_TYPES.includes(claimType) ? claimType : null;
 
   // 4. Validate: must be a non-empty array within the allowed limit
   if (!Array.isArray(chosenDiseasesWithSeverities)) {
@@ -101,7 +105,7 @@ export async function POST(request) {
   // 7. Log to database (best-effort — never fail the main request on log error)
   try {
     const logQueryText =
-      "INSERT INTO disease_calculations(calculation_data) VALUES($1)";
+      "INSERT INTO disease_calculations(calculation_data, claim_type) VALUES($1, $2)";
     const logValues = [
       {
         diseases: JSON.stringify(
@@ -115,6 +119,7 @@ export async function POST(request) {
         ),
         totals: newTotals,
       },
+      safeClaimType,
     ];
     await pool.query(logQueryText, logValues);
   } catch (logErr) {

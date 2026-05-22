@@ -3,13 +3,20 @@
 import React from 'react';
 
 const steps = [
-  { id: 'diseaseSelection', label: 'בחר מחלה', number: 1 },
-  { id: 'severitySelection', label: 'בחר חומרה', number: 2 },
-  { id: 'results', label: 'תוצאות', number: 3 },
+  { id: 'claimTypeSelection', label: 'סוג תביעה', number: 1 },
+  { id: 'diseaseSelection',   label: 'בחר מחלה',  number: 2 },
+  { id: 'severitySelection',  label: 'בחר חומרה', number: 3 },
+  { id: 'results',            label: 'תוצאות',    number: 4 },
 ];
 
+// Screens that belong to the same visual step as another screen
+const SCREEN_ALIAS = {
+  workAccidentQuestionnaire: 'claimTypeSelection',
+};
+
 export default function ProgressBar({ currentScreen }) {
-  const currentIndex = steps.findIndex((s) => s.id === currentScreen);
+  const resolvedScreen = SCREEN_ALIAS[currentScreen] || currentScreen;
+  const currentIndex = steps.findIndex((s) => s.id === resolvedScreen);
 
   return (
     <div dir="rtl" className="flex items-center justify-center mb-6 select-none" aria-label="שלבי המחשבון">

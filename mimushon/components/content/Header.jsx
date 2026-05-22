@@ -86,8 +86,8 @@ const Header = ({ setShowContent }) => {
                         <div className="md:hidden w-10 h-10" aria-hidden="true" />
 
                         {/* Desktop nav links — hidden on mobile */}
-                        <ul className="hidden md:flex flex-row gap-x-6 font-medium">
-                            <li className="ml-6">
+                        <ul className="hidden md:flex flex-row gap-x-10 font-medium">
+                            <li>
                                 <Link href="/#calculator" onClick={(e) => handleHashLinkClick(e, 'calculator')} className="text-gray-900 hover:text-indigo-600 transition">מחשבון נכות</Link>
                             </li>
                             <li>

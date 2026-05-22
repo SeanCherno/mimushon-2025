@@ -7,6 +7,8 @@ import ChosenDiseasesSummary from "../components/ChosenDiseaseSummary";
 import LoadingSpinner from "../components/util/LoadingSpinner";
 import DiseaseSelectionScreen from "../components/DiseaseSelectionScreen";
 import ProgressBar from "../components/ProgressBar";
+import ClaimTypeSelection from "../components/ClaimTypeSelection";
+import WorkAccidentScreen from "../components/WorkAccidentScreen";
 
 export default function Calculator({ initialCategories }) {
   const [chosenDiseasesWithSeverities, setChosenDiseasesWithSeverities] =
@@ -16,7 +18,7 @@ export default function Calculator({ initialCategories }) {
   const [totalPercentages, setTotalPercentages] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [calcError, setCalcError] = useState(false);
-  const [currentScreen, setCurrentScreen] = useState("diseaseSelection");
+  const [currentScreen, setCurrentScreen] = useState("claimTypeSelection");
   const [categories, setCategories] = useState(initialCategories);
   const [showInfo, setShowInfo] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -24,6 +26,8 @@ export default function Calculator({ initialCategories }) {
   const [isMobileSummaryOpen, setIsMobileSummaryOpen] = useState(false);
   const [isASeveritySelected, setIsASeveritySelected] = useState(false);
   const [liveTotals, setLiveTotals] = useState(null);
+  const [claimType, setClaimType] = useState(null);
+  const [workAccidentAnswers, setWorkAccidentAnswers] = useState(null);
   const liveCalcTimerRef = useRef(null);
 
   const SESSION_KEY = 'mimushon_calc_state';
@@ -33,18 +37,22 @@ export default function Calculator({ initialCategories }) {
     try {
       const saved = sessionStorage.getItem(SESSION_KEY);
       if (!saved) return;
-      const { diseases, screen, totals } = JSON.parse(saved);
-      if (diseases && diseases.length > 0) {
-        setChosenDiseasesWithSeverities(diseases);
+      const parsed = JSON.parse(saved);
+      const { diseases, screen, totals, savedClaimType, waAnswers } = parsed;
+
+      // Sessions created before claimType was introduced have no savedClaimType.
+      // Always require it so users aren't silently skipped past the new first step.
+      if (!savedClaimType) {
+        sessionStorage.removeItem(SESSION_KEY);
+        return;
       }
-      if (screen && screen !== 'severitySelection') {
-        setCurrentScreen(screen);
-      }
-      if (totals && Object.keys(totals).length > 0) {
-        setTotalPercentages(totals);
-      }
+
+      setClaimType(savedClaimType);
+      if (diseases && diseases.length > 0) setChosenDiseasesWithSeverities(diseases);
+      if (screen && screen !== 'severitySelection' && screen !== 'workAccidentQuestionnaire') setCurrentScreen(screen);
+      if (totals && Object.keys(totals).length > 0) setTotalPercentages(totals);
+      if (waAnswers) setWorkAccidentAnswers(waAnswers);
     } catch (e) {
-      // Corrupt / unreadable — ignore
       sessionStorage.removeItem(SESSION_KEY);
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -56,9 +64,11 @@ export default function Calculator({ initialCategories }) {
         diseases: chosenDiseasesWithSeverities,
         screen: currentScreen,
         totals: totalPercentages,
+        savedClaimType: claimType,
+        waAnswers: workAccidentAnswers,
       }));
     } catch (e) { /* quota exceeded or private browsing — silent */ }
-  }, [chosenDiseasesWithSeverities, currentScreen, totalPercentages]);
+  }, [chosenDiseasesWithSeverities, currentScreen, totalPercentages, claimType, workAccidentAnswers]);
 
   const modes = [
     {
@@ -114,10 +124,16 @@ export default function Calculator({ initialCategories }) {
   }, [selectedDiseaseForSeverityView]);
 
   useEffect(() => {
-    if (chosenDiseasesWithSeverities.length === 0) {
+    // Only redirect when the user has already passed the claim type screen and
+    // removes all their diseases — don't fire on initial mount where the array
+    // is empty by default (that would stomp claimTypeSelection).
+    if (
+      chosenDiseasesWithSeverities.length === 0 &&
+      currentScreen !== 'claimTypeSelection'
+    ) {
       setCurrentScreen("diseaseSelection");
     }
-  }, [chosenDiseasesWithSeverities]);
+  }, [chosenDiseasesWithSeverities]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Close mobile summary when the user navigates via the header menu
   useEffect(() => {
@@ -175,6 +191,7 @@ export default function Calculator({ initialCategories }) {
         },
         body: JSON.stringify({
           chosenDiseasesWithSeverities: chosenDiseases,
+          claimType,
         }),
       });
       const data = await response.json();
@@ -360,11 +377,39 @@ export default function Calculator({ initialCategories }) {
     setTotalPercentages({});
     setLiveTotals(null);
     setCalcError(false);
-    setCurrentScreen("diseaseSelection");
+    setClaimType(null);
+    setWorkAccidentAnswers(null);
+    setCurrentScreen("claimTypeSelection");
   };
 
   const renderScreen = () => {
     switch (currentScreen) {
+      case "claimTypeSelection":
+        return (
+          <ClaimTypeSelection
+            onSelect={(type) => {
+              setClaimType(type);
+              if (type === 'work_accident') {
+                setCurrentScreen("workAccidentQuestionnaire");
+              } else {
+                setCurrentScreen("diseaseSelection");
+              }
+            }}
+          />
+        );
+      case "workAccidentQuestionnaire":
+        return (
+          <WorkAccidentScreen
+            onComplete={(answers) => {
+              setWorkAccidentAnswers(answers);
+              setCurrentScreen("diseaseSelection");
+            }}
+            onBack={() => {
+              setClaimType(null);
+              setCurrentScreen("claimTypeSelection");
+            }}
+          />
+        );
       case "diseaseSelection":
         return (
           <DiseaseSelectionScreen
@@ -426,6 +471,8 @@ export default function Calculator({ initialCategories }) {
             onStartOver={handleStartOver}
             modes={modes}
             setCurrentScreen={setCurrentScreen}
+            claimType={claimType}
+            workAccidentAnswers={workAccidentAnswers}
           />
         );
       default:
