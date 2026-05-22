@@ -17,10 +17,17 @@ const CLAIM_LABELS = {
   other:         { label: 'אחר',           color: 'bg-gray-100 text-gray-600'    },
 };
 
+const FILING_LABELS = {
+  not_filed:  { label: 'טרם הוגשה',      color: 'bg-gray-100 text-gray-600'      },
+  in_process: { label: 'בתהליך',          color: 'bg-blue-100 text-blue-700'      },
+  rejected:   { label: '⚠️ נדחה',        color: 'bg-red-100 text-red-700'        },
+  approved:   { label: 'מאושר',           color: 'bg-green-100 text-green-700'    },
+};
+
 async function getData() {
   const [leadsRes, calcsRes, topDiseasesRes] = await Promise.all([
     pool.query(`
-      SELECT id, name, phone, comment, percentages, claim_type, created_at
+      SELECT id, name, phone, email, comment, filing_status, percentages, claim_type, created_at
       FROM contact_us_users
       ORDER BY created_at DESC
       LIMIT 200
@@ -67,6 +74,16 @@ function Pct({ value, color }) {
 
 function ClaimBadge({ type }) {
   const c = CLAIM_LABELS[type];
+  if (!c) return <span className="text-gray-300">—</span>;
+  return (
+    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold whitespace-nowrap ${c.color}`}>
+      {c.label}
+    </span>
+  );
+}
+
+function FilingBadge({ status }) {
+  const c = FILING_LABELS[status];
   if (!c) return <span className="text-gray-300">—</span>;
   return (
     <span className={`px-2 py-0.5 rounded-full text-xs font-semibold whitespace-nowrap ${c.color}`}>
@@ -143,6 +160,8 @@ export default async function AdminDashboard() {
                     <th className="px-4 py-3 text-right font-semibold">תאריך</th>
                     <th className="px-4 py-3 text-right font-semibold">שם</th>
                     <th className="px-4 py-3 text-right font-semibold">טלפון</th>
+                    <th className="px-4 py-3 text-right font-semibold">אימייל</th>
+                    <th className="px-4 py-3 text-right font-semibold">סטטוס תביעה</th>
                     <th className="px-4 py-3 text-right font-semibold">סוג תביעה</th>
                     <th className="px-4 py-3 text-center font-semibold">נכות כללית</th>
                     <th className="px-4 py-3 text-center font-semibold">מס הכנסה</th>
@@ -162,6 +181,12 @@ export default async function AdminDashboard() {
                             {lead.phone}
                           </a>
                         </td>
+                        <td className="px-4 py-3 text-xs">
+                          {lead.email
+                            ? <a href={`mailto:${lead.email}`} className="text-indigo-600 hover:underline">{lead.email}</a>
+                            : <span className="text-gray-300">—</span>}
+                        </td>
+                        <td className="px-4 py-3"><FilingBadge status={lead.filing_status} /></td>
                         <td className="px-4 py-3"><ClaimBadge type={lead.claim_type} /></td>
                         <td className="px-4 py-3 text-center">
                           <Pct value={pct.generalDisability} color="bg-indigo-100 text-indigo-700" />

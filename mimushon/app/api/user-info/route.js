@@ -6,10 +6,15 @@ import { rateLimit, getClientIp } from "../../../lib/rateLimit";
 export const dynamic = 'force-dynamic';
 
 // ── Validation constants ──────────────────────────────────────────────────────
-const MAX_NAME_LEN = 100;
-const MAX_PHONE_LEN = 15;
+const MAX_NAME_LEN    = 100;
+const MAX_PHONE_LEN   = 15;
+const MAX_EMAIL_LEN   = 255;
 const MAX_COMMENT_LEN = 1_000;
-const PHONE_REGEX = /^[\d\s\-()+]{7,15}$/;
+const PHONE_REGEX     = /^[\d\s\-()+]{7,15}$/;
+const EMAIL_REGEX     = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const VALID_CLAIM_TYPES   = ['illness', 'work_accident', 'idf_disabled', 'other'];
+const VALID_FILING_STATUS = ['not_filed', 'in_process', 'rejected', 'approved'];
 
 // ── Helper ────────────────────────────────────────────────────────────────────
 function badRequest(message) {
@@ -41,11 +46,7 @@ export async function POST(request) {
     return badRequest("Invalid request body");
   }
 
-  const { name, phone, hearot, consent, percentages, claimType } = body ?? {};
-
-  // Validate claimType
-  const VALID_CLAIM_TYPES = ['illness', 'work_accident', 'idf_disabled', 'other'];
-  const safeClaimType = VALID_CLAIM_TYPES.includes(claimType) ? claimType : null;
+  const { name, phone, email, hearot, filingStatus, consent, percentages, claimType } = body ?? {};
 
   // 4. Consent check
   if (!consent) {
@@ -53,11 +54,7 @@ export async function POST(request) {
   }
 
   // 5. Input validation
-  if (
-    typeof name !== "string" ||
-    name.trim().length === 0 ||
-    name.length > MAX_NAME_LEN
-  ) {
+  if (typeof name !== "string" || name.trim().length === 0 || name.length > MAX_NAME_LEN) {
     return badRequest("Invalid name (must be 1–100 characters)");
   }
 
@@ -70,6 +67,14 @@ export async function POST(request) {
     return badRequest("Invalid phone number");
   }
 
+  // Email — optional, but must be valid if provided
+  const safeEmail = email && typeof email === "string" && email.trim().length > 0
+    ? email.trim()
+    : null;
+  if (safeEmail && (safeEmail.length > MAX_EMAIL_LEN || !EMAIL_REGEX.test(safeEmail))) {
+    return badRequest("Invalid email address");
+  }
+
   if (
     hearot !== undefined &&
     hearot !== null &&
@@ -78,24 +83,31 @@ export async function POST(request) {
     return badRequest(`Comment must not exceed ${MAX_COMMENT_LEN} characters`);
   }
 
-  // Validate percentages if provided
-  const safePercentages = (percentages && typeof percentages === "object" && !Array.isArray(percentages))
+  // Filing status — required
+  if (!filingStatus || !VALID_FILING_STATUS.includes(filingStatus)) {
+    return badRequest("Invalid or missing filing status");
+  }
+
+  const safeClaimType    = VALID_CLAIM_TYPES.includes(claimType) ? claimType : null;
+  const safePercentages  = (percentages && typeof percentages === "object" && !Array.isArray(percentages))
     ? percentages
     : null;
 
   // 6. Insert
   try {
-    const queryText =
-      "INSERT INTO contact_us_users(name, phone, comment, percentages, claim_type) VALUES($1, $2, $3, $4, $5)";
-    const values = [
-      name.trim(),
-      phone.trim(),
-      typeof hearot === "string" ? hearot.trim() : "",
-      safePercentages ? JSON.stringify(safePercentages) : null,
-      safeClaimType,
-    ];
-
-    await pool.query(queryText, values);
+    await pool.query(
+      `INSERT INTO contact_us_users(name, phone, email, comment, filing_status, percentages, claim_type)
+       VALUES($1, $2, $3, $4, $5, $6, $7)`,
+      [
+        name.trim(),
+        phone.trim(),
+        safeEmail,
+        typeof hearot === "string" ? hearot.trim() : "",
+        filingStatus,
+        safePercentages ? JSON.stringify(safePercentages) : null,
+        safeClaimType,
+      ]
+    );
 
     console.log("[user-info] Contact form submission saved successfully.");
     return NextResponse.json({ result: true });

@@ -2,11 +2,19 @@
 
 import { useState } from "react";
 
+const FILING_OPTIONS = [
+    { value: '',           label: '— בחר/י —',                      disabled: true  },
+    { value: 'not_filed',  label: 'טרם הגשתי תביעה'                               },
+    { value: 'in_process', label: 'הגשתי — ממתין/ה לתשובה'                        },
+    { value: 'rejected',   label: 'נדחיתי על ידי ביטוח לאומי'                     },
+    { value: 'approved',   label: 'קיבלתי החלטה / מקבל/ת קצבה כבר'               },
+];
+
 const ContactForm = ({ variant = "default", percentages = null, claimType = null }) => {
-    const [userInfo, setUserInfo] = useState({ name: '', phone: '', hearot: '' });
+    const [userInfo, setUserInfo] = useState({ name: '', phone: '', email: '', hearot: '', filingStatus: '' });
     const [consent, setConsent] = useState(false);
     const [consentError, setConsentError] = useState('');
-    const [errors, setErrors] = useState({ name: '', phone: '' });
+    const [errors, setErrors] = useState({ name: '', phone: '', email: '', filingStatus: '' });
     const [success, setSuccess] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -17,6 +25,11 @@ const ContactForm = ({ variant = "default", percentages = null, claimType = null
             case 'phone':
                 if (!value.trim()) return '*טלפון הוא שדה חובה';
                 return !/^\d{9,10}$/.test(value) ? 'נא להזין מספר טלפון ישראלי תקין (9-10 ספרות)' : '';
+            case 'email':
+                if (!value.trim()) return ''; // optional
+                return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) ? 'כתובת אימייל לא תקינה' : '';
+            case 'filingStatus':
+                return !value ? '*יש לבחור סטטוס תביעה' : '';
             default:
                 return '';
         }
@@ -39,9 +52,11 @@ const ContactForm = ({ variant = "default", percentages = null, claimType = null
         e.preventDefault();
         setSuccess(null);
 
-        const nameError = validateField('name', userInfo.name);
-        const phoneError = validateField('phone', userInfo.phone);
-        setErrors({ name: nameError, phone: phoneError });
+        const nameError        = validateField('name',         userInfo.name);
+        const phoneError       = validateField('phone',        userInfo.phone);
+        const emailError       = validateField('email',        userInfo.email);
+        const filingStatusError = validateField('filingStatus', userInfo.filingStatus);
+        setErrors({ name: nameError, phone: phoneError, email: emailError, filingStatus: filingStatusError });
 
         if (!consent) {
             setConsentError('יש לאשר את הסכמתך לפני שליחת הטופס');
@@ -49,22 +64,31 @@ const ContactForm = ({ variant = "default", percentages = null, claimType = null
         }
         setConsentError('');
 
-        if (nameError || phoneError) return;
+        if (nameError || phoneError || emailError || filingStatusError) return;
 
         setLoading(true);
         try {
             const response = await fetch('/api/user-info', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ ...userInfo, consent, percentages, claimType }),
+                body: JSON.stringify({
+                    name:         userInfo.name,
+                    phone:        userInfo.phone,
+                    email:        userInfo.email || null,
+                    hearot:       userInfo.hearot,
+                    filingStatus: userInfo.filingStatus,
+                    consent,
+                    percentages,
+                    claimType,
+                }),
             });
 
             const data = await response.json();
             setSuccess(data.result);
 
             if (data.result === true) {
-                setUserInfo({ name: '', phone: '', hearot: '' });
-                setErrors({ name: '', phone: '' });
+                setUserInfo({ name: '', phone: '', email: '', hearot: '', filingStatus: '' });
+                setErrors({ name: '', phone: '', email: '', filingStatus: '' });
                 setConsent(false);
                 setConsentError('');
             }
@@ -90,8 +114,8 @@ const ContactForm = ({ variant = "default", percentages = null, claimType = null
                 </div>
             )}
 
+            {/* Name + Phone */}
             <div className={isCompact ? "grid grid-cols-2 gap-3 mb-3" : "space-y-4 mb-4"}>
-                {/* Name */}
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">*שם מלא</label>
                     <input
@@ -106,7 +130,6 @@ const ContactForm = ({ variant = "default", percentages = null, claimType = null
                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                 </div>
 
-                {/* Phone */}
                 <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1">*טלפון</label>
                     <input
@@ -120,6 +143,42 @@ const ContactForm = ({ variant = "default", percentages = null, claimType = null
                     />
                     {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                 </div>
+            </div>
+
+            {/* Filing status */}
+            <div className="mb-3">
+                <label className="block text-sm font-semibold text-gray-700 mb-1">*האם הגשת תביעה לביטוח לאומי?</label>
+                <select
+                    name="filingStatus"
+                    value={userInfo.filingStatus}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`w-full border rounded-lg px-3 py-2.5 text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 bg-white ${errors.filingStatus ? 'border-red-400' : 'border-gray-300'}`}
+                >
+                    {FILING_OPTIONS.map(opt => (
+                        <option key={opt.value} value={opt.value} disabled={opt.disabled}>
+                            {opt.label}
+                        </option>
+                    ))}
+                </select>
+                {errors.filingStatus && <p className="text-red-500 text-xs mt-1">{errors.filingStatus}</p>}
+            </div>
+
+            {/* Email — optional */}
+            <div className="mb-3">
+                <label className="block text-sm font-semibold text-gray-700 mb-1">
+                    אימייל <span className="font-normal text-gray-400">(אופציונלי)</span>
+                </label>
+                <input
+                    type="email"
+                    name="email"
+                    value={userInfo.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`w-full border rounded-lg px-3 py-2.5 text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 ${errors.email ? 'border-red-400' : 'border-gray-300'}`}
+                    placeholder="israel@example.com"
+                />
+                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
             </div>
 
             {/* Comment — hidden in compact mode */}
