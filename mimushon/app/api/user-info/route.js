@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import pool from "../../../lib/db";
 import { checkCsrfOrigin } from "../../../lib/csrf";
-import { sendLeadNotification } from "../../../lib/mailer";
 import { rateLimit, getClientIp } from "../../../lib/rateLimit";
 
 export const dynamic = 'force-dynamic';
@@ -97,19 +96,6 @@ export async function POST(request) {
     ];
 
     await pool.query(queryText, values);
-
-    // Send email notification (best-effort)
-    try {
-      await sendLeadNotification({
-        name: name.trim(),
-        phone: phone.trim(),
-        comment: typeof hearot === "string" ? hearot.trim() : "",
-        percentages: safePercentages,
-        claimType: safeClaimType,
-      });
-    } catch (emailErr) {
-      console.error("[user-info] Failed to send lead notification email:", emailErr.message);
-    }
 
     console.log("[user-info] Contact form submission saved successfully.");
     return NextResponse.json({ result: true });

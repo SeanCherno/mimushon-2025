@@ -27,7 +27,7 @@ export async function GET(request) {
         SELECT COUNT(*)::int AS total FROM disease_calculations
       `),
       pool.query(`
-        SELECT id, name, phone, comment, percentages, created_at
+        SELECT id, name, phone, comment, percentages, claim_type, created_at
         FROM contact_us_users
         ORDER BY created_at DESC
         LIMIT 100
