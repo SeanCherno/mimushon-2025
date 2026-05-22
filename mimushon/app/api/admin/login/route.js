@@ -1,8 +1,24 @@
 import { NextResponse } from "next/server";
+import { rateLimit, getClientIp } from "../../../../lib/rateLimit";
 
 export const dynamic = 'force-dynamic';
 
 export async function POST(request) {
+  // 5 attempts per IP per 15 minutes — lockout after that
+  const ip = getClientIp(request);
+  const { allowed, resetAt } = rateLimit(`admin-login:${ip}`, {
+    windowMs: 15 * 60_000,
+    max: 5,
+  });
+
+  if (!allowed) {
+    const retryAfter = Math.ceil((resetAt - Date.now()) / 1000);
+    return NextResponse.json(
+      { error: "יותר מדי ניסיונות. נסה שוב מאוחר יותר." },
+      { status: 429, headers: { "Retry-After": String(retryAfter) } }
+    );
+  }
+
   let body;
   try {
     body = await request.json();
@@ -14,9 +30,9 @@ export async function POST(request) {
   const envSecret = process.env.ADMIN_SECRET;
 
   if (!envSecret || !secret || secret !== envSecret) {
-    // Delay response to slow down brute force attempts
+    // Constant-time-ish delay to slow brute force even within the rate limit window
     await new Promise(r => setTimeout(r, 1000));
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: "סיסמה שגויה" }, { status: 401 });
   }
 
   const response = NextResponse.json({ ok: true });
