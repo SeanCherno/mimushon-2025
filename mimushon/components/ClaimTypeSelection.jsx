@@ -6,40 +6,24 @@ const CLAIM_TYPES = [
         label: 'מחלה',
         icon: '🩺',
         desc: 'מחלה כרונית, נכות ממחלה, ליקוי בריאותי שאינו קשור לתאונת עבודה',
-        border: 'border-indigo-200 hover:border-indigo-500',
-        bg: 'hover:bg-indigo-50',
-        iconBg: 'bg-indigo-100',
-        text: 'text-indigo-700',
     },
     {
         id: 'work_accident',
         label: 'תאונת עבודה',
         icon: '🏗️',
         desc: 'תאונה שאירעה במקום העבודה, בנסיעה מ/אל העבודה, או מחלת מקצוע',
-        border: 'border-amber-200 hover:border-amber-500',
-        bg: 'hover:bg-amber-50',
-        iconBg: 'bg-amber-100',
-        text: 'text-amber-700',
     },
     {
         id: 'idf_disabled',
         label: 'נכה צה"ל',
         icon: '🎗️',
         desc: 'פגיעה, פציעה, או מחלה שנגרמה עקב שירות צבאי',
-        border: 'border-blue-200 hover:border-blue-500',
-        bg: 'hover:bg-blue-50',
-        iconBg: 'bg-blue-100',
-        text: 'text-blue-700',
     },
     {
         id: 'other',
         label: 'אחר',
         icon: '📋',
         desc: 'מצב שאינו נכלל בקטגוריות הנ"ל',
-        border: 'border-gray-200 hover:border-gray-400',
-        bg: 'hover:bg-gray-50',
-        iconBg: 'bg-gray-100',
-        text: 'text-gray-600',
     },
 ];
 
@@ -58,15 +42,13 @@ export default function ClaimTypeSelection({ onSelect }) {
                     <button
                         key={type.id}
                         onClick={() => onSelect(type.id)}
-                        className={`flex items-start gap-4 p-4 rounded-xl border-2 bg-white text-right transition cursor-pointer ${type.border} ${type.bg}`}
+                        className="flex items-start gap-4 p-4 rounded-xl border-2 bg-white text-right transition cursor-pointer border-indigo-200 hover:border-indigo-500 hover:bg-indigo-50"
                     >
-                        <span
-                            className={`text-2xl w-11 h-11 flex items-center justify-center rounded-lg shrink-0 ${type.iconBg}`}
-                        >
+                        <span className="text-2xl w-11 h-11 flex items-center justify-center rounded-lg shrink-0 bg-indigo-100">
                             {type.icon}
                         </span>
                         <div>
-                            <p className={`font-bold text-base ${type.text}`}>{type.label}</p>
+                            <p className="font-bold text-base text-indigo-700">{type.label}</p>
                             <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{type.desc}</p>
                         </div>
                     </button>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Tooltip from "./content/Tooltip";
 import ContactForm from "./content/ContactForm";
 import IncapacityQuestionnaire from "./IncapacityQuestionnaire";
+import { estimateIncapacity } from "../lib/estimateIncapacity";
 
 const getExplanation = (modeId, percentage, chosenDiseasesWithSeverities) => {
   if (modeId === "generalDisability") {
@@ -59,91 +60,12 @@ const WHAT_NOW_LINKS = [
   },
 ];
 
-/* ── Work-accident personalised result ──────────────────────────────────────
-   Combines the questionnaire answers with the calculated percentage to produce
-   a single actionable card shown only for תאונת עבודה users.
-─────────────────────────────────────────────────────────────────────────── */
-function getWorkAccidentResult(answers, pct) {
-  const { recognized, reported, aggravating } = answers ?? {};
-  const hasAggravating = aggravating === 'yes' || aggravating === 'maybe';
-
-  // ── Percentage tier ──────────────────────────────────────────────────────
-  let pctLabel, pctColor;
-  if (pct >= 20) {
-    pctLabel = `${pct}% — מעל הסף (20%): זכאות אפשרית לקצבת נכות מעבודה חודשית`;
-    pctColor = 'green';
-  } else if (pct >= 9) {
-    pctLabel = `${pct}% — בטווח המענק (9%–19.9%): זכאות אפשרית למענק חד-פעמי`;
-    pctColor = 'yellow';
-  } else {
-    pctLabel = `${pct}% — מתחת לסף המינימלי (9%): לא נמצאה זכאות`;
-    pctColor = 'gray';
-  }
-
-  // ── Status-based main message ────────────────────────────────────────────
-  let title, body, actions, level;
-
-  // User skipped the questionnaire — show generic percentage-based guidance
-  if (!recognized) {
-    level   = pct >= 20 ? 'success' : pct >= 9 ? 'info' : 'gray';
-    title   = pct >= 20
-      ? `האחוזים (${pct}%) עוברים את סף הזכאות לקצבת נכות מעבודה`
-      : pct >= 9
-      ? `האחוזים (${pct}%) בטווח הזכאות למענק חד-פעמי`
-      : `האחוזים (${pct}%) מתחת לסף המינימלי`;
-    body    = pct >= 20
-      ? 'לקצבת נכות מעבודה חודשית הסף הוא 20% בלבד — ללא צורך בדרגת אי-כושר. מומלץ לוודא שהפגיעה הוכרה על ידי ביטוח לאומי ולפנות לייעוץ.'
-      : pct >= 9
-      ? 'בטווח 9%–19.9% ניתן מענק חד-פעמי במקום קצבה חודשית. מומלץ לוודא שהפגיעה הוכרה ולפנות לייעוץ.'
-      : 'האחוזים מתחת לסף המינימלי של 9%. מומלץ לבחון עם מומחה האם ניתן לשפר את הזכאות.';
-    actions = ['פנה/י לייעוץ משפטי לבחינת זכאותך', 'וודא/י שהפגיעה הוכרה רשמית על ידי ביטוח לאומי'];
-    return { title, body, actions, level, pctLabel, pctColor, hasAggravating, pct };
-  }
-
-  if (recognized === 'rejected') {
-    level   = 'urgent';
-    title   = 'הפגיעה נדחתה — כדאי לבחון ערעור';
-    body    = `ביטוח לאומי דחה את הפגיעה, אך ועדות ערר מקבלות כשליש מהערעורים. על פי חישוב המחשבון אחוזי הנכות עשויים להגיע ל-${pct}%${pct >= 9 ? ', מה שעשוי להצדיק ערעור' : ''}.`;
-    actions = ['פנה/י לייעוץ משפטי בהקדם', 'אסוף/י מסמכים רפואיים + ניירת עבודה לערעור'];
-  } else if (recognized === 'not_filed' || reported === 'no' || reported === 'unknown') {
-    level   = 'action';
-    title   = 'טרם הוגשה תביעה — יש לפעול בהקדם';
-    body    = pct >= 9
-      ? `על פי החישוב ייתכן שתהיה זכאי/ת ל${pct >= 20 ? 'קצבת נכות מעבודה חודשית' : 'מענק חד-פעמי'} (${pct}%). שים/י לב: ישנה התיישנות של 12 חודשים מיום התאונה.`
-      : `על פי החישוב האחוזים עומדים על ${pct}% — מתחת לסף הזכאות (9%). מומלץ לבחון עם מומחה האם ניתן לתבוע.`;
-    actions = ['הגש/י תביעה לנכות מעבודה (טופס ב-200)', 'אסוף/י: דוח תאונה, מסמכים רפואיים, עדויות'];
-  } else if (recognized === 'in_process') {
-    level   = 'info';
-    title   = 'הפגיעה בתהליך הכרה';
-    body    = `על פי החישוב אחוזי הנכות עשויים להגיע ל-${pct}%. ${pct >= 20 ? 'אם הפגיעה תוכר — ייתכן שתהיה זכאי/ת לקצבה חודשית.' : pct >= 9 ? 'אם הפגיעה תוכר — ייתכן שתהיה זכאי/ת למענק חד-פעמי.' : 'האחוזים מתחת לסף הזכאות של 9%.'}`;
-    actions = ['המתן/י להחלטת ביטוח לאומי', 'אם תחלוף שנה ללא תשובה — פנה/י לייעוץ'];
-  } else {
-    // recognized === 'yes'
-    level   = pct >= 20 ? 'success' : pct >= 9 ? 'info' : 'gray';
-    title   = pct >= 20
-      ? 'פגיעה מוכרת — אחוזי הנכות עוברים את הסף (20%)'
-      : pct >= 9
-      ? 'פגיעה מוכרת — אחוזי הנכות בטווח המענק (9%–19.9%)'
-      : 'פגיעה מוכרת — אחוזי הנכות מתחת לסף (9%)';
-    body    = pct >= 20
-      ? `האחוזים שחושבו (${pct}%) עוברים את הסף של 20% הנדרש לקצבת נכות מעבודה חודשית — ללא צורך בדרגת אי-כושר. גובה הקצבה נקבע לפי אחוז הנכות.`
-      : pct >= 9
-      ? `האחוזים שחושבו (${pct}%) נמצאים בטווח שמזכה במענק חד-פעמי (9%–19.9%), ולא בקצבה חודשית שוטפת.`
-      : `האחוזים שחושבו (${pct}%) מתחת לסף המינימלי של 9% הנדרש לכל זכאות. מומלץ לבחון עם מומחה האם ניתן לשפר.`;
-    actions = pct >= 9
-      ? ['וודא/י שהאחוזים שנקבעו תואמים את ספר הליקויים', 'פנה/י לייעוץ משפטי לוודא שקיבלת את מלוא הזכאות']
-      : ['בחן/י עם מומחה האם ניתן לתבוע לפי מסלול אחר'];
-  }
-
-  return { title, body, actions, level, pctLabel, pctColor, hasAggravating, pct };
-}
-
-const LEVEL_STYLES = {
-  urgent:  { bg: 'bg-red-50',    border: 'border-red-300',    icon: '🚨', titleColor: 'text-red-800'    },
-  action:  { bg: 'bg-orange-50', border: 'border-orange-300', icon: '⚡', titleColor: 'text-orange-800' },
-  info:    { bg: 'bg-blue-50',   border: 'border-blue-300',   icon: 'ℹ️', titleColor: 'text-blue-800'   },
-  success: { bg: 'bg-green-50',  border: 'border-green-300',  icon: '✅', titleColor: 'text-green-800'  },
-  gray:    { bg: 'bg-gray-50',   border: 'border-gray-300',   icon: '📋', titleColor: 'text-gray-700'   },
+/* ── Incapacity color map (mirrors IncapacityQuestionnaire.jsx) ─────────────*/
+const INCAPACITY_COLORS = {
+  gray:   { bg: 'bg-gray-50',   border: 'border-gray-200',   badge: 'bg-gray-100 text-gray-700',    bar: 'bg-gray-400'   },
+  yellow: { bg: 'bg-yellow-50', border: 'border-yellow-200', badge: 'bg-yellow-100 text-yellow-800', bar: 'bg-yellow-400' },
+  orange: { bg: 'bg-orange-50', border: 'border-orange-200', badge: 'bg-orange-100 text-orange-800', bar: 'bg-orange-500' },
+  red:    { bg: 'bg-red-50',    border: 'border-red-200',    badge: 'bg-red-100 text-red-800',       bar: 'bg-red-500'    },
 };
 
 const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, chosenDiseasesWithSeverities, onStartOver, claimType, workAccidentAnswers }) => {
@@ -266,62 +188,116 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
 
         {/* ── Work accident block ──────────────────────────────────────── */}
         {isWorkAccident ? (() => {
-          const waResult = getWorkAccidentResult(
-            workAccidentAnswers,
-            Math.round(totalPercentages?.newTotals?.generalDisability ?? 0)
-          );
-          const s = LEVEL_STYLES[waResult.level] ?? LEVEL_STYLES.info;
-          const pctBadgeColor = waResult.pctColor === 'green'
+          const pct = Math.round(totalPercentages?.newTotals?.generalDisability ?? 0);
+
+          // Percentage tier
+          const pctAboveMonthly = pct >= 20;
+          const pctInLumpSum    = pct >= 9 && pct < 20;
+          const pctBg     = pctAboveMonthly ? 'bg-green-50 border-green-300'  : pctInLumpSum ? 'bg-yellow-50 border-yellow-300'  : 'bg-gray-50 border-gray-300';
+          const pctIcon   = pctAboveMonthly ? '✅' : pctInLumpSum ? 'ℹ️' : '📋';
+          const pctTitle  = pctAboveMonthly ? `text-green-800` : pctInLumpSum ? 'text-yellow-800' : 'text-gray-700';
+          const pctBadge  = pctAboveMonthly
             ? 'bg-green-100 text-green-800 border-green-200'
-            : waResult.pctColor === 'yellow'
+            : pctInLumpSum
             ? 'bg-yellow-100 text-yellow-800 border-yellow-200'
             : 'bg-gray-100 text-gray-700 border-gray-200';
+          const pctLabel  = pctAboveMonthly
+            ? `${pct}% — מעל הסף (20%): זכאות אפשרית לקצבת נכות מעבודה חודשית`
+            : pctInLumpSum
+            ? `${pct}% — בטווח המענק (9%–19.9%): זכאות אפשרית למענק חד-פעמי`
+            : `${pct}% — מתחת לסף המינימלי (9%): לא נמצאה זכאות`;
+          const pctBody   = pctAboveMonthly
+            ? `האחוזים שחושבו (${pct}%) עוברים את הסף של 20% הנדרש לקצבת נכות מעבודה חודשית — ללא צורך בדרגת אי-כושר. גובה הקצבה נקבע לפי אחוז הנכות.`
+            : pctInLumpSum
+            ? `האחוזים שחושבו (${pct}%) נמצאים בטווח שמזכה במענק חד-פעמי (9%–19.9%), ולא בקצבה חודשית שוטפת.`
+            : `האחוזים שחושבו (${pct}%) מתחת לסף המינימלי של 9% הנדרש לכל זכאות. מומלץ לבחון עם מומחה האם ניתן לשפר.`;
+
+          // Incapacity estimate (only if user answered the questionnaire)
+          const hasAnswers  = workAccidentAnswers && Object.keys(workAccidentAnswers).length >= 3;
+          const incapacity  = hasAnswers ? estimateIncapacity(workAccidentAnswers) : null;
+          const IC          = incapacity ? (INCAPACITY_COLORS[incapacity.color] ?? INCAPACITY_COLORS.yellow) : null;
 
           return (
-            <div className={`rounded-xl border-2 shadow-sm p-4 ${s.bg} ${s.border}`}>
-              {/* Title */}
-              <div className="flex items-start gap-3 mb-3">
-                <span className="text-2xl shrink-0">{s.icon}</span>
-                <div>
-                  <p className={`font-bold text-base ${s.titleColor}`}>
-                    💼 תאונת עבודה — {waResult.title}
+            <div className="space-y-3">
+              {/* ── Percentage tier card ─────────────────────────────────── */}
+              <div className={`rounded-xl border-2 shadow-sm p-4 ${pctBg}`}>
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="text-2xl shrink-0">{pctIcon}</span>
+                  <p className={`font-bold text-base ${pctTitle}`}>
+                    💼 תאונת עבודה — אחוזי נכות רפואיים
                   </p>
                 </div>
+
+                <div className={`inline-flex text-xs font-semibold rounded-lg px-3 py-1.5 border mb-3 ${pctBadge}`}>
+                  {pctLabel}
+                </div>
+
+                <p className="text-sm text-gray-700 leading-relaxed mb-3">{pctBody}</p>
+
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg px-3 py-2 text-xs text-yellow-800">
+                  ⚠️ זהו אומדן בלבד — לא קביעה רשמית. תאונות עבודה הן תחום מורכב; מומלץ מאוד לפנות לייעוץ משפטי מקצועי.
+                </div>
               </div>
 
-              {/* Percentage tier badge */}
-              <div className={`inline-flex items-center gap-2 text-xs font-semibold rounded-lg px-3 py-1.5 border mb-3 ${pctBadgeColor}`}>
-                {waResult.pctLabel}
-              </div>
+              {/* ── Incapacity degree card (shown when questionnaire was answered) ── */}
+              {incapacity && (
+                <div className={`rounded-xl border shadow-sm p-4 ${IC.bg} ${IC.border}`}>
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <p className="text-xs text-gray-500 mb-1">אומדן דרגת אי-כושר</p>
+                      <span className={`inline-block text-2xl font-extrabold px-3 py-1 rounded-lg ${IC.badge}`}>
+                        {incapacity.label}
+                      </span>
+                    </div>
+                    {typeof incapacity.level === 'number' && (
+                      <div className="text-right text-xs text-gray-500">
+                        {incapacity.level === 100 ? 'קצבה מקסימלית'
+                          : incapacity.level === 74  ? 'קצבה גבוהה מאוד'
+                          : incapacity.level === 65  ? 'קצבה גבוהה'
+                          :                           'קצבה בסיסית'}
+                      </div>
+                    )}
+                  </div>
 
-              {/* Body */}
-              <p className="text-sm text-gray-700 leading-relaxed mb-4">{waResult.body}</p>
+                  {typeof incapacity.level === 'number' && (
+                    <div className="w-full bg-white rounded-full h-2 mb-3 overflow-hidden border border-gray-200">
+                      <div
+                        className={`h-2 rounded-full ${IC.bar} transition-all duration-500`}
+                        style={{ width: `${incapacity.level}%` }}
+                      />
+                    </div>
+                  )}
 
-              {/* Regulation 15 callout */}
-              {waResult.hasAggravating && (
-                <div className="bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-4 text-sm text-amber-800">
-                  <strong>⚖️ תקנה 15 עשויה להיות רלוונטית:</strong> ציינת נסיבות עבודה מחמירות. תקנה 15 מאפשרת לוועדה להוסיף עד 50% לאחוזי הנכות — מומלץ לדון בזה עם עורך דין לפני הגשת התביעה.
+                  <p className="text-sm text-gray-700 leading-relaxed mb-4">{incapacity.text}</p>
+
+                  {/* Level reference table */}
+                  {incapacity.level !== 'below' && (
+                    <div className="bg-white rounded-lg border border-gray-200 p-3 mb-3 text-xs">
+                      <p className="font-semibold text-gray-600 mb-2">קצבאות נכות מעבודה 2026:</p>
+                      <div className="space-y-1.5">
+                        {[
+                          { l: '60%',  desc: '2,718 ₪/חודש' },
+                          { l: '65%',  desc: '2,894 ₪/חודש' },
+                          { l: '74%',  desc: '3,211 ₪/חודש' },
+                          { l: '100%', desc: '4,711 ₪/חודש' },
+                        ].map(row => (
+                          <div
+                            key={row.l}
+                            className={`flex justify-between px-2 py-1 rounded ${String(incapacity.level) === row.l.replace('%', '') ? `${IC.badge} font-bold` : 'text-gray-500'}`}
+                          >
+                            <span>{row.l}</span>
+                            <span>{row.desc}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg px-3 py-2 text-xs text-yellow-800">
+                    ⚠️ זהו אומדן בלבד — לא קביעה רשמית. דרגת אי-הכושר נקבעת על ידי פקיד תביעות בביטוח לאומי בהתחשב גם בחוות דעת רופא ועובד שיקום.
+                  </div>
                 </div>
               )}
-
-              {/* Actions */}
-              {waResult.actions.length > 0 && (
-                <div className="mb-3">
-                  <p className="text-xs font-semibold text-gray-600 mb-2">פעולות מומלצות:</p>
-                  <ul className="space-y-1.5">
-                    {waResult.actions.map((a, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                        <span className="text-amber-500 mt-0.5 shrink-0">✓</span>
-                        <span>{a}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg px-3 py-2 text-xs text-yellow-800">
-                ⚠️ זהו אומדן בלבד — לא קביעה רשמית. תאונות עבודה הן תחום מורכב; מומלץ מאוד לפנות לייעוץ משפטי מקצועי.
-              </div>
             </div>
           );
         })() : (
