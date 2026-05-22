@@ -184,7 +184,7 @@ const ContactForm = ({ variant = "default", percentages = null, claimType = null
             {/* Comment — hidden in compact mode */}
             {!isCompact && (
                 <div className="mb-4">
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">הערות (אופציונלי)</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1">הערות <span className="font-normal text-gray-400">(אופציונלי)</span></label>
                     <textarea
                         name="hearot"
                         value={userInfo.hearot}
