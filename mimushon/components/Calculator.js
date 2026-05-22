@@ -378,6 +378,8 @@ export default function Calculator({ initialCategories }) {
     setClaimType(null);
     setWorkAccidentAnswers(null);
     setCurrentScreen("claimTypeSelection");
+    const section = document.getElementById("calculator");
+    if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const renderScreen = () => {
