@@ -2099,7 +2099,7 @@
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": false,
-                  "severityId": "category_76_disease_363_vdx4kd"
+                  "severityId": "category_76_disease_363_vdx4kd_b"
                 }
               ],
               "requiredDocuments": [
@@ -3287,7 +3287,7 @@
               "description": "איפה בגוף: האמה - שתי העצמות שבין המרפק לשורש כף היד",
               "severities": [
                 {
-                  "description": "זרוע ימין\nחוסר חיבור עם פרק מדומה. וגמה: היד חלשה מאוד, קשה לאחוז חפצים או להרים סירים",
+                  "description": "זרוע ימין\nחוסר חיבור עם פרק מדומה. דוגמה: היד חלשה מאוד, קשה לאחוז חפצים או להרים סירים",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -3295,7 +3295,7 @@
                   "severityId": "category_44_disease_217_xwoe39"
                 },
                 {
-                  "description": "זרוע שמאל\nחוסר חיבור עם פרק מדומה. וגמה: היד חלשה מאוד, קשה לאחוז חפצים או להרים סירים",
+                  "description": "זרוע שמאל\nחוסר חיבור עם פרק מדומה. דוגמה: היד חלשה מאוד, קשה לאחוז חפצים או להרים סירים",
                   "percentage": 35,
                   "countForDisability": true,
                   "countForTax": true,
@@ -3337,7 +3337,7 @@
                 },
                 {
                   "description": "זרוע ימין - עם עיוות ניכר\nדוגמה: היד נראית עקומה, מתקשה בסיבוב כף היד",
-                  "percentage": 20,
+                  "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
@@ -3345,7 +3345,7 @@
                 },
                 {
                   "description": "זרוע שמאל - עם עיוות ניכר\nדוגמה: היד נראית עקומה, מתקשה בסיבוב כף היד",
-                  "percentage": 30,
+                  "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
@@ -3500,7 +3500,11 @@
               "name": "אבדן גף עליון",
               "description": "איפה בגוף: כל היד, מהכתף ומטה",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קטיעה ברמת מפרק הכתף",
@@ -3590,7 +3594,11 @@
               "name": "אבדן האמה",
               "description": "איפה בגוף: חלק היד שמתחת למרפק ועד לשורש כף היד",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קטיעה מעל השריר pronator teres (חלק עליון של האמה)",
@@ -3721,10 +3729,16 @@
             {
               "id": "disease_243",
               "name": "שורש היד",
-              "imageUrls": ["/images/palm.png"],
+              "imageUrls": [
+                "/images/palm.png"
+              ],
               "description": "איפה בגוף: מפרק שורש כף היד – בין האמה לכף היד",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "אחרי חבלה שהתרפאה ללא הפרעות",
@@ -3757,8 +3771,8 @@
                 {
                   "header": "הגבלה בתנועה, כיפוף גבי עד 15°",
                   "severityIdsInRow": [
-                    "category_45_disease_246_psx6vp",
-                    "category_45_disease_246_psx6vp"
+                    "category_45_disease_246_limit15_r",
+                    "category_45_disease_246_limit15_l"
                   ]
                 },
                 {
@@ -3842,20 +3856,20 @@
                   "severityId": "category_45_disease_246_psx6vp"
                 },
                 {
-                  "description": "קשיון ביניים – בין נוח ללא נוח (שמאל)",
+                  "description": "הגבלה בתנועות שורש היד – כיפוף גבי אפשרי עד 15° (ימין)",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
-                  "severityId": "category_45_disease_246_psx6vp"
+                  "severityId": "category_45_disease_246_limit15_r"
                 },
                 {
-                  "description": "קשיון ביניים – בין נוח ללא נוח (שמאל)",
+                  "description": "הגבלה בתנועות שורש היד – כיפוף גבי אפשרי עד 15° (שמאל)",
                   "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
-                  "severityId": "category_45_disease_246_psx6vp"
+                  "severityId": "category_45_disease_246_limit15_l"
                 },
                 {
                   "description": "כף היד פונה כלפי מעלה (Supination) או מטה (Hyperpronation) קבוע, מגביל את השימוש (ימין)",
@@ -3912,7 +3926,11 @@
               "name": "נקיעה חוזרת של הכתף (Recurrent Shoulder Dislocation)",
               "description": "איפה בגוף: מפרק הכתף – בין עצם הזרוע לשכמה",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "נקיעות חוזרות שמופיעות כשמרימים את היד מעל גובה הכתף",
@@ -4058,7 +4076,11 @@
               "name": "קשיון של הכתף (Shoulder Ankylosis)",
               "description": "איפה בגוף: מפרק הכתף",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קשיון נוח - הזרוע בריחוק של 50°-45° מהגוף",
@@ -4125,7 +4147,11 @@
               "name": "הגבלת התנועות בפרק הכתף",
               "description": "איפה בגוף: מפרק הכתף",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "היד עולה מעל גובה הכתף",
@@ -4292,9 +4318,15 @@
               "id": "disease_237",
               "name": "קשיון במרפק",
               "description": "איפה בגוף: מפרק המרפק",
-              "imageUrls": ["/images/elbow.png"],
+              "imageUrls": [
+                "/images/elbow.png"
+              ],
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קשיון נוח - תנוחת המרפק בזווית שבין 70° עד 90° (ראה ציור) ובעמדה אמצעית של האמה;",
@@ -4360,9 +4392,15 @@
               "id": "disease_238",
               "description": "איפה בגוף: מפרק המרפק",
               "name": "הגבלת התנועות במרפק - הגבלות בכיפוף",
-              "imageUrls": ["/images/elbow2.png"],
+              "imageUrls": [
+                "/images/elbow2.png"
+              ],
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "כיפוף עד 35°",
@@ -4475,8 +4513,14 @@
               "name": "הגבלת התנועות במרפק - הגבלות ביישור",
               "description": "איפה בגוף: מפרק המרפק",
               "displayAsTable": true,
-              "imageUrls": ["/images/elbow2.png"],
-              "tableColumns": ["", "ימין", "שמאל"],
+              "imageUrls": [
+                "/images/elbow2.png"
+              ],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "יישור עד 90°",
@@ -4650,9 +4694,13 @@
           "diseases": [
             {
               "id": "disease_250",
-              "name": "פציעת שרירי הכתף - TRAPEZIUS, SERRATUS MAGNUS LLEVATOR SCAPULAE",
+              "name": "פציעת שרירי הכתף – הרמת הכתף וייצוב השכמה",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -4736,13 +4784,18 @@
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
               ],
-              "description": "פציעה בשרירי הכתף העליונה: טרפציוס, סראטוס, לבאטור סקאפולה. גורמת לחולשה ביד, קושי בהרמת היד ובתנועות הכתף."
+              "description": "פגיעה בשרירים המרימים את הכתף ומייצבים את עצם השכמה (טרפז – TRAPEZIUS, סראטוס – SERRATUS MAGNUS, מרים השכמה – LEVATOR SCAPULAE). פוגעת ביכולת להרים את הכתף, לשאת משקל על הכתף ולהרים את היד מעל הראש.",
+              "guide": "איך בוחרים דרגה? בחרו לפי התיאור הקרוב ביותר למצבכם בחיי היומיום:\n\n• בצורה בינונית – כאב וחולשה מורגשים בהרמת הכתף או בנשיאת תיק על הכתף, אך רוב הפעולות היומיומיות עדיין מתבצעות.\n\n• בצורה ניכרת – חולשה ברורה: קושי ממשי להרים את היד מעל הראש, הכתף נוטה \"לצנוח\", קשה לסחוב שקיות קניות.\n\n• בצורה קשה – השריר כמעט אינו פועל: הכתף שמוטה באופן בולט, כמעט בלתי אפשרי להרים את היד או לשאת משקל.\n\nלאחר מכן סמנו את הצד הפגוע – ימין או שמאל. הקביעה הסופית נעשית על ידי הוועדה הרפואית."
             },
             {
               "id": "disease_251",
-              "name": "פציעת שרירי הכתף - PECTORALIS MAJOR/MINOR, LATISSIMUS DORSI, TERES MAJOR",
+              "name": "פציעת שרירי הכתף – שרירי החזה והגב הרחבים",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -4826,13 +4879,18 @@
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
               ],
-              "description": "פציעה בשרירי חזה הכתף: פקטוראליס, לטיסימוס דורסי, ראמבואיד. גורמת לחולשה בחזה ובגב, קושי בדחיפה ובמשיכה."
+              "description": "פגיעה בשרירי החזה והגב המחוברים לכתף (שריר החזה – PECTORALIS MAJOR/MINOR, הגב הרחב – LATISSIMUS DORSI, טרס מז'ור – TERES MAJOR). פוגעת ביכולת לדחוף, למשוך ולקרב את היד אל הגוף.",
+              "guide": "איך בוחרים דרגה? בחרו לפי התיאור הקרוב ביותר למצבכם בחיי היומיום:\n\n• בצורה בינונית – כאב וחולשה בדחיפה או במשיכה חזקה (פתיחת דלת כבדה, סחיבת מזוודה), אך התפקוד היומיומי נשמר.\n\n• בצורה ניכרת – חולשה ברורה: קושי לדחוף עגלה, להרים חפץ כבד אל הגוף או להיתלות ביד.\n\n• בצורה קשה – כמעט אובדן כוח בדחיפה ובמשיכה, קושי גם בפעולות קלות כמו סגירת דלת.\n\nלאחר מכן סמנו את הצד הפגוע – ימין או שמאל. הקביעה הסופית נעשית על ידי הוועדה הרפואית."
             },
             {
               "id": "disease_253",
-              "name": "פציעת שרירי הכתף - DELTOIDEUS",
+              "name": "פציעת שריר הדלתא – הרמת הזרוע לצד ולפנים",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -4916,13 +4974,18 @@
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
               ],
-              "description": "פציעה בשריר הדלטואיד (השריר העגלגל של הכתף). גורמת לקושי להרים את הזרוע לצדדים ולמעלה."
+              "description": "פגיעה בשריר הדלתא (DELTOIDEUS) – השריר העגול העוטף את הכתף. זהו השריר המרכזי שמרים את הזרוע לצד ולפנים; פגיעה בו מקשה להרים את היד לגובה הכתף ומעליה.",
+              "guide": "איך בוחרים דרגה? בחרו לפי התיאור הקרוב ביותר למצבכם בחיי היומיום:\n\n• בצורה בינונית – כאב וחולשה בהרמת היד לגובה הכתף (הורדת חפץ ממדף, סירוק שיער), אך הפעולות מתבצעות.\n\n• בצורה ניכרת – היד מתרוממת רק חלקית: קושי ממשי להלביש חולצה, להושיט יד למדף עליון.\n\n• בצורה קשה – כמעט לא ניתן להרים את היד לצד, נדרשת עזרה מהיד השנייה ברוב הפעולות.\n\nלאחר מכן סמנו את הצד הפגוע – ימין או שמאל. הקביעה הסופית נעשית על ידי הוועדה הרפואית."
             },
             {
               "id": "disease_254",
-              "name": "פציעת שרירי הכתף - TERES MINOR, SUPRASPINATUS, INFRASPINATUS SUBSCAPULARIS, CORACOBRACHIALIS",
+              "name": "פציעת השרוול המסובב של הכתף (Rotator Cuff)",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5006,7 +5069,8 @@
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
               ],
-              "description": "פציעה בשרירי סבב הכתף (Rotator Cuff): טרס מינור, סופרסינאטוס, אינפרסינאטוס. גורמת לכאב, חולשה ומגבלה בסיבוב הכתף."
+              "description": "פגיעה בקבוצת שרירי הסיבוב המייצבים את הכתף (SUPRASPINATUS, INFRASPINATUS, TERES MINOR, SUBSCAPULARIS, CORACOBRACHIALIS). גורמת לכאב, חולשה וקושי בסיבוב הזרוע – פציעה שכיחה מאוד לאחר תאונות ועבודה פיזית.",
+              "guide": "איך בוחרים דרגה? בחרו לפי התיאור הקרוב ביותר למצבכם בחיי היומיום:\n\n• בצורה בינונית – כאב בסיבוב הזרוע (הכנסת יד לשרוול, הושטת יד לחגורת הבטיחות), כאבי לילה בשכיבה על הצד, אך התפקוד נשמר.\n\n• בצורה ניכרת – חולשה ברורה: קושי להגיע עם היד אל הגב או אל הכיס האחורי, כאב המעיר משינה, קושי בעבודות בית.\n\n• בצורה קשה – הזרוע כמעט אינה מסתובבת, כאב קבוע, נדרשת עזרה בהלבשה וברחצה.\n\nלאחר מכן סמנו את הצד הפגוע – ימין או שמאל. הקביעה הסופית נעשית על ידי הוועדה הרפואית."
             }
           ]
         },
@@ -5016,9 +5080,13 @@
           "diseases": [
             {
               "id": "disease_255",
-              "name": "פציעת שרירי המרפק - BICEPS, BRACHIALIS, BRACHIORADIALIS",
+              "name": "פציעת שרירי כיפוף המרפק (ביצפס)",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5102,13 +5170,18 @@
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
               ],
-              "description": "פציעה בשרירי כפיפת המרפק: ביספס, בראכיאליס, בראכיורדיאליס. גורמת לקושי לכופף את המרפק ולפעילויות כמו הרמת חפצים."
+              "description": "פגיעה בשרירים המכופפים את המרפק (הדו-ראשי – BICEPS, BRACHIALIS, BRACHIORADIALIS). פוגעת ביכולת להרים חפצים ולקרב את כף היד אל הגוף.",
+              "guide": "איך בוחרים דרגה? בחרו לפי התיאור הקרוב ביותר למצבכם בחיי היומיום:\n\n• בצורה בינונית – חולשה בהרמת חפצים כבדים (סיר מלא, שקית קניות), אך פעולות רגילות מתבצעות.\n\n• בצורה ניכרת – קושי ממשי להרים גם חפצים בינוניים, קושי להביא כוס אל הפה ביד מלאה.\n\n• בצורה קשה – כמעט לא ניתן לכופף את המרפק כנגד משקל, נדרשת עזרה מהיד השנייה.\n\nלאחר מכן סמנו את הצד הפגוע – ימין או שמאל. הקביעה הסופית נעשית על ידי הוועדה הרפואית."
             },
             {
               "id": "disease_256",
-              "name": "פציעת שרירי המרפק - TRICEPS, ANCONEUS",
+              "name": "פציעת שרירי יישור המרפק (טריצפס)",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5192,13 +5265,18 @@
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
               ],
-              "description": "פציעה בשרירי פשיטת המרפק: טריספס, אנקונאוס. גורמת לקושי לפשוט את הזרוע ולפעילויות שדורשות דחיפה."
+              "description": "פגיעה בשרירים המיישרים את המרפק (התלת-ראשי – TRICEPS, ANCONEUS). פוגעת ביכולת לדחוף, להישען על היד ולקום מכיסא בעזרת הידיים.",
+              "guide": "איך בוחרים דרגה? בחרו לפי התיאור הקרוב ביותר למצבכם בחיי היומיום:\n\n• בצורה בינונית – חולשה בדחיפה (קימה מכיסא בעזרת הידיים, דחיפת עגלה), אך התפקוד נשמר.\n\n• בצורה ניכרת – קושי ממשי ליישר את היד כנגד התנגדות, קושי להישען על היד או לדחוף חפץ כבד.\n\n• בצורה קשה – כמעט לא ניתן ליישר את המרפק בכוח, היד \"נכנעת\" בכל דחיפה.\n\nלאחר מכן סמנו את הצד הפגוע – ימין או שמאל. הקביעה הסופית נעשית על ידי הוועדה הרפואית."
             },
             {
               "id": "disease_257",
-              "name": "פציעת שרירי המרפק - FLEXOR CARPI, DIGITI",
+              "name": "פציעת שרירי כיפוף כף היד והאצבעות",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5282,13 +5360,18 @@
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
               ],
-              "description": "פציעה בשרירי כפיפת כף היד והאצבעות. גורמת לחולשה בסגירת האגרוף ובאחיזה."
+              "description": "פגיעה בשרירי הכיפוף של כף היד והאצבעות (FLEXOR CARPI, FLEXOR DIGITORUM). פוגעת בכוח האחיזה וביכולת לסגור אגרוף.",
+              "guide": "איך בוחרים דרגה? בחרו לפי התיאור הקרוב ביותר למצבכם בחיי היומיום:\n\n• בצורה בינונית – אחיזה נחלשת: קושי לפתוח צנצנת או לסחוט מטלית, אך רוב הפעולות מתבצעות.\n\n• בצורה ניכרת – קושי ממשי להחזיק חפצים לאורך זמן (קומקום, מברג), חפצים נשמטים מהיד.\n\n• בצורה קשה – כמעט לא ניתן לסגור אגרוף או לאחוז, היד אינה שימושית לעבודה.\n\nלאחר מכן סמנו את הצד הפגוע – ימין או שמאל. הקביעה הסופית נעשית על ידי הוועדה הרפואית."
             },
             {
               "id": "disease_258",
-              "name": "פציעת שרירי המרפק - EXTENSOR CARPI, DIGITI",
+              "name": "פציעת שרירי יישור כף היד והאצבעות",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "בצורה בינונית",
@@ -5372,7 +5455,8 @@
                 "סיכום טיפול בריפוי בעיסוק",
                 "מכתב סיכום מרופא - כירורג כף יד"
               ],
-              "description": "פציעה בשרירי פשיטת כף היד והאצבעות. גורמת לקושי לפתוח את כף היד ולהזיז את האצבעות כלפי מעלה."
+              "description": "פגיעה בשרירי היישור של כף היד והאצבעות (EXTENSOR CARPI, EXTENSOR DIGITORUM). פוגעת ביכולת להרים את כף היד ולפתוח את האצבעות.",
+              "guide": "איך בוחרים דרגה? בחרו לפי התיאור הקרוב ביותר למצבכם בחיי היומיום:\n\n• בצורה בינונית – עייפות וכאב בהרמת כף היד (הקלדה ממושכת, הרמת מגש), אך התפקוד נשמר.\n\n• בצורה ניכרת – קושי ברור להרים את כף היד או לפתוח את האצבעות במלואן, קושי לשחרר אחיזה.\n\n• בצורה קשה – כף היד \"נופלת\" (Wrist Drop) והאצבעות אינן נפתחות כראוי, לעיתים נדרש סד.\n\nלאחר מכן סמנו את הצד הפגוע – ימין או שמאל. הקביעה הסופית נעשית על ידי הוועדה הרפואית."
             }
           ]
         },
@@ -5384,7 +5468,11 @@
               "id": "disease_259",
               "name": "קטיעה של אצבע בודדת או חלק ממנה - אגודל",
               "description": "איפה בגוף - האגודל",
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קטיעת אגודל עם עצם המסרק או חלק ממנה",
@@ -5496,7 +5584,11 @@
               "id": "disease_260",
               "name": "קטיעה של אצבע בודדת או חלק ממנה - אצבע 2",
               "description": "איפה בגוף: האצבע הסמוכה לאגודל",
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קטיעת אצבע 2 עם עצם המסרק או חלק ממנה",
@@ -5545,7 +5637,7 @@
                   "severityId": "category_47_disease_260_1ya35v"
                 },
                 {
-                  "description": "קטיעת לפחות 1.5 גלילים (ימין)",
+                  "description": "קטיעת 2.5 גלילים לפחות (ימין)",
                   "percentage": 12,
                   "countForDisability": true,
                   "countForTax": true,
@@ -5553,7 +5645,7 @@
                   "severityId": "category_47_disease_260_3zkqo"
                 },
                 {
-                  "description": "קטיעת לפחות 1.5 גלילים (שמאל)",
+                  "description": "קטיעת 2.5 גלילים לפחות (שמאל)",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -5561,7 +5653,7 @@
                   "severityId": "category_47_disease_260_vfzaui"
                 },
                 {
-                  "description": "קטיעת 1–2 גלילים (ימין)",
+                  "description": "קטיעת 2 או 1.5 גלילים (ימין)",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -5569,7 +5661,7 @@
                   "severityId": "category_47_disease_260_qszf1"
                 },
                 {
-                  "description": "קטיעת 1–2 גלילים (שמאל)",
+                  "description": "קטיעת 2 או 1.5 גלילים (שמאל)",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -5609,7 +5701,11 @@
               "name": "קטיעה של אצבע בודדת או חלק ממנה - אצבע 3",
               "description": "איפה בגוף: האצבע השלישית",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קטיעת אצבע 3 עם עצם המסרק או חלק ממנה",
@@ -5643,7 +5739,7 @@
               "severities": [
                 {
                   "description": "קטיעת אצבע 3 עם עצם המסרק (ימין)",
-                  "percentage": 12,
+                  "percentage": 15,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
@@ -5651,30 +5747,30 @@
                 },
                 {
                   "description": "קטיעת אצבע 3 עם עצם המסרק (שמאל)",
-                  "percentage": 15,
+                  "percentage": 12,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_47_disease_261_jk5q5xn"
                 },
                 {
-                  "description": "קטיעת לפחות 1.5 גלילים (ימין)",
-                  "percentage": 10,
+                  "description": "קטיעת 2.5 גלילים לפחות (ימין)",
+                  "percentage": 12,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_47_disease_261_e8x6cp"
                 },
                 {
-                  "description": "קטיעת לפחות 1.5 גלילים (שמאל)",
-                  "percentage": 12,
+                  "description": "קטיעת 2.5 גלילים לפחות (שמאל)",
+                  "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_47_disease_261_cygjl7"
                 },
                 {
-                  "description": "קטיעת 1–2 גלילים (ימין)",
+                  "description": "קטיעת 2 או 1.5 גלילים (ימין)",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -5682,7 +5778,7 @@
                   "severityId": "category_47_disease_261_cet48a"
                 },
                 {
-                  "description": "קטיעת 1–2 גלילים (שמאל)",
+                  "description": "קטיעת 2 או 1.5 גלילים (שמאל)",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -5722,7 +5818,11 @@
               "name": "קטיעה של אצבע בודדת או חלק ממנה - אצבע 4 או אצבע 5",
               "description": "איפה בגוף: האצבעות הקטנות",
               "displayAsTable": true,
-              "tableColumns": ["", "ימין", "שמאל"],
+              "tableColumns": [
+                "",
+                "ימין",
+                "שמאל"
+              ],
               "tableRows": [
                 {
                   "header": "קטיעת אצבע 4 או 5 עם עצם המסרק או חלק ממנה",
@@ -5771,7 +5871,7 @@
                   "severityId": "category_47_disease_262_bnv98g"
                 },
                 {
-                  "description": "קטיעת לפחות 1.5 גלילים (ימין)",
+                  "description": "קטיעת 2.5 גלילים לפחות (ימין)",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -5779,7 +5879,7 @@
                   "severityId": "category_47_disease_262_g95e7"
                 },
                 {
-                  "description": "קטיעת לפחות 1.5 גלילים (שמאל)",
+                  "description": "קטיעת 2.5 גלילים לפחות (שמאל)",
                   "percentage": 8,
                   "countForDisability": true,
                   "countForTax": true,
@@ -5787,7 +5887,7 @@
                   "severityId": "category_47_disease_262_jd1zoy"
                 },
                 {
-                  "description": "קטיעת 1–2 גלילים (ימין)",
+                  "description": "קטיעת 2 או 1.5 גלילים (ימין)",
                   "percentage": 8,
                   "countForDisability": true,
                   "countForTax": true,
@@ -5795,7 +5895,7 @@
                   "severityId": "category_47_disease_262_psnrq"
                 },
                 {
-                  "description": "קטיעת 1–2 גלילים (שמאל)",
+                  "description": "קטיעת 2 או 1.5 גלילים (שמאל)",
                   "percentage": 5,
                   "countForDisability": true,
                   "countForTax": true,
@@ -6368,7 +6468,9 @@
               "id": "disease_278",
               "name": "פרק הירך",
               "description": "איפה בגוף: מפרק הירך – מחבר את האגן לירך",
-              "imageUrls": ["/images/thigh.png"],
+              "imageUrls": [
+                "/images/thigh.png"
+              ],
               "severities": [
                 {
                   "description": "מפרק נד - רפוי\nדוגמה: המפרק לא יציב, קשה לעמוד או ללכת ללא תמיכה",
@@ -6438,10 +6540,10 @@
             },
             {
               "id": "disease_302",
-              "name": "פציעת קבוצת השרירים, SEMITENDINOSUS, BICEPS FEMORIS, SEMI-MEMBRANOSUS",
+              "name": "פציעת שרירי הירך האחוריים (המסטרינגס) – כיפוף הברך",
               "severities": [
                 {
-                  "description": "פגיעה בינונית בשרירי החמסטרינג",
+                  "description": "פגיעה בינונית\nדוגמה: כאב בירך האחורית בהליכה מהירה או בכיפוף הברך, הפעילות היומיומית כמעט רגילה",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -6449,7 +6551,7 @@
                   "severityId": "category_56_disease_302_fghpj"
                 },
                 {
-                  "description": "פגיעה ניכרת בשרירי החמסטרינג",
+                  "description": "פגיעה ניכרת\nדוגמה: קושי לכופף את הברך כנגד התנגדות, צליעה לאחר הליכה ממושכת",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -6457,7 +6559,7 @@
                   "severityId": "category_56_disease_302_konbt"
                 },
                 {
-                  "description": "פגיעה קשה בשרירי החמסטרינג",
+                  "description": "פגיעה קשה\nדוגמה: חולשה קשה בכיפוף הברך, הליכה איטית וקצרה, קושי רב בעלייה ובירידה במדרגות",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -6473,14 +6575,14 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "description": "פציעה בשרירי החלק האחורי של הירך (המסטרינגס): ביספס פמוריס, סמיטנדינוסוס. גורמת לחולשה בכיפוף הברך ובעלייה במדרגות."
+              "description": "פגיעה בשרירי החלק האחורי של הירך (המסטרינגס: BICEPS FEMORIS, SEMITENDINOSUS, SEMIMEMBRANOSUS). שרירים אלה מכופפים את הברך ומייצבים את ההליכה והריצה."
             },
             {
               "id": "disease_303",
-              "name": "פציעת קבוצת השרירים, TIBIALIS ANTERIOR, EXTENSOR DIGIT. LONGUS, PERONEUS TERTIUS",
+              "name": "פציעת שרירי השוק הקדמיים – הרמת כף הרגל",
               "severities": [
                 {
-                  "description": "פגיעה בינונית בשרירי השוק הקדמיים",
+                  "description": "פגיעה בינונית\nדוגמה: כף הרגל מתעייפת ונחלשת אחרי הליכה, לעיתים נתקלים במדרגה או בשפת מדרכה",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -6488,7 +6590,7 @@
                   "severityId": "category_56_disease_303_giyjgce"
                 },
                 {
-                  "description": "פגיעה ניכרת",
+                  "description": "פגיעה ניכרת\nדוגמה: קושי ללכת על העקבים, כף הרגל נוטה להיגרר בהליכה",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -6496,7 +6598,7 @@
                   "severityId": "category_56_disease_303_itta69"
                 },
                 {
-                  "description": "פגיעה קשה",
+                  "description": "פגיעה קשה\nדוגמה: \"צניחת כף רגל\" – כף הרגל נגררת בכל צעד, לעיתים נדרש סד ייעודי להליכה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -6512,14 +6614,14 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "description": "פציעה בשרירי השוק הקדמיים: טיביאליס אנטריור, אקסטנסור דיגיטורום. גורמת לקושי בהרמת כף הרגל ועלולה לגרום להיתקלות בהליכה (\"צניחת כף רגל\")."
+              "description": "פגיעה בשרירי השוק הקדמיים (TIBIALIS ANTERIOR, EXTENSOR DIGITORUM LONGUS, PERONEUS TERTIUS). שרירים אלה מרימים את כף הרגל בזמן הליכה; פגיעה בהם עלולה לגרום לגרירת כף הרגל (\"צניחת כף רגל\")."
             },
             {
               "id": "disease_304",
-              "name": "פציעת קבוצת השרירים, TRICEPS SURAE, TIBIALIS POSTERIOR, PERONEUS LONGUS, FLEXOR HALLUCIS LONGUS, FLEXOR DIGIT, LONGUS, POPLITEUS",
+              "name": "פציעת שרירי השוק האחוריים – דחיפה ועמידה על אצבעות",
               "severities": [
                 {
-                  "description": "פגיעה בינונית בשרירי השוק האחוריים",
+                  "description": "פגיעה בינונית\nדוגמה: כאב בשוק בהליכה ממושכת או בעלייה, קושי קל בעמידה על קצות האצבעות",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -6527,7 +6629,7 @@
                   "severityId": "category_56_disease_304_5x5pib"
                 },
                 {
-                  "description": "פגיעה ניכרת",
+                  "description": "פגיעה ניכרת\nדוגמה: קושי ממשי לעמוד על קצות האצבעות או לדחוף את הרגל בהליכה מהירה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -6535,7 +6637,7 @@
                   "severityId": "category_56_disease_304_1l4g8f"
                 },
                 {
-                  "description": "פגיעה קשה",
+                  "description": "פגיעה קשה\nדוגמה: לא ניתן לעמוד על קצות האצבעות, הליכה איטית ולא יציבה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -6551,14 +6653,14 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "description": "פציעה בשרירי השוק האחוריים: טריספס סוראה (שריר השוק), פרונאוס, טיביאליס פוסטריור. גורמת לחולשה בדחיפה עם כף הרגל ובשיווי משקל."
+              "description": "פגיעה בשרירי השוק האחוריים (שריר התאומים – TRICEPS SURAE, TIBIALIS POSTERIOR, PERONEUS LONGUS ועוד). שרירים אלה דוחפים את הגוף קדימה בהליכה ומאפשרים עמידה על קצות האצבעות."
             },
             {
               "id": "disease_301",
-              "name": "פציעת קבוצת השרירים, SARTORIUS, RECTUS FEMORIS, VASTUS INTERMEDIUS-INTERNUS, TENSOR FASCIAE LATAE EXTERNUS",
+              "name": "פציעת שרירי הירך הקדמיים – יישור הברך",
               "severities": [
                 {
-                  "description": "פגיעה בינונית בשרירי הירך הקדמיים",
+                  "description": "פגיעה בינונית\nדוגמה: כאב וחולשה בקימה מכיסא או בעלייה במדרגות, אך הליכה רגילה אפשרית",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -6566,7 +6668,7 @@
                   "severityId": "category_56_disease_301_y3vt4a"
                 },
                 {
-                  "description": "פגיעה ניכרת",
+                  "description": "פגיעה ניכרת\nדוגמה: הברך \"קורסת\" לעיתים בהליכה, קושי ממשי לעלות מדרגות ללא אחיזה במעקה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -6574,7 +6676,7 @@
                   "severityId": "category_56_disease_301_njq30n"
                 },
                 {
-                  "description": "פגיעה קשה",
+                  "description": "פגיעה קשה\nדוגמה: קושי ליישר את הברך ולדרוך על הרגל, הליכה קצרה בלבד ולעיתים צורך בעזר הליכה",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -6590,7 +6692,7 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "description": "פציעה בשרירי החלק הקדמי של הירך: ריקטוס פמוריס, ואסטוס, סארטוריוס. גורמת לחולשה בפשיטת הברך ובהליכה."
+              "description": "פגיעה בשרירי הירך הקדמיים (הארבע-ראשי: RECTUS FEMORIS, VASTUS, SARTORIUS, TENSOR FASCIAE LATAE). שרירים אלה מיישרים את הברך ומייצבים אותה בהליכה, בקימה ובעלייה במדרגות."
             }
           ]
         },
@@ -6602,7 +6704,9 @@
               "id": "disease_279",
               "name": "מצבים אורתופדיים בברך",
               "description": "איפה בגוף: מפרק הברך",
-              "imageUrls": ["/images/knee.png"],
+              "imageUrls": [
+                "/images/knee.png"
+              ],
               "severities": [
                 {
                   "description": "אי־יציבות צדדית קשה (הברך מתעקמת לצדדים)\nדוגמה: הברך \"בורחת\" החוצה או פנימה בזמן הליכה",
@@ -6642,7 +6746,9 @@
               "id": "disease_1010",
               "name": "הגבלות בכיפוף הברך",
               "description": "איפה בגוף: מפרק הברך",
-              "imageUrls": ["/images/knee.png"],
+              "imageUrls": [
+                "/images/knee.png"
+              ],
               "severities": [
                 {
                   "description": "כיפוף עד 90°\nדוגמה: אפשר לשבת, אבל יש קושי לכרוע",
@@ -6690,7 +6796,9 @@
               "id": "disease_1011",
               "name": "הגבלות ביישור הברך",
               "description": "איפה בגוף: מפרק הברך",
-              "imageUrls": ["/images/knee.png"],
+              "imageUrls": [
+                "/images/knee.png"
+              ],
               "severities": [
                 {
                   "description": "יישור עד 5°\nדוגמה: כמעט אין בעיה, הברך כמעט ישרה",
@@ -6875,7 +6983,7 @@
             },
             {
               "id": "disease_282",
-              "name": "(Pes Cavus) קשת גבוהה בכף הרגל",
+              "name": "קשת גבוהה בכף הרגל (Pes Cavus)",
               "description": "איפה בגוף: כף הרגל – קשת גבוהה מדי",
               "severities": [
                 {
@@ -7085,10 +7193,10 @@
             },
             {
               "id": "disease_305",
-              "name": "פציעת קבוצת השרירים, EXTENSOR HALLUCIS BREVIS, EXTENSOR DIGIT BREVIS INTEROSSEI",
+              "name": "פציעת שרירי גב כף הרגל – הרמת אצבעות הרגל",
               "severities": [
                 {
-                  "description": "פגיעה בינונית בשרירים הקצרים של גב כף הרגל",
+                  "description": "פגיעה בינונית\nדוגמה: כאב בגב כף הרגל וקושי קל בהרמת האצבעות",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -7096,7 +7204,7 @@
                   "severityId": "category_56_disease_305_ebpc8d"
                 },
                 {
-                  "description": "פגיעה ניכרת",
+                  "description": "פגיעה ניכרת\nדוגמה: קושי ברור בהרמת אצבעות הרגל, אי-נוחות מתמשכת בנעילת נעליים",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -7104,7 +7212,7 @@
                   "severityId": "category_56_disease_305_iceirq"
                 },
                 {
-                  "description": "פגיעה קשה",
+                  "description": "פגיעה קשה\nדוגמה: האצבעות כמעט שאינן מתרוממות, הפרעה ממשית ביציבות ההליכה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -7120,14 +7228,14 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "description": "פציעה בשרירים הקצרים של גב כף הרגל. גורמת לקושי בהרמת האצבעות ובהתכווצות כף הרגל."
+              "description": "פגיעה בשרירים הקצרים שבגב כף הרגל (EXTENSOR HALLUCIS BREVIS, EXTENSOR DIGITORUM BREVIS, INTEROSSEI). שרירים אלה מרימים ופורשים את אצבעות הרגל."
             },
             {
               "id": "disease_306",
-              "name": "פציעת קבוצת השרירים, FLEXOR DIGIT. BREVIS, ABDUCTOR HALLUCIS, QUADRATUS PLANTAE, ADDUCTOR HALLUCIS, FLEXOR HALLUCIS",
+              "name": "פציעת שרירי כף הרגל התחתונים – כיפוף אצבעות ותמיכה בקשת",
               "severities": [
                 {
-                  "description": "פגיעה בינונית בשרירים הקצרים של כף הרגל מלמטה",
+                  "description": "פגיעה בינונית\nדוגמה: כאב בכף הרגל בהליכה ממושכת, התכווצויות באצבעות",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -7135,7 +7243,7 @@
                   "severityId": "category_56_disease_306_jxmvt"
                 },
                 {
-                  "description": "פגיעה ניכרת",
+                  "description": "פגיעה ניכרת\nדוגמה: כאב בכל דריכה, קושי בכיפוף האצבעות ובדחיפה בזמן ההליכה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -7143,7 +7251,7 @@
                   "severityId": "category_56_disease_306_2tf2k5"
                 },
                 {
-                  "description": "פגיעה קשה",
+                  "description": "פגיעה קשה\nדוגמה: כאב קבוע וחולשה קשה, הליכה למרחק קצר בלבד, לעיתים צורך במדרסים או בנעליים מיוחדות",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -7159,7 +7267,7 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "description": "פציעה בשרירים הקצרים של כף הרגל מלמטה (פלקסורים, אבדוקטורים). גורמת לכאב ולחולשה בכפיפת האצבעות ובהליכה."
+              "description": "פגיעה בשרירים הקצרים שבצד התחתון של כף הרגל (FLEXOR DIGITORUM BREVIS, ABDUCTOR HALLUCIS, QUADRATUS PLANTAE ועוד). שרירים אלה מכופפים את האצבעות ותומכים בקשת כף הרגל בכל דריכה."
             }
           ]
         },
@@ -8819,7 +8927,9 @@
             {
               "id": "disease_35",
               "name": "מחלות המסתמים - Valvular Heart Disease",
-              "imageUrls": ["/images/valvular_disease.png"],
+              "imageUrls": [
+                "/images/valvular_disease.png"
+              ],
               "displayAsTable": true,
               "tableColumns": [
                 "רמת הליקוי המסתמי לפי בדיקות ה-ECHO, כמוצג בטבלה למעלה",
@@ -8978,7 +9088,12 @@
               "id": "disease_36",
               "name": "מחלת שריר הלב המורחב - Dilated Cardiomyopathy",
               "displayAsTable": true,
-              "tableColumns": ["מקטע פליטה (ECHO)", ">40%", "30%-40%", "<30%"],
+              "tableColumns": [
+                "מקטע פליטה (ECHO)",
+                ">40%",
+                "30%-40%",
+                "<30%"
+              ],
               "tableRows": [
                 {
                   "header": "מחלת לב ללא הגבלה בפעילות הגופנית כתוצאה מכך. פעילות גופנית רגילה אינה גורמת לעייפות,  תחושת דפיקות לב בחזה, קוצר נשימה או כאבים בחזה",
@@ -9229,7 +9344,7 @@
                   "severityId": "category_50_disease_39_m711t"
                 },
                 {
-                  "description": "כנ\"ל – עם הגבלה קלה בפעילות",
+                  "description": "אין דלקת פעילה, יש סימני לחץ כרוני על הלב – עם הגבלה קלה בפעילות מאומצת",
                   "percentage": 25,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9237,7 +9352,7 @@
                   "severityId": "category_50_disease_39_7al6kh"
                 },
                 {
-                  "description": "כנ\"ל – עם הגבלה ניכרת בפעילות",
+                  "description": "אין דלקת פעילה, יש סימני לחץ כרוני על הלב – עם הגבלה ניכרת: גם פעילות קלה גורמת לתסמינים",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9245,7 +9360,7 @@
                   "severityId": "category_50_disease_39_r4p2zq"
                 },
                 {
-                  "description": "כנ\"ל – לא מסוגל לבצע כמעט שום פעילות גופנית",
+                  "description": "אין דלקת פעילה, יש סימני לחץ כרוני על הלב – מוגבל גם במנוחה, כמעט ללא יכולת פעילות",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9307,7 +9422,7 @@
                   "severityId": "category_50_disease_41_pynws"
                 },
                 {
-                  "description": "כנ\"ל – עם הגבלה קלה",
+                  "description": "יתר לחץ דם ריאתי כתוצאה מבעיית לב – עם הגבלה קלה בפעילות מאומצת",
                   "percentage": 25,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9315,7 +9430,7 @@
                   "severityId": "category_50_disease_41_f0pw0h"
                 },
                 {
-                  "description": "כנ\"ל – עם הגבלה ניכרת",
+                  "description": "יתר לחץ דם ריאתי כתוצאה מבעיית לב – עם הגבלה ניכרת: גם פעילות קלה גורמת לתסמינים",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9323,7 +9438,7 @@
                   "severityId": "category_50_disease_41_9m66vq"
                 },
                 {
-                  "description": "כנ\"ל – לא מסוגל לבצע כמעט שום פעילות",
+                  "description": "יתר לחץ דם ריאתי כתוצאה מבעיית לב – מוגבל גם במנוחה, כמעט ללא יכולת פעילות",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9595,7 +9710,7 @@
               "name": "מחלת רנו או מחלת בירגר - Raynaud's/Buerger's Disease",
               "severities": [
                 {
-                  "description": "בצורה קלה ברגל אחת",
+                  "description": "בצורה קלה – ברגל אחת\nדוגמה: התקפים של חיוורון או כחלון וכאב באצבעות רגל אחת בחשיפה לקור, החולפים מעצמם",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9603,7 +9718,7 @@
                   "severityId": "category_11_disease_52_8r3gci"
                 },
                 {
-                  "description": "בצורה קלה בשתי הרגליים",
+                  "description": "בצורה קלה – בשתי הרגליים\nדוגמה: אותם התקפים של חיוורון וכאב בקור, אך בשתי הרגליים",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9611,7 +9726,7 @@
                   "severityId": "category_11_disease_52_vd15re"
                 },
                 {
-                  "description": "בצורה בינונית ברגל אחת",
+                  "description": "בצורה בינונית – ברגל אחת\nדוגמה: התקפים תכופים גם ללא קור, כאבים בהליכה המאלצים לעצור ולנוח",
                   "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9619,7 +9734,7 @@
                   "severityId": "category_11_disease_52_42ty9"
                 },
                 {
-                  "description": "בצורה בינונית בשתי הרגליים",
+                  "description": "בצורה בינונית – בשתי הרגליים\nדוגמה: התקפים תכופים וכאבי הליכה בשתי הרגליים",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9627,7 +9742,7 @@
                   "severityId": "category_11_disease_52_03ph29"
                 },
                 {
-                  "description": "בצורה קשה",
+                  "description": "בצורה קשה\nדוגמה: כאבים גם במנוחה, או פצעים וכיבים בקצות האצבעות שאינם נרפאים",
                   "percentage": 60,
                   "countForDisability": true,
                   "countForTax": true,
@@ -9635,7 +9750,7 @@
                   "severityId": "category_11_disease_52_w7dotp"
                 },
                 {
-                  "description": "בצורה קשה מאוד",
+                  "description": "בצורה קשה מאוד\nדוגמה: נמק או אובדן רקמה באצבעות, מגבלה קשה מאוד בהליכה",
                   "percentage": 100,
                   "countForDisability": true,
                   "countForTax": true,
@@ -10473,7 +10588,7 @@
               "description": "בקע בפתח שדרכו עוברים כלי הדם לאזור הירך (פמורלי). הנכות נקבעת בדומה לבקע מפשעתי."
             },
             {
-              "id": "disease_1011",
+              "id": "disease_1012",
               "name": "פציעות וניתוחי קיבה ומעיים",
               "severities": [
                 {
@@ -11221,7 +11336,11 @@
               "name": "חולשה או שיתוק בחצי גוף (המיפרזיס) - Hemiparesis",
               "description": "קושי בכוח, זריזות ושיווי־משקל ביד וברגל של צד ימין/צד שמאל; לפעמים נוקשות/עוויתיות ",
               "displayAsTable": true,
-              "tableColumns": ["", "פלג גוף דומיננטי", "פלג גוף לא דומיננטי"],
+              "tableColumns": [
+                "",
+                "פלג גוף דומיננטי",
+                "פלג גוף לא דומיננטי"
+              ],
               "tableRows": [
                 {
                   "header": "“קלה מאוד” בלי הפרעה תפקודית. דוגמה: רפלקסים “גבוהים”, היד מעט נוטה כלפי מטה כשמרימים—אבל מתלבש/נוהג/עובד רגיל",
@@ -13133,34 +13252,55 @@
                     "answers": {
                       "q_mechanical_ventilation": "yes"
                     },
-                    "scoreRange": [1999, 10000],
+                    "scoreRange": [
+                      1999,
+                      10000
+                    ],
                     "suggestedSeverityDescription": "בעת הנשמה מלאכותית באמצעות מכשירי הנשמה (ולמעט מכשירי CPAP או BIPAP)"
                   },
                   {
                     "answers": {
                       "q_icu_admissions_count": "2_plus"
                     },
-                    "scoreRange": [5, 1000],
+                    "scoreRange": [
+                      5,
+                      1000
+                    ],
                     "suggestedSeverityDescription": "סיכום הניקוד גדול מ-5 ועם שני אשפוזים לפחות בטיפול נמרץ על רקע נשימתי"
                   },
                   {
-                    "scoreRange": [10, 14],
+                    "scoreRange": [
+                      10,
+                      14
+                    ],
                     "suggestedSeverityDescription": "סיכום הניקוד שווה ל-10 או גדול ממנו"
                   },
                   {
-                    "scoreRange": [7, 9],
+                    "scoreRange": [
+                      7,
+                      9
+                    ],
                     "suggestedSeverityDescription": "סיכום הניקוד 7 עד 9"
                   },
                   {
-                    "scoreRange": [4, 6],
+                    "scoreRange": [
+                      4,
+                      6
+                    ],
                     "suggestedSeverityDescription": "סיכום הניקוד 4 עד 6"
                   },
                   {
-                    "scoreRange": [1, 3],
+                    "scoreRange": [
+                      1,
+                      3
+                    ],
                     "suggestedSeverityDescription": "סיכום הניקוד 1 עד 3"
                   },
                   {
-                    "scoreRange": [0, 0],
+                    "scoreRange": [
+                      0,
+                      0
+                    ],
                     "suggestedSeverityDescription": "סיכום הניקוד 0"
                   }
                 ]
@@ -14135,7 +14275,7 @@
               "name": "אקנה (Acne)",
               "severities": [
                 {
-                  "description": "אקנה קל ומוגבל",
+                  "description": "אקנה קל ומוגבל\nדוגמה: פצעונים באזור מצומצם בלבד, ללא צלקות",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14143,7 +14283,7 @@
                   "severityId": "category_79_disease_404_4n7c85"
                 },
                 {
-                  "description": "אקנה בינוני על שטח רחב",
+                  "description": "אקנה בינוני על שטח רחב\nדוגמה: פצעים דלקתיים בפנים ובגוף (גב או חזה), ללא צלקות עבות",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14151,7 +14291,7 @@
                   "severityId": "category_79_disease_404_wk8g7f"
                 },
                 {
-                  "description": "אקנה קשה עם היווצרות צלקות עבות (קלואידים)",
+                  "description": "אקנה קשה עם צלקות עבות (קלואידים)\nדוגמה: צלקות בולטות ועבות שנשארות לצמיתות",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14170,7 +14310,7 @@
               "name": "אקזמה כרונית (Chronic Eczema)",
               "severities": [
                 {
-                  "description": "אקזמה – הפרעות כמעט בלתי ניכרות",
+                  "description": "אקזמה – הפרעות כמעט בלתי ניכרות\nדוגמה: יובש או אדמומיות קלה באזור מצומצם, כמעט ללא גרד",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14178,7 +14318,7 @@
                   "severityId": "category_79_disease_405_zghv24"
                 },
                 {
-                  "description": "אקזמה – תסמינים קלים ממושכים",
+                  "description": "אקזמה – תסמינים קלים ממושכים\nדוגמה: גרד ופריחה באזור מצומצם הנמשכים לאורך זמן ומגיבים לטיפול",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -14186,7 +14326,7 @@
                   "severityId": "category_79_disease_405_duvep7"
                 },
                 {
-                  "description": "אקזמה בינונית",
+                  "description": "אקזמה בינונית\nדוגמה: פריחה בכמה אזורים בגוף, גרד שמפריע לשינה או לעבודה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -14194,7 +14334,7 @@
                   "severityId": "category_79_disease_405_u18ir"
                 },
                 {
-                  "description": "אקזמה קשה ומפושטת",
+                  "description": "אקזמה קשה ומפושטת\nדוגמה: פריחה נרחבת בגוף וגרד קשה וקבוע שפוגעים בתפקוד היומיומי",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -15183,7 +15323,11 @@
               "name": "צמצום שדה הראייה (Visual Field Constriction)",
               "description": "ניתן לראות רק חלק קטן מהסביבה, בדומה להסתכלות דרך צינור או עם “מסך שחור” בצדדים",
               "displayAsTable": true,
-              "tableColumns": ["", "בעין אחת", "בשתי העיניים"],
+              "tableColumns": [
+                "",
+                "בעין אחת",
+                "בשתי העיניים"
+              ],
               "tableRows": [
                 {
                   "header": "מעל 80 מעלות",
@@ -15312,7 +15456,11 @@
               "id": "disease_308",
               "name": "אובדן חלקי של שדה הראייה (Partial Field Loss)",
               "displayAsTable": true,
-              "tableColumns": ["", "בעין אחת", "בשתי העיניים"],
+              "tableColumns": [
+                "",
+                "בעין אחת",
+                "בשתי העיניים"
+              ],
               "tableRows": [
                 {
                   "header": "אובדן של פחות מרביע שדה הראייה",
@@ -15323,7 +15471,10 @@
                 },
                 {
                   "header": "אבדן של רביע שדה הראייה",
-                  "severityIdsInRow": ["", ""]
+                  "severityIdsInRow": [
+                    "",
+                    ""
+                  ]
                 },
                 {
                   "header": "אפי (נזאלי) עליון - עליון מרכזי",
@@ -15355,11 +15506,17 @@
                 },
                 {
                   "header": "אפי תחתון (תחתון מרכזי) עין אחת, ורקתי תחתון (תחתון צדדי) עין שנייה",
-                  "severityIdsInRow": ["", "category_57_disease_314_xoye4vg"]
+                  "severityIdsInRow": [
+                    "",
+                    "category_57_disease_314_xoye4vg"
+                  ]
                 },
                 {
                   "header": "אבדן מחצית שדה הראייה",
-                  "severityIdsInRow": ["", ""]
+                  "severityIdsInRow": [
+                    "",
+                    ""
+                  ]
                 },
                 {
                   "header": "עליונה",
@@ -15377,7 +15534,10 @@
                 },
                 {
                   "header": "הומונימית, ימנית או שמאלית מוחלטת",
-                  "severityIdsInRow": ["", "category_57_disease_317_ghqi7s"]
+                  "severityIdsInRow": [
+                    "",
+                    "category_57_disease_317_ghqi7s"
+                  ]
                 },
                 {
                   "header": "חיצונית",
@@ -15609,7 +15769,11 @@
               "name": "צניחת עפעף (Ptosis)",
               "description": "מצב שבו העפעף העליון יורד מטה ומכסה חלק מהעין, לפעמים עד כדי הפרעה לראייה",
               "displayAsTable": true,
-              "tableColumns": ["", "בעין אחת", "בשתי העיניים"],
+              "tableColumns": [
+                "",
+                "בעין אחת",
+                "בשתי העיניים"
+              ],
               "tableRows": [
                 {
                   "header": "העפעף צונח קלות (יותר מ-2.5 מ\"מ), אבל לא מפריע לראייה",
@@ -15627,7 +15791,10 @@
                 },
                 {
                   "header": "הבדל משמעותי בין שתי העיניים (לפחות 2 מ\"מ בגובה העפעף העליון)",
-                  "severityIdsInRow": ["", "category_60_disease_327_efp6eo"]
+                  "severityIdsInRow": [
+                    "",
+                    "category_60_disease_327_efp6eo"
+                  ]
                 },
                 {
                   "header": "אישון מכוסה עד למרכז אך מאפשר ראייה בהטיית ראש",
@@ -16282,7 +16449,7 @@
             {
               "id": "disease_349",
               "name": "מצב לאחר כריתת זגוגית (Vitrectomy)",
-              "description": "יתוח שבו מסירים את הזגוגית (הנוזל השקוף שבתוך העין)",
+              "description": "ניתוח שבו מסירים את הזגוגית (הנוזל השקוף שבתוך העין)",
               "severities": [
                 {
                   "description": "הנכות נקבעת לפי חדות הראייה",
@@ -16476,7 +16643,7 @@
               "description": "כאבים מתמשכים באזור הפנים, הלסת או הפה",
               "severities": [
                 {
-                  "description": "כאבים בינוניים לסירוגין",
+                  "description": "כאבים בינוניים המופיעים לסירוגין\nדוגמה: התקפי כאב בפנים או בלסת מדי פעם, נשלטים בעזרת משככי כאבים",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16484,7 +16651,7 @@
                   "severityId": "category_77_disease_379_rniolj"
                 },
                 {
-                  "description": "כאבים קבועים וחזקים שאינם מגיבים לטיפול",
+                  "description": "כאבים קבועים וחזקים שאינם מגיבים לטיפול\nדוגמה: כאב יומיומי בפנים או בלסת שמפריע לאכילה, לדיבור ולשינה למרות טיפול",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16550,7 +16717,7 @@
             {
               "id": "disease_357",
               "name": "חסר בחך הקשה (Hard Palate Defects)",
-              "description": "חסר בגג של חלל הפה, המפקיד בין חלל הפה לחלל האף",
+              "description": "חסר בגג של חלל הפה, המפריד בין חלל הפה לחלל האף",
               "severities": [
                 {
                   "description": "חסר פחות ממחצית החך הקשה",
@@ -16650,7 +16817,7 @@
                   "severityId": "category_77_disease_377_ijt7vo"
                 },
                 {
-                  "description": "ובש קשה בפה, רוק כמעט לא מופרש, עם השפעה ממשית על בליעה ודיבור\nהפרשת רוק קטנה מ-0.1 מ\"ל לדקה",
+                  "description": "יובש קשה בפה, רוק כמעט לא מופרש, עם השפעה ממשית על בליעה ודיבור\nהפרשת רוק קטנה מ-0.1 מ\"ל לדקה",
                   "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16800,7 +16967,7 @@
               "description": "כאשר השבר בלסת העליונה לא התאחה כמו שצריך, ונשארת תנועה או רגישות באזור",
               "severities": [
                 {
-                  "description": "חוסר חיבור עם הפרעה קלה בסגירת הפה",
+                  "description": "חוסר חיבור עם הפרעה קלה בסגירת הפה\nדוגמה: תזוזה קלה או רגישות בלעיסה, אך אכילה רגילה אפשרית",
                   "percentage": 10,
                   "countForDisability": false,
                   "countForTax": true,
@@ -16808,7 +16975,7 @@
                   "severityId": "category_77_disease_367_nj6qkpj"
                 },
                 {
-                  "description": "חוסר חיבור בינוני עם כאבים",
+                  "description": "חוסר חיבור בינוני עם כאבים\nדוגמה: כאבים בלעיסה והימנעות ממזון קשה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
@@ -16816,7 +16983,7 @@
                   "severityId": "category_77_disease_367_3avil"
                 },
                 {
-                  "description": "חוסר חיבור קשה עם עיוות",
+                  "description": "חוסר חיבור קשה עם עיוות\nדוגמה: שינוי בולט בצורת הלסת או במנשך, קושי ממשי באכילה",
                   "percentage": 30,
                   "countForDisability": true,
                   "countForTax": true,
@@ -17709,7 +17876,7 @@
                   "countForDisability": false,
                   "countForTax": true,
                   "countForSpecial": false,
-                  "severityId": "category_24_disease_112_8q8jre"
+                  "severityId": "category_24_disease_112_8q8jre_b"
                 }
               ],
               "requiredDocuments": [
@@ -18180,7 +18347,9 @@
                   "severityId": "category_27_disease_125_8yd5sm"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             },
             {
               "id": "disease_126",
@@ -18196,12 +18365,14 @@
                   "severityId": "category_27_disease_126_tf1ddc"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             },
             {
               "id": "disease_132",
               "name": "אין אונות (Impotence / Erectile Dysfunction)",
-              "description": "מצב שבו יש קושי בהשגת זקפה או בשמירה עליה. יכול לנבוע מבעיות רפואיות, נפשיות או שילוב ביניהן",
+              "description": "מצב שבו יש קושי בהשגת זקפה או בשמירה עליה. חשוב לדעת: לפי התקנות, אחוזי הנכות בסעיף זה נקבעים רק על סמך בדיקה במעבדת שינה מוכרת, ולא ניתנים לאחר גיל 70.",
               "severities": [
                 {
                   "description": "קלה\nדוגמה: יש זקפה, אבל היא חלשה מהרגיל ולכן קשה לשמור על תפקוד מיני מלא",
@@ -18249,7 +18420,9 @@
                   "severityId": "category_27_disease_127_auqzln"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             },
             {
               "id": "disease_128",
@@ -18281,7 +18454,9 @@
                   "severityId": "category_27_disease_128_vr95fj"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             },
             {
               "id": "disease_129",
@@ -18297,7 +18472,9 @@
                   "severityId": "category_27_disease_129_79w7d"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             },
             {
               "id": "disease_130",
@@ -18313,7 +18490,9 @@
                   "severityId": "category_27_disease_130_f4q5d"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             },
             {
               "id": "disease_131",
@@ -18337,7 +18516,9 @@
                   "severityId": "category_27_disease_131_6pe38s"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - אורולוג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - אורולוג"
+              ]
             }
           ]
         },
@@ -18552,7 +18733,9 @@
                   "severityId": "category_31_disease_141_sj2mjc"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - כירורג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - כירורג"
+              ]
             },
             {
               "id": "disease_142",
@@ -18584,7 +18767,9 @@
                   "severityId": "category_31_disease_143_aoxfzm"
                 }
               ],
-              "requiredDocuments": ["מכתב סיכום מרופא - כירורג"]
+              "requiredDocuments": [
+                "מכתב סיכום מרופא - כירורג"
+              ]
             },
             {
               "id": "disease_138",
@@ -18859,7 +19044,7 @@
               "severityId": "category_83_disease_426_jpkrg4"
             },
             {
-              "description": "כנ\"ל – עם צמצום שטח נשימה מעל שליש",
+              "description": "שחפת שנפסקה לפני 2–5 שנים – עם צמצום שטח נשימה של יותר משליש",
               "percentage": 40,
               "countForDisability": true,
               "countForTax": true,
@@ -18867,7 +19052,7 @@
               "severityId": "category_83_disease_426_lcx5r"
             },
             {
-              "description": "כנ\"ל – עם צמצום שטח ריאה שלמה",
+              "description": "שחפת שנפסקה לפני 2–5 שנים – עם צמצום שטח של ריאה שלמה",
               "percentage": 50,
               "countForDisability": true,
               "countForTax": true,
@@ -18875,7 +19060,7 @@
               "severityId": "category_83_disease_426_gdb76l"
             },
             {
-              "description": "כנ\"ל – עם סימני לב-ריאתי",
+              "description": "שחפת שנפסקה לפני 2–5 שנים – עם צמצום ניכר וסימני לב-ריאה",
               "percentage": 70,
               "countForDisability": true,
               "countForTax": true,
@@ -18891,7 +19076,7 @@
               "severityId": "category_83_disease_426_7vxhx8"
             },
             {
-              "description": "כנ\"ל – צמצום שטח נשימה מעל שליש",
+              "description": "שחפת שנרפאה לפני יותר מ-5 שנים – עם צמצום שטח נשימה של יותר משליש",
               "percentage": 20,
               "countForDisability": true,
               "countForTax": true,
@@ -18899,7 +19084,7 @@
               "severityId": "category_83_disease_426_pswgzl"
             },
             {
-              "description": "כנ\"ל – צמצום שטח ריאה שלמה",
+              "description": "שחפת שנרפאה לפני יותר מ-5 שנים – עם צמצום שטח של ריאה שלמה",
               "percentage": 30,
               "countForDisability": true,
               "countForTax": true,
@@ -18907,7 +19092,7 @@
               "severityId": "category_83_disease_426_esnxnv"
             },
             {
-              "description": "כנ\"ל – צמצום ניכר עם סימני לב-ריאתי",
+              "description": "שחפת שנרפאה לפני יותר מ-5 שנים – עם צמצום ניכר וסימני לב-ריאה",
               "percentage": 60,
               "countForDisability": true,
               "countForTax": true,
@@ -18939,44 +19124,44 @@
               "severityId": "category_83_disease_426_pf11d"
             },
             {
-              "description": "שחפת בלתי פעילה שנרפאה – עם הגבלה בכושר נשימה עקב התעבות קרום הריאה",
+              "description": "שנרפאה לאחר כריתה של שטח ריאה המתאים לשטח של אונה",
               "percentage": 10,
               "countForDisability": true,
               "countForTax": true,
               "countForSpecial": true,
-              "severityId": "category_83_disease_426_pf11c"
+              "severityId": "category_83_disease_426_resect_lobe_area"
             },
             {
-              "description": "שחפת בלתי פעילה שנרפאה – עם הגבלה בכושר נשימה עקב התעבות קרום הריאה",
+              "description": "שנרפאה לאחר ניתוח כריתה של אונה עם תוספת טורקופלסטיקה",
               "percentage": 15,
               "countForDisability": true,
               "countForTax": true,
               "countForSpecial": true,
-              "severityId": "category_83_disease_426_pf11c"
+              "severityId": "category_83_disease_426_resect_lobe_thoraco"
             },
             {
-              "description": "שחפת בלתי פעילה שנרפאה – עם הגבלה בכושר נשימה עקב התעבות קרום הריאה",
+              "description": "שנרפאה לאחר כריתה של יותר מאונה אחת עם תוספת טורקופלסטיקה",
               "percentage": 20,
               "countForDisability": true,
               "countForTax": true,
               "countForSpecial": true,
-              "severityId": "category_83_disease_426_pf11c"
+              "severityId": "category_83_disease_426_resect_multilobe"
             },
             {
-              "description": "שחפת בלתי פעילה שנרפאה – עם הגבלה בכושר נשימה עקב התעבות קרום הריאה",
+              "description": "שנרפאה לאחר כריתה של ריאה אחת, וקיימים שינויים גם בריאה השנייה",
               "percentage": 30,
               "countForDisability": true,
               "countForTax": true,
               "countForSpecial": true,
-              "severityId": "category_83_disease_426_pf11c"
+              "severityId": "category_83_disease_426_resect_whole_lung"
             },
             {
-              "description": "שחפת בלתי פעילה שנרפאה – עם הגבלה בכושר נשימה עקב התעבות קרום הריאה",
+              "description": "שחפת בלתי פעילה שנרפאה – הגבלה ניכרת בכושר הנשימה עקב התעבות רחבה של קרום הריאה",
               "percentage": 10,
               "countForDisability": true,
               "countForTax": true,
               "countForSpecial": true,
-              "severityId": "category_83_disease_426_pf11c"
+              "severityId": "category_83_disease_426_pleura_thickening"
             }
           ],
           "description": "שחפת ריאות שנגרמה כתוצאה מחשיפה מקצועית (לרוב בקרב עובדי בריאות). הנכות נקבעת לפי אותם קריטריונים של שחפת הריאות הכללית."
