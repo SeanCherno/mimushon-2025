@@ -73,6 +73,13 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
   const allRequiredDocuments = chosenDiseasesWithSeverities.flatMap(entry => entry.disease.requiredDocuments || []);
   const uniqueDocuments = [...new Set(allRequiredDocuments)];
 
+  // Whether any mode found a meaningful (non-zero) result — used to soften the
+  // lawyer-referral CTA's tone when the news is discouraging rather than good.
+  const workAccidentPct = isWorkAccident ? Math.round(totalPercentages?.newTotals?.generalDisability ?? 0) : null;
+  const hasQualifyingResult = isWorkAccident
+    ? workAccidentPct >= 9
+    : modes.some(mode => Math.round(totalPercentages.newTotals?.[mode.id] ?? 0) > 0);
+
   return (
     <>
       {/* ── Print styles ────────────────────────────────────────────────────── */}
@@ -92,6 +99,11 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
           .border-indigo-200 { border-color: #c7d2fe !important; }
           h2, h3 { color: #1e1b4b; }
           .print-disease-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid #e5e7eb; font-size: 11px; }
+          /* The "more details" disclosure is collapsed on screen by default;
+             force it open in print/PDF output so the (printable) required-documents
+             list still appears, while its own no-print children stay hidden. */
+          .print-area details > summary { display: none !important; }
+          .print-area details > .details-content { display: block !important; }
         }
         .print-header { display: none; }
       ` }} />
@@ -347,120 +359,152 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
           </button>
         </div>
 
-        {/* ── Required documents ───────────────────────────────────────────── */}
-        {uniqueDocuments.length > 0 && (
-          <div className="bg-white rounded-xl border border-indigo-200 shadow-sm p-4">
-            <h3 className="text-base font-semibold text-indigo-700 mb-3 flex items-center gap-2">
-              <span>📋</span> מסמכים נדרשים עבור המחלות שנבחרו
-            </h3>
-            <ul className="space-y-1">
-              {uniqueDocuments.map((doc, index) => (
-                <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-                  <span className="text-indigo-400 mt-0.5">•</span>
-                  <span>{doc}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {/* ── More details (progressive disclosure) ────────────────────────── */}
+        {/* Collapsed by default so the peak-end moment stays the number and its
+            meaning, not a wall of documents/timeline/CTA content stacked below it. */}
+        <details className="group bg-white rounded-xl border border-indigo-200 shadow-sm overflow-hidden">
+          <summary className="no-print cursor-pointer list-none [&::-webkit-details-marker]:hidden flex items-center justify-between gap-3 p-4 select-none hover:bg-indigo-50 transition motion-reduce:transition-none">
+            <span className="flex items-center gap-2 text-base font-semibold text-indigo-800">
+              <span>📋</span> השלב הבא — מסמכים, ליווי מקצועי וציר זמן צפוי
+            </span>
+            <span className="text-indigo-500 shrink-0 transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none">⌄</span>
+          </summary>
 
-        {/* ── CTA + Lead form ──────────────────────────────────────────────── */}
-        <div className="no-print bg-indigo-700 rounded-xl p-6 text-white">
-          <div className="text-center mb-5">
-            <h3 className="text-xl font-bold mb-2">רוצה לדעת אם מגיע לך יותר?</h3>
-            <p className="text-indigo-200 text-sm">
-              עורך דין מומחה לנכות יבחן את המקרה שלך ללא עלות וללא התחייבות — ויגיד לך בדיוק היכן אתה עומד.
-            </p>
-            <div className="flex justify-center gap-4 mt-3 text-xs text-indigo-200">
-              <span>ייעוץ חינמי</span>
-              <span>ללא התחייבות</span>
-              <span>מומחים בליווי</span>
-            </div>
-          </div>
-          <div className="bg-white rounded-xl p-5">
-            <ContactForm variant="compact" percentages={totalPercentages?.newTotals} claimType={claimType} />
-          </div>
-        </div>
+          <div className="details-content border-t border-indigo-100 p-4 space-y-4">
 
-        {/* ── Process timeline ─────────────────────────────────────────────── */}
-        <div className="no-print bg-white rounded-xl border border-indigo-200 shadow-sm p-4">
-          <h3 className="text-base font-bold text-indigo-800 mb-4 flex items-center gap-2">
-            <span>🗓️</span> ציר הזמן הצפוי — מהמחשבון ועד לקצבה
-          </h3>
-          <div className="space-y-3">
-            {[
-              {
-                step: 1,
-                title: 'הגשת תביעה לביטוח לאומי',
-                time: 'מיידי',
-                desc: 'מגישים טופס תביעה לנכות כללית (ב-250) עם כל המסמכים הרפואיים. ניתן גם להגיש אונליין.',
-              },
-              {
-                step: 2,
-                title: 'זימון לוועדה הרפואית',
-                time: '1–3 חודשים',
-                desc: 'ביטוח לאומי בוחן את הבקשה ומשבץ לוועדה. בדחיפות רפואית ניתן לבקש זירוז.',
-              },
-              {
-                step: 3,
-                title: 'ישיבת הוועדה הרפואית',
-                time: '10–30 דקות',
-                desc: 'הרופא בוועדה בוחן מסמכים ומבצע בדיקה קצרה. ההחלטה על אחוזי הנכות מגיעה בדואר תוך כמה שבועות.',
-              },
-              {
-                step: 4,
-                title: 'קביעת דרגת אי-כושר',
-                time: '2–4 שבועות',
-                desc: 'פקיד תביעות קובע (לנכות כללית) עד כמה הנכות פוגעת ביכולת ההשתכרות. זה קובע את גובה הקצבה בפועל.',
-              },
-              {
-                step: 5,
-                title: 'אישור קצבה ותשלום ראשון',
-                time: '2–4 שבועות',
-                desc: 'לאחר אישור הזכאות, הקצבה מתחילה להשתלם. ייתכן תשלום רטרואקטיבי ממועד הגשת התביעה.',
-              },
-            ].map(({ step, title, time, desc }) => (
-              <div key={step} className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-indigo-600 text-white text-sm font-bold flex items-center justify-center shrink-0 mt-0.5">
-                  {step}
-                </div>
-                <div className="flex-1 bg-indigo-50 rounded-lg p-3 border border-indigo-100">
-                  <div className="flex flex-wrap justify-between items-start gap-2 mb-1">
-                    <span className="text-sm font-semibold text-indigo-800">{title}</span>
-                    <span className="text-xs bg-indigo-100 text-indigo-700 rounded-full px-2 py-0.5 shrink-0 border border-indigo-200">{time}</span>
+            {/* ── Required documents ───────────────────────────────────────── */}
+            {uniqueDocuments.length > 0 && (
+              <div>
+                <h3 className="text-base font-semibold text-indigo-700 mb-3 flex items-center gap-2">
+                  <span>📋</span> מסמכים נדרשים עבור המחלות שנבחרו
+                </h3>
+                <ul className="space-y-1">
+                  {uniqueDocuments.map((doc, index) => (
+                    <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="text-indigo-400 mt-0.5">•</span>
+                      <span>{doc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* ── CTA + Lead form ──────────────────────────────────────────── */}
+            {/* Tone adapts to the result: an encouraging pitch when a real threshold
+                was met, a calmer "have questions?" framing otherwise — this is the
+                moment right after a discouraging number, so it should never read
+                as a sales pitch stacked under bad news. */}
+            {hasQualifyingResult ? (
+              <div className="no-print bg-indigo-700 rounded-xl p-6 text-white">
+                <div className="text-center mb-5">
+                  <h3 className="text-xl font-bold mb-2">רוצה לדעת אם מגיע לך יותר?</h3>
+                  <p className="text-indigo-200 text-sm">
+                    עורך דין מומחה לנכות יבחן את המקרה שלך ללא עלות וללא התחייבות — ויגיד לך בדיוק היכן אתה עומד.
+                  </p>
+                  <div className="flex justify-center gap-4 mt-3 text-xs text-indigo-200">
+                    <span>ייעוץ חינמי</span>
+                    <span>ללא התחייבות</span>
+                    <span>מומחים בליווי</span>
                   </div>
-                  <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
+                </div>
+                <div className="bg-white rounded-xl p-5">
+                  <ContactForm variant="compact" percentages={totalPercentages?.newTotals} claimType={claimType} />
                 </div>
               </div>
-            ))}
-          </div>
-          <p className="text-xs text-gray-400 mt-3 text-center">* הזמנים הם הערכה בלבד ועשויים להשתנות לפי עומס ביטוח לאומי ומורכבות המקרה</p>
-        </div>
-
-        {/* ── What now? ────────────────────────────────────────────────────── */}
-        <div className="no-print bg-indigo-50 rounded-xl border border-indigo-200 p-4">
-          <h3 className="text-base font-bold text-indigo-800 mb-3 flex items-center gap-2">
-            <span>🚀</span> מה עושים עכשיו?
-          </h3>
-          <div className="space-y-3">
-            {WHAT_NOW_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="flex items-start gap-3 p-3 bg-white rounded-lg border border-indigo-200 hover:bg-indigo-100 hover:border-indigo-400 transition group"
-              >
-                <span className="text-2xl shrink-0">{link.icon}</span>
-                <div>
-                  <p className="text-sm font-semibold text-indigo-700 group-hover:text-indigo-900">
-                    {link.title}
+            ) : (
+              <div className="no-print bg-white rounded-xl border border-indigo-200 p-6">
+                <div className="text-center mb-5">
+                  <h3 className="text-lg font-bold text-indigo-800 mb-2">יש לך שאלות לגבי התוצאה?</h3>
+                  <p className="text-gray-600 text-sm">
+                    אם משהו לא ברור, או שאתה חושב שהתוצאה לא משקפת נכון את מצבך — אפשר לשוחח עם מומחה נכות, ללא עלות וללא התחייבות.
                   </p>
-                  <p className="text-xs text-gray-500 mt-0.5">{link.desc}</p>
                 </div>
-                <span className="mr-auto text-indigo-400 group-hover:text-indigo-600 self-center text-lg">←</span>
-              </Link>
-            ))}
+                <ContactForm variant="compact" percentages={totalPercentages?.newTotals} claimType={claimType} />
+              </div>
+            )}
+
+            {/* ── Process timeline ─────────────────────────────────────────── */}
+            <div className="no-print">
+              <h3 className="text-base font-bold text-indigo-800 mb-4 flex items-center gap-2">
+                <span>🗓️</span> ציר הזמן הצפוי — מהמחשבון ועד לקצבה
+              </h3>
+              <div className="space-y-3">
+                {[
+                  {
+                    step: 1,
+                    title: 'הגשת תביעה לביטוח לאומי',
+                    time: 'מיידי',
+                    desc: 'מגישים טופס תביעה לנכות כללית (ב-250) עם כל המסמכים הרפואיים. ניתן גם להגיש אונליין.',
+                  },
+                  {
+                    step: 2,
+                    title: 'זימון לוועדה הרפואית',
+                    time: '1–3 חודשים',
+                    desc: 'ביטוח לאומי בוחן את הבקשה ומשבץ לוועדה. בדחיפות רפואית ניתן לבקש זירוז.',
+                  },
+                  {
+                    step: 3,
+                    title: 'ישיבת הוועדה הרפואית',
+                    time: '10–30 דקות',
+                    desc: 'הרופא בוועדה בוחן מסמכים ומבצע בדיקה קצרה. ההחלטה על אחוזי הנכות מגיעה בדואר תוך כמה שבועות.',
+                  },
+                  {
+                    step: 4,
+                    title: 'קביעת דרגת אי-כושר',
+                    time: '2–4 שבועות',
+                    desc: 'פקיד תביעות קובע (לנכות כללית) עד כמה הנכות פוגעת ביכולת ההשתכרות. זה קובע את גובה הקצבה בפועל.',
+                  },
+                  {
+                    step: 5,
+                    title: 'אישור קצבה ותשלום ראשון',
+                    time: '2–4 שבועות',
+                    desc: 'לאחר אישור הזכאות, הקצבה מתחילה להשתלם. ייתכן תשלום רטרואקטיבי ממועד הגשת התביעה.',
+                  },
+                ].map(({ step, title, time, desc }) => (
+                  <div key={step} className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-indigo-600 text-white text-sm font-bold flex items-center justify-center shrink-0 mt-0.5">
+                      {step}
+                    </div>
+                    <div className="flex-1 bg-indigo-50 rounded-lg p-3 border border-indigo-100">
+                      <div className="flex flex-wrap justify-between items-start gap-2 mb-1">
+                        <span className="text-sm font-semibold text-indigo-800">{title}</span>
+                        <span className="text-xs bg-indigo-100 text-indigo-700 rounded-full px-2 py-0.5 shrink-0 border border-indigo-200">{time}</span>
+                      </div>
+                      <p className="text-xs text-gray-600 leading-relaxed">{desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-gray-400 mt-3 text-center">* הזמנים הם הערכה בלבד ועשויים להשתנות לפי עומס ביטוח לאומי ומורכבות המקרה</p>
+            </div>
+
+            {/* ── What now? ────────────────────────────────────────────────── */}
+            <div className="no-print bg-indigo-50 rounded-xl border border-indigo-200 p-4">
+              <h3 className="text-base font-bold text-indigo-800 mb-3 flex items-center gap-2">
+                <span>🚀</span> מה עושים עכשיו?
+              </h3>
+              <div className="space-y-3">
+                {WHAT_NOW_LINKS.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="flex items-start gap-3 p-3 bg-white rounded-lg border border-indigo-200 hover:bg-indigo-100 hover:border-indigo-400 transition group/link"
+                  >
+                    <span className="text-2xl shrink-0">{link.icon}</span>
+                    <div>
+                      <p className="text-sm font-semibold text-indigo-700 group-hover/link:text-indigo-900">
+                        {link.title}
+                      </p>
+                      <p className="text-xs text-gray-500 mt-0.5">{link.desc}</p>
+                    </div>
+                    <span className="mr-auto text-indigo-400 group-hover/link:text-indigo-600 self-center text-lg">←</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
           </div>
-        </div>
+        </details>
 
       </div>
     </>
