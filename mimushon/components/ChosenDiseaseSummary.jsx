@@ -42,7 +42,7 @@ const ChosenDiseasesSummary = ({
             className={
                 isMobileView
                     ? "h-full flex flex-col p-2"
-                    : "sticky top-24 bg-purple-50 p-6 rounded-xl shadow-lg border border-purple-200"
+                    : "sticky top-24 bg-indigo-50 p-6 rounded-xl shadow-lg border border-indigo-200"
             }
         >
             {isMobileView && (
@@ -79,7 +79,7 @@ const ChosenDiseasesSummary = ({
                                 </p>
                                 <button
                                     onClick={() => onRemoveDisease(entry.disease.id)}
-                                    className="p-1 bg-slate-600 text-white cursor-pointer rounded-full hover:bg-slate-500"
+                                    className="p-1 bg-gray-600 text-white cursor-pointer rounded-full hover:bg-gray-500"
                                     title="Remove Disease"
                                 >
                                     <svg
@@ -139,11 +139,11 @@ const ChosenDiseasesSummary = ({
                         onChange={(e) => setTosAccepted(e.target.checked)}
                         className="mt-0.5 h-4 w-4 shrink-0 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
                     />
-                    <span className="text-xs text-slate-700 leading-relaxed">
+                    <span className="text-xs text-gray-700 leading-relaxed">
                         קראתי ואני מסכים/ה ל
-                        <a className="text-blue-700 underline" href="/terms" target="_blank">תנאי השימוש</a>
+                        <a className="text-indigo-700 underline" href="/terms" target="_blank">תנאי השימוש</a>
                         {" "}ול
-                        <a className="text-blue-700 underline" href="/privacy" target="_blank">מדיניות הפרטיות</a>
+                        <a className="text-indigo-700 underline" href="/privacy" target="_blank">מדיניות הפרטיות</a>
                         . ידוע לי שהמחשבון הוא כלי הערכה בלבד ואינו תחליף לייעוץ מקצועי.
                     </span>
                 </label>

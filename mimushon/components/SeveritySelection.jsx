@@ -80,7 +80,7 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
           title="חזור"
           className="absolute right-0 flex bg-white rounded-lg border border-indigo-200 p-2 items-center text-indigo-600 hover:bg-indigo-50 transition"
         >
-          <svg height="22px" width="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_iconCarrier"><path fillRule="evenodd" clipRule="evenodd" d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z" fill="#5a67d8"/></g></svg>
+          <svg height="22px" width="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_iconCarrier"><path fillRule="evenodd" clipRule="evenodd" d="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z" fill="currentColor"/></g></svg>
         </button>
         <h2 className="w-full text-center text-lg sm:text-2xl font-bold text-indigo-800 px-14">
           בחר דרגה עבור: <span className="text-indigo-500">{selectedDiseaseForSeverityView.name}</span>
@@ -162,8 +162,8 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
             </svg>
           </button>
           {showGuide &&
-            <div className="preserve-whitespace mt-2 bg-slate-50 p-4 rounded-lg border border-indigo-200 text-slate-800 space-y-1">
-              {/* <ul className="mt-2 list-disc list-inside bg-slate-50 p-4 rounded-lg border border-indigo-200 text-indigo-800 space-y-1"> */}
+            <div className="preserve-whitespace mt-2 bg-gray-50 p-4 rounded-lg border border-indigo-200 text-gray-800 space-y-1">
+              {/* <ul className="mt-2 list-disc list-inside bg-gray-50 p-4 rounded-lg border border-indigo-200 text-indigo-800 space-y-1"> */}
               {/* <p className="font-semibold">הועדה הרפואית עשויה לבקש מסמכים, תוצאות של בדיקות ומכתבי סיכום שיעזרו לה להבין את מצבכם הרפואי לעומק. <br /><br />עבור {selectedDiseaseForSeverityView.name} מומלץ להכין את המסמכים הבאים:</p> */}
               {selectedDiseaseForSeverityView.guide}
               {/* </ul> */}
@@ -252,7 +252,7 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
           </button>
           {showDocuments &&
             <div>
-              <ul className="mt-2 list-disc list-inside bg-slate-50 p-4 rounded-lg border border-indigo-200 text-slate-800 space-y-1">
+              <ul className="mt-2 list-disc list-inside bg-gray-50 p-4 rounded-lg border border-indigo-200 text-gray-800 space-y-1">
                 <p className="font-semibold">הועדה הרפואית עשויה לבקש מסמכים, תוצאות של בדיקות ומכתבי סיכום שיעזרו לה להבין את מצבכם הרפואי לעומק. <br /><br />עבור {selectedDiseaseForSeverityView.name} מומלץ להכין את המסמכים הבאים:</p>
                 {selectedDiseaseForSeverityView.requiredDocuments.map((doc, index) => (
                   <li key={index}>{doc}</li>
@@ -264,7 +264,7 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
 
       {isASeveritySelected &&
         <div className="flex justify-center">
-          <button className="bg-white text-slate-800 font-semibold hover:bg-indigo-100 border border-indigo-500 w-50 text-center p-3 rounded-lg mt-4" onClick={handleAddDisease}>
+          <button className="bg-white text-indigo-800 font-semibold hover:bg-indigo-100 border border-indigo-500 w-50 text-center p-3 rounded-lg mt-4" onClick={handleAddDisease}>
             הוסף מחלה
           </button>
         </div>

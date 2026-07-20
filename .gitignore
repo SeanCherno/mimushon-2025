@@ -1,0 +1,11 @@
+# Claude Code local machine state (not shared project config)
+.claude/settings.local.json
+
+# Vendored agent-skill source (tooling infra, not project code)
+.agents/
+.claude/skills/
+
+# Impeccable skill: local machine/session state
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+.impeccable/live/config.json

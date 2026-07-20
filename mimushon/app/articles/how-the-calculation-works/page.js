@@ -30,14 +30,15 @@ const Article5Page = () => {
         }
         .prose strong { font-weight: 600; }
         .prose blockquote {
-            border-right: 4px solid #d1d5db; padding-right: 1rem; margin-right: 0.5rem;
-            font-style: italic; color: #4b5563; background-color: #f9fafb; border-radius: 0 8px 8px 0;
+            padding: 1rem 1.25rem; margin-right: 0;
+            font-style: italic; color: #374151; background-color: #f9fafb;
+            border: 1px solid #e5e7eb; border-radius: 12px;
         }
         .prose a { color: #4f46e5; font-weight: 500; text-decoration: none; }
         .prose a:hover { text-decoration: underline; }
         .math-example {
-            background-color: #f8fafc; /* bg-slate-50 */
-            border: 1px solid #e2e8f0; /* border-slate-200 */
+            background-color: #f9fafb; /* Quiet Surface */
+            border: 1px solid #e5e7eb; /* Hairline */
             border-radius: 0.5rem;
             padding: 1rem 1.5rem;
             direction: rtl; /* Ensure RTL */

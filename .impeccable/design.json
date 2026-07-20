@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-20T00:00:00Z",
+  "title": "Design System: Mimushon",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Steady Indigo", "canonical": "oklch(53% 0.24 275)", "tonalRamp": ["#312e81", "#3730a3", "#4338ca", "#4f46e5", "#6366f1", "#818cf8", "#a5b4fc", "#c7d2fe", "#e0e7ff", "#eef2ff"] },
+      "primary-hover": { "role": "primary", "displayName": "Steady Indigo, Hover", "canonical": "oklch(46% 0.22 275)" },
+      "primary-deep": { "role": "primary", "displayName": "Steady Indigo, Deep", "canonical": "oklch(37% 0.16 275)" },
+      "primary-soft": { "role": "primary", "displayName": "Indigo Wash", "canonical": "oklch(95% 0.02 275)" },
+      "primary-border": { "role": "primary", "displayName": "Indigo Line", "canonical": "oklch(84% 0.07 275)" },
+      "neutral-bg": { "role": "neutral", "displayName": "Paper White", "canonical": "oklch(100% 0 0)" },
+      "neutral-surface": { "role": "neutral", "displayName": "Quiet Surface", "canonical": "oklch(98% 0.003 250)", "tonalRamp": ["#111827", "#1f2937", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#e5e7eb", "#f3f4f6", "#f9fafb"] },
+      "neutral-border": { "role": "neutral", "displayName": "Hairline", "canonical": "oklch(93% 0.005 250)" },
+      "neutral-muted": { "role": "neutral", "displayName": "Muted Ink", "canonical": "oklch(55% 0.015 260)" },
+      "neutral-ink-soft": { "role": "neutral", "displayName": "Working Ink", "canonical": "oklch(38% 0.02 260)" },
+      "neutral-ink": { "role": "neutral", "displayName": "Full Ink", "canonical": "oklch(22% 0.015 265)" },
+      "danger": { "role": "status", "displayName": "Alert Red", "canonical": "oklch(63% 0.21 25)" },
+      "danger-soft": { "role": "status", "displayName": "Alert Red, Soft", "canonical": "oklch(97% 0.015 20)" },
+      "warning": { "role": "status", "displayName": "Caution Amber", "canonical": "oklch(76% 0.16 70)" },
+      "warning-soft": { "role": "status", "displayName": "Caution Amber, Soft", "canonical": "oklch(98% 0.02 85)" },
+      "success": { "role": "status", "displayName": "Confirm Green", "canonical": "oklch(48% 0.13 150)" },
+      "success-soft": { "role": "status", "displayName": "Confirm Green, Soft", "canonical": "oklch(95% 0.045 155)" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Homepage hero headline only." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles (How We Help, How the Calculation Works)." },
+      "title": { "displayName": "Title", "purpose": "Card and step titles, question prompts." },
+      "body": { "displayName": "Body", "purpose": "Default text across the questionnaire and content sections." },
+      "label": { "displayName": "Label", "purpose": "Form labels, helper text, badges, meta text." }
+    },
+    "shadows": [
+      { "name": "resting", "value": "0 1px 2px rgba(0,0,0,0.05)", "purpose": "Default card and list-item elevation." },
+      { "name": "raised", "value": "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)", "purpose": "Main calculator panel, sticky floating action bar." },
+      { "name": "overlay", "value": "0 25px 50px -12px rgba(0,0,0,0.25)", "purpose": "Modals and dialogs floating above the page." }
+    ],
+    "motion": [
+      { "name": "screen-enter", "value": "0.4s ease-out, translateX(-20px) to 0", "purpose": "New questionnaire screen sliding into view." },
+      { "name": "page-enter", "value": "0.38s cubic-bezier(0.22, 1, 0.36, 1), translateY(28px) to 0", "purpose": "Full-page route transitions." },
+      { "name": "item-enter", "value": "0.3s ease-out, staggered by 40ms per item", "purpose": "Disease list items appearing in sequence." },
+      { "name": "modal-transition", "value": "300ms ease-in-out", "purpose": "Modal overlay fade and panel transform." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main call-to-action button — advance a step, submit, confirm.",
+      "html": "<button class=\"ds-btn-primary\">המשך</button>",
+      "css": ".ds-btn-primary { background: #4f46e5; color: #ffffff; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-family: Assistant, -apple-system, sans-serif; font-size: 0.875rem; border: none; transition: background 0.2s; } .ds-btn-primary:hover { background: #4338ca; } .ds-btn-primary:focus-visible { outline: 2px solid #4f46e5; outline-offset: 2px; } .ds-btn-primary:disabled { background: #9ca3af; cursor: not-allowed; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outline button for a lower-emphasis or reversible action alongside a primary button.",
+      "html": "<button class=\"ds-btn-secondary\">חזור</button>",
+      "css": ".ds-btn-secondary { background: #ffffff; color: #4f46e5; padding: 10px 20px; border-radius: 8px; border: 2px solid #a5b4fc; font-weight: 600; font-family: Assistant, -apple-system, sans-serif; font-size: 0.875rem; transition: background 0.2s, border-color 0.2s; } .ds-btn-secondary:hover { background: #eef2ff; border-color: #818cf8; }"
+    },
+    {
+      "name": "Step Frame",
+      "kind": "custom",
+      "refersTo": "step-frame",
+      "description": "Signature container that wraps the active step of the questionnaire in an indigo tint, signaling 'you are here.'",
+      "html": "<div class=\"ds-step-frame\"><p class=\"ds-step-frame-title\">בחר את הליקוי שלך</p></div>",
+      "css": ".ds-step-frame { background: #eef2ff; border: 1px solid #c7d2fe; border-radius: 12px; padding: 24px; } .ds-step-frame-title { color: #111827; font-family: Assistant, -apple-system, sans-serif; font-size: 1.125rem; font-weight: 600; margin: 0; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Standard text field used for search and free-text entry across the questionnaire.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"חפש...\" />",
+      "css": ".ds-input { background: #ffffff; color: #111827; border: 2px solid #a5b4fc; border-radius: 12px; padding: 10px 16px; font-family: Assistant, -apple-system, sans-serif; font-size: 0.875rem; width: 100%; box-sizing: border-box; } .ds-input::placeholder { color: #9ca3af; } .ds-input:focus { outline: none; border-color: #4f46e5; }"
+    },
+    {
+      "name": "Category Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Pill-shaped selectable tag used for chosen categories or body regions.",
+      "html": "<span class=\"ds-chip\">גב תחתון</span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 9999px; border: 2px solid #818cf8; background: #ffffff; color: #4338ca; font-family: Assistant, -apple-system, sans-serif; font-size: 0.875rem; font-weight: 500; transition: background 0.2s, border-color 0.2s; } .ds-chip:hover { background: #eef2ff; border-color: #4f46e5; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Primary content container — the calculator shell, a modal panel, a selection list wrapper.",
+      "html": "<div class=\"ds-card\"><p class=\"ds-card-body\">תוכן</p></div>",
+      "css": ".ds-card { background: #ffffff; border: 1px solid #c7d2fe; border-radius: 12px; padding: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); } .ds-card-body { font-family: Assistant, -apple-system, sans-serif; font-size: 0.875rem; color: #374151; margin: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Trusted Clerk",
+    "overview": "Mimushon behaves like a good civil servant: efficient, precise, and unglamorous, who tells you exactly what they're doing and why while they do it. Nothing here is trying to sell you software or impress you visually — the entire system exists to make one specific, high-stakes calculation legible to someone who is stressed about their health and their money. Every screen is a worked example: the inputs are visible, the steps are visible, the result is visible, and indigo is the one color allowed to carry any weight, reserved strictly for the actions and states that move a claimant through the process. This system explicitly rejects the generic SaaS/startup look (gradient heroes, glassmorphic cards, marketing gloss), the cold-government-form look (dense gray blocks, no warmth), and the pushy legal-firm-sales look (aggressive CTAs, stock imagery, urgency tactics). It sits deliberately between those poles: official enough to be trusted, plain enough to never feel like it's selling anything.",
+    "keyCharacteristics": [
+      "One brand color (indigo), used consistently for action and progress, never decoratively",
+      "Status colors (red, amber, green) are strictly functional — they only ever mean error, warning, or success",
+      "Soft, moderate rounding (8–12px) and light shadows — approachable, never severe, never precious",
+      "A single typeface (Assistant) doing all the work, Hebrew and Latin, across eight weights",
+      "Flat by default; elevation is reserved for things that temporarily float above the page"
+    ],
+    "rules": [
+      { "name": "The Single Accent Rule", "body": "Indigo is the only saturated brand color on any screen. Every other color is either a neutral or a semantic status color tied to a specific system state — never decorative, never \"for variety.\"", "section": "colors" },
+      { "name": "The One Family Rule", "body": "Every weight from 200–800 comes from Assistant. Hierarchy is built with size and weight, never a second typeface.", "section": "typography" },
+      { "name": "The Overlay-Only Rule", "body": "Heavy shadow (2xl) appears only on elements that float above the page. Everything docked in the normal flow stays at resting or raised.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Steady Indigo (#4f46e5) as the only saturated brand color; every other hue is a semantic status color tied to a real system state.",
+      "Do build hierarchy with Assistant's weight range (200–800) and size — never introduce a second typeface.",
+      "Do use rounded-lg (8px) as the default for buttons, inputs, and nested items, rounded-xl (12px) for primary containers and modals, and rounded-full only for pills and compact floating actions.",
+      "Do keep shadow at resting/raised for anything docked in the page flow; reserve the heavy overlay shadow for modals.",
+      "Do use the Indigo Wash step-frame pattern to mark \"you are inside a step\" in the questionnaire flow."
+    ],
+    "donts": [
+      "Don't introduce a generic SaaS/startup look — no gradient hero backgrounds, no glassmorphism, no marketing gloss.",
+      "Don't let any screen read as a cold government form — dense gray blocks with no warmth or breathing room.",
+      "Don't add pushy legal-firm-sales elements — aggressive CTAs, stock photos of gavels or handshakes, personal-injury-ad energy.",
+      "Don't add a second saturated accent color competing with indigo for attention; status colors are reserved strictly for their semantic state.",
+      "Don't use a heavy (overlay) shadow on anything that isn't a temporary modal or dialog."
+    ]
+  }
+}

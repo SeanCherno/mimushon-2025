@@ -70,7 +70,7 @@ const ScoringSystemQuestionnaire = ({ questionnaireData, severities, onSuggestSe
           <div className="flex flex-col space-y-2">
             {question.options.map(option => (
               <label key={option.value} className="inline-flex items-center">
-                <input type="radio" className="form-radio text-blue-600" name={question.id} value={option.value} checked={currentAnswers[question.id] === option.value} onChange={() => handleAnswerChange(question.id, option.value)} disabled={submitted} />
+                <input type="radio" className="form-radio text-indigo-600" name={question.id} value={option.value} checked={currentAnswers[question.id] === option.value} onChange={() => handleAnswerChange(question.id, option.value)} disabled={submitted} />
                 <span className="mr-2 text-gray-700">{option.label} (+{option.points} נק')</span>
               </label>
             ))}

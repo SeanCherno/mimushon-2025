@@ -501,7 +501,7 @@ export default function Calculator({ initialCategories }) {
     <div className="assistant-400">
       <div>
         {isLoading && <LoadingSpinner asOverlay={true} />}
-        <div className=" bg-gradient-to-br from-indigo-50 to-indigo-50">
+        <div className="bg-indigo-50">
           <div id="calculator"></div>
           <div className="mt-3 p-4 sm:p-8 font-sans text-gray-800 flex items-center justify-center">
             <div
@@ -587,7 +587,7 @@ export default function Calculator({ initialCategories }) {
                         onClick={(e) => e.stopPropagation()}
                       >
                         <div
-                          className={`modal-panel absolute top-0 bottom-0 right-0 w-full max-w-sm bg-purple-50 shadow-xl p-4 ${
+                          className={`modal-panel absolute top-0 bottom-0 right-0 w-full max-w-sm bg-indigo-50 shadow-xl p-4 ${
                             isMobileSummaryOpen
                               ? "translate-x-0"
                               : "translate-x-full"

@@ -23,11 +23,11 @@ const Takana15Page = () => {
     .prose p, .prose ul, .prose li { margin-bottom: 1rem; line-height: 1.75; }
     .prose ul { list-style-position: inside; padding-right: 0.5rem; }
     .prose strong { font-weight: 600; }
-    .prose blockquote { border-right: 4px solid #d1d5db; padding-right: 1rem; margin-right: 0.5rem; font-style: italic; color: #4b5563; background-color: #f9fafb; border-radius: 0 8px 8px 0; }
+    .prose blockquote { padding: 1rem 1.25rem; margin-right: 0; font-style: italic; color: #374151; background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; }
     .prose a { color: #4f46e5; font-weight: 500; text-decoration: none; }
     .prose a:hover { text-decoration: underline; }
-    .example-box { background: #f0fdf4; border-right: 4px solid #16a34a; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
-    .tip-box { background: #eff6ff; border-right: 4px solid #4f46e5; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+    .example-box { background: #dcfce7; border: 1px solid #86efac; padding: 1rem 1.25rem; border-radius: 12px; margin: 1.5rem 0; }
+    .tip-box { background: #eef2ff; border: 1px solid #c7d2fe; padding: 1rem 1.25rem; border-radius: 12px; margin: 1.5rem 0; }
   `;
 
   return (

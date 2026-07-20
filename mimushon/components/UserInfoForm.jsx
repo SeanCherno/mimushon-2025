@@ -155,9 +155,9 @@ const UserInfoForm = ({ onFormSubmit, onBack }) => {
 
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <button type="button" onClick={onBack} className="flex-1 p-3 bg-slate-300 text-slate-800 rounded-lg font-semibold hover:bg-slate-400 transition">חזרה</button>
+          <button type="button" onClick={onBack} className="flex-1 p-3 bg-gray-300 text-gray-800 rounded-lg font-semibold hover:bg-gray-400 transition">חזרה</button>
           <button type="submit" className="flex-1 p-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">שלח וצפה בתוצאות</button>
-          <button onClick={handleNoUserInfo} className="flex-1 border border-indigo-300 bg-white text-indigo p-3 rounded-lg font-semibold hover:bg-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 ease-in-out shadow-md">
+          <button onClick={handleNoUserInfo} className="flex-1 border border-indigo-300 bg-white text-indigo-600 p-3 rounded-lg font-semibold hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200 ease-in-out shadow-md">
             המשך ללא השארת פרטים
           </button>
         </div>
