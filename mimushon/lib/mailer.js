@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { resolve4 } from "dns/promises";
+import { roundDisabilityPercentage } from "./percentageRounding";
 
 /* ── Helpers ─────────────────────────────────────────────────────────────────
    createIPv4Transporter() explicitly resolves the SMTP hostname to an IPv4
@@ -74,15 +75,15 @@ export async function sendLeadNotification({ name, phone, comment, percentages, 
           ${percentages ? `
           <tr>
             <td style="padding: 8px; border: 1px solid #e5e7eb; font-weight: bold; background: #f9fafb;">נכות כללית</td>
-            <td style="padding: 8px; border: 1px solid #e5e7eb; font-weight: bold; color: #4338ca;">${Math.round(percentages.generalDisability ?? 0)}%</td>
+            <td style="padding: 8px; border: 1px solid #e5e7eb; font-weight: bold; color: #4338ca;">${roundDisabilityPercentage('generalDisability', percentages.generalDisability)}%</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #e5e7eb; font-weight: bold; background: #f9fafb;">מס הכנסה</td>
-            <td style="padding: 8px; border: 1px solid #e5e7eb;">${Math.round(percentages.taxIncome ?? 0)}%</td>
+            <td style="padding: 8px; border: 1px solid #e5e7eb;">${roundDisabilityPercentage('taxIncome', percentages.taxIncome)}%</td>
           </tr>
           <tr>
             <td style="padding: 8px; border: 1px solid #e5e7eb; font-weight: bold; background: #f9fafb;">שירותים מיוחדים</td>
-            <td style="padding: 8px; border: 1px solid #e5e7eb;">${Math.round(percentages.specialServices ?? 0)}%</td>
+            <td style="padding: 8px; border: 1px solid #e5e7eb;">${roundDisabilityPercentage('specialServices', percentages.specialServices)}%</td>
           </tr>` : ""}
         </table>
         <p style="color: #6b7280; font-size: 12px; margin-top: 16px;">

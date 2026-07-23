@@ -3,6 +3,7 @@ import Tooltip from "./content/Tooltip";
 import ContactForm from "./content/ContactForm";
 import IncapacityQuestionnaire from "./IncapacityQuestionnaire";
 import { estimateIncapacity } from "../lib/estimateIncapacity";
+import { roundDisabilityPercentage } from "../lib/percentageRounding";
 
 const getExplanation = (modeId, percentage, chosenDiseasesWithSeverities) => {
   if (modeId === "generalDisability") {
@@ -26,7 +27,7 @@ const getExplanation = (modeId, percentage, chosenDiseasesWithSeverities) => {
   }
   if (modeId === "taxIncome") {
     if (percentage <= 89) return "עם אחוזים אלו, בדרך כלל אין פטור מלא ממס הכנסה. ייתכנו נקודות זיכוי — מומלץ לבדוק עם רואה חשבון. לפטור ממס לא נדרשת דרגת אי-כושר — האחוזים הרפואיים בלבד קובעים.";
-    return "עם 90% ומעלה, ייתכן שתהיה זכאי/ת לפטור מלא ממס הכנסה על הכנסה מעבודה (עד תקרה שנתית). לפטור זה לא נדרשת דרגת אי-כושר — האחוזים הרפואיים בלבד קובעים. מומלץ לבדוק עם רואה חשבון.";
+    return "עם 90% ומעלה, ייתכן שתהיה זכאי/ת לפטור מלא ממס הכנסה על הכנסה מעבודה (עד תקרה שנתית). לפטור זה לא נדרשת דרגת אי-כושר — האחוזים הרפואיים בלבד קובעים, אך נדרש גם שהנכות תהיה לצמיתות או לתקופה של 185 ימים לפחות. מומלץ לבדוק עם רואה חשבון.";
   }
   if (modeId === "specialServices") {
     if (percentage === 0) return "לא נמצאה זכאות לשירותים מיוחדים במחלות שנבחרו.";
@@ -75,10 +76,10 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
 
   // Whether any mode found a meaningful (non-zero) result — used to soften the
   // lawyer-referral CTA's tone when the news is discouraging rather than good.
-  const workAccidentPct = isWorkAccident ? Math.round(totalPercentages?.newTotals?.generalDisability ?? 0) : null;
+  const workAccidentPct = isWorkAccident ? roundDisabilityPercentage('generalDisability', totalPercentages?.newTotals?.generalDisability) : null;
   const hasQualifyingResult = isWorkAccident
     ? workAccidentPct >= 9
-    : modes.some(mode => Math.round(totalPercentages.newTotals?.[mode.id] ?? 0) > 0);
+    : modes.some(mode => roundDisabilityPercentage(mode.id, totalPercentages.newTotals?.[mode.id]) > 0);
 
   return (
     <>
@@ -162,7 +163,7 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
         {/* ── Mode cards ───────────────────────────────────────────────────── */}
         <div className="space-y-4">
           {modes.map(mode => {
-            const pct = Math.round(totalPercentages.newTotals?.[mode.id] ?? 0);
+            const pct = roundDisabilityPercentage(mode.id, totalPercentages.newTotals?.[mode.id]);
             const barColor = getModeBarColor();
             const explanation = getExplanation(mode.id, pct, chosenDiseasesWithSeverities);
 
@@ -200,7 +201,7 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
 
         {/* ── Work accident block ──────────────────────────────────────── */}
         {isWorkAccident ? (() => {
-          const pct = Math.round(totalPercentages?.newTotals?.generalDisability ?? 0);
+          const pct = roundDisabilityPercentage('generalDisability', totalPercentages?.newTotals?.generalDisability);
 
           // Percentage tier
           const pctAboveMonthly = pct >= 20;
@@ -219,9 +220,9 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
             ? `${pct}% — בטווח המענק (9%–19.9%): זכאות אפשרית למענק חד-פעמי`
             : `${pct}% — מתחת לסף המינימלי (9%): לא נמצאה זכאות`;
           const pctBody   = pctAboveMonthly
-            ? `האחוזים שחושבו (${pct}%) עוברים את הסף של 20% הנדרש לקצבת נכות מעבודה חודשית — ללא צורך בדרגת אי-כושר. גובה הקצבה נקבע לפי אחוז הנכות.`
+            ? `האחוזים שחושבו (${pct}%) עוברים את הסף של 20% הנדרש לקצבת נכות מעבודה חודשית — ללא צורך בדרגת אי-כושר. גובה הקצבה נקבע לפי אחוז הנכות. שים/י לב: מסלול המענק/הקצבה החודשית שלעיל חל על נכות יציבה (קבועה); לנכות זמנית של 9% ומעלה עשויה להשתלם קצבה זמנית נפרדת עד לקביעת הנכות היציבה.`
             : pctInLumpSum
-            ? `האחוזים שחושבו (${pct}%) נמצאים בטווח שמזכה במענק חד-פעמי (9%–19.9%), ולא בקצבה חודשית שוטפת.`
+            ? `האחוזים שחושבו (${pct}%) נמצאים בטווח שמזכה במענק חד-פעמי (9%–19.9%), ולא בקצבה חודשית שוטפת. שים/י לב: הכלל הזה חל על נכות יציבה (קבועה); לנכות זמנית של 9% ומעלה עשויה להשתלם קצבה זמנית נפרדת עד לקביעת הנכות היציבה.`
             : `האחוזים שחושבו (${pct}%) מתחת לסף המינימלי של 9% הנדרש לכל זכאות. מומלץ לבחון עם מומחה האם ניתן לשפר.`;
 
           // Incapacity estimate (only if user answered the questionnaire)

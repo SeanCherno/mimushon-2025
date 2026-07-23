@@ -10,6 +10,7 @@ import ProgressBar from "../components/ProgressBar";
 import ClaimTypeSelection from "../components/ClaimTypeSelection";
 import WorkAccidentScreen from "../components/WorkAccidentScreen";
 import CalculatingScreen from "../components/CalculatingScreen";
+import { roundDisabilityPercentage } from "../lib/percentageRounding";
 
 export default function Calculator({ initialCategories }) {
   const [chosenDiseasesWithSeverities, setChosenDiseasesWithSeverities] =
@@ -337,6 +338,14 @@ export default function Calculator({ initialCategories }) {
     });
   };
 
+  // Mobile-only: tapping a disease in the chosen-diseases summary jumps back
+  // into its severity-selection screen so it can be reviewed or edited.
+  const handleViewDiseaseFromSummary = (disease) => {
+    setSelectedDiseaseForSeverityView(disease);
+    setCurrentScreen("severitySelection");
+    setIsMobileSummaryOpen(false);
+  };
+
   const handleAddDiseaseAndCloseModal = () => {
     setSelectedCategory(null);
     setSelectedSubCategory(null);
@@ -526,6 +535,7 @@ export default function Calculator({ initialCategories }) {
                     modes={modes}
                     onCalculate={handleFinalCalculation}
                     setCurrentScreen={setCurrentScreen}
+                    onViewDisease={handleViewDiseaseFromSummary}
                   />
                 </aside>
 
@@ -565,7 +575,7 @@ export default function Calculator({ initialCategories }) {
                           חשב אחוזי נכות
                           {liveTotals?.newTotals?.generalDisability != null && (
                             <span className="mr-1 font-bold">
-                              ~{Math.round(liveTotals.newTotals.generalDisability)}%
+                              ~{roundDisabilityPercentage('generalDisability', liveTotals.newTotals.generalDisability)}%
                             </span>
                           )}
                         </span>
@@ -609,6 +619,7 @@ export default function Calculator({ initialCategories }) {
                             modes={modes}
                             onCalculate={handleFinalCalculation}
                             setCurrentScreen={setCurrentScreen}
+                            onViewDisease={handleViewDiseaseFromSummary}
                           />
                         </div>
                       </div>

@@ -1,20 +1,38 @@
 'use client'
 
-import React, { useState, useRef, useLayoutEffect } from 'react';
+import React, { useState, useRef, useLayoutEffect, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 /**
- * An icon-based tooltip component that defaults to opening on the left,
- * but flips to the right if it overflows the left side of the viewport.
+ * An icon-based tooltip component.
  *
- * This component positions itself absolutely at the top-right of its
- * nearest relative parent.
+ * On desktop (pointer / hover devices) it opens a small popup next to the icon,
+ * defaulting to the left and flipping to the right if it overflows the viewport.
+ *
+ * On mobile it instead shows the content as a toast fixed to the top of the
+ * screen when the user taps the icon.
  */
 const Tooltip = ({ content }) => {
     const [isVisible, setIsVisible] = useState(false);
-    // NEW: State to control conditional rendering for unmount animation
+    // State to control conditional rendering for unmount animation
     const [isMounted, setIsMounted] = useState(false);
     const [direction, setDirection] = useState('left');
     const popupRef = useRef(null);
+
+    // Detect mobile (below Tailwind's `sm` breakpoint / no hover pointer).
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const query = window.matchMedia('(max-width: 639px), (hover: none)');
+        const update = () => setIsMobile(query.matches);
+        update();
+        query.addEventListener('change', update);
+        return () => query.removeEventListener('change', update);
+    }, []);
+
+    // --- Mobile toast state ---
+    const [toastVisible, setToastVisible] = useState(false);
+    const [toastMounted, setToastMounted] = useState(false);
+    const toastTimer = useRef(null);
 
     // This effect runs first to set the correct position
     useLayoutEffect(() => {
@@ -41,6 +59,20 @@ const Tooltip = ({ content }) => {
         }
     }, [isMounted]);
 
+    // Fade the toast in once it has mounted
+    useEffect(() => {
+        if (toastMounted) {
+            const timer = setTimeout(() => setToastVisible(true), 0);
+            return () => clearTimeout(timer);
+        }
+    }, [toastMounted]);
+
+    // Clean up any pending timer on unmount
+    useEffect(() => () => {
+        if (autoHideTimer.current) clearTimeout(autoHideTimer.current);
+        if (toastTimer.current) clearTimeout(toastTimer.current);
+    }, []);
+
     // Auto-hide timer ref (used for touch/mobile fade-out)
     const autoHideTimer = useRef(null);
 
@@ -61,10 +93,40 @@ const Tooltip = ({ content }) => {
         setIsVisible(false); // Trigger fade-out
     };
 
-    // NEW: Handle the end of the fade-out transition
+    // Handle the end of the fade-out transition
     const handleTransitionEnd = () => {
         if (!isVisible) {
             setIsMounted(false); // Unmount component after fade-out
+        }
+    };
+
+    // --- Mobile toast handlers ---
+    const showToast = () => {
+        setToastMounted(true);
+        if (toastTimer.current) clearTimeout(toastTimer.current);
+        toastTimer.current = setTimeout(() => {
+            setToastVisible(false); // Trigger fade-out
+        }, 3500);
+    };
+
+    const hideToast = () => {
+        if (toastTimer.current) clearTimeout(toastTimer.current);
+        setToastVisible(false);
+    };
+
+    const handleToastTransitionEnd = () => {
+        if (!toastVisible) {
+            setToastMounted(false); // Unmount after fade-out
+        }
+    };
+
+    // Handle a tap on the icon (mobile shows a top toast, desktop toggles popup)
+    const handleActivate = (e) => {
+        e.preventDefault();
+        if (isMobile) {
+            toastMounted ? hideToast() : showToast();
+        } else {
+            isMounted ? handleHide() : handleShow();
         }
     };
 
@@ -91,11 +153,11 @@ const Tooltip = ({ content }) => {
         // It's also the trigger for hover/focus.
         <div
             className="absolute top-1 right-1 sm:top-1 sm:right-1"
-            onMouseEnter={handleShow}
-            onMouseLeave={handleHide}
-            onFocus={handleShow}
-            onBlur={handleHide}
-            onTouchStart={(e) => { e.preventDefault(); isMounted ? handleHide() : handleShow(); }}
+            onMouseEnter={isMobile ? undefined : handleShow}
+            onMouseLeave={isMobile ? undefined : handleHide}
+            onFocus={isMobile ? undefined : handleShow}
+            onBlur={isMobile ? undefined : handleHide}
+            onTouchStart={handleActivate}
             tabIndex="0"
         >
             {/* Icon */}
@@ -103,18 +165,31 @@ const Tooltip = ({ content }) => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
 
-            {/* Popup - NOW CONDITIONALLY RENDERED */}
-            {isMounted && (
+            {/* Desktop popup - CONDITIONALLY RENDERED */}
+            {!isMobile && isMounted && (
                 <div
                     ref={popupRef}
                     className={`${popupBaseClasses} ${popupPositionClasses} ${visibilityClass}`}
                     role="tooltip"
-                    onTransitionEnd={handleTransitionEnd} // NEW: Listen for transition end
+                    onTransitionEnd={handleTransitionEnd}
                 >
                     {content}
                     {/* Arrow */}
                     <div className={arrowClasses}></div>
                 </div>
+            )}
+
+            {/* Mobile toast - fixed to the top of the screen, rendered via portal */}
+            {isMobile && toastMounted && typeof document !== 'undefined' && createPortal(
+                <div
+                    className={`fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-[90vw] max-w-sm p-3 bg-gray-800 text-white text-sm rounded-lg shadow-lg text-center transition-opacity duration-300 ${toastVisible ? 'opacity-100' : 'opacity-0'}`}
+                    role="status"
+                    onClick={hideToast}
+                    onTransitionEnd={handleToastTransitionEnd}
+                >
+                    {content}
+                </div>,
+                document.body
             )}
         </div>
     );

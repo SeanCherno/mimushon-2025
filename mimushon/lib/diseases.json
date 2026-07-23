@@ -15,6 +15,7 @@
           "description": "אם אתה/את מתקשה לשמוע אנשים מדברים, מעלה את עוצמת הטלוויזיה, או שומע צלצולים קבועים (טיניטוס) ",
           "tableColumns": [
             "פתח כושר השמיעה בדציבלים",
+            "אין ליקוי שמיעה",
             "15-20",
             "21-25",
             "26-30",
@@ -32,8 +33,29 @@
           ],
           "tableRows": [
             {
+              "header": "אין ליקוי שמיעה",
+              "severityIdsInRow": [
+                "hl_sev_n_n",
+                "hl_sev_n_a",
+                "hl_sev_n_b",
+                "hl_sev_n_c",
+                "hl_sev_n_d",
+                "hl_sev_n_h",
+                "hl_sev_n_v",
+                "hl_sev_n_z",
+                "hl_sev_n_j",
+                "hl_sev_n_f",
+                "hl_sev_n_k",
+                "hl_sev_n_y_a",
+                "hl_sev_n_y_b",
+                "hl_sev_n_y_g",
+                "hl_sev_n_y_d"
+              ]
+            },
+            {
               "header": "15-20",
               "severityIdsInRow": [
+                "hl_sev_1_n",
                 "hl_sev_1_a",
                 "hl_sev_1_b",
                 "hl_sev_1_c",
@@ -53,6 +75,7 @@
             {
               "header": "21-25",
               "severityIdsInRow": [
+                "hl_sev_2_n",
                 "hl_sev_2_a",
                 "hl_sev_2_b",
                 "hl_sev_2_c",
@@ -72,6 +95,7 @@
             {
               "header": "26-30",
               "severityIdsInRow": [
+                "hl_sev_3_n",
                 "hl_sev_3_a",
                 "hl_sev_3_b",
                 "hl_sev_3_c",
@@ -91,6 +115,7 @@
             {
               "header": "31-35",
               "severityIdsInRow": [
+                "hl_sev_4_n",
                 "hl_sev_4_a",
                 "hl_sev_4_b",
                 "hl_sev_4_c",
@@ -110,6 +135,7 @@
             {
               "header": "36-40",
               "severityIdsInRow": [
+                "hl_sev_5_n",
                 "hl_sev_5_a",
                 "hl_sev_5_b",
                 "hl_sev_5_c",
@@ -129,6 +155,7 @@
             {
               "header": "41-45",
               "severityIdsInRow": [
+                "hl_sev_6_n",
                 "hl_sev_6_a",
                 "hl_sev_6_b",
                 "hl_sev_6_c",
@@ -148,6 +175,7 @@
             {
               "header": "46-50",
               "severityIdsInRow": [
+                "hl_sev_7_n",
                 "hl_sev_7_a",
                 "hl_sev_7_b",
                 "hl_sev_7_c",
@@ -167,6 +195,7 @@
             {
               "header": "51-55",
               "severityIdsInRow": [
+                "hl_sev_8_n",
                 "hl_sev_8_a",
                 "hl_sev_8_b",
                 "hl_sev_8_c",
@@ -186,6 +215,7 @@
             {
               "header": "56-60",
               "severityIdsInRow": [
+                "hl_sev_9_n",
                 "hl_sev_9_a",
                 "hl_sev_9_b",
                 "hl_sev_9_c",
@@ -205,6 +235,7 @@
             {
               "header": "61-65",
               "severityIdsInRow": [
+                "hl_sev_10_n",
                 "hl_sev_10_a",
                 "hl_sev_10_b",
                 "hl_sev_10_c",
@@ -224,6 +255,7 @@
             {
               "header": "66-70",
               "severityIdsInRow": [
+                "hl_sev_11_n",
                 "hl_sev_11_a",
                 "hl_sev_11_b",
                 "hl_sev_11_c",
@@ -243,6 +275,7 @@
             {
               "header": "71-75",
               "severityIdsInRow": [
+                "hl_sev_12_n",
                 "hl_sev_12_a",
                 "hl_sev_12_b",
                 "hl_sev_12_c",
@@ -262,6 +295,7 @@
             {
               "header": "76-80",
               "severityIdsInRow": [
+                "hl_sev_13_n",
                 "hl_sev_13_a",
                 "hl_sev_13_b",
                 "hl_sev_13_c",
@@ -281,6 +315,7 @@
             {
               "header": "למעלה מ-80",
               "severityIdsInRow": [
+                "hl_sev_14_n",
                 "hl_sev_14_a",
                 "hl_sev_14_b",
                 "hl_sev_14_c",
@@ -1866,6 +1901,238 @@
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_14_y_d"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, אין ליקוי שמיעה",
+              "percentage": 0,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 15-20",
+              "percentage": 0,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_a"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 21-25",
+              "percentage": 0,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_b"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 26-30",
+              "percentage": 0,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_c"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 31-35",
+              "percentage": 0,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_d"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 36-40",
+              "percentage": 5,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_h"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 41-45",
+              "percentage": 5,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_v"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 46-50",
+              "percentage": 5,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_z"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 51-55",
+              "percentage": 5,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_j"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 56-60",
+              "percentage": 5,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_f"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 61-65",
+              "percentage": 5,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_k"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 66-70",
+              "percentage": 10,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_y_a"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 71-75",
+              "percentage": 10,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_y_b"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 76-80",
+              "percentage": 10,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_y_g"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, למעלה מ-80",
+              "percentage": 10,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_n_y_d"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: 15-20, אין ליקוי שמיעה",
+              "percentage": 0,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_1_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: 21-25, אין ליקוי שמיעה",
+              "percentage": 0,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_2_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: 26-30, אין ליקוי שמיעה",
+              "percentage": 0,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_3_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: 31-35, אין ליקוי שמיעה",
+              "percentage": 0,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_4_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: 36-40, אין ליקוי שמיעה",
+              "percentage": 5,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_5_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: 41-45, אין ליקוי שמיעה",
+              "percentage": 5,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_6_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: 46-50, אין ליקוי שמיעה",
+              "percentage": 5,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_7_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: 51-55, אין ליקוי שמיעה",
+              "percentage": 5,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_8_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: 56-60, אין ליקוי שמיעה",
+              "percentage": 5,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_9_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: 61-65, אין ליקוי שמיעה",
+              "percentage": 5,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_10_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: 66-70, אין ליקוי שמיעה",
+              "percentage": 10,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_11_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: 71-75, אין ליקוי שמיעה",
+              "percentage": 10,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_12_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: 76-80, אין ליקוי שמיעה",
+              "percentage": 10,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_13_n"
+            },
+            {
+              "description": "פתח כושר השמיעה בדציבלים: למעלה מ-80, אין ליקוי שמיעה",
+              "percentage": 10,
+              "countForDisability": true,
+              "countForTax": true,
+              "countForSpecial": false,
+              "severityId": "hl_sev_14_n"
             }
           ],
           "guide": "איך למצוא את הנתונים לבדיקת השמיעה שלך (SRT)?\nזה ממש קל! כל מה שאתה צריך זה את דוח בדיקת השמיעה (אודיוגרמה) שקיבלת מהבדיקה.\nמצא את ה-SRT (סף קבלת דיבור):\nתחפש בדוח את המילים \"SRT\" או \"Speech Reception Threshold\".\nיהיו לך שני מספרים, אחד לכל אוזן:\n* SRT לאוזן ימין: רשום את המספר שמופיע ליד \"SRT Right\" או \"SRT ימין\".\n* SRT לאוזן שמאל: רשום את המספר שמופיע ליד \"SRT Left\" או \"SRT שמאל\".\nהמספרים האלה הם בדציבלים (dB).\nזה הכל! עכשיו תוכל להזין את המספרים למחשבון.\nדוגמה:\nאם בדוח שלך כתוב:\nSRT Right: 25 dB\nSRT Left: 30 dB\nאז תזין 25 עבור אוזן ימין ו-30 עבור אוזן שמאל.",
@@ -6057,7 +6324,7 @@
             },
             {
               "id": "disease_267",
-              "name": "אצבע פטיש (Mallet Finger)",
+              "name": "אצבע פטיש ביד (Mallet Finger)",
               "description": "איפה בגוף: אצבעות הידיים",
               "severities": [
                 {
@@ -7447,7 +7714,7 @@
             },
             {
               "id": "disease_294",
-              "name": "אצבע פטיש",
+              "name": "אצבע פטיש בכף הרגל",
               "description": "איפה בגוף: אחת או יותר מהאצבעות הקטנות ברגליים, מכופפות כלפי מטה",
               "severities": [
                 {
@@ -10164,7 +10431,7 @@
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_12_disease_60_3bt5tq",
-                  "linkedDiseaseId": "disease_66"
+                  "linkedDiseaseId": "disease_1012"
                 }
               ],
               "requiredDocuments": [
@@ -13549,7 +13816,7 @@
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
-                  "severityId": "category_6_disease_26_nibde",
+                  "severityId": "category_6_disease_1000_d053c6",
                   "linkedDiseaseId": "disease_25"
                 }
               ],

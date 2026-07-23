@@ -11,6 +11,7 @@ const ChosenDiseasesSummary = ({
     onAddDisease,
     isMobileView = false,
     onClose,
+    onViewDisease,
 }) => {
     const [tosAccepted, setTosAccepted] = useState(false);
     const [tosShake, setTosShake] = useState(false);
@@ -74,9 +75,19 @@ const ChosenDiseasesSummary = ({
                             className="bg-white p-3 rounded-lg shadow-sm border border-indigo-200"
                         >
                             <div className="flex items-center justify-between">
-                                <p className="text-md font-semibold text-gray-800">
-                                    {entry.disease.name}
-                                </p>
+                                {isMobileView ? (
+                                    <button
+                                        type="button"
+                                        onClick={() => onViewDisease(entry.disease)}
+                                        className="text-md font-semibold text-gray-800 text-right hover:underline cursor-pointer"
+                                    >
+                                        {entry.disease.name}
+                                    </button>
+                                ) : (
+                                    <p className="text-md font-semibold text-gray-800">
+                                        {entry.disease.name}
+                                    </p>
+                                )}
                                 <button
                                     onClick={() => onRemoveDisease(entry.disease.id)}
                                     className="p-1 bg-gray-600 text-white cursor-pointer rounded-full hover:bg-gray-500"

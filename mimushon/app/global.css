@@ -77,3 +77,22 @@ img {
 .page-enter {
   animation: page-slide-up 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+/* Sienna Accessibility widget profile-card fix — the widget's own CSS
+   positions the on/off toggle with a physical `right: 16px`, which was
+   written assuming LTR. Since this site is RTL-only (Hebrew), the card's
+   icon/title also shift to the right under `dir="rtl"`, landing the toggle
+   on top of them instead of on the opposite side. Mirror it back to the left. */
+.asw-profile-btn {
+  text-align: right !important;
+}
+.asw-profile-title,
+.asw-profile-desc {
+  text-align: right !important;
+  padding-right: 0 !important;
+  padding-left: 30px !important;
+}
+.asw-profile-toggle {
+  right: auto !important;
+  left: 16px !important;
+}
