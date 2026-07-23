@@ -337,7 +337,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, 15-20",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_a"
@@ -345,7 +345,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, 21-25",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_b"
@@ -353,7 +353,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, 26-30",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_c"
@@ -361,7 +361,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, 31-35",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_d"
@@ -369,7 +369,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, 36-40",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_h"
@@ -377,7 +377,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, 41-45",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_v"
@@ -385,7 +385,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, 46-50",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_z"
@@ -393,7 +393,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, 51-55",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_j"
@@ -401,7 +401,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, 56-60",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_f"
@@ -409,7 +409,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, 61-65",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_k"
@@ -417,7 +417,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, 66-70",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_y_a"
@@ -425,7 +425,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, 71-75",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_y_b"
@@ -433,7 +433,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, 76-80",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_y_g"
@@ -441,7 +441,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, למעלה מ-80",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_y_d"
@@ -449,7 +449,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 15-20",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": false,
               "countForSpecial": false,
               "severityId": "hl_sev_2_a"
@@ -457,7 +457,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 21-25",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_b"
@@ -465,7 +465,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 26-30",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_c"
@@ -473,7 +473,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 31-35",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_d"
@@ -481,7 +481,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 36-40",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_h"
@@ -489,7 +489,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 41-45",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_v"
@@ -497,7 +497,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 46-50",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_z"
@@ -505,7 +505,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 51-55",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_j"
@@ -513,7 +513,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 56-60",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_f"
@@ -521,7 +521,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 61-65",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_k"
@@ -529,7 +529,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 66-70",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_y_a"
@@ -537,7 +537,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 71-75",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_y_b"
@@ -545,7 +545,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, 76-80",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_y_g"
@@ -553,7 +553,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, למעלה מ-80",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_y_d"
@@ -561,7 +561,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 15-20",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_3_a"
@@ -569,7 +569,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 21-25",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_3_b"
@@ -577,7 +577,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 26-30",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_3_c"
@@ -585,7 +585,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 31-35",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_3_d"
@@ -593,7 +593,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 36-40",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_3_h"
@@ -601,7 +601,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 41-45",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_3_v"
@@ -609,7 +609,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 46-50",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_3_z"
@@ -617,7 +617,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 51-55",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_3_j"
@@ -625,7 +625,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 56-60",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_3_f"
@@ -633,7 +633,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 61-65",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_3_k"
@@ -641,7 +641,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 66-70",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_3_y_a"
@@ -649,7 +649,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 71-75",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_3_y_b"
@@ -657,7 +657,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, 76-80",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_3_y_g"
@@ -665,7 +665,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, למעלה מ-80",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_3_y_d"
@@ -673,7 +673,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 15-20",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_4_a"
@@ -681,7 +681,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 21-25",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_4_b"
@@ -689,7 +689,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 26-30",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_4_c"
@@ -697,7 +697,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 31-35",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_4_d"
@@ -705,7 +705,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 36-40",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_4_h"
@@ -713,7 +713,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 41-45",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_4_v"
@@ -721,7 +721,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 46-50",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_4_z"
@@ -729,7 +729,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 51-55",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_4_j"
@@ -737,7 +737,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 56-60",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_4_f"
@@ -745,7 +745,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 61-65",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_4_k"
@@ -753,7 +753,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 66-70",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_4_y_a"
@@ -761,7 +761,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 71-75",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_4_y_b"
@@ -769,7 +769,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, 76-80",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_4_y_g"
@@ -777,7 +777,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, למעלה מ-80",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_4_y_d"
@@ -785,7 +785,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 15-20",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_5_a"
@@ -793,7 +793,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 21-25",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_5_b"
@@ -801,7 +801,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 26-30",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_5_c"
@@ -809,7 +809,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 31-35",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_5_d"
@@ -817,7 +817,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 36-40",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_5_h"
@@ -825,7 +825,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 41-45",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_5_v"
@@ -833,7 +833,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 46-50",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_5_z"
@@ -841,7 +841,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 51-55",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_5_j"
@@ -849,7 +849,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 56-60",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_5_f"
@@ -857,7 +857,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 61-65",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_5_k"
@@ -865,7 +865,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 66-70",
               "percentage": 25,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_5_y_a"
@@ -873,7 +873,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 71-75",
               "percentage": 25,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_5_y_b"
@@ -881,7 +881,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, 76-80",
               "percentage": 25,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_5_y_g"
@@ -889,7 +889,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, למעלה מ-80",
               "percentage": 25,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_5_y_d"
@@ -897,7 +897,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 41-45, 15-20",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_6_a"
@@ -905,7 +905,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 41-45, 21-25",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_6_b"
@@ -913,7 +913,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 41-45, 26-30",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_6_c"
@@ -921,7 +921,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 41-45, 31-35",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_6_d"
@@ -929,7 +929,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 41-45, 36-40",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_6_h"
@@ -1009,7 +1009,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 46-50, 15-20",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_7_a"
@@ -1017,7 +1017,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 46-50, 21-25",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_7_b"
@@ -1025,7 +1025,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 46-50, 26-30",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_7_c"
@@ -1033,7 +1033,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 46-50, 31-35",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_7_d"
@@ -1041,7 +1041,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 46-50, 36-40",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_7_h"
@@ -1121,7 +1121,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 51-55, 15-20",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_8_a"
@@ -1129,7 +1129,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 51-55, 21-25",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_8_b"
@@ -1137,7 +1137,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 51-55, 26-30",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_8_c"
@@ -1145,7 +1145,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 51-55, 31-35",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_8_d"
@@ -1153,7 +1153,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 51-55, 36-40",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_8_h"
@@ -1233,7 +1233,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 56-60, 15-20",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_9_a"
@@ -1241,7 +1241,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 56-60, 21-25",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_9_b"
@@ -1249,7 +1249,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 56-60, 26-30",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_9_c"
@@ -1257,7 +1257,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 56-60, 31-35",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_9_d"
@@ -1265,7 +1265,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 56-60, 36-40",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_9_h"
@@ -1345,7 +1345,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 61-65, 15-20",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_10_a"
@@ -1353,7 +1353,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 61-65, 21-25",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_10_b"
@@ -1361,7 +1361,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 61-65, 26-30",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_10_c"
@@ -1369,7 +1369,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 61-65, 31-35",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_10_d"
@@ -1377,7 +1377,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 61-65, 36-40",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_10_h"
@@ -1457,7 +1457,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 66-70, 15-20",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_11_a"
@@ -1465,7 +1465,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 66-70, 21-25",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_11_b"
@@ -1473,7 +1473,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 66-70, 26-30",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_11_c"
@@ -1481,7 +1481,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 66-70, 31-35",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_11_d"
@@ -1489,7 +1489,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 66-70, 36-40",
               "percentage": 25,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": true,
               "severityId": "hl_sev_11_h"
@@ -1569,7 +1569,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 71-75, 15-20",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_12_a"
@@ -1577,7 +1577,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 71-75, 21-25",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_12_b"
@@ -1585,7 +1585,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 71-75, 26-30",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_12_c"
@@ -1593,7 +1593,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 71-75, 31-35",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_12_d"
@@ -1601,7 +1601,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 71-75, 36-40",
               "percentage": 25,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_12_h"
@@ -1681,7 +1681,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 76-80, 15-20",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_13_a"
@@ -1689,7 +1689,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 76-80, 21-25",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_13_b"
@@ -1697,7 +1697,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 76-80, 26-30",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_13_c"
@@ -1705,7 +1705,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 76-80, 31-35",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_13_d"
@@ -1713,7 +1713,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 76-80, 36-40",
               "percentage": 25,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_13_h"
@@ -1793,7 +1793,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: למעלה מ-80, 15-20",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_14_a"
@@ -1801,7 +1801,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: למעלה מ-80, 21-25",
               "percentage": 15,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_14_b"
@@ -1809,7 +1809,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: למעלה מ-80, 26-30",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_14_c"
@@ -1817,7 +1817,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: למעלה מ-80, 31-35",
               "percentage": 20,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_14_d"
@@ -1825,7 +1825,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: למעלה מ-80, 36-40",
               "percentage": 25,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_14_h"
@@ -1905,7 +1905,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, אין ליקוי שמיעה",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_n"
@@ -1913,7 +1913,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 15-20",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_a"
@@ -1921,7 +1921,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 21-25",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_b"
@@ -1929,7 +1929,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 26-30",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_c"
@@ -1937,7 +1937,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 31-35",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_d"
@@ -1945,7 +1945,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 36-40",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_h"
@@ -1953,7 +1953,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 41-45",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_v"
@@ -1961,7 +1961,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 46-50",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_z"
@@ -1969,7 +1969,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 51-55",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_j"
@@ -1977,7 +1977,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 56-60",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_f"
@@ -1985,7 +1985,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 61-65",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_k"
@@ -1993,7 +1993,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 66-70",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_y_a"
@@ -2001,7 +2001,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 71-75",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_y_b"
@@ -2009,7 +2009,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, 76-80",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_y_g"
@@ -2017,7 +2017,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: אין ליקוי שמיעה, למעלה מ-80",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_n_y_d"
@@ -2025,7 +2025,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 15-20, אין ליקוי שמיעה",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_1_n"
@@ -2033,7 +2033,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 21-25, אין ליקוי שמיעה",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_2_n"
@@ -2041,7 +2041,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 26-30, אין ליקוי שמיעה",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_3_n"
@@ -2049,7 +2049,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 31-35, אין ליקוי שמיעה",
               "percentage": 0,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_4_n"
@@ -2057,7 +2057,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 36-40, אין ליקוי שמיעה",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_5_n"
@@ -2065,7 +2065,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 41-45, אין ליקוי שמיעה",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_6_n"
@@ -2073,7 +2073,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 46-50, אין ליקוי שמיעה",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_7_n"
@@ -2081,7 +2081,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 51-55, אין ליקוי שמיעה",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_8_n"
@@ -2089,7 +2089,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 56-60, אין ליקוי שמיעה",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_9_n"
@@ -2097,7 +2097,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 61-65, אין ליקוי שמיעה",
               "percentage": 5,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_10_n"
@@ -2105,7 +2105,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 66-70, אין ליקוי שמיעה",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_11_n"
@@ -2113,7 +2113,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 71-75, אין ליקוי שמיעה",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_12_n"
@@ -2121,7 +2121,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: 76-80, אין ליקוי שמיעה",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_13_n"
@@ -2129,7 +2129,7 @@
             {
               "description": "פתח כושר השמיעה בדציבלים: למעלה מ-80, אין ליקוי שמיעה",
               "percentage": 10,
-              "countForDisability": true,
+              "countForDisability": false,
               "countForTax": true,
               "countForSpecial": false,
               "severityId": "hl_sev_14_n"
@@ -7651,7 +7651,7 @@
                 {
                   "description": "קטיעת 3 או 4 אצבעות – בלי ראש עצם המסרק",
                   "percentage": 10,
-                  "countForDisability": true,
+                  "countForDisability": false,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_55_disease_291_40qgxk"
@@ -7696,7 +7696,7 @@
               "severities": [
                 {
                   "description": "מצב קשה\nדוגמה: קשה מאוד לדחוף קדימה בזמן הליכה",
-                  "percentage": 5,
+                  "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
@@ -9833,9 +9833,9 @@
                 {
                   "description": "נפיחות קלה וקבועה שאינה מחמירה בעמידה, הפרעות קלות ברגל אחת",
                   "percentage": 0,
-                  "countForDisability": false,
+                  "countForDisability": true,
                   "countForTax": true,
-                  "countForSpecial": false,
+                  "countForSpecial": true,
                   "severityId": "category_11_disease_49_fr6wsr"
                 },
                 {
@@ -10884,7 +10884,7 @@
                 },
                 {
                   "description": "בעיות משמעותיות במערכת העיכול, המצב הכללי ירוד\n דוגמה: קושי תמידי באכילה, כאבי בטן חזקים שמפריעים לשגרה",
-                  "percentage": 30,
+                  "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
@@ -10892,7 +10892,7 @@
                 },
                 {
                   "description": "אחרי יותר מניתוח אחד, עם חסימת מעיים חלקית שלא ניתנת לריפוי\n דוגמה: אפיזודות חוזרות של כאבי בטן חזקים, הקאות, נאלץ להיות בהשגחה רפואית",
-                  "percentage": 40,
+                  "percentage": 60,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
@@ -10900,7 +10900,7 @@
                 },
                 {
                   "description": "בעיות קשות בעיכול, מסוגל לבצע רק עבודות קלות בבית\n דוגמה: יכול לסדר קצת בבית, אבל לא מסוגל לעבוד או להתאמץ פיזית",
-                  "percentage": 50,
+                  "percentage": 80,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
@@ -12473,7 +12473,7 @@
                 },
                 {
                   "description": "חולשה קשה/שיתוק - פלג גוף לא דומיננטי\nדוגמה: לא מצליח לסגור אגרוף, קשה מאוד להשתמש ביד ליום־יום",
-                  "percentage": 30,
+                  "percentage": 40,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
@@ -12481,7 +12481,7 @@
                 },
                 {
                   "description": "חולשה קשה/שיתוק - פלג גוף דומיננטי\nדוגמה: לא מצליח לסגור אגרוף, קשה מאוד להשתמש ביד ליום־יום",
-                  "percentage": 40,
+                  "percentage": 50,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
@@ -12921,7 +12921,7 @@
                   "severityId": "category_34_disease_174_xnyxrj"
                 },
                 {
-                  "description": "בינונית - פלג גוף דומיננטי/לא דומיננטי\nדוגמה: מתקשה להרים קניות או ספר כבד ביד הפגועה",
+                  "description": "בינונית - פלג גוף לא דומיננטי\nדוגמה: מתקשה להרים קניות או ספר כבד ביד הפגועה",
                   "percentage": 10,
                   "countForDisability": true,
                   "countForTax": true,
@@ -12929,12 +12929,28 @@
                   "severityId": "category_34_disease_174_zcnfu"
                 },
                 {
-                  "description": "קשה - פלג גוף דומיננטי/לא דומיננטי\nדוגמה: לא מצליח לכופף את המרפק בכלל, צריך להשתמש ביד השנייה",
+                  "description": "בינונית - פלג גוף דומיננטי\nדוגמה: מתקשה להרים קניות או ספר כבד ביד הפגועה",
+                  "percentage": 20,
+                  "countForDisability": true,
+                  "countForTax": true,
+                  "countForSpecial": true,
+                  "severityId": "category_34_disease_174_948ec3"
+                },
+                {
+                  "description": "קשה - פלג גוף לא דומיננטי\nדוגמה: לא מצליח לכופף את המרפק בכלל, צריך להשתמש ביד השנייה",
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_34_disease_174_mhzmme"
+                },
+                {
+                  "description": "קשה - פלג גוף דומיננטי\nדוגמה: לא מצליח לכופף את המרפק בכלל, צריך להשתמש ביד השנייה",
+                  "percentage": 30,
+                  "countForDisability": true,
+                  "countForTax": true,
+                  "countForSpecial": true,
+                  "severityId": "category_34_disease_174_06e07b"
                 }
               ],
               "requiredDocuments": [
@@ -14452,7 +14468,7 @@
                 {
                   "description": "צלקות בפנים/צוואר – מכוערות או משנות צורת עפעף/אף/שפה",
                   "percentage": 10,
-                  "countForDisability": false,
+                  "countForDisability": true,
                   "countForTax": true,
                   "countForSpecial": false,
                   "severityId": "category_79_disease_397_c5z8p8"
@@ -14521,7 +14537,7 @@
                   "percentage": 20,
                   "countForDisability": true,
                   "countForTax": true,
-                  "countForSpecial": true,
+                  "countForSpecial": false,
                   "severityId": "category_79_disease_402_zxufjt"
                 }
               ],
@@ -14626,7 +14642,7 @@
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
-                  "countForSpecial": true,
+                  "countForSpecial": false,
                   "severityId": "category_79_disease_408_bl4pi",
                   "linkedDiseaseId": "disease_405"
                 }
@@ -14750,11 +14766,11 @@
               "name": "דלקת עור מקרינה (Actinic Dermatitis)",
               "severities": [
                 {
-                  "description": "דלקת עור מקרינה – הנכות לפי סעיף אקזמה",
+                  "description": "דלקת עור מקרינה – הנכות לפי סעיף זאבת אדמנתית דיסקואידית",
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
-                  "countForSpecial": true,
+                  "countForSpecial": false,
                   "severityId": "category_79_disease_409_rq8z1",
                   "linkedDiseaseId": "disease_406"
                 }
@@ -14774,9 +14790,10 @@
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
-                  "countForSpecial": true,
+                  "countForSpecial": false,
                   "severityId": "category_79_disease_410_gfvpjn",
-                  "disabled": true
+                  "disabled": true,
+                  "linkedDiseaseId": "disease_391"
                 }
               ],
               "requiredDocuments": [
@@ -14940,9 +14957,10 @@
                   "percentage": 0,
                   "countForDisability": true,
                   "countForTax": true,
-                  "countForSpecial": true,
+                  "countForSpecial": false,
                   "severityId": "category_79_disease_415_z0tavc",
-                  "disabled": true
+                  "disabled": true,
+                  "linkedDiseaseId": "disease_391"
                 }
               ],
               "requiredDocuments": [
@@ -16166,7 +16184,7 @@
                 {
                   "description": "חסימה בעין אחת עם דמעת קבועה",
                   "percentage": 5,
-                  "countForDisability": true,
+                  "countForDisability": false,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_61_disease_333_f5jb4g"
@@ -16174,7 +16192,7 @@
                 {
                   "description": "חסימה בשתי העיניים",
                   "percentage": 10,
-                  "countForDisability": true,
+                  "countForDisability": false,
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_61_disease_333_p4ep7a"
@@ -17438,17 +17456,17 @@
                 {
                   "description": "שן שאינה ניתנת לשיקום (לא ניתן לשים שתל או גשר)",
                   "percentage": 0.5,
-                  "countForDisability": true,
+                  "countForDisability": false,
                   "countForTax": true,
-                  "countForSpecial": true,
+                  "countForSpecial": false,
                   "severityId": "category_78_disease_384_2azza5"
                 },
                 {
                   "description": "שן שניתן לשקם באמצעים דנטליים (שתל, גשר, תותבת)",
                   "percentage": 0.25,
-                  "countForDisability": true,
+                  "countForDisability": false,
                   "countForTax": true,
-                  "countForSpecial": true,
+                  "countForSpecial": false,
                   "severityId": "category_78_disease_384_p45s7e"
                 }
               ],
