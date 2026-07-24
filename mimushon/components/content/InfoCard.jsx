@@ -1,10 +1,12 @@
-const InfoCard = ({ icon, title, children }) => (
-    <div className="flex flex-col items-center text-center">
-        <div className="bg-indigo-200 p-5 rounded-full mb-4">
-            {icon}
+const InfoCard = ({ number, title, children }) => (
+    <div className="flex items-start gap-6">
+        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-bold text-lg">
+            {number}
         </div>
-        <h3 className="text-xl font-semibold mb-2 text-gray-900">{title}</h3>
-        <p className="text-gray-600">{children}</p>
+        <div>
+            <h3 className="text-xl font-semibold mb-2 text-gray-900">{title}</h3>
+            <p className="text-gray-600">{children}</p>
+        </div>
     </div>
 );
 

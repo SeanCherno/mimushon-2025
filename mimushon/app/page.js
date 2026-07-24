@@ -26,7 +26,7 @@ export default async function HomePage() {
   const categories = await getCategories();
 
   return (
-    <div className="assistant-400">
+    <div>
       <main>
         <div className=" bg-gradient-to-br from-indigo-50 to-indigo-50">
           {/* Your static Hero section */}

@@ -190,7 +190,7 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
 
                 {/* ── Incapacity questionnaire — general disability only, not for work accidents ── */}
                 {mode.id === 'generalDisability' && !isWorkAccident && (
-                  <div className="mt-3 mr-4 border-r-2 border-indigo-200 pr-3">
+                  <div className="mt-3 mr-4 bg-indigo-50 border border-indigo-200 rounded-xl p-3">
                     <IncapacityQuestionnaire />
                   </div>
                 )}

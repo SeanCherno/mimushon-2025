@@ -516,7 +516,7 @@ export default function Calculator({ initialCategories }) {
         {isLoading && <LoadingSpinner asOverlay={true} />}
         <div className="bg-indigo-50">
           <div id="calculator"></div>
-          <div className="mt-3 p-4 sm:p-8 font-sans text-gray-800 flex items-center justify-center">
+          <div className="mt-3 p-4 sm:p-8 text-gray-800 flex items-center justify-center">
             <div
               className="bg-white p-6 sm:p-10 rounded-xl shadow-2xl w-full border border-indigo-200"
               dir="rtl"
