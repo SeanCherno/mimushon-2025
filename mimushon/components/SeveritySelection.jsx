@@ -178,6 +178,9 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
         />
         : !isGuiding && ( // Only show manual filter and options if not in interactive guide
           <div className="pr-2 mb-6">
+            <p className="text-xs text-gray-500 bg-white border border-indigo-100 rounded-lg px-3 py-2 mb-4">
+              לא בטוחים איזו דרגה הכי מתאימה? בחרו את התיאור הקרוב ביותר למצבכם — הקביעה הסופית והמחייבת תמיד תיעשה על ידי הוועדה הרפואית, לא על ידי המחשבון.
+            </p>
             {selectedDiseaseForSeverityView.severities.length > 0 ? (
               <form>
                 {filteredSeverities.map((severity, index) => (

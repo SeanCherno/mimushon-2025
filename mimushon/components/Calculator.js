@@ -506,6 +506,10 @@ export default function Calculator({ initialCategories }) {
     }
   };
 
+  const hasAnySeveritySelected = chosenDiseasesWithSeverities.some(
+    (entry) => entry.selectedSeverity
+  );
+
   return (
     <div className="assistant-400">
       <div>
@@ -525,19 +529,24 @@ export default function Calculator({ initialCategories }) {
                 className="flex flex-col md:flex-row-reverse gap-8"
                 dir="rtl"
               >
-                {/* Sidebar */}
-                <aside className="no-print w-full md:w-1/3 hidden md:block">
-                  <ChosenDiseasesSummary
-                    chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}
-                    onRemoveDisease={handleRemoveDisease}
-                    onAddDisease={() => setCurrentScreen("diseaseSelection")}
-                    onProceed={() => setCurrentScreen("userInfo")}
-                    modes={modes}
-                    onCalculate={handleFinalCalculation}
-                    setCurrentScreen={setCurrentScreen}
-                    onViewDisease={handleViewDiseaseFromSummary}
-                  />
-                </aside>
+                {/* Sidebar — only once at least one disease has a chosen severity, so the
+                    first screens (claim type, disease browsing) aren't competing for
+                    attention with a summary/consent/calculate panel that has nothing to show yet.
+                    Mirrors the mobile FAB's same condition below. */}
+                {hasAnySeveritySelected && (
+                  <aside className="no-print w-full md:w-1/3 hidden md:block">
+                    <ChosenDiseasesSummary
+                      chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}
+                      onRemoveDisease={handleRemoveDisease}
+                      onAddDisease={() => setCurrentScreen("diseaseSelection")}
+                      onProceed={() => setCurrentScreen("userInfo")}
+                      modes={modes}
+                      onCalculate={handleFinalCalculation}
+                      setCurrentScreen={setCurrentScreen}
+                      onViewDisease={handleViewDiseaseFromSummary}
+                    />
+                  </aside>
+                )}
 
                 {/* Mobile FAB and Modal */}
 
@@ -627,8 +636,8 @@ export default function Calculator({ initialCategories }) {
                   )}
                 </div>
 
-                {/* Main Content */}
-                <div className="w-full md:w-2/3">
+                {/* Main Content — takes the full width until the sidebar has something to show */}
+                <div className={hasAnySeveritySelected ? "w-full md:w-2/3" : "w-full"}>
                   {!isCalculating && currentScreen !== 'results' && (
                     <ProgressBar currentScreen={currentScreen} />
                   )}

@@ -21,9 +21,9 @@ const CLAIM_TYPES = [
     },
     {
         id: 'other',
-        label: 'אחר',
+        label: 'אחר / כללי',
         icon: '📋',
-        desc: 'מצב שאינו נכלל בקטגוריות הנ"ל',
+        desc: 'למשל: פטור ממס הכנסה, ביטוח פרטי, או שאתם עדיין לא בטוחים לאיזה מסלול לפנות',
     },
 ];
 
@@ -33,7 +33,7 @@ export default function ClaimTypeSelection({ onSelect }) {
             <div className="text-center mb-6">
                 <h3 className="text-xl font-bold text-indigo-800 mb-1">מה סוג תביעתך?</h3>
                 <p className="text-sm text-gray-500">
-                    בחרו את הקטגוריה המתאימה — הדבר ישפיע על המידע שתראו בתוצאות
+                    הבחירה קובעת אילו הסברים וספים רלוונטיים יוצגו לכם בתוצאות — לא תשנה את אחוז הנכות הרפואי שיחושב. לא בטוחים? אפשר לבחור &quot;אחר / כללי&quot;.
                 </p>
             </div>
 
