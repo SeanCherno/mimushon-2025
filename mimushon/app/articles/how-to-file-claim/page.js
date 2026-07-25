@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ArticleJsonLd from "../../../components/ArticleJsonLd";
+import BreadcrumbJsonLd from "../../../components/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "המדריך המלא: איך מגישים תביעה לקצבת נכות כללית",
@@ -13,6 +14,7 @@ export const metadata = {
     description: "מדריך שלב אחר שלב להגשת תביעת נכות כללית בביטוח לאומי.",
     url: "https://mimushon.co.il/articles/how-to-file-claim",
     type: "article",
+    images: ["/images/hero-photo.webp"],
   },
 };
 
@@ -47,6 +49,15 @@ const Article1Page = () => {
         title="המדריך המלא: איך מגישים תביעה לקצבת נכות כללית"
         description="מדריך שלב אחר שלב להגשת תביעת נכות כללית בביטוח לאומי. מאיסוף מסמכים רפואיים, דרך מילוי טופס 7801 ועד ההכנה לוועדה הרפואית."
         url="https://mimushon.co.il/articles/how-to-file-claim"
+        datePublished="2025-11-07"
+        dateModified="2025-11-07"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "בית", url: "https://mimushon.co.il/" },
+          { name: "מאמרים", url: "https://mimushon.co.il/articles" },
+          { name: "המדריך המלא: איך מגישים תביעה לקצבת נכות כללית", url: "https://mimushon.co.il/articles/how-to-file-claim" },
+        ]}
       />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">

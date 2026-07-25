@@ -1,6 +1,7 @@
 // pages/articles/index.js
 import Link from "next/link";
 import { allArticles } from "../../lib/articles"; // ייבוא של רשימת המאמרים
+import BreadcrumbJsonLd from "../../components/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "מאמרים ומידע על זכויות רפואיות",
@@ -15,6 +16,7 @@ export const metadata = {
       "מאגר מידע וכתבות על תהליכי ביטוח לאומי, אחוזי נכות, הגשת תביעות ועוד.",
     url: "https://mimushon.co.il/articles",
     type: "website",
+    images: ["/images/hero-photo.webp"],
   },
 };
 
@@ -44,8 +46,29 @@ const ArticlesIndexPage = ({ articles }) => {
         }
     `;
 
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: allArticles.map((article, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `https://mimushon.co.il/articles/${article.slug}`,
+      name: article.title,
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "בית", url: "https://mimushon.co.il/" },
+          { name: "מאמרים", url: "https://mimushon.co.il/articles" },
+        ]}
+      />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">
         <div className="container mx-auto px-6 max-w-4xl bg-white p-8 sm:p-12 rounded-lg shadow-md">

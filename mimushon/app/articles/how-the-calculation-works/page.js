@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ArticleJsonLd from "../../../components/ArticleJsonLd";
+import BreadcrumbJsonLd from "../../../components/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "איך עובד חישוב אחוזי נכות משוקלל (הנוסחה)",
@@ -14,6 +15,7 @@ export const metadata = {
       "למה 20% + 10% הם 28%? ההסבר המלא מאחורי נוסחת החישוב המשוקלל הרשמית.",
     url: "https://mimushon.co.il/articles/how-the-calculation-works",
     type: "article",
+    images: ["/images/hero-photo.webp"],
   },
 };
 
@@ -56,6 +58,15 @@ const Article5Page = () => {
         title="איך עובד חישוב אחוזי נכות משוקלל (הנוסחה)"
         description="למה 20% + 10% הם 28%? ההסבר המלא מאחורי נוסחת החישוב המשוקלל הרשמית של ביטוח לאומי, כולל דוגמאות מספריות מפורטות."
         url="https://mimushon.co.il/articles/how-the-calculation-works"
+        datePublished="2025-11-07"
+        dateModified="2025-11-07"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "בית", url: "https://mimushon.co.il/" },
+          { name: "מאמרים", url: "https://mimushon.co.il/articles" },
+          { name: "איך עובד חישוב אחוזי נכות משוקלל (הנוסחה)", url: "https://mimushon.co.il/articles/how-the-calculation-works" },
+        ]}
       />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ArticleJsonLd from "../../../components/ArticleJsonLd";
+import BreadcrumbJsonLd from "../../../components/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "מה קורה בוועדה הרפואית של ביטוח לאומי — המדריך המלא",
@@ -13,6 +14,7 @@ export const metadata = {
     description: "מדריך מפורט להתכוננות לוועדה הרפואית של ביטוח לאומי.",
     url: "https://mimushon.co.il/articles/medical-committee-guide",
     type: "article",
+    images: ["/images/hero-photo.webp"],
   },
 };
 
@@ -36,6 +38,15 @@ const MedicalCommitteeGuidePage = () => {
         title="מה קורה בוועדה הרפואית של ביטוח לאומי — המדריך המלא"
         description="כל מה שצריך לדעת לפני ישיבת הוועדה הרפואית: מי יושב בה, מה בודקים, איך להתכונן, ומה לעשות אחרי."
         url="https://mimushon.co.il/articles/medical-committee-guide"
+        datePublished="2026-05-21"
+        dateModified="2026-05-21"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "בית", url: "https://mimushon.co.il/" },
+          { name: "מאמרים", url: "https://mimushon.co.il/articles" },
+          { name: "מה קורה בוועדה הרפואית של ביטוח לאומי — המדריך המלא", url: "https://mimushon.co.il/articles/medical-committee-guide" },
+        ]}
       />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">

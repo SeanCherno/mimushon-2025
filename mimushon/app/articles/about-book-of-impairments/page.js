@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ArticleJsonLd from "../../../components/ArticleJsonLd";
+import BreadcrumbJsonLd from "../../../components/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "מהו ספר הליקויים של ביטוח לאומי?",
@@ -14,6 +15,7 @@ export const metadata = {
       'הסבר על "ספר הליקויים" (תקנות הנכות) של ביטוח לאומי. איך הוא בנוי וכיצד משתמשים בו.',
     url: "https://mimushon.co.il/articles/about-book-of-impairments",
     type: "article",
+    images: ["/images/hero-photo.webp"],
   },
 };
 
@@ -48,6 +50,15 @@ const Article3Page = () => {
         title="מהו ספר הליקויים של ביטוח לאומי?"
         description='הסבר על "ספר הליקויים" (תקנות הנכות) של ביטוח לאומי. איך הוא בנוי, כיצד רופאים משתמשים בו כדי לקבוע אחוז נכות, ומה ההבדל בין ליקוי בודד לחישוב משוקלל.'
         url="https://mimushon.co.il/articles/about-book-of-impairments"
+        datePublished="2025-11-07"
+        dateModified="2025-11-07"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "בית", url: "https://mimushon.co.il/" },
+          { name: "מאמרים", url: "https://mimushon.co.il/articles" },
+          { name: "מהו ספר הליקויים של ביטוח לאומי?", url: "https://mimushon.co.il/articles/about-book-of-impairments" },
+        ]}
       />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">

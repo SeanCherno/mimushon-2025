@@ -1,7 +1,11 @@
 import Link from "next/link";
+import BreadcrumbJsonLd from "../../components/BreadcrumbJsonLd";
 
 export const metadata = {
-  title: "אודות מימושון | מי אנחנו, המטרה והחזון",
+  // Was "אודות מימושון | מי אנחנו, המטרה והחזון" — now that the root layout
+  // applies a "%s | מימושון" title template, that would have rendered as
+  // "אודות מימושון | מי אנחנו, המטרה והחזון | מימושון" (brand name twice).
+  title: "מי אנחנו והמטרה שלנו",
   description:
     'מה עומד מאחורי מחשבון אחוזי הנכות "מימושון"? הכירו את המטרה שלנו: לפשט תהליכי ביטוח לאומי ולהנגיש מידע חשוב על זכויות רפואיות.',
   alternates: {
@@ -13,6 +17,7 @@ export const metadata = {
     description: 'מה עומד מאחורי מחשבון אחוזי הנכות "מימושון"?',
     url: "https://mimushon.co.il/about-us",
     type: "website",
+    images: ["/images/hero-photo.webp"],
   },
 };
 
@@ -40,6 +45,12 @@ const AboutPage = () => {
 
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "בית", url: "https://mimushon.co.il/" },
+          { name: "מי אנחנו", url: "https://mimushon.co.il/about-us" },
+        ]}
+      />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">
         <div className="container mx-auto px-6 max-w-4xl bg-white p-8 sm:p-12 rounded-lg shadow-md">

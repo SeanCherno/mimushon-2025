@@ -21,12 +21,38 @@ async function getCategories() {
   }
 }
 
+// WebApplication structured data for the calculator itself — makes the tool
+// (not just the surrounding content) eligible for Google's software/app rich
+// results. No aggregateRating is included since there's no real review data
+// to back one; a fabricated rating would violate Google's structured-data
+// policies.
+const calculatorJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "מחשבון אחוזי נכות - מימושון",
+  description:
+    "מחשבון אחוזי נכות חינמי המבוסס על ספר הליקויים הרשמי של ביטוח לאומי, כולל נוסחת השקלול המלאה.",
+  url: "https://mimushon.co.il/",
+  applicationCategory: "UtilitiesApplication",
+  operatingSystem: "Web",
+  inLanguage: "he",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "ILS",
+  },
+};
+
 export default async function HomePage() {
   // 1. Fetch data on the server
   const categories = await getCategories();
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorJsonLd) }}
+      />
       <main>
         <div className=" bg-gradient-to-br from-indigo-50 to-indigo-50">
           {/* Your static Hero section */}

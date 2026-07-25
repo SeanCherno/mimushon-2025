@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BreadcrumbJsonLd from "../../components/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "מילון מונחים — נכות, ביטוח לאומי וזכויות רפואיות",
@@ -12,6 +13,7 @@ export const metadata = {
     description: "הסבר פשוט לכל המונחים בתחום הנכות וביטוח לאומי.",
     url: "https://mimushon.co.il/glossary",
     type: "website",
+    images: ["/images/hero-photo.webp"],
   },
 };
 
@@ -109,9 +111,35 @@ const TERMS = [
   },
 ];
 
+// DefinedTermSet structured data — the glossary is a clean list of term +
+// definition pairs, a direct fit for schema.org's glossary vocabulary and a
+// candidate for Google's defined-term rich results.
+const glossaryJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  name: "מילון מונחים — נכות, ביטוח לאומי וזכויות רפואיות",
+  url: "https://mimushon.co.il/glossary",
+  hasDefinedTerm: TERMS.map((t) => ({
+    "@type": "DefinedTerm",
+    name: t.term,
+    description: t.explanation,
+    url: `https://mimushon.co.il/glossary#${t.anchor}`,
+  })),
+};
+
 export default function GlossaryPage() {
   return (
     <div className="py-12 sm:py-16 bg-indigo-50" dir="rtl">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(glossaryJsonLd) }}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "בית", url: "https://mimushon.co.il/" },
+          { name: "מילון מונחים", url: "https://mimushon.co.il/glossary" },
+        ]}
+      />
       <div className="container mx-auto px-6 max-w-4xl bg-white p-8 sm:p-12 rounded-lg shadow-md">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 text-center">
           מילון מונחים

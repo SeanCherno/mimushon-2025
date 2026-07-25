@@ -2,7 +2,7 @@ import TermsPage from "../../../components/content/TermsPage"; // Adjust path
 
 // Page-specific SEO
 export const metadata = {
-  title: "תנאי שימוש | מימושון",
+  title: "תנאי שימוש",
   description: "קרא את תנאי השימוש עבור מחשבון אחוזי הנכות של מימושון.",
   robots: "noindex",
 };

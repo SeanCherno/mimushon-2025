@@ -18,18 +18,41 @@ const assistant = Assistant({
   variable: "--font-assistant", // Optional: for use with Tailwind
 });
 
+const SITE_URL = "https://mimushon.co.il";
+const SITE_NAME = "מימושון";
+const DEFAULT_DESCRIPTION =
+  "רוצים להעריך את אחוזי הנכות שלכם מביטוח לאומי? מחשבון אחוזי הנכות של מימושון יעזור לכם להבין את זכויותיכם. חישוב מהיר, פשוט וללא עלות.";
+// Used as the fallback social-share image (og:image / twitter:image) on any
+// page that doesn't define its own — real photography already used in the
+// hero, not a placeholder.
+const DEFAULT_OG_IMAGE = {
+  url: "/images/hero-photo.webp",
+  width: 1920,
+  height: 1280,
+  alt: SITE_NAME,
+};
+
 // 4. The new "metadata" object (replaces most of your <head> tags)
 export const metadata = {
+  // Required for relative OG/Twitter image URLs (and next/og) to resolve to
+  // absolute URLs. Without this Next.js warns and social crawlers can fail
+  // to fetch the preview image.
+  metadataBase: new URL(SITE_URL),
+
   // <title>מימושון - מחשבון אחוזי נכות</title>
-  title: "מימושון - מחשבון אחוזי נכות",
+  // `template` brands every child page's <title> consistently ("X | מימושון");
+  // `default` is used only when a page (like the homepage) sets no title.
+  title: {
+    default: "מימושון - מחשבון אחוזי נכות",
+    template: `%s | ${SITE_NAME}`,
+  },
 
   // <meta name="description" content="..." />
-  description:
-    "רוצים להעריך את אחוזי הנכות שלכם מביטוח לאומי? מחשבון אחוזי הנכות של מימושון יעזור לכם להבין את זכויותיכם. חישוב מהיר, פשוט וללא עלות.",
+  description: DEFAULT_DESCRIPTION,
 
   // <link rel="canonical" href="https://mimushon.co.il/" />
   alternates: {
-    canonical: "https://mimushon.co.il/",
+    canonical: SITE_URL,
   },
 
   // <meta name="google-site-verification" content="..." />
@@ -44,11 +67,13 @@ export const metadata = {
   // <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   manifest: "/manifest.json", // Assumes manifest.json is in your /public folder
 
-  // <link rel="preload" as="image" href="/images/hero-photo.jpg" ... />
+  // <link rel="preload" as="image" href="/images/hero-photo.webp" ... />
+  // (was pointing at a .jpg that doesn't exist on disk — a dead preload
+  // hint that wasted an early request without ever warming the real asset)
   links: [
     {
       rel: "preload",
-      href: "/images/hero-photo.jpg",
+      href: "/images/hero-photo.webp",
       as: "image",
       fetchPriority: "high",
     },
@@ -56,13 +81,46 @@ export const metadata = {
 
   // <meta name="מימושון" content="..." />
   // This was a non-standard tag. 'application-name' is better.
-  applicationName: "מימושון",
+  applicationName: SITE_NAME,
 
-  // This handles your favicon
-  icons: {
-    icon: "/favicon.png", // Assumes favicon.png is in your /public folder
-    apple: "/logo192.png", // Assumes logo192.png is in /public
+  // Favicon: `/favicon.png` and `/logo192.png` were never present in
+  // /public (404s). No explicit `icons` override needed at all — Next.js's
+  // app/favicon.ico file-convention route already serves the real icon with
+  // correct sizing and cache-busting; an explicit override here would just
+  // duplicate that <link rel="icon"> tag.
+
+  // Sitewide Open Graph — previously entirely absent, so every shared link
+  // (WhatsApp/Facebook/LinkedIn are how this audience actually shares URLs)
+  // rendered as a bare link with no title/description/image card.
+  openGraph: {
+    title: "מימושון - מחשבון אחוזי נכות",
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "he_IL",
+    type: "website",
+    images: [DEFAULT_OG_IMAGE],
   },
+
+  // Sitewide Twitter Card fallback — inherited by every page that doesn't
+  // declare its own `twitter` block (all of them, today).
+  twitter: {
+    card: "summary_large_image",
+    title: "מימושון - מחשבון אחוזי נכות",
+    description: DEFAULT_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE.url],
+  },
+};
+
+// Sitewide Organization structured data — establishes the entity behind the
+// site for Google's Knowledge Graph / sitelinks search box eligibility.
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.png`,
+  description: DEFAULT_DESCRIPTION,
 };
 
 // 5. NEW: The viewport object, as requested by the error
@@ -70,7 +128,7 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#000000",
+  themeColor: "#4f46e5", // brand indigo — was #000000 (CRA boilerplate default)
 };
 
 // This is your main App component
@@ -82,6 +140,10 @@ export default function RootLayout({ children }) {
 
       {/* 7. Your <body> tag */}
       <body className="flex flex-col min-h-screen" suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         {/* Google Tag Manager (noscript) - must be first in <body> */}
         <noscript>
           <iframe

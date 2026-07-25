@@ -37,11 +37,32 @@ const FAQ_ITEMS = [
   },
 ];
 
+// FAQPage structured data — built straight from FAQ_ITEMS so the schema can
+// never drift out of sync with the actual visible accordion content (a
+// mismatch between structured data and on-page content violates Google's
+// FAQ rich-result guidelines and can trigger a manual disqualification).
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
+
 export default function FaqSection() {
   const [open, setOpen] = useState(null);
 
   return (
     <section className="max-w-3xl mx-auto px-4 pt-4" dir="rtl">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <h2 className="text-2xl font-bold text-indigo-800 mb-6 text-center">שאלות נפוצות</h2>
       <div className="space-y-3">
         {FAQ_ITEMS.map((item, i) => (

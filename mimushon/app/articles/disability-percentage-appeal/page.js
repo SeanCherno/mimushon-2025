@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ArticleJsonLd from "../../../components/ArticleJsonLd";
+import BreadcrumbJsonLd from "../../../components/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "קיבלתי אחוזי נכות נמוכים? המדריך לערעור",
@@ -14,6 +15,7 @@ export const metadata = {
       "מה עושים אם ביטוח לאומי קבע אחוזי נכות נמוכים מדי? המדריך המלא לאפשרויות הפעולה.",
     url: "https://mimushon.co.il/articles/disability-percentage-appeal",
     type: "article",
+    images: ["/images/hero-photo.webp"],
   },
 };
 
@@ -48,6 +50,15 @@ const Article2Page = () => {
         title="קיבלתי אחוזי נכות נמוכים? המדריך לערעור"
         description="מה עושים אם ביטוח לאומי קבע אחוזי נכות נמוכים מדי? המדריך המלא לאפשרויות הפעולה: ערעור לוועדה לעררים, ערעור לבית הדין והגשת תביעה להחמרת מצב."
         url="https://mimushon.co.il/articles/disability-percentage-appeal"
+        datePublished="2025-11-07"
+        dateModified="2025-11-07"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "בית", url: "https://mimushon.co.il/" },
+          { name: "מאמרים", url: "https://mimushon.co.il/articles" },
+          { name: "קיבלתי אחוזי נכות נמוכים? המדריך לערעור", url: "https://mimushon.co.il/articles/disability-percentage-appeal" },
+        ]}
       />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">

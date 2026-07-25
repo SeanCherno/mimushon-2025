@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ArticleJsonLd from "../../../components/ArticleJsonLd";
+import BreadcrumbJsonLd from "../../../components/BreadcrumbJsonLd";
 
 export const metadata = {
   title: 'מחשבון אחוזי נכות "מימושון": מדריך למשתמש',
@@ -13,6 +14,7 @@ export const metadata = {
     description: "איך להשתמש במחשבון אחוזי הנכות שלנו? מדריך משתמש פשוט ומהיר.",
     url: "https://mimushon.co.il/articles/what-is-the-calculator",
     type: "article",
+    images: ["/images/hero-photo.webp"],
   },
 };
 
@@ -43,6 +45,15 @@ const Article4Page = () => {
         title='מחשבון אחוזי נכות "מימושון": מדריך למשתמש'
         description="איך להשתמש במחשבון אחוזי הנכות שלנו? מדריך משתמש פשוט ומהיר שמסביר כיצד להזין ליקויים, איך לקרוא את התוצאה המשוקללת ומה המשמעות שלה."
         url="https://mimushon.co.il/articles/what-is-the-calculator"
+        datePublished="2025-11-07"
+        dateModified="2025-11-07"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "בית", url: "https://mimushon.co.il/" },
+          { name: "מאמרים", url: "https://mimushon.co.il/articles" },
+          { name: 'מחשבון אחוזי נכות "מימושון": מדריך למשתמש', url: "https://mimushon.co.il/articles/what-is-the-calculator" },
+        ]}
       />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">

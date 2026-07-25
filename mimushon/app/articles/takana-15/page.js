@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ArticleJsonLd from "../../../components/ArticleJsonLd";
+import BreadcrumbJsonLd from "../../../components/BreadcrumbJsonLd";
 
 export const metadata = {
   title: "תקנה 15 — איך להגדיל את אחוזי הנכות מפגיעה בעבודה",
@@ -13,6 +14,7 @@ export const metadata = {
     description: "המדריך המלא לתקנה 15: מי זכאי, כיצד מגישים, וכמה אפשר להרוויח.",
     url: "https://mimushon.co.il/articles/takana-15",
     type: "article",
+    images: ["/images/hero-photo.webp"],
   },
 };
 
@@ -36,6 +38,15 @@ const Takana15Page = () => {
         title="תקנה 15 — איך להגדיל את אחוזי הנכות מפגיעה בעבודה"
         description="מה היא תקנה 15, מי זכאי להגדלת האחוזים, כיצד מגישים בקשה, וכמה ניתן להרוויח מהתקנה הזו."
         url="https://mimushon.co.il/articles/takana-15"
+        datePublished="2026-05-21"
+        dateModified="2026-05-21"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "בית", url: "https://mimushon.co.il/" },
+          { name: "מאמרים", url: "https://mimushon.co.il/articles" },
+          { name: "תקנה 15 — איך להגדיל את אחוזי הנכות מפגיעה בעבודה", url: "https://mimushon.co.il/articles/takana-15" },
+        ]}
       />
       <style>{customStyles}</style>
       <div className="py-12 sm:py-16 bg-indigo-50">
