@@ -183,11 +183,24 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
             </p>
             {selectedDiseaseForSeverityView.severities.length > 0 ? (
               <form>
-                {filteredSeverities.map((severity, index) => (
+                {filteredSeverities.map((severity, index) => {
+                  // A severity may reference a single linked disease (linkedDiseaseId,
+                  // string) or several (linkedDiseaseIds, array of IDs) when the
+                  // regulation says the percentage is set "by the appropriate
+                  // section" and more than one section can apply. Normalize both
+                  // into one list so the rest of the render is uniform.
+                  const linkTargets =
+                    Array.isArray(severity.linkedDiseaseIds) && severity.linkedDiseaseIds.length > 0
+                      ? severity.linkedDiseaseIds
+                      : severity.linkedDiseaseId
+                        ? [severity.linkedDiseaseId]
+                        : [];
+                  const hasLink = linkTargets.length > 0;
+                  return (
                   <div key={index} className="flex items-start mb-3">
                     <input
                       type="radio"
-                      disabled={severity.linkedDiseaseId || severity.disabled}
+                      disabled={hasLink || severity.disabled}
                       id={`severity-${selectedDiseaseForSeverityView.id}-${index}`}
                       name={`severity-${selectedDiseaseForSeverityView.id}`} // Group radio buttons by disease
                       className="text-indigo-600 rounded-full border-gray-300 focus:ring-indigo-500 cursor-pointer"
@@ -208,22 +221,22 @@ const SeveritySelection = ({ selectedCategory, selectedSubCategory, setSelectedS
                           severity.description}
                       </div>
                     </label>
-                    {severity.linkedDiseaseId && (
+                    {hasLink && (
                       <button
                         type="button"
-                        onClick={() => onNavigateToLinkedDisease(severity.linkedDiseaseId, severity.linkedSeverityId)}
+                        onClick={() => onNavigateToLinkedDisease(linkTargets, severity.linkedSeverityId)}
                         className="ml-4 px-3 py-1 bg-indigo-500 text-white text-sm rounded-lg hover:bg-indigo-600 transition duration-200 ease-in-out shadow-sm flex items-center"
-                        title="מעבר למחלה קשורה"
+                        title={linkTargets.length > 1 ? "בחירת מחלה קשורה" : "מעבר למחלה קשורה"}
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
-                        מעבר
+                        {linkTargets.length > 1 ? "בחר/י סעיף" : "מעבר"}
                       </button>
                     )}
                   </div>
-
-                ))}
+                  );
+                })}
               </form>
             ) : (
               <p className="text-gray-600">לא נמצאו דרגות עבור המחלה שנבחרה.</p>

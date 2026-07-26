@@ -31,6 +31,10 @@ export default function Calculator({ initialCategories }) {
   const [claimType, setClaimType] = useState(null);
   const [workAccidentAnswers, setWorkAccidentAnswers] = useState(null);
   const [isCalculating, setIsCalculating] = useState(false);
+  // When a severity references more than one linked disease, this holds the
+  // fetched candidates so the user can pick which section to jump to.
+  // Shape: { options: [{ id, name, data }], linkedSeverityId } | null
+  const [linkMenu, setLinkMenu] = useState(null);
   const liveCalcTimerRef = useRef(null);
 
   const SESSION_KEY = 'mimushon_calc_state';
@@ -261,61 +265,110 @@ export default function Calculator({ initialCategories }) {
     // Removed automatic linking here, it will now only happen via the explicit button
   };
 
-  const handleNavigateToLinkedDisease = async (
-    linkedDiseaseId,
-    linkedSeverityId
-  ) => {
-    setIsLoading(true);
-    const response = await fetch(`/api/diseases/${linkedDiseaseId}`);
-    const data = await response.json();
+  const fetchDisease = (id) =>
+    fetch(`/api/diseases/${id}`).then((response) => response.json());
 
-    const linkedDisease = data.disease;
-    if (linkedDisease) {
-      console.log(data);
-      // Set the selected disease for viewing
-      setSelectedDiseaseForSeverityView(linkedDisease);
-      if (data.subCategory) {
-        setSelectedSubCategory(data.subCategory);
-      }
-      setSelectedCategory(data.category);
-
-      setChosenDiseasesWithSeverities((prevChosen) => {
-        const existingEntryIndex = prevChosen.findIndex(
-          (entry) => entry.disease.id === linkedDisease.id
-        );
-        let newSelectedSeverity = null; // Default to null
-
-        if (linkedSeverityId) {
-          // If a specific linkedSeverityId is provided, find and use it
-          newSelectedSeverity = linkedDisease.severities.find(
-            (s) => s.severityId === linkedSeverityId
-          );
-          if (!newSelectedSeverity) {
-            console.warn(
-              `Linked severity with ID ${linkedSeverityId} not found in disease ${linkedDisease.name}.`
-            );
-          }
-        }
-
-        if (existingEntryIndex > -1) {
-          // Update existing entry with the new selected severity (or null)
-          return prevChosen.map((entry, index) =>
-            index === existingEntryIndex
-              ? { ...entry, selectedSeverity: newSelectedSeverity }
-              : entry
-          );
-        } else {
-          // Add new entry with the new selected severity (or null)
-          return [
-            ...prevChosen,
-            { disease: linkedDisease, selectedSeverity: newSelectedSeverity },
-          ];
-        }
-      });
-      setIsLoading(false);
-    } else {
-      console.warn(`Linked disease with ID ${linkedDiseaseId} not found.`);
+  // Switch the severity view to an already-fetched linked-disease payload and
+  // make sure it's present in the chosen list. Shared by the direct-navigate
+  // and the pick-from-menu paths so they behave identically.
+  const applyLinkedDisease = (data, linkedSeverityId) => {
+    const linkedDisease = data && data.disease;
+    if (!linkedDisease) {
+      console.warn("Linked disease not found in fetched payload.");
+      return;
     }
+
+    setSelectedDiseaseForSeverityView(linkedDisease);
+    if (data.subCategory) {
+      setSelectedSubCategory(data.subCategory);
+    }
+    setSelectedCategory(data.category);
+
+    setChosenDiseasesWithSeverities((prevChosen) => {
+      const existingEntryIndex = prevChosen.findIndex(
+        (entry) => entry.disease.id === linkedDisease.id
+      );
+      let newSelectedSeverity = null; // Default to null
+
+      if (linkedSeverityId) {
+        // If a specific linkedSeverityId is provided, find and use it
+        newSelectedSeverity = linkedDisease.severities.find(
+          (s) => s.severityId === linkedSeverityId
+        );
+        if (!newSelectedSeverity) {
+          console.warn(
+            `Linked severity with ID ${linkedSeverityId} not found in disease ${linkedDisease.name}.`
+          );
+        }
+      }
+
+      if (existingEntryIndex > -1) {
+        // Update existing entry with the new selected severity (or null)
+        return prevChosen.map((entry, index) =>
+          index === existingEntryIndex
+            ? { ...entry, selectedSeverity: newSelectedSeverity }
+            : entry
+        );
+      } else {
+        // Add new entry with the new selected severity (or null)
+        return [
+          ...prevChosen,
+          { disease: linkedDisease, selectedSeverity: newSelectedSeverity },
+        ];
+      }
+    });
+  };
+
+  // `targets` is either a single disease id (string, legacy single-link) or an
+  // array of ids (a severity that can map to several regulation sections).
+  // One target navigates straight through; several open a picker menu.
+  const handleNavigateToLinkedDisease = async (targets, linkedSeverityId) => {
+    const ids = Array.isArray(targets) ? targets : [targets];
+    if (ids.length === 0) return;
+
+    if (ids.length === 1) {
+      setIsLoading(true);
+      try {
+        const data = await fetchDisease(ids[0]);
+        applyLinkedDisease(data, linkedSeverityId);
+      } catch (err) {
+        console.error("Failed to load linked disease:", err);
+      } finally {
+        setIsLoading(false);
+      }
+      return;
+    }
+
+    // Multiple candidate sections: fetch them all so the menu can show real
+    // disease names, then let the user choose. The chosen payload is reused on
+    // pick, so no second request is made.
+    setIsLoading(true);
+    try {
+      const datas = await Promise.all(ids.map(fetchDisease));
+      const options = datas
+        .map((data) =>
+          data && data.disease
+            ? { id: data.disease.id, name: data.disease.name, data }
+            : null
+        )
+        .filter(Boolean);
+
+      if (options.length === 1) {
+        applyLinkedDisease(options[0].data, linkedSeverityId);
+      } else if (options.length > 1) {
+        setLinkMenu({ options, linkedSeverityId });
+      }
+    } catch (err) {
+      console.error("Failed to load linked diseases:", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handlePickLinkedDisease = (option) => {
+    const linkedSeverityId = linkMenu?.linkedSeverityId;
+    setLinkMenu(null);
+    applyLinkedDisease(option.data, linkedSeverityId);
   };
 
   const handleRemoveDisease = (diseaseIdToRemove) => {
@@ -514,6 +567,52 @@ export default function Calculator({ initialCategories }) {
     <div className="assistant-400">
       <div>
         {isLoading && <LoadingSpinner asOverlay={true} />}
+
+        {/* Linked-disease picker — shown when a severity maps to more than one
+            regulation section, so the user chooses which one to jump to. */}
+        {linkMenu && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+            dir="rtl"
+            onClick={() => setLinkMenu(null)}
+          >
+            <div
+              className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 max-h-[85vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-start justify-between mb-2">
+                <h3 className="text-lg font-bold text-indigo-800">
+                  לאיזה סעיף לעבור?
+                </h3>
+                <button
+                  onClick={() => setLinkMenu(null)}
+                  className="text-gray-400 hover:text-gray-600 transition text-2xl leading-none"
+                  aria-label="סגור"
+                >
+                  ✕
+                </button>
+              </div>
+              <p className="text-sm text-gray-500 mb-4">
+                דרגה זו יכולה להיקבע לפי כמה סעיפים. בחר/י את הסעיף המתאים למצבך:
+              </p>
+              <div className="space-y-2">
+                {linkMenu.options.map((option) => (
+                  <button
+                    key={option.id}
+                    onClick={() => handlePickLinkedDisease(option)}
+                    className="w-full flex items-center justify-between gap-3 text-right p-3 bg-white rounded-lg border-2 border-indigo-200 hover:bg-indigo-50 hover:border-indigo-400 transition font-medium text-indigo-800"
+                  >
+                    <span>{option.name}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 shrink-0 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="bg-indigo-50">
           <div id="calculator"></div>
           <div className="mt-3 p-4 sm:p-8 text-gray-800 flex items-center justify-center">
