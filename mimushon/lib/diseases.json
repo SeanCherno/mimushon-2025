@@ -2462,7 +2462,7 @@
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_76_disease_364_fk5inl",
-                  "disabled": true
+                  "linkedDiseaseId": "disease_361"
                 }
               ],
               "requiredDocuments": [
@@ -10092,7 +10092,7 @@
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_11_disease_53_soi5tt",
-                  "disabled": true
+                  "linkedDiseaseId": "disease_288"
                 }
               ],
               "requiredDocuments": [
@@ -14792,7 +14792,6 @@
                   "countForTax": true,
                   "countForSpecial": false,
                   "severityId": "category_79_disease_410_gfvpjn",
-                  "disabled": true,
                   "linkedDiseaseId": "disease_391"
                 }
               ],
@@ -14959,7 +14958,6 @@
                   "countForTax": true,
                   "countForSpecial": false,
                   "severityId": "category_79_disease_415_z0tavc",
-                  "disabled": true,
                   "linkedDiseaseId": "disease_391"
                 }
               ],
@@ -18435,7 +18433,7 @@
                   "countForTax": true,
                   "countForSpecial": true,
                   "severityId": "category_24_disease_108_bxlw3c",
-                  "disabled": true
+                  "linkedDiseaseId": "disease_115"
                 }
               ],
               "requiredDocuments": [
