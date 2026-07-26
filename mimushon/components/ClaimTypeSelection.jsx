@@ -42,7 +42,7 @@ export default function ClaimTypeSelection({ onSelect }) {
                     <button
                         key={type.id}
                         onClick={() => onSelect(type.id)}
-                        className="flex items-start gap-4 p-4 h-32 min-h-0 overflow-hidden rounded-xl border-2 bg-white text-right transition cursor-pointer border-indigo-200 hover:border-indigo-500 hover:bg-indigo-50"
+                        className="flex items-center gap-4 p-4 h-32 min-h-0 overflow-hidden rounded-xl border-2 bg-white text-right transition cursor-pointer border-indigo-200 hover:border-indigo-500 hover:bg-indigo-50"
                     >
                         <span className="text-2xl w-11 h-11 flex items-center justify-center rounded-lg shrink-0 bg-indigo-100">
                             {type.icon}
