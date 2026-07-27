@@ -49,7 +49,9 @@ const ProcessSection = () => (
                             <div className="z-10 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-indigo-600 text-white font-bold text-lg">4</div>
                             <div className="ms-6">
                                 <h4 className="text-xl font-semibold text-gray-800">קבלת ההחלטה וערעור</h4>
-                                <p className="text-gray-600 mt-1">לאחר קבלת ההחלטה, אם אינך מרוצה, ניתן לערער. זהו שלב קריטי בו ייצוג משפטי יכול לעשות את כל ההבדל.</p>
+                                {/* Legal-representation emphasis softened — free-tool framing for now.
+                                    Original: "...זהו שלב קריטי בו ייצוג משפטי יכול לעשות את כל ההבדל." */}
+                                <p className="text-gray-600 mt-1">לאחר קבלת ההחלטה, אם אינך מרוצה, ניתן לערער. זהו שלב קריטי שכדאי להיערך אליו היטב ולצרף את כל המסמכים הרלוונטיים.</p>
                             </div>
                         </div>
                     </div>

@@ -366,7 +366,9 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
         <details className="group bg-white rounded-xl border border-indigo-200 shadow-sm overflow-hidden">
           <summary className="no-print cursor-pointer list-none [&::-webkit-details-marker]:hidden flex items-center justify-between gap-3 p-4 select-none hover:bg-indigo-50 transition motion-reduce:transition-none">
             <span className="flex items-center gap-2 text-base font-semibold text-indigo-800">
-              <span>📋</span> השלב הבא — מסמכים, ליווי מקצועי וציר זמן צפוי
+              {/* "ליווי מקצועי" (professional accompaniment) removed — free-tool framing.
+                  Original: "השלב הבא — מסמכים, ליווי מקצועי וציר זמן צפוי" */}
+              <span>📋</span> השלב הבא — מסמכים וציר זמן צפוי
             </span>
             <span className="text-indigo-500 shrink-0 transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none">⌄</span>
           </summary>
@@ -390,11 +392,11 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
               </div>
             )}
 
-            {/* ── CTA + Lead form ──────────────────────────────────────────── */}
-            {/* Tone adapts to the result: an encouraging pitch when a real threshold
-                was met, a calmer "have questions?" framing otherwise — this is the
-                moment right after a discouraging number, so it should never read
-                as a sales pitch stacked under bad news. */}
+            {/* ── CTA + contact form ───────────────────────────────────────── */}
+            {/* Lawyer-referral CTA commented out — the site is presented as a free
+                tool for now and is not connecting users with lawyers. Original,
+                tone-adapting lawyer pitch:
+
             {hasQualifyingResult ? (
               <div className="no-print bg-indigo-700 rounded-xl p-6 text-white">
                 <div className="text-center mb-5">
@@ -423,6 +425,18 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
                 <ContactForm variant="compact" percentages={totalPercentages?.newTotals} claimType={claimType} />
               </div>
             )}
+            */}
+            <div className="no-print bg-white rounded-xl border border-indigo-200 p-6">
+              <div className="text-center mb-5">
+                <h3 className="text-lg font-bold text-indigo-800 mb-2">
+                  {hasQualifyingResult ? "רוצה לדעת עוד על הזכויות שלך?" : "יש לך שאלות לגבי התוצאה?"}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  מימושון הוא כלי חינמי. אם משהו לא ברור, או שנראה לך שהתוצאה אינה משקפת נכון את מצבך — השאר/י פרטים ונחזור אליך.
+                </p>
+              </div>
+              <ContactForm variant="compact" percentages={totalPercentages?.newTotals} claimType={claimType} />
+            </div>
 
             {/* ── Process timeline ─────────────────────────────────────────── */}
             <div className="no-print">

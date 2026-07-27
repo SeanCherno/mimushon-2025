@@ -17,6 +17,8 @@ const LAST_MODIFIED = {
   "medical-committee-guide": "2026-05-21",
   "takana-15": "2026-05-21",
   glossary: "2026-05-21",
+  "contact-us": "2026-07-27",
+  accessibility: "2026-07-27",
 };
 
 // Sourced from lib/articles.js so a new article automatically appears here
@@ -27,6 +29,8 @@ export default function sitemap() {
     { path: "about-us", key: "about-us", priority: 0.8 },
     { path: "articles", key: "articles", priority: 0.8 },
     { path: "glossary", key: "glossary", priority: 0.8 },
+    { path: "contact-us", key: "contact-us", priority: 0.5 },
+    { path: "accessibility", key: "accessibility", priority: 0.3 },
   ];
 
   const entries = staticPages.map(({ path, key, priority }) => ({

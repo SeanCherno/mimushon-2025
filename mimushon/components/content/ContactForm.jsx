@@ -205,8 +205,11 @@ const ContactForm = ({ variant = "default", percentages = null, claimType = null
                         onChange={(e) => { setConsent(e.target.checked); if (e.target.checked) setConsentError(''); }}
                         className="mt-0.5 h-4 w-4 text-indigo-600 border-gray-300 rounded shrink-0"
                     />
+                    {/* Lawyer-referral consent commented out — the site is presented as a
+                        free tool for now and is not connecting users with lawyers:
+                        "אני מסכים/ה שעורך דין או נציג מטעם מימושון ייצור איתי קשר לצורך ייעוץ ראשוני חינמי, וכי פרטיי יועברו לגורם המטפל בפנייתי." */}
                     <span className="text-xs text-gray-500 leading-relaxed">
-                        אני מסכים/ה שעורך דין או נציג מטעם מימושון ייצור איתי קשר לצורך ייעוץ ראשוני חינמי, וכי פרטיי יועברו לגורם המטפל בפנייתי.
+                        אני מסכים/ה שנציג מטעם מימושון ייצור איתי קשר בנוגע לפנייתי, וכי פרטיי יישמרו לצורך הטיפול בפנייה.
                     </span>
                 </label>
                 {consentError && <p className="text-red-500 text-xs mt-1">{consentError}</p>}
@@ -218,7 +221,9 @@ const ContactForm = ({ variant = "default", percentages = null, claimType = null
                 disabled={loading}
                 className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white font-bold py-3 px-6 rounded-lg text-base transition duration-200"
             >
-                {loading ? 'שולח...' : 'קבל/י ייעוץ חינמי ←'}
+                {/* Free-consultation CTA commented out — free-tool framing for now:
+                    'קבל/י ייעוץ חינמי ←' */}
+                {loading ? 'שולח...' : 'שליחת פנייה'}
             </button>
         </form>
     );

@@ -12,9 +12,12 @@ const HowWeHelpSection = () => {
                     <InfoCard number={2} title="הבנת התהליך">
                         אנו נסביר לך בפשטות על השלבים השונים בתהליך התביעה, מהגשת המסמכים ועד להתנהלות מול הוועדה הרפואית.
                     </InfoCard>
+                    {/* Lawyer-network card commented out — the site is presented as a free
+                        tool for now and is not connecting users with lawyers:
                     <InfoCard number={3} title="חיבור לעורכי דין מומחים">
                         אנו עובדים עם רשת של עורכי דין שנבחרו בקפידה, בעלי ניסיון מוכח בתביעות מול ביטוח לאומי וחברות ביטוח.
                     </InfoCard>
+                    */}
                 </div>
             </div>
         </section>

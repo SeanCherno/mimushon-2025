@@ -9,6 +9,10 @@ const Footer = () => (
             </div>
             <div>
                 <p className="font-semibold mb-3">קישורים</p>
+                <Link href="/contact-us" className="hover:underline">צרו קשר</Link>
+                <br />
+                <Link href="/accessibility" className="hover:underline">הצהרת נגישות</Link>
+                <br />
                 <Link href="/terms" className="hover:underline">תנאי שימוש</Link>
                 <br />
                 <Link href="/privacy" className="hover:underline">מדיניות פרטיות</Link>
