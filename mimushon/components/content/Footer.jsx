@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => (
     <footer className="bg-gray-800 text-white py-8">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-between text-center gap-8">
+        <div className="max-w-5xl mx-auto px-6 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between text-center gap-8">
             <div>
                 <p>&copy; 2026 כל הזכויות שמורות | מימושון</p>
                 <p className="text-sm text-gray-400 mt-2">האתר מספק מידע כללי בלבד ואינו מהווה ייעוץ משפטי.</p>

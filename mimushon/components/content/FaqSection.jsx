@@ -58,7 +58,7 @@ export default function FaqSection() {
   const [open, setOpen] = useState(null);
 
   return (
-    <section className="max-w-3xl mx-auto px-4 pt-4" dir="rtl">
+    <section className="max-w-3xl mx-auto px-6 py-16 md:py-24" dir="rtl">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

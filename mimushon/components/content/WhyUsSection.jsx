@@ -2,7 +2,7 @@ import FeatureListItem from "./FeatureListItem";
 import Image from "next/image";
 
 const WhyUsSection = () => (
-    <section id="why-us" className="py-8 md:py-24 bg-indigo-50">
+    <section id="why-us" className="py-16 md:py-24 bg-indigo-50">
         <div className="container mx-auto px-6">
             <div className="lg:flex lg:items-center lg:gap-12 flex-row-reverse">
                 <div className="lg:w-1/2">

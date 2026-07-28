@@ -2,8 +2,8 @@ import InfoCard from "./InfoCard";
 
 const HowWeHelpSection = () => {
     return (
-        <section className="py-8 md:py-8 bg-indigo-50">
-            <div className="container mt-6 mx-auto px-6 text-center">
+        <section className="py-16 md:py-24 bg-indigo-50">
+            <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">הליווי שלנו, השקט הנפשי שלך</h2>
                 <div className="max-w-2xl mx-auto space-y-10 text-right">
                     <InfoCard number={1} title="הערכה ראשונית (חינם)">

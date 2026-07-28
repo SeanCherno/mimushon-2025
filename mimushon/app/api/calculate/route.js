@@ -34,7 +34,12 @@ export async function POST(request) {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
 
-  const { chosenDiseasesWithSeverities, claimType } = body ?? {};
+  const { chosenDiseasesWithSeverities, claimType, live } = body ?? {};
+
+  // Live (debounced) recalculations fire on every grade the user picks, before
+  // they have consented to the terms/privacy policy. Those must NOT be persisted
+  // — only the final, consented calculation is logged. See the DB block below.
+  const isLive = live === true;
 
   // Validate claimType if provided
   const VALID_CLAIM_TYPES = ['illness', 'work_accident', 'idf_disabled', 'other'];
@@ -75,13 +80,15 @@ export async function POST(request) {
     }
   }
 
-  // 6. Run the Israeli combined-values weighted calculation
-  const newTotals = {
-    generalDisability: 0,
-    taxIncome: 0,
-    specialServices: 0,
-  };
-
+  // 6. Run the Israeli combined-values weighted calculation.
+  //
+  // Resolve every chosen entry to its authoritative percentage (percentages are
+  // stripped from the client payload by design — the server is the source of
+  // truth). We keep the per-impairment values here so we can also return an
+  // ordered "show the work" breakdown, mirroring regulation 12ב(ב): impairments
+  // are combined highest-first, each one taking its percentage of the remaining
+  // earning capacity.
+  const impairments = [];
   chosenDiseasesWithSeverities.forEach((entry) => {
     const fullDisease = findDiseasesById(entry.disease.id);
     if (!fullDisease) return; // Unknown disease — skip gracefully
@@ -89,21 +96,62 @@ export async function POST(request) {
     const foundSeverity = fullDisease.severities.find(
       (sev) => sev.severityId === entry.selectedSeverity.severityId
     );
+    if (!foundSeverity) return;
 
-    if (foundSeverity) {
-      modes.forEach((mode) => {
-        if (foundSeverity[mode.dataKey]) {
-          // Formula: accumulated += (1 - accumulated/100) * percentage
-          newTotals[mode.id] +=
-            (1 - newTotals[mode.id] / 100) *
-            (foundSeverity ? foundSeverity.percentage : 0);
-        }
-      });
-    }
+    impairments.push({
+      id: entry.disease.id,
+      name: entry.disease.name,
+      severityId: foundSeverity.severityId,
+      percentage: foundSeverity.percentage ?? 0,
+      countForDisability: !!foundSeverity.countForDisability,
+      countForTax: !!foundSeverity.countForTax,
+      countForSpecial: !!foundSeverity.countForSpecial,
+    });
   });
 
-  // 7. Log to database (best-effort — never fail the main request on log error)
-  try {
+  const newTotals = {
+    generalDisability: 0,
+    taxIncome: 0,
+    specialServices: 0,
+  };
+
+  // Combined-values formula per mode: accumulated += (1 - accumulated/100) * p.
+  // The result is order-independent, but the regulation defines the sequence as
+  // descending, so we sort — which also makes the returned breakdown correct.
+  modes.forEach((mode) => {
+    const counting = impairments
+      .filter((imp) => imp[mode.dataKey])
+      .sort((a, b) => b.percentage - a.percentage);
+    let acc = 0;
+    counting.forEach((imp) => {
+      acc += (1 - acc / 100) * imp.percentage;
+    });
+    newTotals[mode.id] = acc;
+  });
+
+  // Ordered, step-by-step breakdown for the general-disability degree — the
+  // medical number the committee actually determines. Each step exposes the
+  // running total so the client can render the residual-capacity math.
+  const gdCounting = impairments
+    .filter((imp) => imp.countForDisability)
+    .sort((a, b) => b.percentage - a.percentage);
+  let gdAcc = 0;
+  const breakdown = gdCounting.map((imp) => {
+    const before = gdAcc;
+    gdAcc += (1 - gdAcc / 100) * imp.percentage;
+    return {
+      id: imp.id,
+      name: imp.name,
+      percentage: imp.percentage,
+      before,
+      runningTotal: gdAcc,
+    };
+  });
+
+  // 7. Log to database (best-effort — never fail the main request on log error).
+  //    Skipped for live estimates: nothing is persisted until the user consents
+  //    and requests the full result.
+  if (!isLive) try {
     const logQueryText =
       "INSERT INTO disease_calculations(calculation_data, claim_type) VALUES($1, $2)";
     const logValues = [
@@ -130,5 +178,5 @@ export async function POST(request) {
   // NOTE: The artificial 2-second setTimeout that was here has been removed.
   // It was holding a server thread open on every request — a DoS amplifier.
 
-  return NextResponse.json({ newTotals });
+  return NextResponse.json({ newTotals, breakdown, impairments });
 }

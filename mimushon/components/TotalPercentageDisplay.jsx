@@ -2,6 +2,7 @@ import Link from "next/link";
 import Tooltip from "./content/Tooltip";
 import ContactForm from "./content/ContactForm";
 import IncapacityQuestionnaire from "./IncapacityQuestionnaire";
+import WorkAccidentScreen from "./WorkAccidentScreen";
 import { estimateIncapacity } from "../lib/estimateIncapacity";
 import { roundDisabilityPercentage } from "../lib/percentageRounding";
 
@@ -69,8 +70,12 @@ const INCAPACITY_COLORS = {
   red:    { bg: 'bg-red-50',    border: 'border-red-200',    badge: 'bg-red-100 text-red-800',       bar: 'bg-red-500'    },
 };
 
-const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, chosenDiseasesWithSeverities, onStartOver, claimType, workAccidentAnswers }) => {
+const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, chosenDiseasesWithSeverities, impairments, onStartOver, onAddImpairment, claimType, workAccidentAnswers, onWorkAccidentComplete }) => {
   const isWorkAccident = claimType === 'work_accident';
+  // Per-impairment percentages come from the server (they are stripped from the
+  // client disease payload by design), keyed by disease id for quick lookup.
+  const pctById = new Map((impairments ?? []).map((i) => [i.id, i.percentage]));
+  const pctFor = (entry) => pctById.get(entry.disease.id) ?? entry.selectedSeverity?.percentage ?? 0;
   const allRequiredDocuments = chosenDiseasesWithSeverities.flatMap(entry => entry.disease.requiredDocuments || []);
   const uniqueDocuments = [...new Set(allRequiredDocuments)];
 
@@ -127,7 +132,7 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
             {chosenDiseasesWithSeverities.map(entry => (
               <div key={entry.disease.id} className="print-disease-row">
                 <span>{entry.disease.name}</span>
-                <span>{entry.selectedSeverity?.percentage ?? 0}%</span>
+                <span>{pctFor(entry)}%</span>
               </div>
             ))}
           </div>
@@ -141,6 +146,16 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
           <p className="text-sm text-gray-500">להלן הערכת אחוזי הנכות על פי המחלות והחומרות שנבחרו</p>
         </div>
 
+        {/* ── Why this is an estimate (regulations 14 & 15) ─────────────────── */}
+        <div className="bg-indigo-50 border border-indigo-200 rounded-lg px-4 py-3">
+          <p className="text-xs text-indigo-900 leading-relaxed">
+            <strong>מדוע זהו אומדן:</strong> הוועדה הרפואית רשאית להגדיל את הדרגה בעד{" "}
+            <strong>מחצית</strong> בהתחשב בגילך ובמקצועך (תקנה 15), ופגימה שאינה מופיעה
+            במפורש ברשימה מדורגת לפי הפגימה הדומה לה ביותר (תקנה 14). לכן התוצאה בפועל
+            עשויה להיות גבוהה מהמספר שחושב כאן.
+          </p>
+        </div>
+
         {/* ── Mobile disease summary (hidden on desktop — sidebar covers it) ── */}
         <div className="md:hidden bg-white rounded-xl border border-indigo-200 shadow-sm p-4">
           <h3 className="text-sm font-semibold text-indigo-700 mb-3 flex items-center gap-2">
@@ -152,7 +167,7 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
                 <span className="font-medium text-gray-800">{entry.disease.name}</span>
                 {entry.selectedSeverity && (
                   <span className="shrink-0 text-xs text-indigo-600 bg-indigo-50 border border-indigo-200 rounded-full px-2 py-0.5">
-                    {entry.selectedSeverity.percentage}%
+                    {pctFor(entry)}%
                   </span>
                 )}
               </li>
@@ -252,6 +267,20 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
                 </div>
               </div>
 
+              {/* ── Incapacity questionnaire — asked AFTER the medical %, mirroring
+                    the real order: the committee sets the medical degree first,
+                    then a claims officer assesses incapacity. ── */}
+              {!workAccidentAnswers && (
+                <div className="no-print bg-indigo-50 border border-indigo-200 rounded-xl p-4">
+                  <WorkAccidentScreen
+                    onComplete={(answers) =>
+                      onWorkAccidentComplete && onWorkAccidentComplete(answers || {})
+                    }
+                    onBack={() => onWorkAccidentComplete && onWorkAccidentComplete({})}
+                  />
+                </div>
+              )}
+
               {/* ── Incapacity degree card (shown when questionnaire was answered) ── */}
               {incapacity && (
                 <div className={`rounded-xl border shadow-sm p-4 ${IC.bg} ${IC.border}`}>
@@ -335,10 +364,10 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
         {/* ── Action buttons ───────────────────────────────────────────────── */}
         <div className="no-print grid grid-cols-1 sm:grid-cols-4 gap-3">
           <button
-            onClick={() => setCurrentScreen("diseaseSelection")}
+            onClick={() => (onAddImpairment ? onAddImpairment() : setCurrentScreen("builder"))}
             className="w-full py-2.5 bg-white text-indigo-700 border-2 border-indigo-400 rounded-lg font-semibold hover:bg-indigo-50 transition"
           >
-            הוסף מחלה
+            חזרה ועריכת המחלות
           </button>
           <button
             onClick={() => window.print()}
