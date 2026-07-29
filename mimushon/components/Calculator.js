@@ -126,6 +126,30 @@ export default function Calculator({ initialCategories }) {
     };
   }, [chosenDiseasesWithSeverities]);
 
+  // ── Full reset (fired when the user clicks the header logo) ────────────────
+  useEffect(() => {
+    const handleReset = () => {
+      setChosenDiseasesWithSeverities([]);
+      setTotalPercentages({});
+      setCalcData(null);
+      setIsFetchingCalc(false);
+      setIsLoading(false);
+      setCalcError(false);
+      setCurrentScreen("builder");
+      setClaimType(null);
+      setWorkAccidentAnswers(null);
+      setIsCalculating(false);
+      setExpandedId(null);
+      setIsPickerOpen(false);
+      setConsent(false);
+      setLinkMenu(null);
+      try { sessionStorage.removeItem(SESSION_KEY); } catch {}
+      if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "instant" });
+    };
+    window.addEventListener("calculator-reset", handleReset);
+    return () => window.removeEventListener("calculator-reset", handleReset);
+  }, []);
+
   // Close the mobile summary sheet when navigating via the header menu is
   // handled inside ClaimBuilder; nothing needed here.
 

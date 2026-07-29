@@ -15,6 +15,20 @@ const Header = ({ setShowContent }) => {
         dispatchNavEvent();
     };
 
+    /**
+     * Clicking the logo returns to the home page (as before) AND resets the
+     * calculator to a clean slate. We clear the persisted state up-front so a
+     * fresh mount (when coming from another page) starts empty, and dispatch a
+     * 'calculator-reset' event so an already-mounted calculator on '/' resets
+     * in place.
+     */
+    const handleLogoClick = () => {
+        if (setShowContent) setShowContent(true);
+        setIsMobileMenuOpen(false);
+        try { sessionStorage.removeItem('mimushon_calc_state'); } catch {}
+        window.dispatchEvent(new CustomEvent('calculator-reset'));
+    };
+
     const handleDesktopLinkClick = () => {
         if (setShowContent) setShowContent(true);
         dispatchNavEvent();
@@ -71,6 +85,7 @@ const Header = ({ setShowContent }) => {
                         {/* Logo — centered on mobile, left-of-nav on desktop */}
                         <Link
                             href="/"
+                            onClick={handleLogoClick}
                             className="absolute right-1/2 translate-x-1/2 md:static md:translate-x-0 flex items-center mt-2 md:mt-0"
                         >
                             <Image

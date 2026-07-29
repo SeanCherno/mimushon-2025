@@ -59,6 +59,13 @@ const SeverityPicker = ({
   const hasConditionalQuestionnaire = disease.conditionalQuestionnaire;
   const displayAsTable = disease.displayAsTable;
 
+  // Some sections grade the "dominant" vs "non-dominant" side differently. The
+  // term "דומיננטי" is unclear to many users, so show a one-line explainer
+  // whenever this disease's grades or table columns reference it.
+  const usesDominantSide =
+    disease.severities?.some((s) => s.description?.includes("דומיננט")) ||
+    disease.tableColumns?.some((c) => c?.includes("דומיננט"));
+
   return (
     <div dir="rtl" className="space-y-4">
       {/* Image gallery (illustrative) */}
@@ -150,6 +157,19 @@ const SeverityPicker = ({
               {disease.guide}
             </div>
           )}
+        </div>
+      )}
+
+      {/* Dominant-side explainer — shown only for sections that grade the
+          dominant vs non-dominant side differently. */}
+      {usesDominantSide && (
+        <div className="flex items-start gap-2 rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-2 text-xs text-indigo-900">
+          <svg xmlns="http://www.w3.org/2000/svg" className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span className="leading-relaxed">
+            הצד ה<strong>דומיננטי</strong> הוא <strong>היד/הרגל החזקה</strong> — זו שבה את/ה משתמש/ת באופן טבעי (למשל היד שבה כותבים). הצד הלא-דומיננטי הוא הצד החלש יותר.
+          </span>
         </div>
       )}
 
