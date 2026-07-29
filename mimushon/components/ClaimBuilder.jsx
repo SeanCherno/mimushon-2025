@@ -80,6 +80,7 @@ export default function ClaimBuilder({
   const panel = (
     <CombinationPanel
       breakdown={breakdown}
+      capNotices={calcData?.capNotices ?? []}
       total={total}
       gradedCount={gradedCount}
       ungradedCount={ungradedCount}

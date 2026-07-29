@@ -156,6 +156,14 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
           </p>
         </div>
 
+        {/* ── Reg. 11(ג) same-limb ceiling notice(s) ───────────────────────── */}
+        {Array.isArray(totalPercentages?.capNotices) && totalPercentages.capNotices.map((notice, i) => (
+          <div key={i} className="bg-amber-50 border border-amber-200 rounded-lg px-4 py-3 flex items-start gap-2">
+            <span className="text-amber-600 shrink-0" aria-hidden="true">⚠️</span>
+            <p className="text-xs text-amber-900 leading-relaxed">{notice}</p>
+          </div>
+        ))}
+
         {/* ── Mobile disease summary (hidden on desktop — sidebar covers it) ── */}
         <div className="md:hidden bg-white rounded-xl border border-indigo-200 shadow-sm p-4">
           <h3 className="text-sm font-semibold text-indigo-700 mb-3 flex items-center gap-2">

@@ -9,6 +9,103 @@ export const dynamic = 'force-dynamic';
 // ── Validation constants ──────────────────────────────────────────────────────
 const MAX_DISEASES = 20; // Hard cap — prevents DoS amplification attacks
 
+// ── Reg. 11(ג) per-organ cap engine ───────────────────────────────────────────
+// The combined-values rule is total = 1 − Π(1 − pᵢ), which is associative — so
+// we can combine each organ's impairments internally, cap that organ at its
+// ceiling, then combine the capped organ values together. That is exactly the
+// structure reg. 11(ג) describes (a joint / limb / eye can't exceed the value of
+// ankylosis / amputation / blindness of that same structure).
+//
+// CAP_GROUPS is intentionally EMPTY. Populating real ceilings requires NII domain
+// review — tagging each impairment with its limb+side/joint/eye and the ceiling
+// value for that structure — and is deliberately NOT auto-generated here: a wrong
+// ceiling would UNDER-count a real claimant, which is worse than the gap. With no
+// groups configured this reduces byte-for-byte to the plain combined-values total.
+// Schema for each entry: { ceiling: <0-100 number>, match: (impairment) => boolean }.
+const CAP_GROUPS = [];
+
+// Combine a list of percentages via the combined-values (residual-capacity) rule.
+function combineValues(percentages) {
+  let acc = 0;
+  percentages.forEach((p) => { acc += (1 - acc / 100) * p; });
+  return acc;
+}
+
+// Combined total that honors any configured per-organ ceilings. Falls through to
+// the plain combined-values total when no cap group is configured or matches.
+function combinedTotalWithCaps(counting, capGroups) {
+  if (!capGroups || capGroups.length === 0) {
+    return combineValues(counting.map((i) => i.percentage));
+  }
+  const remaining = [...counting];
+  const groupValues = [];
+  capGroups.forEach((g) => {
+    const members = remaining.filter((imp) => g.match(imp));
+    if (members.length === 0) return;
+    for (let k = remaining.length - 1; k >= 0; k--) {
+      if (members.includes(remaining[k])) remaining.splice(k, 1);
+    }
+    const raw = combineValues(members.map((m) => m.percentage));
+    groupValues.push(Math.min(raw, g.ceiling)); // apply the 11(ג) ceiling
+  });
+  return combineValues([...groupValues, ...remaining.map((i) => i.percentage)]);
+}
+
+// ── Same-limb detection (for the non-blocking reg. 11(ג) notice) ───────────────
+// We can't *enforce* the cap without domain-reviewed ceilings, but we can warn a
+// user who has stacked several impairments on one limb that the committee will
+// apply a ceiling. Region comes from the subcategory; side is parsed from the
+// (server-resolved) severity description, where it lives as free text.
+const ARM_SUBCATS = new Set([
+  "כתפיים", "מרפק", "זרוע וכף יד", "אצבעות הידיים",
+  "פציעות שרירי הכתף", "פציעות שרירי המרפק",
+]);
+const LEG_SUBCATS = new Set([
+  "רגל (ירך ושוק)", "ברך", "כף רגל", "אצבעות הרגליים",
+]);
+
+function limbOf(subName) {
+  if (ARM_SUBCATS.has(subName)) return "arm";
+  if (LEG_SUBCATS.has(subName)) return "leg";
+  return null;
+}
+
+function sideOf(desc) {
+  if (!desc) return "unknown";
+  if (/ימין|ימנית/.test(desc)) return "right";
+  if (/שמאל|שמאלית/.test(desc)) return "left";
+  return "unknown";
+}
+
+function limbLabel(limb, side) {
+  const organ = limb === "arm" ? "יד" : "רגל";
+  if (side === "right") return `${organ} ימין`;
+  if (side === "left") return `${organ} שמאל`;
+  return `אותה ${organ}`;
+}
+
+// Build non-blocking notices: one per limb+side that carries 2+ impairments.
+function buildCapNotices(limbTagged) {
+  const groups = new Map(); // `${limb}|${side}` -> count
+  limbTagged.forEach(({ limb, side }) => {
+    if (!limb) return;
+    const key = `${limb}|${side}`;
+    groups.set(key, (groups.get(key) || 0) + 1);
+  });
+  const notices = [];
+  for (const [key, count] of groups) {
+    if (count < 2) continue;
+    const [limb, side] = key.split("|");
+    notices.push(
+      `שים/י לב: בחרת ${count} ליקויים ב${limbLabel(limb, side)}. לפי תקנה 11(ג), ` +
+      `סך הנכות המשוקללת בשל כמה פגימות באותה גפה אינו יכול לעלות על אחוזי הנכות ` +
+      `שנקבעו לקטיעת אותו חלק פגוע. ייתכן שהוועדה הרפואית תחיל תקרה זו, כך שהתוצאה ` +
+      `בפועל תהיה נמוכה מהחישוב המשוקלל המוצג כאן.`
+    );
+  }
+  return notices;
+}
+
 // ── Route handler ─────────────────────────────────────────────────────────────
 export async function POST(request) {
   // 1. Rate limit — 60 calculations per IP per minute
@@ -89,8 +186,9 @@ export async function POST(request) {
   // are combined highest-first, each one taking its percentage of the remaining
   // earning capacity.
   const impairments = [];
+  const limbTagged = []; // { limb, side } per counted impairment, for the notice
   chosenDiseasesWithSeverities.forEach((entry) => {
-    const fullDisease = findDiseasesById(entry.disease.id);
+    const { disease: fullDisease, subCategory } = findDiseasesById(entry.disease.id, true);
     if (!fullDisease) return; // Unknown disease — skip gracefully
 
     const foundSeverity = fullDisease.severities.find(
@@ -107,7 +205,17 @@ export async function POST(request) {
       countForTax: !!foundSeverity.countForTax,
       countForSpecial: !!foundSeverity.countForSpecial,
     });
+
+    // Tag limb + side for the reg. 11(ג) same-limb notice (disability degree only).
+    if (foundSeverity.countForDisability) {
+      const limb = limbOf(subCategory?.name);
+      if (limb) limbTagged.push({ limb, side: sideOf(foundSeverity.description) });
+    }
   });
+
+  // Non-blocking reg. 11(ג) notices — surfaced to the user, they do NOT alter the
+  // computed number (we don't have domain-reviewed ceilings to enforce the cap).
+  const capNotices = buildCapNotices(limbTagged);
 
   const newTotals = {
     generalDisability: 0,
@@ -122,11 +230,8 @@ export async function POST(request) {
     const counting = impairments
       .filter((imp) => imp[mode.dataKey])
       .sort((a, b) => b.percentage - a.percentage);
-    let acc = 0;
-    counting.forEach((imp) => {
-      acc += (1 - acc / 100) * imp.percentage;
-    });
-    newTotals[mode.id] = acc;
+    // combinedTotalWithCaps === plain combined-values while CAP_GROUPS is empty.
+    newTotals[mode.id] = combinedTotalWithCaps(counting, CAP_GROUPS);
   });
 
   // Ordered, step-by-step breakdown for the general-disability degree — the
@@ -178,5 +283,5 @@ export async function POST(request) {
   // NOTE: The artificial 2-second setTimeout that was here has been removed.
   // It was holding a server thread open on every request — a DoS amplifier.
 
-  return NextResponse.json({ newTotals, breakdown, impairments });
+  return NextResponse.json({ newTotals, breakdown, impairments, capNotices });
 }

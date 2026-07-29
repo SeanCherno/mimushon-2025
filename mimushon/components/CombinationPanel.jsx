@@ -36,6 +36,7 @@ export default function CombinationPanel({
   consent,
   onConsentChange,
   onCalculate,
+  capNotices = [],
 }) {
   const [shake, setShake] = useState(false);
 
@@ -103,6 +104,15 @@ export default function CombinationPanel({
           יופיע בתוצאה.
         </p>
       )}
+
+      {/* Reg. 11(ג) same-limb ceiling notice(s) — informational, does not change
+          the number above. */}
+      {hasResult && capNotices.map((notice, i) => (
+        <div key={i} className="bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-4 flex items-start gap-2">
+          <span className="text-amber-600 shrink-0 text-xs" aria-hidden="true">⚠️</span>
+          <p className="text-[11px] text-amber-900 leading-relaxed">{notice}</p>
+        </div>
+      ))}
 
       {/* The worked combination — regulation 12ב, highest impairment first.
           Only shown for 2+ impairments; a single-line "base point" breakdown is
