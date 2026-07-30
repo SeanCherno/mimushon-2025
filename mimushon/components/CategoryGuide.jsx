@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useFocusTrap } from '../lib/useFocusTrap';
 
 const SYMPTOM_GROUPS = [
   { emoji: '🦴', label: 'כאב, שבר, קשיחות במפרקים, עצמות, שרירים', categories: ['category_2'] },
@@ -19,6 +20,14 @@ const SYMPTOM_GROUPS = [
 
 export default function CategoryGuide({ categories, onCategoryClick, onClose }) {
   const [selectedGroup, setSelectedGroup] = useState(null);
+  const dialogRef = useFocusTrap(true); // a11y: trap focus while the guide is open
+
+  // Close on Escape (dialog semantics).
+  useEffect(() => {
+    const onKey = (e) => e.key === 'Escape' && onClose?.();
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
 
   const matchedCategories = selectedGroup
     ? categories.filter((cat) => selectedGroup.categories.includes(cat.id))
@@ -31,6 +40,11 @@ export default function CategoryGuide({ categories, onCategoryClick, onClose }) 
       onClick={onClose}
     >
       <div
+        ref={dialogRef}
+        tabIndex={-1}
+        role="dialog"
+        aria-modal="true"
+        aria-label="מדריך בחירת קטגוריה לפי תסמין"
         className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto"
         dir="rtl"
         onClick={(e) => e.stopPropagation()}

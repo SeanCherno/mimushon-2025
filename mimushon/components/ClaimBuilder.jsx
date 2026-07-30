@@ -5,6 +5,7 @@ import ImpairmentCard from "./ImpairmentCard";
 import ImpairmentPicker from "./ImpairmentPicker";
 import CombinationPanel from "./CombinationPanel";
 import { roundDisabilityPercentage } from "../lib/percentageRounding";
+import { useFocusTrap } from "../lib/useFocusTrap";
 
 /* ─────────────────────────────────────────────────────────────────────────────
    ClaimBuilder — the single-surface accretive calculator.
@@ -55,6 +56,7 @@ export default function ClaimBuilder({
   onStartOver,
 }) {
   const [mobileSheetOpen, setMobileSheetOpen] = useState(false);
+  const mobileSheetRef = useFocusTrap(mobileSheetOpen); // a11y: trap focus in the sheet
 
   const hasImpairments = chosenDiseasesWithSeverities.length > 0;
   const gradedEntries = chosenDiseasesWithSeverities.filter((e) => e.selectedSeverity);
@@ -236,6 +238,8 @@ export default function ClaimBuilder({
           onClick={() => setMobileSheetOpen(false)}
         >
           <div
+            ref={mobileSheetRef}
+            tabIndex={-1}
             role="dialog"
             aria-modal="true"
             aria-label="סיכום החישוב"

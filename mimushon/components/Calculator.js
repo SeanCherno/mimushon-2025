@@ -5,6 +5,7 @@ import TotalPercentageDisplay from "../components/TotalPercentageDisplay";
 import LoadingSpinner from "../components/util/LoadingSpinner";
 import CalculatingScreen from "../components/CalculatingScreen";
 import ClaimBuilder from "../components/ClaimBuilder";
+import { useFocusTrap } from "../lib/useFocusTrap";
 
 export default function Calculator({ initialCategories }) {
   const [chosenDiseasesWithSeverities, setChosenDiseasesWithSeverities] = useState([]);
@@ -29,6 +30,7 @@ export default function Calculator({ initialCategories }) {
   const [linkMenu, setLinkMenu] = useState(null);
 
   const liveCalcTimerRef = useRef(null);
+  const linkMenuRef = useFocusTrap(!!linkMenu); // a11y: trap focus in the link dialog
   const SESSION_KEY = "mimushon_calc_state";
 
   const modes = [
@@ -396,6 +398,8 @@ export default function Calculator({ initialCategories }) {
           onClick={() => setLinkMenu(null)}
         >
           <div
+            ref={linkMenuRef}
+            tabIndex={-1}
             role="dialog"
             aria-modal="true"
             aria-label="בחירת סעיף"
