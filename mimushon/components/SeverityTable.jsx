@@ -103,6 +103,7 @@ const SeverityTable = ({ disease, onSeverityChange, chosenDiseasesWithSeverities
                             type="radio"
                             id={`severity-${disease.id}-${severity.severityId}`}
                             name={`severity-${disease.id}`}
+                            aria-label={`${row.header} — ${columnHeaders[colIndex]}`}
                             className={`h-5 w-5 text-indigo-600 border-gray-300 focus:ring-indigo-500 cursor-pointer ${isChecked ? "ring-2 ring-indigo-400" : ""}`}
                             checked={!!isChecked}
                             onChange={() => onSeverityChange(disease, severity)}
@@ -154,6 +155,7 @@ const SeverityTable = ({ disease, onSeverityChange, chosenDiseasesWithSeverities
                     <input
                       type="radio"
                       name={`severity-${disease.id}`}
+                      aria-label={`${row.header} — ${colLabel}`}
                       className="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500 shrink-0"
                       checked={!!isChecked}
                       onChange={() => onSeverityChange(disease, severity)}
