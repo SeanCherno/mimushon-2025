@@ -3,6 +3,7 @@ import Tooltip from "./content/Tooltip";
 import ContactForm from "./content/ContactForm";
 import IncapacityQuestionnaire from "./IncapacityQuestionnaire";
 import WorkAccidentScreen from "./WorkAccidentScreen";
+import Reg15Estimator from "./Reg15Estimator";
 import { estimateIncapacity } from "../lib/estimateIncapacity";
 import { roundDisabilityPercentage } from "../lib/percentageRounding";
 
@@ -273,6 +274,11 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
                 <div className="bg-yellow-50 border border-yellow-200 rounded-lg px-3 py-2 text-xs text-yellow-800">
                   ⚠️ זהו אומדן בלבד — לא קביעה רשמית. תאונות עבודה הן תחום מורכב; מומלץ מאוד לפנות לייעוץ משפטי מקצועי.
                 </div>
+              </div>
+
+              {/* ── Reg. 15 occupational-uplift estimator (work injury only) ──── */}
+              <div className="no-print">
+                <Reg15Estimator basePercentage={pct} />
               </div>
 
               {/* ── Incapacity questionnaire — asked AFTER the medical %, mirroring
