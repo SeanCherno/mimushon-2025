@@ -130,6 +130,22 @@ export default function CombinationPanel({
               const runBefore = round(step.before);
               const added = runNow - runBefore;
               const residualBefore = 100 - runBefore;
+              // Reg. 11(ג) ceiling step — a downward adjustment, not an impairment.
+              if (step.isCap) {
+                return (
+                  <li key={step.id} className="text-xs border-t border-amber-200 pt-2 mt-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-amber-800 font-medium">{step.name}</span>
+                      <span className="shrink-0 tabular-nums font-semibold text-amber-800">
+                        {runBefore}% → {runNow}%
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-amber-700 mt-0.5">
+                      נכות של גפה אחת מוגבלת לאחוזי הקטיעה של אותה גפה.
+                    </p>
+                  </li>
+                );
+              }
               return (
                 <li key={step.id} className="text-xs">
                   <div className="flex items-center justify-between gap-2">

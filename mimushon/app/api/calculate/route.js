@@ -10,19 +10,30 @@ export const dynamic = 'force-dynamic';
 const MAX_DISEASES = 20; // Hard cap — prevents DoS amplification attacks
 
 // ── Reg. 11(ג) per-organ cap engine ───────────────────────────────────────────
-// The combined-values rule is total = 1 − Π(1 − pᵢ), which is associative — so
-// we can combine each organ's impairments internally, cap that organ at its
-// ceiling, then combine the capped organ values together. That is exactly the
-// structure reg. 11(ג) describes (a joint / limb / eye can't exceed the value of
-// ankylosis / amputation / blindness of that same structure).
+// The combined-values rule is total = 1 − Π(1 − pᵢ), which is associative — so we
+// combine each organ's impairments internally, cap that organ at its ceiling, then
+// combine the capped organ values together. That is exactly reg. 11(ג): several
+// impairments of one limb / joint / eye can't exceed the value of amputating /
+// ankylosing / blinding that same structure.
 //
-// CAP_GROUPS is intentionally EMPTY. Populating real ceilings requires NII domain
-// review — tagging each impairment with its limb+side/joint/eye and the ceiling
-// value for that structure — and is deliberately NOT auto-generated here: a wrong
-// ceiling would UNDER-count a real claimant, which is worse than the gap. With no
-// groups configured this reduces byte-for-byte to the plain combined-values total.
-// Schema for each entry: { ceiling: <0-100 number>, match: (impairment) => boolean }.
-const CAP_GROUPS = [];
+// Impairments carry structured tags (added to diseases.json): `capRegion`
+// ("arm"|"leg"|"eye") on the disease and `side` ("right"|"left") on the severity.
+// CEILINGS maps region+side to the value that caps that organ.
+//
+// SAFETY: we only configure ceilings we can stand behind. For the arm we use the
+// WHOLE-LIMB (shoulder-disarticulation) value — an unambiguous upper bound: no arm
+// can be worth more than losing it entirely. This never under-counts. The tighter
+// "damaged-part" ceiling (reg. 11(ג)(2)) needs per-segment anatomical tags and is a
+// reviewed follow-up. Legs/eyes are tagged but NOT yet capped (leg severities don't
+// reliably encode side, so grouping could conflate two different legs) — for those,
+// only the non-blocking notice fires.
+const CEILINGS = {
+  arm: { right: 80, left: 70 }, // shoulder disarticulation, dominant / non-dominant
+};
+
+function ceilingFor(region, side) {
+  return (region && side && CEILINGS[region]?.[side]) ?? null;
+}
 
 // Combine a list of percentages via the combined-values (residual-capacity) rule.
 function combineValues(percentages) {
@@ -31,73 +42,51 @@ function combineValues(percentages) {
   return acc;
 }
 
-// Combined total that honors any configured per-organ ceilings. Falls through to
-// the plain combined-values total when no cap group is configured or matches.
-function combinedTotalWithCaps(counting, capGroups) {
-  if (!capGroups || capGroups.length === 0) {
-    return combineValues(counting.map((i) => i.percentage));
-  }
-  const remaining = [...counting];
-  const groupValues = [];
-  capGroups.forEach((g) => {
-    const members = remaining.filter((imp) => g.match(imp));
-    if (members.length === 0) return;
-    for (let k = remaining.length - 1; k >= 0; k--) {
-      if (members.includes(remaining[k])) remaining.splice(k, 1);
-    }
-    const raw = combineValues(members.map((m) => m.percentage));
-    groupValues.push(Math.min(raw, g.ceiling)); // apply the 11(ג) ceiling
+// Combined total that honors per-organ ceilings. Impairments in a region+side that
+// has a configured ceiling are combined and capped as one organ; everything else
+// combines individually. With no ceiling configured/matched this is byte-for-byte
+// the plain combined-values total.
+function combinedTotalWithCaps(counting) {
+  const groups = new Map(); // `${region}:${side}` -> { ceiling, members: number[] }
+  const singles = [];
+  counting.forEach((imp) => {
+    const ceiling = ceilingFor(imp.capRegion, imp.side);
+    if (ceiling == null) { singles.push(imp.percentage); return; }
+    const key = `${imp.capRegion}:${imp.side}`;
+    if (!groups.has(key)) groups.set(key, { ceiling, members: [] });
+    groups.get(key).members.push(imp.percentage);
   });
-  return combineValues([...groupValues, ...remaining.map((i) => i.percentage)]);
+  const groupValues = [];
+  for (const { ceiling, members } of groups.values()) {
+    groupValues.push(Math.min(combineValues(members), ceiling)); // 11(ג) ceiling
+  }
+  return combineValues([...groupValues, ...singles]);
 }
 
-// ── Same-limb detection (for the non-blocking reg. 11(ג) notice) ───────────────
-// We can't *enforce* the cap without domain-reviewed ceilings, but we can warn a
-// user who has stacked several impairments on one limb that the committee will
-// apply a ceiling. Region comes from the subcategory; side is parsed from the
-// (server-resolved) severity description, where it lives as free text.
-const ARM_SUBCATS = new Set([
-  "כתפיים", "מרפק", "זרוע וכף יד", "אצבעות הידיים",
-  "פציעות שרירי הכתף", "פציעות שרירי המרפק",
-]);
-const LEG_SUBCATS = new Set([
-  "רגל (ירך ושוק)", "ברך", "כף רגל", "אצבעות הרגליים",
-]);
-
-function limbOf(subName) {
-  if (ARM_SUBCATS.has(subName)) return "arm";
-  if (LEG_SUBCATS.has(subName)) return "leg";
-  return null;
-}
-
-function sideOf(desc) {
-  if (!desc) return "unknown";
-  if (/ימין|ימנית/.test(desc)) return "right";
-  if (/שמאל|שמאלית/.test(desc)) return "left";
-  return "unknown";
-}
-
-function limbLabel(limb, side) {
-  const organ = limb === "arm" ? "יד" : "רגל";
+// ── Same-limb notice (non-blocking; does not change the number) ────────────────
+function limbLabel(region, side) {
+  const organ = region === "arm" ? "יד" : "רגל";
   if (side === "right") return `${organ} ימין`;
   if (side === "left") return `${organ} שמאל`;
   return `אותה ${organ}`;
 }
 
-// Build non-blocking notices: one per limb+side that carries 2+ impairments.
+// One notice per limb+side carrying 2+ impairments. Tagged entries come straight
+// from the structured `capRegion` / `side` fields (no more free-text parsing).
 function buildCapNotices(limbTagged) {
-  const groups = new Map(); // `${limb}|${side}` -> count
-  limbTagged.forEach(({ limb, side }) => {
-    if (!limb) return;
-    const key = `${limb}|${side}`;
+  const groups = new Map(); // `${region}|${side}` -> count
+  limbTagged.forEach(({ region, side }) => {
+    if (region !== "arm" && region !== "leg") return;
+    const key = `${region}|${side ?? "unknown"}`;
     groups.set(key, (groups.get(key) || 0) + 1);
   });
   const notices = [];
   for (const [key, count] of groups) {
     if (count < 2) continue;
-    const [limb, side] = key.split("|");
+    const [region, side] = key.split("|");
+    const sideKey = side === "unknown" ? null : side;
     notices.push(
-      `שים/י לב: בחרת ${count} ליקויים ב${limbLabel(limb, side)}. לפי תקנה 11(ג), ` +
+      `שים/י לב: בחרת ${count} ליקויים ב${limbLabel(region, sideKey)}. לפי תקנה 11(ג), ` +
       `סך הנכות המשוקללת בשל כמה פגימות באותה גפה אינו יכול לעלות על אחוזי הנכות ` +
       `שנקבעו לקטיעת אותו חלק פגוע. ייתכן שהוועדה הרפואית תחיל תקרה זו, כך שהתוצאה ` +
       `בפועל תהיה נמוכה מהחישוב המשוקלל המוצג כאן.`
@@ -186,15 +175,19 @@ export async function POST(request) {
   // are combined highest-first, each one taking its percentage of the remaining
   // earning capacity.
   const impairments = [];
-  const limbTagged = []; // { limb, side } per counted impairment, for the notice
+  const limbTagged = []; // { region, side } per counted impairment, for the notice
   chosenDiseasesWithSeverities.forEach((entry) => {
-    const { disease: fullDisease, subCategory } = findDiseasesById(entry.disease.id, true);
+    const { disease: fullDisease } = findDiseasesById(entry.disease.id, true);
     if (!fullDisease) return; // Unknown disease — skip gracefully
 
     const foundSeverity = fullDisease.severities.find(
       (sev) => sev.severityId === entry.selectedSeverity.severityId
     );
     if (!foundSeverity) return;
+
+    // Structured reg. 11(ג) tags: region on the disease, side on the severity.
+    const capRegion = fullDisease.capRegion ?? null;
+    const side = foundSeverity.side ?? null;
 
     impairments.push({
       id: entry.disease.id,
@@ -204,17 +197,18 @@ export async function POST(request) {
       countForDisability: !!foundSeverity.countForDisability,
       countForTax: !!foundSeverity.countForTax,
       countForSpecial: !!foundSeverity.countForSpecial,
+      capRegion,
+      side,
     });
 
     // Tag limb + side for the reg. 11(ג) same-limb notice (disability degree only).
-    if (foundSeverity.countForDisability) {
-      const limb = limbOf(subCategory?.name);
-      if (limb) limbTagged.push({ limb, side: sideOf(foundSeverity.description) });
+    if (foundSeverity.countForDisability && capRegion) {
+      limbTagged.push({ region: capRegion, side });
     }
   });
 
-  // Non-blocking reg. 11(ג) notices — surfaced to the user, they do NOT alter the
-  // computed number (we don't have domain-reviewed ceilings to enforce the cap).
+  // Non-blocking reg. 11(ג) notices — surfaced to the user. They flag same-limb
+  // stacking even where we don't (yet) enforce a hard ceiling.
   const capNotices = buildCapNotices(limbTagged);
 
   const newTotals = {
@@ -230,8 +224,9 @@ export async function POST(request) {
     const counting = impairments
       .filter((imp) => imp[mode.dataKey])
       .sort((a, b) => b.percentage - a.percentage);
-    // combinedTotalWithCaps === plain combined-values while CAP_GROUPS is empty.
-    newTotals[mode.id] = combinedTotalWithCaps(counting, CAP_GROUPS);
+    // Applies reg. 11(ג) organ ceilings where configured; otherwise identical to
+    // the plain combined-values total.
+    newTotals[mode.id] = combinedTotalWithCaps(counting);
   });
 
   // Ordered, step-by-step breakdown for the general-disability degree — the
@@ -252,6 +247,20 @@ export async function POST(request) {
       runningTotal: gdAcc,
     };
   });
+
+  // If a reg. 11(ג) organ ceiling bound, the capped headline (newTotals) is below
+  // this flat running total. Append a synthetic step so the "show the work" rail
+  // reconciles with the headline instead of ending on a higher number.
+  if (gdAcc - newTotals.generalDisability > 0.05) {
+    breakdown.push({
+      id: "__reg11cap__",
+      name: "תקרת תקנה 11(ג) — מגבלת נכות לגפה אחת",
+      percentage: null,
+      before: gdAcc,
+      runningTotal: newTotals.generalDisability,
+      isCap: true,
+    });
+  }
 
   // 7. Log to database (best-effort — never fail the main request on log error).
   //    Skipped for live estimates: nothing is persisted until the user consents
