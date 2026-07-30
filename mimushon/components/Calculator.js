@@ -437,7 +437,7 @@ export default function Calculator({ initialCategories }) {
         <div id="calculator"></div>
         <div className="mt-3 p-4 sm:p-8 text-gray-800 flex items-center justify-center">
           <div
-            className="bg-white p-5 sm:p-10 rounded-xl shadow-lg w-full border border-indigo-200"
+            className="bg-white p-5 sm:p-10 rounded-xl shadow-lg w-full max-w-6xl border border-indigo-200"
             dir="rtl"
           >
             {isCalculating ? (
