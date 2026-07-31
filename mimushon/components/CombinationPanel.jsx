@@ -88,7 +88,7 @@ export default function CombinationPanel({
         </span>
         {hasResult && <span className="text-2xl font-bold text-indigo-400 mb-0.5">%</span>}
       </div>
-      <p className="text-xs text-gray-500 mb-3">
+      <p className="text-xs text-gray-600 mb-3">
         {hasResult
           ? isCombined
             ? "אומדן משוקלל — מתעדכן בזמן אמת"
@@ -184,8 +184,8 @@ export default function CombinationPanel({
 
       {/* Committee-discretion + same-organ cap notes (regulations 12ב(ג), 14, 15) */}
       {hasResult && (
-        <p className="text-[11px] text-gray-500 leading-relaxed mb-4">
-          זהו אומדן. הוועדה רשאית להוסיף עד <strong className="text-gray-600">מחצית</strong> מהדרגה
+        <p className="text-[11px] text-gray-600 leading-relaxed mb-4">
+          זהו אומדן. הוועדה רשאית להוסיף עד <strong className="text-gray-700">מחצית</strong> מהדרגה
           לפי גיל ומקצוע (תקנה 15), ומחלה שאינה מופיעה ברשימה מדורגת לפי הדומה לה (תקנה 14).
           {isCombined && " מנגד, כמה ליקויים באותו איבר עשויים להיות מוגבלים לתקרה של אותו איבר — אז המספר בפועל עשוי להיות נמוך יותר."}
         </p>

@@ -94,7 +94,7 @@ export default function ImpairmentCard({
           onClick={() => onRemove(disease.id)}
           title={`הסרת ${disease.name}`}
           aria-label={`הסרת ${disease.name}`}
-          className="shrink-0 px-3 flex items-center text-gray-400 hover:text-red-600 transition"
+          className="shrink-0 px-3 flex items-center text-gray-500 hover:text-red-600 transition"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />

@@ -300,13 +300,13 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
                 <div className={`rounded-xl border shadow-sm p-4 ${IC.bg} ${IC.border}`}>
                   <div className="flex justify-between items-start mb-3">
                     <div>
-                      <p className="text-xs text-gray-500 mb-1">אומדן דרגת אי-כושר</p>
+                      <p className="text-xs text-gray-600 mb-1">אומדן דרגת אי-כושר</p>
                       <span className={`inline-block text-2xl font-extrabold px-3 py-1 rounded-lg ${IC.badge}`}>
                         {incapacity.label}
                       </span>
                     </div>
                     {typeof incapacity.level === 'number' && (
-                      <div className="text-right text-xs text-gray-500">
+                      <div className="text-right text-xs text-gray-600">
                         {incapacity.level === 100 ? 'קצבה מקסימלית'
                           : incapacity.level === 74  ? 'קצבה גבוהה מאוד'
                           : incapacity.level === 65  ? 'קצבה גבוהה'
@@ -533,7 +533,7 @@ const TotalPercentageDisplay = ({ setCurrentScreen, modes, totalPercentages, cho
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-gray-400 mt-3 text-center">* הזמנים הם הערכה בלבד ועשויים להשתנות לפי עומס ביטוח לאומי ומורכבות המקרה</p>
+              <p className="text-xs text-gray-500 mt-3 text-center">* הזמנים הם הערכה בלבד ועשויים להשתנות לפי עומס ביטוח לאומי ומורכבות המקרה</p>
             </div>
 
             {/* ── What now? ────────────────────────────────────────────────── */}
