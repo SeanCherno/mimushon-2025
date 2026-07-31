@@ -20,20 +20,24 @@ const MAX_DISEASES = 20; // Hard cap — prevents DoS amplification attacks
 // ("arm"|"leg"|"eye") on the disease and `side` ("right"|"left") on the severity.
 // CEILINGS maps region+side to the value that caps that organ.
 //
-// SAFETY: we only configure ceilings we can stand behind. For the arm we use the
-// WHOLE-LIMB (shoulder-disarticulation) value — an unambiguous upper bound: no arm
-// can be worth more than losing it entirely. This never under-counts. The tighter
-// "damaged-part" ceiling (reg. 11(ג)(2)) needs per-segment anatomical tags and is a
-// reviewed follow-up. Legs/eyes are tagged but NOT yet capped (leg severities don't
-// reliably encode side, so grouping could conflate two different legs) — for those,
-// only the non-blocking notice fires.
-const CEILINGS = {
-  arm: { right: 80, left: 70 }, // shoulder disarticulation, dominant / non-dominant
+// SAFETY: we only cap where we can determine the organ AND the side (so we never
+// conflate two different limbs). For the arm, `capLevel` on the disease encodes the
+// anatomical segment (1 = shoulder/upper-arm, 2 = elbow/forearm, 3 = wrist/hand/
+// fingers); the group ceiling is the amputation value of the MOST PROXIMAL damaged
+// segment (reg. 11(ג)(2) — "amputation of the damaged part"). Values are the
+// shoulder / below-deltoid / wrist disarticulation percentages per side; each is an
+// upper bound for everything distal to it, so a mis-level can only over-estimate,
+// never under-count.
+//
+// Legs and eyes are tagged (capRegion) but deliberately NOT hard-capped: their
+// severities don't encode side (0/91 legs, 1/144 eyes), so grouping would wrongly
+// merge a left and right limb and under-count bilateral cases. They get the
+// non-blocking notice only, until side becomes a structured input.
+const ARM_CEILINGS = {
+  1: { right: 80, left: 70 }, // shoulder / upper arm
+  2: { right: 70, left: 60 }, // elbow / forearm
+  3: { right: 60, left: 50 }, // wrist / hand / fingers
 };
-
-function ceilingFor(region, side) {
-  return (region && side && CEILINGS[region]?.[side]) ?? null;
-}
 
 // Combine a list of percentages via the combined-values (residual-capacity) rule.
 function combineValues(percentages) {
@@ -42,23 +46,27 @@ function combineValues(percentages) {
   return acc;
 }
 
-// Combined total that honors per-organ ceilings. Impairments in a region+side that
-// has a configured ceiling are combined and capped as one organ; everything else
-// combines individually. With no ceiling configured/matched this is byte-for-byte
-// the plain combined-values total.
+// Combined total that enforces the reg. 11(ג) arm ceiling. Two or more impairments
+// on the same arm+side are combined and capped at the amputation value of their
+// most-proximal segment; everything else combines individually. A single impairment
+// is never capped (reg. 11(ג) applies to "several impairments"). With no qualifying
+// arm group this is byte-for-byte the plain combined-values total.
 function combinedTotalWithCaps(counting) {
-  const groups = new Map(); // `${region}:${side}` -> { ceiling, members: number[] }
+  const groups = new Map(); // `${region}:${side}` -> { side, members, minLevel }
   const singles = [];
   counting.forEach((imp) => {
-    const ceiling = ceilingFor(imp.capRegion, imp.side);
-    if (ceiling == null) { singles.push(imp.percentage); return; }
+    if (imp.capRegion !== "arm" || !imp.side) { singles.push(imp.percentage); return; }
     const key = `${imp.capRegion}:${imp.side}`;
-    if (!groups.has(key)) groups.set(key, { ceiling, members: [] });
-    groups.get(key).members.push(imp.percentage);
+    if (!groups.has(key)) groups.set(key, { side: imp.side, members: [], minLevel: Infinity });
+    const g = groups.get(key);
+    g.members.push(imp.percentage);
+    g.minLevel = Math.min(g.minLevel, imp.capLevel ?? 1); // default proximal = safest
   });
   const groupValues = [];
-  for (const { ceiling, members } of groups.values()) {
-    groupValues.push(Math.min(combineValues(members), ceiling)); // 11(ג) ceiling
+  for (const g of groups.values()) {
+    if (g.members.length < 2) { singles.push(...g.members); continue; } // single: uncapped
+    const ceiling = ARM_CEILINGS[g.minLevel]?.[g.side] ?? ARM_CEILINGS[1][g.side];
+    groupValues.push(Math.min(combineValues(g.members), ceiling));
   }
   return combineValues([...groupValues, ...singles]);
 }
@@ -185,8 +193,10 @@ export async function POST(request) {
     );
     if (!foundSeverity) return;
 
-    // Structured reg. 11(ג) tags: region on the disease, side on the severity.
+    // Structured reg. 11(ג) tags: region + anatomical level on the disease, side
+    // on the severity.
     const capRegion = fullDisease.capRegion ?? null;
+    const capLevel = fullDisease.capLevel ?? null;
     const side = foundSeverity.side ?? null;
 
     impairments.push({
@@ -198,6 +208,7 @@ export async function POST(request) {
       countForTax: !!foundSeverity.countForTax,
       countForSpecial: !!foundSeverity.countForSpecial,
       capRegion,
+      capLevel,
       side,
     });
 
