@@ -87,6 +87,14 @@ const ContactForm = ({ variant = "default", percentages = null, claimType = null
             setSuccess(data.result);
 
             if (data.result === true) {
+                // Track the lead conversion (non-PII only — never send name/phone/email).
+                try {
+                    window.dataLayer?.push({
+                        event: 'generate_lead',
+                        claim_type: claimType || null,
+                        filing_status: userInfo.filingStatus || null,
+                    });
+                } catch {}
                 setUserInfo({ name: '', phone: '', email: '', hearot: '', filingStatus: '' });
                 setErrors({ name: '', phone: '', email: '', filingStatus: '' });
                 setConsent(false);
