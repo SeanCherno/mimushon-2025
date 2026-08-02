@@ -16,7 +16,7 @@ export const metadata = {
       "מאגר מידע וכתבות על תהליכי ביטוח לאומי, אחוזי נכות, הגשת תביעות ועוד.",
     url: "https://mimushon.co.il/articles",
     type: "website",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

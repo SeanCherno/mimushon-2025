@@ -13,7 +13,7 @@ export const metadata = {
     description: "הצהרת הנגישות של אתר מימושון — מחשבון אחוזי נכות.",
     url: "https://mimushon.co.il/accessibility",
     type: "website",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

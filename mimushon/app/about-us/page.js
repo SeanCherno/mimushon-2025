@@ -17,7 +17,7 @@ export const metadata = {
     description: 'מה עומד מאחורי מחשבון אחוזי הנכות "מימושון"?',
     url: "https://mimushon.co.il/about-us",
     type: "website",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

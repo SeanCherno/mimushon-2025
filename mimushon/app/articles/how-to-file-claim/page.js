@@ -14,7 +14,7 @@ export const metadata = {
     description: "מדריך שלב אחר שלב להגשת תביעת נכות כללית בביטוח לאומי.",
     url: "https://mimushon.co.il/articles/how-to-file-claim",
     type: "article",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

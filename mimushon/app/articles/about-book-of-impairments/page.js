@@ -15,7 +15,7 @@ export const metadata = {
       'הסבר על "ספר הליקויים" (תקנות הנכות) של ביטוח לאומי. איך הוא בנוי וכיצד משתמשים בו.',
     url: "https://mimushon.co.il/articles/about-book-of-impairments",
     type: "article",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

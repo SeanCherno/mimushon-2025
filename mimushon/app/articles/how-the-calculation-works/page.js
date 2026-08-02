@@ -15,7 +15,7 @@ export const metadata = {
       "למה 20% + 10% הם 28%? ההסבר המלא מאחורי נוסחת החישוב המשוקלל הרשמית.",
     url: "https://mimushon.co.il/articles/how-the-calculation-works",
     type: "article",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

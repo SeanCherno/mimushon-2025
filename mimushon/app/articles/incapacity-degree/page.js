@@ -14,7 +14,7 @@ export const metadata = {
     description: "ההבדל בין אחוזי נכות רפואיים לדרגת אי-כושר, ואיך היא קובעת את גובה הקצבה.",
     url: "https://mimushon.co.il/articles/incapacity-degree",
     type: "article",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

@@ -14,7 +14,7 @@ export const metadata = {
     description: "המדריך המלא לתקנה 15: מי זכאי, כיצד מגישים, וכמה אפשר להרוויח.",
     url: "https://mimushon.co.il/articles/takana-15",
     type: "article",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

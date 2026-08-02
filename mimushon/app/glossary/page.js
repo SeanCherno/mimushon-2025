@@ -13,7 +13,7 @@ export const metadata = {
     description: "הסבר פשוט לכל המונחים בתחום הנכות וביטוח לאומי.",
     url: "https://mimushon.co.il/glossary",
     type: "website",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

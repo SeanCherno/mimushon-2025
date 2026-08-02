@@ -14,7 +14,7 @@ export const metadata = {
     description: "הטבלה המלאה של אחוזי הנכות על סוכרת לפי טיפול וסיבוכים, לפי ספר הליקויים.",
     url: "https://mimushon.co.il/articles/disability-percentage-diabetes",
     type: "article",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

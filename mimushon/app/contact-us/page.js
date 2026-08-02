@@ -14,7 +14,7 @@ export const metadata = {
       "יש לכם שאלה על מחשבון אחוזי הנכות או על תהליך קביעת הנכות? השאירו פרטים ונחזור אליכם.",
     url: "https://mimushon.co.il/contact-us",
     type: "website",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

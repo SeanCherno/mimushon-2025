@@ -14,7 +14,7 @@ export const metadata = {
     description: "מדריך מפורט להתכוננות לוועדה הרפואית של ביטוח לאומי.",
     url: "https://mimushon.co.il/articles/medical-committee-guide",
     type: "article",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

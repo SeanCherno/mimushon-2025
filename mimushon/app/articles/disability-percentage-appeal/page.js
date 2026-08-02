@@ -15,7 +15,7 @@ export const metadata = {
       "מה עושים אם ביטוח לאומי קבע אחוזי נכות נמוכים מדי? המדריך המלא לאפשרויות הפעולה.",
     url: "https://mimushon.co.il/articles/disability-percentage-appeal",
     type: "article",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

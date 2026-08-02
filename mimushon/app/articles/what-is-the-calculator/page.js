@@ -14,7 +14,7 @@ export const metadata = {
     description: "איך להשתמש במחשבון אחוזי הנכות שלנו? מדריך משתמש פשוט ומהיר.",
     url: "https://mimushon.co.il/articles/what-is-the-calculator",
     type: "article",
-    images: ["/images/hero-photo.webp"],
+    images: ["/images/hero-mimushon.webp"],
   },
 };
 

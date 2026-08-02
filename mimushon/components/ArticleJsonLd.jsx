@@ -10,7 +10,7 @@ export default function ArticleJsonLd({
   title,
   description,
   url,
-  image = "https://mimushon.co.il/images/hero-photo.webp",
+  image = "https://mimushon.co.il/images/hero-mimushon.webp",
   datePublished,
   dateModified,
 }) {

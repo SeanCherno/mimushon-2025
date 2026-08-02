@@ -27,9 +27,9 @@ const DEFAULT_DESCRIPTION =
 // page that doesn't define its own — real photography already used in the
 // hero, not a placeholder.
 const DEFAULT_OG_IMAGE = {
-  url: "/images/hero-photo.webp",
-  width: 1920,
-  height: 1280,
+  url: "/images/hero-mimushon.webp",
+  width: 1774,
+  height: 887,
   alt: SITE_NAME,
 };
 
@@ -68,13 +68,13 @@ export const metadata = {
   // <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   manifest: "/manifest.json", // Assumes manifest.json is in your /public folder
 
-  // <link rel="preload" as="image" href="/images/hero-photo.webp" ... />
+  // <link rel="preload" as="image" href="/images/hero-mimushon.webp" ... />
   // (was pointing at a .jpg that doesn't exist on disk — a dead preload
   // hint that wasted an early request without ever warming the real asset)
   links: [
     {
       rel: "preload",
-      href: "/images/hero-photo.webp",
+      href: "/images/hero-mimushon.webp",
       as: "image",
       fetchPriority: "high",
     },
