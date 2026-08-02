@@ -19,6 +19,8 @@ const LAST_MODIFIED = {
   glossary: "2026-05-21",
   "contact-us": "2026-07-27",
   accessibility: "2026-07-27",
+  "disability-percentage-diabetes": "2026-08-02",
+  "incapacity-degree": "2026-08-02",
 };
 
 // Sourced from lib/articles.js so a new article automatically appears here
