@@ -1,0 +1,34 @@
+# מימושון (Mimushon) — Israeli Disability Percentage Calculator
+
+> Mimushon is a free Hebrew-language tool that estimates Israeli National Insurance (ביטוח לאומי) disability percentages based on the official Book of Impairments (ספר הליקויים). Users select their medical conditions and severity grades; the tool applies the statutory weighted-combination formula (regulation 12/11) and returns an estimated medical disability percentage, with guidance on eligibility thresholds for general disability, tax exemptions, and special-services benefits.
+
+The estimate is informational only and is not an official determination — the binding percentage is set by a National Insurance medical committee (ועדה רפואית). All content is in Hebrew and targeted at Israeli claimants.
+
+## Calculator
+
+- [Disability percentage calculator (home)](https://mimushon.co.il/): The main tool — add impairments, choose severities, and see the weighted disability percentage build up step by step.
+- [What the calculator does and how to use it](https://mimushon.co.il/articles/what-is-the-calculator): User guide to entering impairments and reading the weighted result.
+- [How the weighted calculation works](https://mimushon.co.il/articles/how-the-calculation-works): Explains why 20% + 10% is not 30% — the residual-capacity ("cumulative reduction") formula.
+
+## Guides and articles
+
+- [Disability percentage for diabetes](https://mimushon.co.il/articles/disability-percentage-diabetes): The full grade table by treatment type and complications, and what "target organs" means.
+- [Incapacity degree (דרגת אי-כושר)](https://mimushon.co.il/articles/incapacity-degree): The second metric that decides the general-disability pension — thresholds and the 60/65/74/100 tiers.
+- [How to file a National Insurance disability claim](https://mimushon.co.il/articles/how-to-file-claim): Step-by-step filing, documents, and preparing for the committee.
+- [What happens at the medical committee](https://mimushon.co.il/articles/medical-committee-guide): Who sits on it, what they assess, and what to do afterward.
+- [Appealing a low disability percentage](https://mimushon.co.il/articles/disability-percentage-appeal): Options — committee appeal, labor court, or a deterioration claim.
+- [Regulation 15 (תקנה 15) — occupational uplift](https://mimushon.co.il/articles/takana-15): How work-injury claimants can raise their percentage by up to half.
+- [About the Book of Impairments](https://mimushon.co.il/articles/about-book-of-impairments): Israel's official disability "price list" and how weighted scoring works.
+- [All articles](https://mimushon.co.il/articles): Index of every guide.
+
+## Reference
+
+- [Glossary of disability terms](https://mimushon.co.il/glossary): Definitions of key National Insurance terms.
+- [About Mimushon](https://mimushon.co.il/about-us): Who is behind the tool.
+- [Contact](https://mimushon.co.il/contact-us): Get in touch.
+
+## Optional
+
+- [Privacy policy](https://mimushon.co.il/privacy)
+- [Terms of use](https://mimushon.co.il/terms)
+- [Accessibility statement](https://mimushon.co.il/accessibility)
