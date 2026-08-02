@@ -3,18 +3,32 @@
 // tested in isolation (no Next/DB imports here).
 //
 // Reg. 11(ג): several impairments of one limb/joint/eye can't exceed the value of
-// amputating/ankylosing/blinding that structure. We only enforce it for the ARM,
-// where impairments carry a structured side (right/left) and an anatomical
-// `capLevel` (1 = shoulder/upper-arm, 2 = elbow/forearm, 3 = wrist/hand/fingers).
-// The group ceiling is the amputation value of the most-proximal damaged segment.
-// Legs/eyes are not hard-capped (their severities carry no side, so grouping could
-// merge two different limbs and under-count) — they get the notice only.
-
+// amputating/ankylosing/blinding that structure. We enforce the LIMB rule (ג)(2)
+// for arms and legs. Each impairment carries a `capRegion` (arm/leg), an anatomical
+// `capLevel`, and a `side` (right/left); the group ceiling is the amputation value
+// of the most-proximal damaged segment on that limb+side.
+//
+// Arm side comes from the severity (the book grades arms by dominance). Leg side
+// isn't in the book — the user picks it — so a leg impairment only participates in
+// a cap once its side is set (otherwise it stays uncapped, never under-counted).
+// Eyes are not capped yet (acuity is already a combined table; separate-condition
+// eye caps would need per-eye side too).
 export const ARM_CEILINGS = {
   1: { right: 80, left: 70 }, // shoulder / upper arm
   2: { right: 70, left: 60 }, // elbow / forearm
   3: { right: 60, left: 50 }, // wrist / hand / fingers
 };
+
+// Leg amputation ceilings by segment (side-independent value — legs aren't graded
+// by dominance). Source §46–48: hip/thigh 80, knee 65, shin/ankle 55, foot/toes 30.
+export const LEG_CEILINGS = { 1: 80, 2: 65, 3: 55, 4: 30 };
+
+// The reg-11(ג) ceiling for a limb group at its most-proximal segment.
+function ceilingFor(region, level, side) {
+  if (region === "arm") return ARM_CEILINGS[level]?.[side] ?? ARM_CEILINGS[1][side];
+  if (region === "leg") return LEG_CEILINGS[level] ?? LEG_CEILINGS[1];
+  return null;
+}
 
 // Combine a list of percentages via the combined-values (residual-capacity) rule:
 // total = 1 − Π(1 − pᵢ). Order-independent.
@@ -24,18 +38,20 @@ export function combineValues(percentages) {
   return acc;
 }
 
-// Combined total that enforces the reg. 11(ג) arm ceiling. Two or more impairments
-// on the same arm+side are combined and capped at the amputation value of their
-// most-proximal segment; everything else combines individually. A single
-// impairment is never capped (reg. 11(ג) applies to "several impairments"). With no
-// qualifying arm group this is byte-for-byte the plain combined-values total.
+// Combined total that enforces the reg. 11(ג) limb ceiling. Two or more impairments
+// on the same limb (arm/leg) + side are combined and capped at the amputation value
+// of their most-proximal segment; everything else combines individually. A single
+// impairment is never capped (reg. 11(ג) applies to "several impairments"), and an
+// impairment with no side is never capped. With no qualifying limb group this is
+// byte-for-byte the plain combined-values total.
 export function combinedTotalWithCaps(counting) {
-  const groups = new Map(); // `${region}:${side}` -> { side, members, minLevel }
+  const groups = new Map(); // `${region}:${side}` -> { region, side, members, minLevel }
   const singles = [];
   counting.forEach((imp) => {
-    if (imp.capRegion !== "arm" || !imp.side) { singles.push(imp.percentage); return; }
-    const key = `${imp.capRegion}:${imp.side}`;
-    if (!groups.has(key)) groups.set(key, { side: imp.side, members: [], minLevel: Infinity });
+    const region = imp.capRegion === "arm" || imp.capRegion === "leg" ? imp.capRegion : null;
+    if (!region || !imp.side) { singles.push(imp.percentage); return; }
+    const key = `${region}:${imp.side}`;
+    if (!groups.has(key)) groups.set(key, { region, side: imp.side, members: [], minLevel: Infinity });
     const g = groups.get(key);
     g.members.push(imp.percentage);
     g.minLevel = Math.min(g.minLevel, imp.capLevel ?? 1); // default proximal = safest
@@ -43,7 +59,7 @@ export function combinedTotalWithCaps(counting) {
   const groupValues = [];
   for (const g of groups.values()) {
     if (g.members.length < 2) { singles.push(...g.members); continue; } // single: uncapped
-    const ceiling = ARM_CEILINGS[g.minLevel]?.[g.side] ?? ARM_CEILINGS[1][g.side];
+    const ceiling = ceilingFor(g.region, g.minLevel, g.side);
     groupValues.push(Math.min(combineValues(g.members), ceiling));
   }
   return combineValues([...groupValues, ...singles]);

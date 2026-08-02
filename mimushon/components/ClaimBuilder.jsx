@@ -48,6 +48,7 @@ export default function ClaimBuilder({
   onConsentChange,
   onDiseaseSelect,
   onSeverityChange,
+  onSideChange,
   onRemoveDisease,
   onNavigateToLinkedDisease,
   onCommonConditionClick,
@@ -171,6 +172,7 @@ export default function ClaimBuilder({
                   onToggle={() => onToggleCard(entry.disease.id)}
                   onRemove={onRemoveDisease}
                   onSeverityChange={onSeverityChange}
+                  onSideChange={onSideChange}
                   onNavigateToLinkedDisease={onNavigateToLinkedDisease}
                   chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}
                 />

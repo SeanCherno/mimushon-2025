@@ -19,6 +19,8 @@ import SeverityPicker from "./SeverityPicker";
      chosenDiseasesWithSeverities
 ───────────────────────────────────────────────────────────────────────────── */
 
+const SIDE_LABEL = { right: "ימין", left: "שמאל" };
+
 export default function ImpairmentCard({
   entry,
   percentage,
@@ -26,12 +28,15 @@ export default function ImpairmentCard({
   onToggle,
   onRemove,
   onSeverityChange,
+  onSideChange,
   onNavigateToLinkedDisease,
   chosenDiseasesWithSeverities,
 }) {
   const { disease, selectedSeverity } = entry;
   const graded = !!selectedSeverity;
   const gradeLine = graded ? selectedSeverity.description.split("\n")[0] : null;
+  // Legs need a user-chosen side for the reg. 11(ג) cap (the book doesn't encode it).
+  const needsSide = disease.capRegion === "leg";
 
   return (
     <div
@@ -102,9 +107,49 @@ export default function ImpairmentCard({
         </button>
       </div>
 
+      {/* Side badge on the collapsed header (legs) */}
+      {needsSide && entry.side && !expanded && (
+        <div className="px-4 pb-3 -mt-1">
+          <span className="inline-flex items-center gap-1 text-xs text-indigo-700 bg-indigo-50 border border-indigo-200 rounded-full px-2 py-0.5">
+            רגל {SIDE_LABEL[entry.side]}
+          </span>
+        </div>
+      )}
+
       {/* Expanded picker */}
       {expanded && (
-        <div className="border-t border-indigo-100 p-4">
+        <div className="border-t border-indigo-100 p-4 space-y-4">
+          {/* Leg side selector — required for the reg. 11(ג) leg ceiling */}
+          {needsSide && (
+            <div dir="rtl">
+              <p className="text-sm font-medium text-gray-800 mb-2">באיזו רגל?</p>
+              <div role="radiogroup" aria-label="בחירת צד לרגל" className="flex gap-2">
+                {["right", "left"].map((s) => {
+                  const active = entry.side === s;
+                  return (
+                    <button
+                      key={s}
+                      type="button"
+                      role="radio"
+                      aria-checked={active}
+                      onClick={() => onSideChange?.(disease.id, s)}
+                      className={`px-4 py-1.5 rounded-lg border-2 text-sm font-medium transition ${
+                        active
+                          ? "border-indigo-600 bg-indigo-600 text-white"
+                          : "border-indigo-300 bg-white text-indigo-700 hover:bg-indigo-50"
+                      }`}
+                    >
+                      רגל {SIDE_LABEL[s]}
+                    </button>
+                  );
+                })}
+              </div>
+              <p className="text-xs text-gray-600 mt-1.5">
+                נדרש כדי להחיל את תקרת תקנה 11(ג) כשנבחרו כמה ליקויים באותה רגל.
+              </p>
+            </div>
+          )}
+
           <SeverityPicker
             disease={disease}
             chosenDiseasesWithSeverities={chosenDiseasesWithSeverities}

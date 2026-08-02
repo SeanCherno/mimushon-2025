@@ -6896,7 +6896,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 1
             },
             {
               "id": "disease_271",
@@ -6928,7 +6929,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 1
             },
             {
               "id": "disease_275",
@@ -6984,7 +6986,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 1
             },
             {
               "id": "disease_276",
@@ -7016,7 +7019,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 1
             },
             {
               "id": "disease_277",
@@ -7048,7 +7052,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 3
             },
             {
               "id": "disease_278",
@@ -7123,7 +7128,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 1
             },
             {
               "id": "disease_302",
@@ -7163,7 +7169,8 @@
                 "סיכום פיזיותרפיה"
               ],
               "description": "פגיעה בשרירי החלק האחורי של הירך (המסטרינגס: BICEPS FEMORIS, SEMITENDINOSUS, SEMIMEMBRANOSUS). שרירים אלה מכופפים את הברך ומייצבים את ההליכה והריצה.",
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 1
             },
             {
               "id": "disease_303",
@@ -7203,7 +7210,8 @@
                 "סיכום פיזיותרפיה"
               ],
               "description": "פגיעה בשרירי השוק הקדמיים (TIBIALIS ANTERIOR, EXTENSOR DIGITORUM LONGUS, PERONEUS TERTIUS). שרירים אלה מרימים את כף הרגל בזמן הליכה; פגיעה בהם עלולה לגרום לגרירת כף הרגל (\"צניחת כף רגל\").",
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 3
             },
             {
               "id": "disease_304",
@@ -7243,7 +7251,8 @@
                 "סיכום פיזיותרפיה"
               ],
               "description": "פגיעה בשרירי השוק האחוריים (שריר התאומים – TRICEPS SURAE, TIBIALIS POSTERIOR, PERONEUS LONGUS ועוד). שרירים אלה דוחפים את הגוף קדימה בהליכה ומאפשרים עמידה על קצות האצבעות.",
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 3
             },
             {
               "id": "disease_301",
@@ -7283,7 +7292,8 @@
                 "סיכום פיזיותרפיה"
               ],
               "description": "פגיעה בשרירי הירך הקדמיים (הארבע-ראשי: RECTUS FEMORIS, VASTUS, SARTORIUS, TENSOR FASCIAE LATAE). שרירים אלה מיישרים את הברך ומייצבים אותה בהליכה, בקימה ובעלייה במדרגות.",
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 1
             }
           ]
         },
@@ -7332,7 +7342,8 @@
                   "severityId": "category_53_disease_279_pnmz39"
                 }
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 2
             },
             {
               "id": "disease_1010",
@@ -7383,7 +7394,8 @@
                   "severityId": "category_53_disease_279_vx5lx"
                 }
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 2
             },
             {
               "id": "disease_1011",
@@ -7442,7 +7454,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 2
             },
             {
               "id": "disease_1002",
@@ -7490,7 +7503,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 2
             }
           ]
         },
@@ -7536,7 +7550,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 3
             },
             {
               "id": "disease_281",
@@ -7576,7 +7591,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_282",
@@ -7640,7 +7656,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_283",
@@ -7664,7 +7681,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_274",
@@ -7712,7 +7730,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_284",
@@ -7736,7 +7755,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_285",
@@ -7768,7 +7788,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_287",
@@ -7792,7 +7813,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_305",
@@ -7832,7 +7854,8 @@
                 "סיכום פיזיותרפיה"
               ],
               "description": "פגיעה בשרירים הקצרים שבגב כף הרגל (EXTENSOR HALLUCIS BREVIS, EXTENSOR DIGITORUM BREVIS, INTEROSSEI). שרירים אלה מרימים ופורשים את אצבעות הרגל.",
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_306",
@@ -7872,7 +7895,8 @@
                 "סיכום פיזיותרפיה"
               ],
               "description": "פגיעה בשרירים הקצרים שבצד התחתון של כף הרגל (FLEXOR DIGITORUM BREVIS, ABDUCTOR HALLUCIS, QUADRATUS PLANTAE ועוד). שרירים אלה מכופפים את האצבעות ותומכים בקשת כף הרגל בכל דריכה.",
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             }
           ]
         },
@@ -7910,7 +7934,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_289",
@@ -7942,7 +7967,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_290",
@@ -7974,7 +8000,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_291",
@@ -8006,7 +8033,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_292",
@@ -8030,7 +8058,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_293",
@@ -8054,7 +8083,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_294",
@@ -8086,7 +8116,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             },
             {
               "id": "disease_295",
@@ -8118,7 +8149,8 @@
                 "צילומים ובדיקות דימות (CT, MRI, US, מיפוי וכו')",
                 "סיכום פיזיותרפיה"
               ],
-              "capRegion": "leg"
+              "capRegion": "leg",
+              "capLevel": 4
             }
           ]
         }

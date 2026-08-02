@@ -5,10 +5,12 @@ import {
   buildCapNotices,
   limbLabel,
   ARM_CEILINGS,
+  LEG_CEILINGS,
 } from "../lib/regCalc";
 
 // Helpers to build impairment objects the engine expects.
 const arm = (percentage, side, capLevel) => ({ percentage, capRegion: "arm", side, capLevel });
+const leg = (percentage, side, capLevel) => ({ percentage, capRegion: "leg", side, capLevel });
 const plain = (percentage, capRegion = null, side = null) => ({ percentage, capRegion, side });
 
 describe("combineValues (Israeli combined-values method)", () => {
@@ -71,6 +73,48 @@ describe("combinedTotalWithCaps — reg. 11(ג) arm ceiling", () => {
   it("never returns a capped value above the configured ceiling", () => {
     const total = combinedTotalWithCaps([arm(70, "right", 3), arm(70, "right", 3), arm(70, "right", 3)]);
     expect(total).toBeLessThanOrEqual(ARM_CEILINGS[3].right + 1e-9);
+  });
+});
+
+describe("combinedTotalWithCaps — reg. 11(ג) leg ceiling", () => {
+  it("caps a same-leg stack at the most-proximal segment ceiling", () => {
+    // knee(L2)+shin(L3) same right leg => minLevel 2 => ceiling 65
+    const total = combinedTotalWithCaps([leg(50, "right", 2), leg(45, "right", 3)]);
+    expect(total).toBeCloseTo(65, 6);
+  });
+
+  it("caps a foot-only stack at the foot ceiling (30)", () => {
+    expect(combinedTotalWithCaps([leg(25, "left", 4), leg(20, "left", 4)])).toBeCloseTo(30, 6);
+  });
+
+  it("does NOT cap when the two leg impairments are on DIFFERENT legs", () => {
+    const total = combinedTotalWithCaps([leg(50, "right", 2), leg(50, "left", 2)]);
+    expect(total).toBeCloseTo(combineValues([50, 50]), 9);
+  });
+
+  it("does NOT cap a leg impairment with no side chosen (never under-counts)", () => {
+    const total = combinedTotalWithCaps([leg(50, null, 2), leg(45, null, 3)]);
+    expect(total).toBeCloseTo(combineValues([50, 45]), 9);
+  });
+
+  it("does NOT cap a single leg impairment", () => {
+    expect(combinedTotalWithCaps([leg(70, "right", 1)])).toBeCloseTo(70, 6);
+  });
+
+  it("keeps arm and leg groups independent", () => {
+    // right arm distal pair (cap 60) + right leg knee pair (cap 65), combined
+    const armCap = 60, legCap = 65;
+    const total = combinedTotalWithCaps([
+      arm(50, "right", 3), arm(45, "right", 3),
+      leg(50, "right", 2), leg(45, "right", 2),
+    ]);
+    expect(total).toBeCloseTo(combineValues([armCap, legCap]), 6);
+  });
+
+  it("LEG_CEILINGS decrease distally", () => {
+    expect(LEG_CEILINGS[1]).toBeGreaterThan(LEG_CEILINGS[2]);
+    expect(LEG_CEILINGS[2]).toBeGreaterThan(LEG_CEILINGS[3]);
+    expect(LEG_CEILINGS[3]).toBeGreaterThan(LEG_CEILINGS[4]);
   });
 });
 

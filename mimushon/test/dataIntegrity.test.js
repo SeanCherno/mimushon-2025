@@ -76,19 +76,24 @@ describe("diseases.json integrity", () => {
     expect(bad).toEqual([]);
   });
 
-  it("capLevel only appears on arm diseases and is 1|2|3", () => {
+  it("capLevel only appears on arm/leg diseases within a valid range", () => {
     const bad = [];
     for (const { disease } of diseases) {
       if (disease.capLevel == null) continue;
-      if (disease.capRegion !== "arm") bad.push(`${disease.id} capLevel on non-arm`);
-      else if (![1, 2, 3].includes(disease.capLevel)) bad.push(`${disease.id} capLevel=${disease.capLevel}`);
+      if (disease.capRegion === "arm") {
+        if (![1, 2, 3].includes(disease.capLevel)) bad.push(`${disease.id} arm capLevel=${disease.capLevel}`);
+      } else if (disease.capRegion === "leg") {
+        if (![1, 2, 3, 4].includes(disease.capLevel)) bad.push(`${disease.id} leg capLevel=${disease.capLevel}`);
+      } else {
+        bad.push(`${disease.id} capLevel on ${disease.capRegion}`);
+      }
     }
     expect(bad).toEqual([]);
   });
 
-  it("every arm disease has a capLevel (so the ceiling is well-defined)", () => {
+  it("every arm and leg disease has a capLevel (so the ceiling is well-defined)", () => {
     const missing = diseases
-      .filter(({ disease }) => disease.capRegion === "arm" && disease.capLevel == null)
+      .filter(({ disease }) => ["arm", "leg"].includes(disease.capRegion) && disease.capLevel == null)
       .map(({ disease }) => disease.id);
     expect(missing).toEqual([]);
   });

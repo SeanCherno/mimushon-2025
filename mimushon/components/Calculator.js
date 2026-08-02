@@ -311,6 +311,18 @@ export default function Calculator({ initialCategories }) {
     setExpandedId((cur) => (cur === idToRemove ? null : cur));
   };
 
+  // Which limb the impairment is on — needed for the reg. 11(ג) leg cap, since the
+  // book doesn't encode side for legs. Stored on the entry; toggling re-picks.
+  const handleSideChange = (diseaseId, side) => {
+    setChosenDiseasesWithSeverities((prev) =>
+      prev.map((entry) =>
+        entry.disease.id === diseaseId
+          ? { ...entry, side: entry.side === side ? null : side }
+          : entry
+      )
+    );
+  };
+
   const handleCommonConditionClick = async (diseaseId) => {
     setIsLoading(true);
     try {
@@ -492,6 +504,7 @@ export default function Calculator({ initialCategories }) {
                 onConsentChange={setConsent}
                 onDiseaseSelect={handleDiseaseSelect}
                 onSeverityChange={handleSeverityChange}
+                onSideChange={handleSideChange}
                 onRemoveDisease={handleRemoveDisease}
                 onNavigateToLinkedDisease={handleNavigateToLinkedDisease}
                 onCommonConditionClick={handleCommonConditionClick}

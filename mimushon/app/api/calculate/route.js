@@ -103,11 +103,12 @@ export async function POST(request) {
     );
     if (!foundSeverity) return;
 
-    // Structured reg. 11(ג) tags: region + anatomical level on the disease, side
-    // on the severity.
+    // Structured reg. 11(ג) tags: region + anatomical level on the disease, side on
+    // the severity (arm, from the book) or on the entry (leg, chosen by the user).
     const capRegion = fullDisease.capRegion ?? null;
     const capLevel = fullDisease.capLevel ?? null;
-    const side = foundSeverity.side ?? null;
+    const entrySide = entry.side === "right" || entry.side === "left" ? entry.side : null;
+    const side = foundSeverity.side ?? entrySide;
 
     impairments.push({
       id: entry.disease.id,
