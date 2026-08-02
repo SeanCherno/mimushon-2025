@@ -3,105 +3,15 @@ import pool from "../../../lib/db";
 import { modes, findDiseasesById } from "../../../lib/data";
 import { checkCsrfOrigin } from "../../../lib/csrf";
 import { rateLimit, getClientIp } from "../../../lib/rateLimit";
+import { combineValues, combinedTotalWithCaps, buildCapNotices } from "../../../lib/regCalc";
 
 export const dynamic = 'force-dynamic';
 
 // ── Validation constants ──────────────────────────────────────────────────────
 const MAX_DISEASES = 20; // Hard cap — prevents DoS amplification attacks
 
-// ── Reg. 11(ג) per-organ cap engine ───────────────────────────────────────────
-// The combined-values rule is total = 1 − Π(1 − pᵢ), which is associative — so we
-// combine each organ's impairments internally, cap that organ at its ceiling, then
-// combine the capped organ values together. That is exactly reg. 11(ג): several
-// impairments of one limb / joint / eye can't exceed the value of amputating /
-// ankylosing / blinding that same structure.
-//
-// Impairments carry structured tags (added to diseases.json): `capRegion`
-// ("arm"|"leg"|"eye") on the disease and `side` ("right"|"left") on the severity.
-// CEILINGS maps region+side to the value that caps that organ.
-//
-// SAFETY: we only cap where we can determine the organ AND the side (so we never
-// conflate two different limbs). For the arm, `capLevel` on the disease encodes the
-// anatomical segment (1 = shoulder/upper-arm, 2 = elbow/forearm, 3 = wrist/hand/
-// fingers); the group ceiling is the amputation value of the MOST PROXIMAL damaged
-// segment (reg. 11(ג)(2) — "amputation of the damaged part"). Values are the
-// shoulder / below-deltoid / wrist disarticulation percentages per side; each is an
-// upper bound for everything distal to it, so a mis-level can only over-estimate,
-// never under-count.
-//
-// Legs and eyes are tagged (capRegion) but deliberately NOT hard-capped: their
-// severities don't encode side (0/91 legs, 1/144 eyes), so grouping would wrongly
-// merge a left and right limb and under-count bilateral cases. They get the
-// non-blocking notice only, until side becomes a structured input.
-const ARM_CEILINGS = {
-  1: { right: 80, left: 70 }, // shoulder / upper arm
-  2: { right: 70, left: 60 }, // elbow / forearm
-  3: { right: 60, left: 50 }, // wrist / hand / fingers
-};
-
-// Combine a list of percentages via the combined-values (residual-capacity) rule.
-function combineValues(percentages) {
-  let acc = 0;
-  percentages.forEach((p) => { acc += (1 - acc / 100) * p; });
-  return acc;
-}
-
-// Combined total that enforces the reg. 11(ג) arm ceiling. Two or more impairments
-// on the same arm+side are combined and capped at the amputation value of their
-// most-proximal segment; everything else combines individually. A single impairment
-// is never capped (reg. 11(ג) applies to "several impairments"). With no qualifying
-// arm group this is byte-for-byte the plain combined-values total.
-function combinedTotalWithCaps(counting) {
-  const groups = new Map(); // `${region}:${side}` -> { side, members, minLevel }
-  const singles = [];
-  counting.forEach((imp) => {
-    if (imp.capRegion !== "arm" || !imp.side) { singles.push(imp.percentage); return; }
-    const key = `${imp.capRegion}:${imp.side}`;
-    if (!groups.has(key)) groups.set(key, { side: imp.side, members: [], minLevel: Infinity });
-    const g = groups.get(key);
-    g.members.push(imp.percentage);
-    g.minLevel = Math.min(g.minLevel, imp.capLevel ?? 1); // default proximal = safest
-  });
-  const groupValues = [];
-  for (const g of groups.values()) {
-    if (g.members.length < 2) { singles.push(...g.members); continue; } // single: uncapped
-    const ceiling = ARM_CEILINGS[g.minLevel]?.[g.side] ?? ARM_CEILINGS[1][g.side];
-    groupValues.push(Math.min(combineValues(g.members), ceiling));
-  }
-  return combineValues([...groupValues, ...singles]);
-}
-
-// ── Same-limb notice (non-blocking; does not change the number) ────────────────
-function limbLabel(region, side) {
-  const organ = region === "arm" ? "יד" : "רגל";
-  if (side === "right") return `${organ} ימין`;
-  if (side === "left") return `${organ} שמאל`;
-  return `אותה ${organ}`;
-}
-
-// One notice per limb+side carrying 2+ impairments. Tagged entries come straight
-// from the structured `capRegion` / `side` fields (no more free-text parsing).
-function buildCapNotices(limbTagged) {
-  const groups = new Map(); // `${region}|${side}` -> count
-  limbTagged.forEach(({ region, side }) => {
-    if (region !== "arm" && region !== "leg") return;
-    const key = `${region}|${side ?? "unknown"}`;
-    groups.set(key, (groups.get(key) || 0) + 1);
-  });
-  const notices = [];
-  for (const [key, count] of groups) {
-    if (count < 2) continue;
-    const [region, side] = key.split("|");
-    const sideKey = side === "unknown" ? null : side;
-    notices.push(
-      `שים/י לב: בחרת ${count} ליקויים ב${limbLabel(region, sideKey)}. לפי תקנה 11(ג), ` +
-      `סך הנכות המשוקללת בשל כמה פגימות באותה גפה אינו יכול לעלות על אחוזי הנכות ` +
-      `שנקבעו לקטיעת אותו חלק פגוע. ייתכן שהוועדה הרפואית תחיל תקרה זו, כך שהתוצאה ` +
-      `בפועל תהיה נמוכה מהחישוב המשוקלל המוצג כאן.`
-    );
-  }
-  return notices;
-}
+// The combined-values method and the reg. 11(ג) per-organ ceiling live in
+// lib/regCalc.js (pure, unit-tested). See that file for the safety rationale.
 
 // ── Route handler ─────────────────────────────────────────────────────────────
 export async function POST(request) {

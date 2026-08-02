@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { reg15Ceiling } from "../lib/reg15";
 
 /* ─────────────────────────────────────────────────────────────────────────────
    Reg15Estimator — an interactive estimate of the תקנה 15 occupational uplift
@@ -14,12 +15,6 @@ import { useState } from "react";
    more than 100%. Raising a degree of 20%+ also requires consulting "הרשות"
    (reg. 16א). It is entirely discretionary — this is an estimate, not a ruling.
 ───────────────────────────────────────────────────────────────────────────── */
-
-// The most the committee could reach for a given base degree, per reg. 15(א).
-export function reg15Ceiling(base) {
-  const full = base * 1.5;
-  return Math.round(base < 20 ? Math.min(full, 19) : Math.min(full, 100));
-}
 
 const RETURN_OPTIONS = [
   { id: "same",    label: "כן, חזרתי לעבודתי הקודמת" },
