@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from "react";
+import { track } from "../../lib/analytics";
 
 const FILING_OPTIONS = [
     { value: '',           label: '— בחר/י —',                      disabled: true  },
@@ -88,13 +89,10 @@ const ContactForm = ({ variant = "default", percentages = null, claimType = null
 
             if (data.result === true) {
                 // Track the lead conversion (non-PII only — never send name/phone/email).
-                try {
-                    window.dataLayer?.push({
-                        event: 'generate_lead',
-                        claim_type: claimType || null,
-                        filing_status: userInfo.filingStatus || null,
-                    });
-                } catch {}
+                track('generate_lead', {
+                    claim_type: claimType || null,
+                    filing_status: userInfo.filingStatus || null,
+                });
                 setUserInfo({ name: '', phone: '', email: '', hearot: '', filingStatus: '' });
                 setErrors({ name: '', phone: '', email: '', filingStatus: '' });
                 setConsent(false);

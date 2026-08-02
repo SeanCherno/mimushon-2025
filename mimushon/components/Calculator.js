@@ -6,6 +6,7 @@ import LoadingSpinner from "../components/util/LoadingSpinner";
 import CalculatingScreen from "../components/CalculatingScreen";
 import ClaimBuilder from "../components/ClaimBuilder";
 import { useFocusTrap } from "../lib/useFocusTrap";
+import { track } from "../lib/analytics";
 
 export default function Calculator({ initialCategories }) {
   const [chosenDiseasesWithSeverities, setChosenDiseasesWithSeverities] = useState([]);
@@ -166,13 +167,7 @@ export default function Calculator({ initialCategories }) {
   // ── Handlers ───────────────────────────────────────────────────────────────
   const handleDiseaseSelect = (disease) => {
     if (!disease) return;
-    try {
-      window.dataLayer?.push({
-        event: "calc_disease_selected",
-        disease_id: disease.id,
-        disease_name: disease.name,
-      });
-    } catch {}
+    track("calc_disease_selected", { disease_id: disease.id, disease_name: disease.name });
 
     setChosenDiseasesWithSeverities((prev) =>
       prev.some((entry) => entry.disease.id === disease.id)
@@ -185,13 +180,7 @@ export default function Calculator({ initialCategories }) {
   };
 
   const handleSeverityChange = (disease, severity) => {
-    try {
-      window.dataLayer?.push({
-        event: "calc_severity_selected",
-        disease_id: disease.id,
-        severity_id: severity.severityId,
-      });
-    } catch {}
+    track("calc_severity_selected", { disease_id: disease.id, severity_id: severity.severityId });
 
     setChosenDiseasesWithSeverities((prev) =>
       prev.map((entry) =>
@@ -344,7 +333,7 @@ export default function Calculator({ initialCategories }) {
     setClaimType(type);
     if (type !== "work_accident") setWorkAccidentAnswers(null);
     try {
-      if (type) window.dataLayer?.push({ event: "calc_claim_type_selected", claim_type: type });
+      if (type) track("calc_claim_type_selected", { claim_type: type });
     } catch {}
   };
 
@@ -369,7 +358,7 @@ export default function Calculator({ initialCategories }) {
     if (graded.length === 0) return;
 
     try {
-      window.dataLayer?.push({ event: "calc_calculated", disease_count: graded.length });
+      track("calc_calculated", { disease_count: graded.length });
     } catch {}
 
     setIsCalculating(true);
@@ -510,7 +499,7 @@ export default function Calculator({ initialCategories }) {
                 onCommonConditionClick={handleCommonConditionClick}
                 onCategorySelected={(name) => {
                   try {
-                    window.dataLayer?.push({ event: "calc_category_selected", category_name: name });
+                    track("calc_category_selected", { category_name: name });
                   } catch {}
                 }}
                 onCalculate={handleFinalCalculation}
