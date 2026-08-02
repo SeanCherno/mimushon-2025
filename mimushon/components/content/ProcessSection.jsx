@@ -6,7 +6,7 @@ const ProcessSection = () => (
         <div className="container mx-auto px-6">
             <div className="lg:flex lg:items-center lg:gap-16">
                 <div className="lg:w-1/2 mt-10 lg:mt-0">
-                    <Image src="/images/bureaucracy.webp" alt="תהליך בירוקרטי" className="rounded-lg shadow-2xl w-full h-auto object-cover" height={1080} width={1920} />
+                    <Image src="/images/image3a.webp" alt="תהליך בירוקרטי" className="rounded-lg shadow-2xl w-full h-auto object-cover" height={1024} width={1535} />
                 </div>
                 <div className="lg:w-1/2">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-5 md:mt-0">לא הולכים לאיבוד בבירוקרטיה</h2>

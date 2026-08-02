@@ -7,11 +7,11 @@ const HeroSection = ({ setShowContent }) => (
     >
         {/* 3. Added the img tag as an absolute background */}
         <Image
-            src="/images/hero-photo.webp"
+            src="/images/hero-mimushon.webp"
             alt="רקע" // 4. Added alt text for accessibility
             className="absolute inset-0 w-full h-full object-cover object-center"
-            width={1920}
-            height={1080}
+            width={1774}
+            height={887}
             priority
         />
 

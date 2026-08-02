@@ -30,7 +30,7 @@ const CalculatorExplanation = () => {
                         <Link href="/articles/how-the-calculation-works" className="text-indigo-600 underline text-lg">קרא עוד ←</Link>
                     </div>
                     <div className="lg:w-1/2 mt-10 lg:mt-0">
-                        <Image src="/images/calculation.webp" alt="תהליך בירוקרטי" className="rounded-lg shadow-2xl w-full h-auto object-cover" width={1920} height={1080} />
+                        <Image src="/images/image2a.webp" alt="תהליך בירוקרטי" className="rounded-lg shadow-2xl w-full h-auto object-cover" width={1535} height={1024} />
                     </div>
                 </div>
             </div>
