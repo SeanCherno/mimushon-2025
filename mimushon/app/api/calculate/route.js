@@ -4,7 +4,6 @@ import { modes, findDiseasesById } from "../../../lib/data";
 import { checkCsrfOrigin } from "../../../lib/csrf";
 import { rateLimit, getClientIp } from "../../../lib/rateLimit";
 import { combineValues, combinedTotalWithCaps, buildCapNotices } from "../../../lib/regCalc";
-import { verifyCalcToken } from "../../../lib/calcToken";
 
 export const dynamic = 'force-dynamic';
 
@@ -28,13 +27,6 @@ export async function POST(request) {
 
   // 2. CSRF origin check
   if (!checkCsrfOrigin(request)) {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
-  }
-
-  // 2b. Anti-scraping: require the signed token that is only embedded in the
-  // rendered homepage. A cold script hitting this endpoint without rendering the
-  // page has no valid token. See lib/calcToken.js.
-  if (!verifyCalcToken(request.headers.get("x-calc-token"))) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 

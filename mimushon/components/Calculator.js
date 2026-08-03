@@ -8,7 +8,7 @@ import ClaimBuilder from "../components/ClaimBuilder";
 import { useFocusTrap } from "../lib/useFocusTrap";
 import { track } from "../lib/analytics";
 
-export default function Calculator({ initialCategories, calcToken }) {
+export default function Calculator({ initialCategories }) {
   const [chosenDiseasesWithSeverities, setChosenDiseasesWithSeverities] = useState([]);
   const [totalPercentages, setTotalPercentages] = useState({});
   const [calcData, setCalcData] = useState(null); // live { newTotals, breakdown, impairments }
@@ -111,7 +111,7 @@ export default function Calculator({ initialCategories, calcToken }) {
       try {
         const res = await fetch("/api/calculate", {
           method: "POST",
-          headers: { "Content-Type": "application/json", "x-calc-token": calcToken },
+          headers: { "Content-Type": "application/json" },
           // live: true — this is an unconsented estimate; the server must not log it.
           body: JSON.stringify({ chosenDiseasesWithSeverities: graded, live: true }),
         });
@@ -370,7 +370,7 @@ export default function Calculator({ initialCategories, calcToken }) {
       const [response] = await Promise.all([
         fetch("/api/calculate", {
           method: "POST",
-          headers: { "Content-Type": "application/json", "x-calc-token": calcToken },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ chosenDiseasesWithSeverities: graded, claimType }),
         }),
         new Promise((resolve) => setTimeout(resolve, 2000)),
