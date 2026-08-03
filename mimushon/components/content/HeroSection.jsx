@@ -9,7 +9,7 @@ const HeroSection = ({ setShowContent }) => (
         <Image
             src="/images/hero-mimushon.webp"
             alt="רקע" // 4. Added alt text for accessibility
-            className="absolute inset-0 w-full h-full object-cover object-left md:object-center"
+            className="absolute inset-0 w-full h-full object-cover object-[30%_center] md:object-center"
             width={1774}
             height={887}
             priority
