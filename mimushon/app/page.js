@@ -9,6 +9,11 @@ import FaqSection from "../components/content/FaqSection";
 // Import the new Client Component we're about to create
 import Calculator from "../components/Calculator";
 import { getCategoriesData } from "../lib/data-fetchers";
+import { issueCalcToken } from "../lib/calcToken";
+
+// Render per request so each page load embeds a fresh calc token (anti-scraping
+// gate on /api/calculate — see lib/calcToken.js).
+export const dynamic = "force-dynamic";
 
 // Function to fetch your initial data
 async function getCategories() {
@@ -46,6 +51,8 @@ const calculatorJsonLd = {
 export default async function HomePage() {
   // 1. Fetch data on the server
   const categories = await getCategories();
+  // Issue a fresh anti-scraping token embedded in this page load.
+  const calcToken = issueCalcToken();
 
   return (
     <div>
@@ -64,7 +71,7 @@ export default async function HomePage() {
             We pass the server-fetched 'categories' as a prop
             to the Client Component.
           */}
-          <Calculator initialCategories={categories} />
+          <Calculator initialCategories={categories} calcToken={calcToken} />
 
           {/* All your other static content.
             This is all server-rendered HTML.
