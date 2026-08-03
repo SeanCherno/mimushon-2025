@@ -96,3 +96,17 @@ img {
   right: auto !important;
   left: 16px !important;
 }
+
+/* On mobile the widget's floating trigger (fixed, bottom-left) overlaps the
+   results / action buttons at the bottom of the page. Move it to the vertical
+   center of the screen on small viewports so the two never collide.
+   Centered via a negative margin equal to half the 42px button, not transform —
+   the widget applies its own transform with higher specificity, so translateY
+   would be overridden and leave the button off-center by half its height. */
+@media (max-width: 767px) {
+  .asw-menu-btn {
+    top: 50% !important;
+    bottom: auto !important;
+    margin-top: -21px !important;
+  }
+}
