@@ -21,6 +21,9 @@ const LAST_MODIFIED = {
   accessibility: "2026-07-27",
   "disability-percentage-diabetes": "2026-08-02",
   "incapacity-degree": "2026-08-02",
+  "disability-pension-amount": "2026-08-03",
+  "disability-percentage-back": "2026-08-03",
+  "disability-percentage-mental-health": "2026-08-03",
 };
 
 // Sourced from lib/articles.js so a new article automatically appears here
