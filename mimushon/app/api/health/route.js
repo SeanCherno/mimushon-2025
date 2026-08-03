@@ -13,8 +13,11 @@ export async function GET() {
     const res = await pool.query("SELECT 1 AS ok");
     body.db = res.rows[0]?.ok === 1 ? "ok" : "unexpected";
   } catch (err) {
+    // Log the detail server-side only — never return raw DB error strings to the
+    // client (they can leak internal host/IP/port). See CSO Finding 3.
+    console.error("[health] DB check failed:", err.message);
     return NextResponse.json(
-      { ...body, status: "error", db: "down", error: err.message },
+      { ...body, status: "error", db: "down" },
       { status: 503 }
     );
   }
