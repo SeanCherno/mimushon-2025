@@ -74,8 +74,8 @@ export default async function HomePage() {
             <HowWeHelpSection />
             <AboutCalculatorSection />
             <CalculatorExplanation />
-            <FaqSection />
             <ProcessSection />
+            <FaqSection />
           </div>
 
           <div className="no-print"><ContactSection /></div>
