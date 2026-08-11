@@ -24,6 +24,11 @@ const LAST_MODIFIED = {
   "disability-pension-amount": "2026-08-03",
   "disability-percentage-back": "2026-08-03",
   "disability-percentage-mental-health": "2026-08-03",
+  "disability-eligibility": "2026-08-11",
+  "disability-percentage-hearing": "2026-08-11",
+  "disability-percentage-fibromyalgia": "2026-08-11",
+  "deterioration-claim": "2026-08-11",
+  "disability-benefits": "2026-08-11",
 };
 
 // Sourced from lib/articles.js so a new article automatically appears here
